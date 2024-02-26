@@ -1,4 +1,4 @@
 package com.sixcandoit.feature.place;
 
-public interface PlaceDTO {
+public class PlaceDTO {
 }
