@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sixcandoit.plrecipe.feature.group.GroupMapper">
+
+    <resultMap id="groupResultMap" type="com.sixcandoit.plrecipe.feature.group.GroupDTO">
+        <id property="groupId" column="GROUP_ID"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="isGroupPublic" column="IS_GROUP_PUBLIC"/>
+        <result property="groupCreateDate" column="GROUP_CREATE_DATE"/>
+        <result property="groupWithdrawalDate" column="GROUP_WITHDRAWAL_DATE"/>
+        <result property="groupComment" column="GROUP_COMMENT"/>
+        <result property="groupStatus" column="GROUP_STATUS"/>
+    </resultMap>
+
+    <select id="selectAllGroup" resultMap="groupResultMap">
+        select * from plecipe_group
+    </select>
+</mapper>
