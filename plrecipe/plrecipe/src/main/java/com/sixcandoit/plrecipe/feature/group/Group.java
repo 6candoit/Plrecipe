@@ -17,4 +17,8 @@ public class Group {
     public List<GroupDTO> selectAllGroup() {
         return groupMapper.selectAllGroup();
     }
+
+    public List<GroupDTO> selectPublicOrPrivateGroup(String memberEmail){
+        return groupMapper.selectPublicOrPrivateGroup(memberEmail);
+    }
 }
