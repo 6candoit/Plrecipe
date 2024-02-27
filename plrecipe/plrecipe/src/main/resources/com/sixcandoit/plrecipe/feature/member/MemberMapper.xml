@@ -17,7 +17,44 @@
         <result property="memberStatus" column="MEMBER_STATUS"/>
     </resultMap>
 
+    <resultMap id="memberFollowMap" type="com.sixcandoit.plrecipe.feature.follow.FollowDTO">
+        <id property="followId" column="FOLLOW_ID"/>
+        <result property="userFollow" column="USER_FOLLOW"/>
+        <result property="userFollower" column="USER_FOLLOWER"/>
+    </resultMap>
+
     <select id="selectAllMember" resultMap="memberResultMap">
         select * from member_info
     </select>
+
+    <select id="selectMemberByFollower" parameterType="String" resultMap="memberResultMap">
+        SELECT
+              B.MEMBER_EMAIL
+            , A.USER_FOLLOWER
+        FROM FOLLOW_INFO A
+        JOIN MEMBER_INFO B ON (A.USER_FOLLOW=B.MEMBER_EMAIL)
+        WHERE B.MEMBER_EMAIL=#{memberEmail};
+    </select>
+
+    <select id="selectMemberByFollowing" parameterType="String" resultMap="memberResultMap">
+        SELECT
+              B.MEMBER_EMAIL
+            , A.USER_FOLLOW
+        FROM FOLLOW_INFO A
+        JOIN MEMBER_INFO B ON (A.USER_FOLLOWER=B.MEMBER_EMAIL)
+        WHERE B.MEMBER_EMAIL=#{memberEmail};
+    </select>
+
+    <select id="selectMemberByLikePost" parameterType="String" resultMap="memberResultMap">
+        SELECT
+              B.member_email
+            , A.post_id
+            , B.post_title
+            , B.post_content
+            , B.post_date
+        FROM POST_LIKE A
+        JOIN POST B ON (A.POST_ID = B.POST_ID)
+        WHERE B.MEMBER_EMAIL = #{memberEmail};
+    </select>
+
 </mapper>
