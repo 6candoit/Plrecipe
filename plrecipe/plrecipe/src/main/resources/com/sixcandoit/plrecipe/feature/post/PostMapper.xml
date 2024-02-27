@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sixcandoit.plrecipe.feature.post.PostMapper">
+
+    <resultMap id="postResultMap" type="com.sixcandoit.plrecipe.feature.post.PostDTO">
+        <id property="postId" column="POST_ID"/>
+        <result property="postTitle" column="POST_TITLE"/>
+        <result property="postContent" column="POST_CONTENT"/>
+        <result property="postDate" column="POST_DATE"/>
+        <result property="postDeleteDate" column="POST_DELETE_DATE"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="courseId" column="COURSE_ID"/>
+        <result property="isPostPublic" column="IS_POST_PUBLIC"/>
+        <result property="memberCount" column="MEMBER_COUNT"/>
+    </resultMap>
+
+    <select id="selectAllPost" resultMap="postResultMap">
+        SELECT POST_TITLE FROM POST
+    </select>
+</mapper>

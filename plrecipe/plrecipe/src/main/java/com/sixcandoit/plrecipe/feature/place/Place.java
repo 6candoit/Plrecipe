@@ -19,4 +19,9 @@ public class Place {
         return placeMapper.selectAllPlace();
     }
 
+    public List<PlaceDTO> selectPlaceByCategory(String categoryName) { return placeMapper.selectPlaceByCategory(categoryName);}
+    public List<PlaceStarDTO> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}
+
+
+
 }
