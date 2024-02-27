@@ -13,7 +13,44 @@
         <result property="placeCategoryId" column="PLACE_CATEGORY_ID"/>
     </resultMap>
 
+    <resultMap id="starResultMap" type="com.sixcandoit.plrecipe.feature.place.PlaceStarDTO">
+        <id property="starId" column="STAR_ID"/>
+        <result property="starPoint" column="STAR_POINT"/>
+        <result property="starComment" column="STAR_COMMENT"/>
+        <result property="placeId" column="PLACE_ID"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+    </resultMap>
+
     <select id="selectAllPlace" resultMap="placeResultMap">
-        select * from place
+        SELECT
+               A.PLACE_NAME,
+               A.PLACE_NAME,
+               A.PLACE_LOCATION,
+               A.PLACE_PHONE_NUM,
+               A.PLACE_CATEGORY_ID
+        FROM PLACE A
+    </select>
+
+    <select id="selectPlaceByCategory" parameterType="String" resultMap="placeResultMap">
+        SELECT
+               A.PLACE_NAME,
+               A.PLACE_NAME,
+               A.PLACE_LOCATION,
+               A.PLACE_PHONE_NUM,
+               A.PLACE_CATEGORY_ID
+          FROM PLACE A
+          JOIN PLACE_CATEGORY B ON (A.PLACE_CATEGORY_ID = B.PLACE_CATEGORY_ID)
+         WHERE place_category_name = #{categoryId}
+    </select>
+
+    <select id="selectStarByPlace" parameterType="_int" resultMap="starResultMap">
+        SELECT
+               A.STAR_ID,
+               A.STAR_POINT,
+               A.STAR_COMMENT,
+               A.PLACE_ID,
+               A.MEMBER_EMAIL
+          FROM PLACE_STAR A
+         WHERE PLACE_ID = #{placeId}
     </select>
 </mapper>
