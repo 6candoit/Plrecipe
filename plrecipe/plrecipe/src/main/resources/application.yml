@@ -4,3 +4,4 @@ spring:
     url: jdbc:mysql://192.168.0.84:3306/test02
     username: master
     password: master
+
