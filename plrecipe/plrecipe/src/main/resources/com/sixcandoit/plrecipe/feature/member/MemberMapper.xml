@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sixcandoit.plrecipe.feature.member.MemberMapper">
+
+    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe.feature.member.MemberDTO">
+        <id property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="memberNickname" column="MEMBER_NICKNAME"/>
+        <result property="memberNumber" column="MEMBER_NUMBER"/>
+        <result property="joinDate" column="JOIN_DATE"/>
+        <result property="withdrawalDate" column="WITHDRAWAL_DATE"/>
+        <result property="memberGrade" column="MEMBER_GRADE"/>
+        <result property="memberStatus" column="MEMBER_STATUS"/>
+    </resultMap>
+
+    <select id="selectAllMember" resultMap="memberResultMap">
+        select * from member_info
+    </select>
+</mapper>
