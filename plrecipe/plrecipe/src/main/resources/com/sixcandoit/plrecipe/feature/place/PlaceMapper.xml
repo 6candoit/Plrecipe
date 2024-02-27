@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sixcandoit.plrecipe.feature.place.PlaceMapper">
+
+    <resultMap id="placeResultMap" type="com.sixcandoit.plrecipe.feature.place.PlaceDTO">
+        <id property="placeId" column="PLACE_ID"/>
+        <result property="placeName" column="PLACE_NAME"/>
+        <result property="placeLocation" column="PLACE_LOCATION"/>
+        <result property="placePhoneNum" column="PLACE_PHONE_NUM"/>
+        <result property="placeCategoryId" column="PLACE_CATEGORY_ID"/>
+    </resultMap>
+
+    <select id="selectAllPlace" resultMap="placeResultMap">
+        select * from place
+    </select>
+</mapper>
