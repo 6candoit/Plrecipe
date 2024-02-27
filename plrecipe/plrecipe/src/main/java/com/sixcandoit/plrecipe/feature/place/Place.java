@@ -22,6 +22,8 @@ public class Place {
     public List<PlaceDTO> selectPlaceByCategory(String categoryName) { return placeMapper.selectPlaceByCategory(categoryName);}
     public List<PlaceStarDTO> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}
 
-
+    public List<CourseDTO> selectCourseByMember(String memberEmail){
+        return placeMapper.selectCourseByMember(memberEmail);
+    }
 
 }
