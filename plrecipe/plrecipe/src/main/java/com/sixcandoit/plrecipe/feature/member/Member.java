@@ -18,4 +18,4 @@ public class Member {
     public List<MemberDTO> selectAllMember() {
         return memberMapper.selectAllMember();
     }
-
+}
