@@ -26,4 +26,8 @@ public class Place {
         return placeMapper.selectCourseByMember(memberEmail);
     }
 
+    public List<PlaceStarDTO> selectStarByMember(String memberEmail){
+        return placeMapper.selectStarByMember(memberEmail);
+    }
+
 }

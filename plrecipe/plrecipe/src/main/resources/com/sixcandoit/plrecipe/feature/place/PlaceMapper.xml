@@ -60,6 +60,17 @@
          WHERE PLACE_ID = #{placeId}
     </select>
 
+    <select id="selectStarByMember" parameterType="String" resultMap="starResultMap">
+        SELECT
+        A.STAR_ID,
+        A.STAR_POINT,
+        A.STAR_COMMENT,
+        A.PLACE_ID,
+        A.MEMBER_EMAIL
+        FROM PLACE_STAR A
+        WHERE MEMBER_EMAIL = #{memberEmail}
+    </select>
+
     <select id="selectCourseByMember" parameterType="String" resultMap="courseResultMap">
         SELECT
                 A.COURSE_ID,
