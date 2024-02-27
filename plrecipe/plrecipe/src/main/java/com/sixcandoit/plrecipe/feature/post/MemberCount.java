@@ -14,4 +14,13 @@ public enum MemberCount {
     public int getValue() {
         return value;
     }
+
+    public static MemberCount fromValue(int value) {
+        for (MemberCount enumValue : MemberCount.values()) {
+            if (enumValue.getValue() == value) {
+                return enumValue;
+            }
+        }
+        throw new IllegalArgumentException("Invalid value for MyEnum: " + value);
+    }
 }
