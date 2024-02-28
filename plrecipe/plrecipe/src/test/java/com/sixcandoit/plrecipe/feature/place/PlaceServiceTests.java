@@ -44,4 +44,22 @@ public class PlaceServiceTests {
 
         assertNotNull(!placeList.isEmpty());
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"park123@naver.com"})
+    void selectCourseByMember(String memberEmail){
+        List<CourseDTO> courseList = placeService.selectCourseByMember(memberEmail);
+        courseList.forEach(System.out::println);
+
+        assertNotNull(!courseList.isEmpty());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"park123@naver.com"})
+    void selectStarByMember(String memberEmail){
+        List<PlaceStarDTO> starList = placeService.selectStarByMember(memberEmail);
+        starList.forEach(System.out::println);
+
+        assertNotNull(!starList.isEmpty());
+    }
 }

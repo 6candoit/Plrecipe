@@ -20,4 +20,5 @@
     <select id="selectAllMember" resultMap="memberResultMap">
         select * from member_info
     </select>
+    
 </mapper>
