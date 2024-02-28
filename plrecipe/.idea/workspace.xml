@@ -4,18 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2af33b19-7526-458a-a396-af271c65611f" name="Changes" comment="" />
+    <list default="true" id="2af33b19-7526-458a-a396-af271c65611f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/GroupMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/GroupMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/resources/com/sixcandoit/plrecipe/feature/group/GroupMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/main/resources/com/sixcandoit/plrecipe/feature/group/GroupMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plrecipe/src/test/java/com/sixcandoit/plrecipe/feature/group/GroupServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/test/java/com/sixcandoit/plrecipe/feature/group/GroupServiceTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2ctol6sHWCLj8pTKhfT61OwmQ0C" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -24,9 +33,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature/develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/lecture/plrecipe/plrecipe",
+    "last_opened_file_path": "C:/Candoit/plrecipe/plrecipe",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -51,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1708940383312</updated>
       <workItem from="1708940384351" duration="364000" />
+      <workItem from="1709104583874" duration="549000" />
     </task>
     <servers />
   </component>

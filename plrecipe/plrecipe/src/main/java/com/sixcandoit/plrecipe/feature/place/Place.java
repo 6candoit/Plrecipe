@@ -8,11 +8,13 @@ import java.util.List;
 @Service
 public class Place {
 
-    private PlaceMapper placeMapper;
+    private final PlaceMapper placeMapper;
+    private final CourseMapper courseMapper;
 
     @Autowired
-    public Place(PlaceMapper placeMapper) {
+    public Place(PlaceMapper placeMapper, CourseMapper courseMapper) {
         this.placeMapper = placeMapper;
+        this.courseMapper = courseMapper;
     }
 
     public List<PlaceDTO> selectAllPlace() {
@@ -22,6 +24,7 @@ public class Place {
     public List<PlaceDTO> selectPlaceByCategory(String categoryName) { return placeMapper.selectPlaceByCategory(categoryName);}
     public List<PlaceStarDTO> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}
 
+    public List<PlaceDTO> getPlacesByCourseName(int courseId){ return courseMapper.getPlacesByCourseName(courseId);}
 
 
 }

@@ -1,5 +1,6 @@
 package com.sixcandoit.plrecipe.feature.group;
 
+import com.sixcandoit.plrecipe.feature.member.MemberDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,5 +21,18 @@ public class GroupServiceTests {
         group.forEach(System.out::println);
 
         assertNotNull(group);
+    }
+
+    @Test
+    void testSelectMembersByGroupId() {
+        int groupId = 1;
+
+        List<MemberDTO> members = groupService.selectMembersByGroupId(groupId);
+
+        assertNotNull(members);
+
+        for (MemberDTO member : members) {
+            System.out.println(member);
+        }
     }
 }

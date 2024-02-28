@@ -18,4 +18,20 @@
     <select id="selectAllGroup" resultMap="groupResultMap">
         select * from plecipe_group
     </select>
+
+    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe.feature.member.MemberDTO">
+        <id property="memberId" column="MEMBER_ID"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+    </resultMap>
+
+    <select id="selectMembersByGroupId" resultMap="memberResultMap" parameterType="int">
+        SELECT
+             , m.member_id
+             , m.member_name
+             , m.member_email
+        FROM plecipe_group pm
+        JOIN member_info m ON pm.member_id = m.member_id
+        WHERE pm.group_id = #{groupId}
+    </select>
 </mapper>
