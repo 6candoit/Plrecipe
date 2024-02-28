@@ -10,4 +10,7 @@ public interface GroupMapper {
     List<GroupDTO> selectAllGroup();
 
     List<MemberDTO> selectMembersByGroupId(int groupId);
+
+    List<GroupDTO> selectPublicOrPrivateGroup(String memberEmail);
+
 }

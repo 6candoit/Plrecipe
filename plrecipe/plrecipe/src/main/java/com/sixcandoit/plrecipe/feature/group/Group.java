@@ -18,7 +18,12 @@ public class Group {
         return groupMapper.selectAllGroup();
     }
 
+
     public List<MemberDTO> selectMembersByGroupId(int groupId) {
         return groupMapper.selectMembersByGroupId(groupId);
+
+    public List<GroupDTO> selectPublicOrPrivateGroup(String memberEmail){
+        return groupMapper.selectPublicOrPrivateGroup(memberEmail);
+
     }
 }
