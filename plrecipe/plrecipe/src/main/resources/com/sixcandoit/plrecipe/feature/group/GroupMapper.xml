@@ -18,4 +18,19 @@
     <select id="selectAllGroup" resultMap="groupResultMap">
         select * from plecipe_group
     </select>
+
+    <select id="selectPublicOrPrivateGroup" resultMap="groupResultMap">
+        SELECT
+        A.is_group_public,
+        A.group_id,
+        A.group_name,
+        A.group_create_date,
+        A.group_withdrawal_date,
+        A.group_comment,
+        A.group_status,
+        B.member_email
+        FROM plecipe_group A
+        JOIN group_member B ON(A.group_id = B.group_id)
+        WHERE MEMBER_EMAIL = #{memberEmail};
+    </select>
 </mapper>

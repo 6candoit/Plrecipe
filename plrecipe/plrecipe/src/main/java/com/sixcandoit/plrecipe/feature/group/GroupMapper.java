@@ -7,4 +7,6 @@ import java.util.List;
 @Mapper
 public interface GroupMapper {
     List<GroupDTO> selectAllGroup();
+
+    List<GroupDTO> selectPublicOrPrivateGroup(String memberEmail);
 }
