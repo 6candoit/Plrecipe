@@ -8,7 +8,7 @@ public class PostDTO {
     private String postDeleteDate;
     private String memberEmail;
     private int courseId;
-    private boolean isPostPublic;
+    private String isPostPublic;
     private MemberCount memberCount;
 
     public MemberCount getMemberCount() {
@@ -22,7 +22,7 @@ public class PostDTO {
     public PostDTO() {
     }
 
-    public PostDTO(int postId, String postTitle, String postContent, String postDate, String postDeleteDate, String memberEmail, int courseId, boolean isPostPublic) {
+    public PostDTO(int postId, String postTitle, String postContent, String postDate, String postDeleteDate, String memberEmail, int courseId, String isPostPublic) {
         this.postId = postId;
         this.postTitle = postTitle;
         this.postContent = postContent;
@@ -90,11 +90,11 @@ public class PostDTO {
         this.courseId = courseId;
     }
 
-    public boolean isPostPublic() {
+    public String isPostPublic() {
         return isPostPublic;
     }
 
-    public void setPostPublic(boolean postPublic) {
+    public void setPostPublic(String postPublic) {
         isPostPublic = postPublic;
     }
 
