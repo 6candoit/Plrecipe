@@ -5,7 +5,6 @@ import org.springframework.scheduling.support.SimpleTriggerContext;
 public class MemberDTO {
 
     private String memberEmail;
-
     private String password;
     private String memberName;
     private String memberNickname;

@@ -18,4 +18,10 @@ public class Member {
     public List<MemberDTO> selectAllMember() {
         return memberMapper.selectAllMember();
     }
+
+    public List<MemberDTO> selectMemberByLikePost(String memberEmail) {
+        return memberMapper.selectMemberByLikePost(memberEmail);
+    }
+
 }
+
