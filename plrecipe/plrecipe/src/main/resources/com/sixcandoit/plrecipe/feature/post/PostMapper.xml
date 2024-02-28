@@ -23,8 +23,8 @@
     </resultMap>
 
     <resultMap id="postHashtagResultMap" type="com.sixcandoit.plrecipe.feature.post.PostHashtagDTO">
-        <association property="com.sixcandoit.plrecipe.feature.post.PostDTO" resultMap="postResultMap"/>
-        <association property="com.sixcandoit.plrecipe.feature.post.HashTagDTO" resultMap="HashtagResultMap"/>
+        <association property="postDTO" resultMap="postResultMap"/>
+        <association property="hashTagDTO" resultMap="HashtagResultMap"/>
     </resultMap>
 
     <resultMap id="postLikeResultMap" type="com.sixcandoit.plrecipe.feature.post.PostLikeDTO">

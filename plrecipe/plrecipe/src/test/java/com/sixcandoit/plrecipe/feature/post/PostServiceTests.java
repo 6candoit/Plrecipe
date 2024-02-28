@@ -57,15 +57,15 @@ public class PostServiceTests {
         assertTrue(!postList.isEmpty());
     }
 
-//    @ParameterizedTest
-//    @ValueSource(ints = {1})
-//    void selectPostHashtags(int postId) {
-//        List<PostHashtagDTO> postList = postService.selectPostHashtags(postId);
-//
-//        postList.forEach(System.out::println);
-//
-//        assertTrue(!postList.isEmpty());
-//    }
+    @ParameterizedTest
+    @ValueSource(ints = {1})
+    void selectPostHashtags(int postId) {
+        List<PostHashtagDTO> postList = postService.selectPostHashtags(postId);
+
+        postList.forEach(System.out::println);
+
+        assertTrue(!postList.isEmpty());
+    }
 
     @ParameterizedTest
     @ValueSource(ints = {1, 4, 8})
