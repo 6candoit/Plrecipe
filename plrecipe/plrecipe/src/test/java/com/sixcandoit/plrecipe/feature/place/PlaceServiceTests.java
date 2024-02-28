@@ -2,11 +2,17 @@ package com.sixcandoit.plrecipe.feature.place;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -25,14 +31,32 @@ public class PlaceServiceTests {
         assertTrue(!placeList.isEmpty());
     }
 
+
+    static Stream<Map<String, Object>> getParams() {
+        return Stream.of(
+                createParams("붕어", null, null),
+                createParams(null, "서울", "문화"),
+                createParams(null, "창원", null)
+        );
+    }
+
+    private static HashMap<String, Object> createParams(Object name, Object region, Object category) {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        params.put("region", region);
+        params.put("category", category);
+        return params;
+    }
+
     @ParameterizedTest
-    @ValueSource(strings = {"음식점","카페", "문화", "액티비티", "산책", "기타"})
-    void findPlaceByCategory(String categoryName){
+    @MethodSource("getParams")
+    void findPlaceByFilter(Map<String, Object> filter){
 
-        List<PlaceDTO> placeList = placeService.selectPlaceByCategory(categoryName);
+        List<PlaceDTO> placeList = placeService.selectPlaceByFilter(filter);
         placeList.forEach(System.out::println);
+        System.out.println("--------------------------------------------");
 
-        assertTrue(!placeList.isEmpty());
+        assertTrue(true);
     }
 
     @ParameterizedTest

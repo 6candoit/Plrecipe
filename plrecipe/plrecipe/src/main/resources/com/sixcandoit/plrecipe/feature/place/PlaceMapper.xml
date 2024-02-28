@@ -37,16 +37,27 @@
         FROM PLACE A
     </select>
 
-    <select id="selectPlaceByCategory" parameterType="String" resultMap="placeResultMap">
+    <select id="selectPlaceByFilter" parameterType="hashmap" resultMap="placeResultMap">
         SELECT
-               A.PLACE_NAME,
+               A.PLACE_ID,
                A.PLACE_NAME,
                A.PLACE_LOCATION,
                A.PLACE_PHONE_NUM,
                A.PLACE_CATEGORY_ID
           FROM PLACE A
           JOIN PLACE_CATEGORY B ON (A.PLACE_CATEGORY_ID = B.PLACE_CATEGORY_ID)
-         WHERE place_category_name = #{categoryId}
+        <where>
+            <if test="name != null">
+                A.PLACE_NAME LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="region != null">
+                AND A.PLACE_LOCATION LIKE CONCAT('%', #{region}, '%')
+            </if>
+            <if test="category != null">
+                AND B.PLACE_CATEGORY_NAME = #{category}
+            </if>
+        </where>
+
     </select>
 
     <select id="selectStarByPlace" parameterType="_int" resultMap="starResultMap">
@@ -58,6 +69,7 @@
                A.MEMBER_EMAIL
           FROM PLACE_STAR A
          WHERE PLACE_ID = #{placeId}
+         ORDER BY A.STAR_POINT DESC
     </select>
 
     <select id="selectStarByMember" parameterType="String" resultMap="starResultMap">
