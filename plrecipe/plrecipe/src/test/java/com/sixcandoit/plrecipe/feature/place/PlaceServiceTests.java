@@ -61,6 +61,9 @@ public class PlaceServiceTests {
         assertTrue(true);
     }
 
+
+
+
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5, 6})
     void findStarByPlace(int placeId){

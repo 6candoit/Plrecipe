@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sixcandoit.plrecipe.feature.follow.FollowMapper">
+
+    <resultMap id="memberFollowMap" type="com.sixcandoit.plrecipe.feature.follow.FollowDTO">
+        <id property="followId" column="FOLLOW_ID"/>
+        <result property="userFollow" column="USER_FOLLOW"/>
+        <result property="userFollower" column="USER_FOLLOWER"/>
+    </resultMap>
+
+    <resultMap id="memberFollowerMap" type="com.sixcandoit.plrecipe.feature.follow.FollowDTO">
+        <id property="followId" column="FOLLOW_ID"/>
+        <result property="userFollower" column="USER_FOLLOWER"/>
+        <result property="userFollow" column="USER_FOLLOW"/>
+    </resultMap>
+
+    <select id="selectMemberWhoFollowsMe" parameterType="String" resultMap="memberFollowMap">
+        SELECT
+              A.FOLLOW_ID
+            , A.USER_FOLLOW
+            , A.USER_FOLLOWER
+            FROM follow_info A
+           WHERE A.USER_FOLLOW = #{userFollow};
+    </select>
+
+    <select id="selectMemberWhoIFollow" parameterType="String" resultMap="memberFollowerMap">
+        SELECT
+        A.FOLLOW_ID
+        , A.USER_FOLLOW
+        , A.USER_FOLLOWER
+        FROM follow_info A
+        WHERE A.USER_FOLLOWER = #{userFollower};
+    </select>
+
+</mapper>
