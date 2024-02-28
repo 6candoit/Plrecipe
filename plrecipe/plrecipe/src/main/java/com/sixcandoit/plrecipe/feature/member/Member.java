@@ -18,10 +18,7 @@ public class Member {
     public List<MemberDTO> selectAllMember() {
         return memberMapper.selectAllMember();
     }
-    public List <MemberDTO> selectMemberByFollower(String memberEmail) {
-        return memberMapper.selectMemberByFollower(memberEmail);}
-    public List <MemberDTO> selectMemberByFollowing(String memberEmail) {
-        return memberMapper.selectMemberByFollowing(memberEmail);}
+
     public List<MemberDTO> selectMemberByLikePost(String memberEmail) {
         return memberMapper.selectMemberByLikePost(memberEmail);
     }

@@ -27,24 +27,6 @@ public class MemberServiceTests {
 
     @ParameterizedTest
     @ValueSource(strings = {"kim123@kakao.com"})
-    void selectMemberByFollower(String memberEmail) {
-        List<MemberDTO> memberList = memberService.selectMemberByFollower(memberEmail);
-        memberList.forEach(System.out::println);
-
-        assertTrue(!memberList.isEmpty());
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"lehyw@nate.com"})
-    void selectMemberByFollowing(String memberEmail) {
-        List<MemberDTO> memberList2 = memberService.selectMemberByFollowing(memberEmail);
-        memberList2.forEach(System.out::println);
-
-        assertTrue(!memberList2.isEmpty());
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"kim123@kakao.com"})
     void selectMemberByLikePost(String memberEmail) {
         List<MemberDTO> memberList3 = memberService.selectMemberByLikePost(memberEmail);
         memberList3.forEach(System.out::println);

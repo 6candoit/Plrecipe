@@ -7,9 +7,5 @@ import java.util.List;
 public interface MemberMapper {
     List<MemberDTO> selectAllMember();
 
-    List<MemberDTO> selectMemberByFollower(String memberEmail);
-
-    List<MemberDTO> selectMemberByFollowing(String memberEmail);
-
     List<MemberDTO> selectMemberByLikePost(String memberEmail);
 }

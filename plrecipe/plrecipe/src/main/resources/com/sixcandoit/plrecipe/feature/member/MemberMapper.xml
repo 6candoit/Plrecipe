@@ -27,24 +27,6 @@
         select * from member_info
     </select>
 
-    <select id="selectMemberByFollower" parameterType="String" resultMap="memberResultMap">
-        SELECT
-              B.MEMBER_EMAIL
-            , A.USER_FOLLOWER
-        FROM FOLLOW_INFO A
-        JOIN MEMBER_INFO B ON (A.USER_FOLLOW=B.MEMBER_EMAIL)
-        WHERE B.MEMBER_EMAIL=#{memberEmail};
-    </select>
-
-    <select id="selectMemberByFollowing" parameterType="String" resultMap="memberResultMap">
-        SELECT
-              B.MEMBER_EMAIL
-            , A.USER_FOLLOW
-        FROM FOLLOW_INFO A
-        JOIN MEMBER_INFO B ON (A.USER_FOLLOWER=B.MEMBER_EMAIL)
-        WHERE B.MEMBER_EMAIL=#{memberEmail};
-    </select>
-
     <select id="selectMemberByLikePost" parameterType="String" resultMap="memberResultMap">
         SELECT
               B.member_email
