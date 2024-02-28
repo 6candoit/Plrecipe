@@ -34,17 +34,19 @@ public class PlaceServiceTests {
 
     static Stream<Map<String, Object>> getParams() {
         return Stream.of(
-                createParams("붕어", null, null),
-                createParams(null, "서울", "문화"),
-                createParams(null, "창원", null)
+                createParams("붕어", null, null, null),
+                createParams(null, "서울", null, 2),
+                createParams(null, "창원", null, null),
+                createParams(null, "제주", "산책", null)
         );
     }
 
-    private static HashMap<String, Object> createParams(Object name, Object region, Object category) {
+    private static HashMap<String, Object> createParams(Object name, Object region, Object category, Object star) {
         HashMap<String, Object> params = new HashMap<>();
         params.put("name", name);
         params.put("region", region);
         params.put("category", category);
+        params.put("star", star);
         return params;
     }
 

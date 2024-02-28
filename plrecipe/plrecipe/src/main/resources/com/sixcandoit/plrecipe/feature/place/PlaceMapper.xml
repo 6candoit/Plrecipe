@@ -46,6 +46,7 @@
                A.PLACE_CATEGORY_ID
           FROM PLACE A
           JOIN PLACE_CATEGORY B ON (A.PLACE_CATEGORY_ID = B.PLACE_CATEGORY_ID)
+          LEFT JOIN PLACE_STAR C ON (A.PLACE_ID = C.PLACE_ID)
         <where>
             <if test="name != null">
                 A.PLACE_NAME LIKE CONCAT('%', #{name}, '%')
@@ -55,6 +56,9 @@
             </if>
             <if test="category != null">
                 AND B.PLACE_CATEGORY_NAME = #{category}
+            </if>
+            <if test="star != null">
+                AND C.STAR_POINT >= #{star}
             </if>
         </where>
 
