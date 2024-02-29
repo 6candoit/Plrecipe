@@ -27,7 +27,6 @@
         select * from member_info
     </select>
 
-
     <select id="selectMemberByLikePost" parameterType="String" resultMap="memberResultMap">
         SELECT
               B.member_email

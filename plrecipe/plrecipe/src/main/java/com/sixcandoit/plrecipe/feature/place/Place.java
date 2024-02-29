@@ -26,12 +26,12 @@ public class Place {
     public List<PlaceDTO> selectPlaceByFilter(Map<String, Object> filter) { return placeMapper.selectPlaceByFilter(filter);}
     public List<PlaceStarDTO> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}
 
+
     public List<PlaceDTO> getPlacesByCourseName(int courseId){ return courseMapper.getPlacesByCourseName(courseId);}
 
     public List<CourseDTO> selectCourseByMember(String memberEmail){
         return placeMapper.selectCourseByMember(memberEmail);
     }
-
 
     public List<PlaceStarDTO> selectStarByMember(String memberEmail){
         return placeMapper.selectStarByMember(memberEmail);

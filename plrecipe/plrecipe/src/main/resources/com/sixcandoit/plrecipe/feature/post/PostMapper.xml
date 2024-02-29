@@ -17,7 +17,97 @@
         <result property="memberCount" column="MEMBER_COUNT"/>
     </resultMap>
 
+    <resultMap id="HashtagResultMap" type="com.sixcandoit.plrecipe.feature.post.HashTagDTO">
+        <id property="hashtagId" column="HASHTAG_ID"/>
+        <result property="hashtagTitle" column="HASHTAG_TITLE"/>
+    </resultMap>
+
+    <resultMap id="postHashtagResultMap" type="com.sixcandoit.plrecipe.feature.post.PostHashtagDTO">
+        <association property="postDTO" resultMap="postResultMap"/>
+        <association property="hashTagDTO" resultMap="HashtagResultMap"/>
+    </resultMap>
+
+    <resultMap id="postLikeResultMap" type="com.sixcandoit.plrecipe.feature.post.PostLikeDTO">
+        <id property="postLikeId" column="POST_LIKE_ID"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="postId" column="POST_ID"/>
+    </resultMap>
+
     <select id="selectAllPost" resultMap="postResultMap">
-        SELECT POST_TITLE FROM POST
+        SELECT
+              A.POST_ID
+            , A.POST_TITLE
+            , A.POST_CONTENT
+            , A.POST_DATE
+            , A.POST_DELETE_DATE
+            , A.MEMBER_EMAIL
+            , A.COURSE_ID
+            , A.IS_POST_PUBLIC
+        , A.MEMBER_COUNT
+        FROM POST A
+    </select>
+
+    <select id="selectMemberPosts" resultMap="postResultMap">
+        SELECT
+              A.POST_ID
+            , A.POST_TITLE
+            , A.POST_CONTENT
+            , A.POST_DATE
+            , A.POST_DELETE_DATE
+            , A.MEMBER_EMAIL
+            , A.COURSE_ID
+            , A.IS_POST_PUBLIC
+            , A.MEMBER_COUNT
+          FROM POST A
+         WHERE A.MEMBER_EMAIL = #{memberEmail}
+    </select>
+
+    <select id="selectPostsByStatus" resultMap="postResultMap">
+        SELECT
+              A.POST_ID
+            , A.POST_TITLE
+            , A.POST_CONTENT
+            , A.POST_DATE
+            , A.POST_DELETE_DATE
+            , A.MEMBER_EMAIL
+            , A.COURSE_ID
+            , A.IS_POST_PUBLIC
+            , A.MEMBER_COUNT
+        FROM POST A
+        WHERE A.IS_POST_PUBLIC = #{postStatus}
+    </select>
+
+    <select id="selectPostsByMemberCounts" resultMap="postResultMap">
+        SELECT
+        A.POST_ID
+        , A.POST_TITLE
+        , A.POST_CONTENT
+        , A.POST_DATE
+        , A.POST_DELETE_DATE
+        , A.MEMBER_EMAIL
+        , A.COURSE_ID
+        , A.IS_POST_PUBLIC
+        , A.MEMBER_COUNT
+        FROM POST A
+        WHERE A.MEMBER_COUNT = #{memberCount}
+    </select>
+
+    <select id="selectPostHashtags" resultMap="postHashtagResultMap">
+        SELECT
+              A.POST_ID
+            , C.HASHTAG_TITLE
+          FROM POST A
+          JOIN POST_HASHTAG B ON B.POST_ID = A.POST_ID
+          JOIN HASHTAG C ON C.HASHTAG_ID = B.HASHTAG_ID
+         WHERE A.POST_ID = #{postId}
+    </select>
+
+    <select id="selectPostByLikes" resultMap="postLikeResultMap">
+        SELECT
+              A.POST_LIKE_ID
+            , A.MEMBER_EMAIL
+            , A.POST_ID
+          FROM POST_LIKE A
+         WHERE A.POST_ID = #{postId}
     </select>
 </mapper>
