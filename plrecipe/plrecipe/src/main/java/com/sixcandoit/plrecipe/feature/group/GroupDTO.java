@@ -4,16 +4,16 @@ public class GroupDTO {
 
     private int groupId;
     private String groupName;
-    private boolean isGroupPublic;
+    private String isGroupPublic;
     private String groupCreateDate;
     private String groupWithdrawalDate;
     private String groupComment;
-    private boolean groupStatus;
+    private String groupStatus;
 
     public GroupDTO() {
     }
 
-    public GroupDTO(int groupId, String groupName, boolean isGroupPublic, String groupCreateDate, String groupWithdrawalDate, String groupComment, boolean groupStatus) {
+    public GroupDTO(int groupId, String groupName, String isGroupPublic, String groupCreateDate, String groupWithdrawalDate, String groupComment, String groupStatus) {
         this.groupId = groupId;
         this.groupName = groupName;
         this.isGroupPublic = isGroupPublic;
@@ -39,12 +39,12 @@ public class GroupDTO {
         this.groupName = groupName;
     }
 
-    public boolean isGroupPublic() {
+    public String getIsGroupPublic() {
         return isGroupPublic;
     }
 
-    public void setGroupPublic(boolean groupPublic) {
-        isGroupPublic = groupPublic;
+    public void setIsGroupPublic(String isGroupPublic) {
+        this.isGroupPublic = isGroupPublic;
     }
 
     public String getGroupCreateDate() {
@@ -71,11 +71,11 @@ public class GroupDTO {
         this.groupComment = groupComment;
     }
 
-    public boolean isGroupStatus() {
+    public String getGroupStatus() {
         return groupStatus;
     }
 
-    public void setGroupStatus(boolean groupStatus) {
+    public void setGroupStatus(String groupStatus) {
         this.groupStatus = groupStatus;
     }
 
@@ -84,11 +84,11 @@ public class GroupDTO {
         return "GroupDTO{" +
                 "groupId=" + groupId +
                 ", groupName='" + groupName + '\'' +
-                ", isGroupPublic=" + isGroupPublic +
+                ", isGroupPublic='" + isGroupPublic + '\'' +
                 ", groupCreateDate='" + groupCreateDate + '\'' +
                 ", groupWithdrawalDate='" + groupWithdrawalDate + '\'' +
                 ", groupComment='" + groupComment + '\'' +
-                ", groupStatus=" + groupStatus +
+                ", groupStatus='" + groupStatus + '\'' +
                 '}';
     }
 }
