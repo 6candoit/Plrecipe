@@ -3,7 +3,9 @@ package com.sixcandoit.plrecipe.feature.place;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class Place {
@@ -19,9 +21,15 @@ public class Place {
         return placeMapper.selectAllPlace();
     }
 
-    public List<PlaceDTO> selectPlaceByCategory(String categoryName) { return placeMapper.selectPlaceByCategory(categoryName);}
+    public List<PlaceDTO> selectPlaceByFilter(Map<String, Object> filter) { return placeMapper.selectPlaceByFilter(filter);}
     public List<PlaceStarDTO> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}
 
+    public List<CourseDTO> selectCourseByMember(String memberEmail){
+        return placeMapper.selectCourseByMember(memberEmail);
+    }
 
+    public List<PlaceStarDTO> selectStarByMember(String memberEmail){
+        return placeMapper.selectStarByMember(memberEmail);
+    }
 
 }
