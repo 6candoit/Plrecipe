@@ -21,6 +21,12 @@
         <result property="memberEmail" column="MEMBER_EMAIL"/>
     </resultMap>
 
+    <resultMap id="courseResultMap" type="com.sixcandoit.plrecipe.feature.place.CourseDTO">
+        <id property="courseId" column="COURSE_ID"/>
+        <result property="courseName" column="COURSE_NAME"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+    </resultMap>
+
     <select id="selectAllPlace" resultMap="placeResultMap">
         SELECT
                A.PLACE_NAME,
@@ -31,16 +37,31 @@
         FROM PLACE A
     </select>
 
-    <select id="selectPlaceByCategory" parameterType="String" resultMap="placeResultMap">
+    <select id="selectPlaceByFilter" parameterType="hashmap" resultMap="placeResultMap">
         SELECT
-               A.PLACE_NAME,
+               A.PLACE_ID,
                A.PLACE_NAME,
                A.PLACE_LOCATION,
                A.PLACE_PHONE_NUM,
                A.PLACE_CATEGORY_ID
           FROM PLACE A
           JOIN PLACE_CATEGORY B ON (A.PLACE_CATEGORY_ID = B.PLACE_CATEGORY_ID)
-         WHERE place_category_name = #{categoryId}
+          LEFT JOIN PLACE_STAR C ON (A.PLACE_ID = C.PLACE_ID)
+        <where>
+            <if test="name != null">
+                A.PLACE_NAME LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="region != null">
+                AND A.PLACE_LOCATION LIKE CONCAT('%', #{region}, '%')
+            </if>
+            <if test="category != null">
+                AND B.PLACE_CATEGORY_NAME = #{category}
+            </if>
+            <if test="star != null">
+                AND C.STAR_POINT >= #{star}
+            </if>
+        </where>
+
     </select>
 
     <select id="selectStarByPlace" parameterType="_int" resultMap="starResultMap">
@@ -52,5 +73,27 @@
                A.MEMBER_EMAIL
           FROM PLACE_STAR A
          WHERE PLACE_ID = #{placeId}
+         ORDER BY A.STAR_POINT DESC
     </select>
+
+    <select id="selectStarByMember" parameterType="String" resultMap="starResultMap">
+        SELECT
+        A.STAR_ID,
+        A.STAR_POINT,
+        A.STAR_COMMENT,
+        A.PLACE_ID,
+        A.MEMBER_EMAIL
+        FROM PLACE_STAR A
+        WHERE MEMBER_EMAIL = #{memberEmail}
+    </select>
+
+    <select id="selectCourseByMember" parameterType="String" resultMap="courseResultMap">
+        SELECT
+                A.COURSE_ID,
+                A.COURSE_NAME,
+                A.MEMBER_EMAIL
+            FROM COURSE A
+           WHERE MEMBER_EMAIL = #{memberEmail}
+    </select>
+
 </mapper>
