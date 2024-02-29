@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sixcandoit.plrecipe.feature.place.CourseMapper">
+    <resultMap id="placeResultMap" type="com.sixcandoit.plrecipe.feature.place.PlaceDTO">
+        <id property="placeId" column="place_id"/>
+        <result property="placeName" column="place_name"/>
+        <result property="placeLocation" column="place_location"/>
+    </resultMap>
+
+    <select id="getPlacesByCourseName" resultMap="placeResultMap">
+        SELECT
+              p.place_id,
+              p.place_name,
+              p.place_location
+        FROM place p
+          JOIN course_place cp ON p.place_id = cp.place_id
+          JOIN course c ON cp.course_id = c.course_id
+         WHERE c.course_Id = #{courseId}
+    </select>
+</mapper>

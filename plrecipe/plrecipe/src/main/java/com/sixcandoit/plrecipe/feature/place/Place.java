@@ -10,11 +10,13 @@ import java.util.Map;
 @Service
 public class Place {
 
-    private PlaceMapper placeMapper;
+    private final PlaceMapper placeMapper;
+    private final CourseMapper courseMapper;
 
     @Autowired
-    public Place(PlaceMapper placeMapper) {
+    public Place(PlaceMapper placeMapper, CourseMapper courseMapper) {
         this.placeMapper = placeMapper;
+        this.courseMapper = courseMapper;
     }
 
     public List<PlaceDTO> selectAllPlace() {
@@ -24,9 +26,12 @@ public class Place {
     public List<PlaceDTO> selectPlaceByFilter(Map<String, Object> filter) { return placeMapper.selectPlaceByFilter(filter);}
     public List<PlaceStarDTO> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}
 
+    public List<PlaceDTO> getPlacesByCourseName(int courseId){ return courseMapper.getPlacesByCourseName(courseId);}
+
     public List<CourseDTO> selectCourseByMember(String memberEmail){
         return placeMapper.selectCourseByMember(memberEmail);
     }
+
 
     public List<PlaceStarDTO> selectStarByMember(String memberEmail){
         return placeMapper.selectStarByMember(memberEmail);
