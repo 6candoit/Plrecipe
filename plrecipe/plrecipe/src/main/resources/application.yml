@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver  # mariadb
-    url: 
+    url: jdbc:mysql://localhost:3306/plrecipe
     username: root
     password: mariadb
 

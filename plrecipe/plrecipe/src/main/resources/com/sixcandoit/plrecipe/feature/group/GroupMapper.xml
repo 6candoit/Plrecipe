@@ -19,6 +19,19 @@
         select * from plecipe_group
     </select>
 
+    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe.feature.member.MemberDTO">
+        <id property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        </resultMap>
+
+    <select id="selectMembersByGroupId" resultMap="memberResultMap" parameterType="int">
+        SELECT
+              m.MEMBER_EMAIL,
+              m.MEMBER_NAME
+        FROM group_member pm
+        JOIN member_info m ON pm.MEMBER_EMAIL = m.member_email
+        WHERE pm.group_id = #{groupId}
+
     <select id="selectPublicOrPrivateGroup" resultMap="groupResultMap">
         SELECT
         A.is_group_public,
@@ -32,5 +45,6 @@
         FROM plecipe_group A
         JOIN group_member B ON(A.group_id = B.group_id)
         WHERE MEMBER_EMAIL = #{memberEmail};
+
     </select>
 </mapper>
