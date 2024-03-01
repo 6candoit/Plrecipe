@@ -18,7 +18,17 @@
     </resultMap>
 
     <select id="selectAllMember" resultMap="memberResultMap">
-        SELECT * FROM MEMBER_INFO
+        SELECT
+              A.MEMBER_EMAIL
+            , A.PASSWORD
+            , A.MEMBER_NAME
+            , A.MEMBER_NICKNAME
+            , A.MEMBER_NUMBER
+            , A.JOIN_DATE
+            , A.WITHDRAWAL_DATE
+            , A.MEMBER_GRADE
+            , A.MEMBER_STATUS
+          FROM MEMBER_INFO A
     </select>
 
     <select id="selectMemberByLikePost" parameterType="String" resultMap="memberResultMap">

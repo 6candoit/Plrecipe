@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_member.feature.member;
+package com.sixcandoit.plrecipe_member.featuer.member.service;
 
 import com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO;
 import com.sixcandoit.plrecipe_member.feature.member.service.MemberService;
