@@ -51,7 +51,7 @@ public class PostServiceTestsByMyBatis {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"ONE", "TWO", "THREE"})
+    @ValueSource(strings = {"ONE", "TWO", "MANY"})
     void selectPostsByMemberCounts(MemberCount memberCount) {
         List<PostDTO> postList = postService.selectPostsByMemberCounts(memberCount);
 
