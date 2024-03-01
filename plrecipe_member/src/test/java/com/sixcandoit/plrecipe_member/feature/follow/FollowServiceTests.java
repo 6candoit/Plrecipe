@@ -29,22 +29,20 @@ public class FollowServiceTests {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"kim123@kakao.com"})
+    @ValueSource(strings = {"mfk5gd@daum.net"})
     void selectMemberWhoFollowsMe(String userFollow) {
 
         List<FollowDTO> followList1 = followService.selectMemberWhoFollowsMe(userFollow);
-
         followList1.forEach(System.out::println);
 
         assertTrue(!followList1.isEmpty());
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"lehyw@nate.com"})
+    @ValueSource(strings = {"1m0s11@gmail.com"})
     void selectMemberWhoIFollow(String userFollower) {
 
         List<FollowDTO> followList2 = followService.selectMemberWhoIFollow(userFollower);
-
         followList2.forEach(System.out::println);
 
         assertTrue(!followList2.isEmpty());
