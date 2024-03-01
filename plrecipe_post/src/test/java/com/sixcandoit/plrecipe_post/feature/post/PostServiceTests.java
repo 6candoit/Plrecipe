@@ -22,7 +22,7 @@ public class PostServiceTests {
     private PostService postService;
 
     @Test
-    void testRegistNewOrder() {
+    void selectAllPost() {
 
         List<PostDTO> posts = postService.selectAllPost();
         posts.forEach(System.out::println);
