@@ -21,6 +21,7 @@ public class MemberServiceTests {
 
     @Test
     void viewAllMember() {
+
         List<MemberDTO> member = memberService.selectAllMember();
         member.forEach(System.out::println);
 
@@ -30,6 +31,7 @@ public class MemberServiceTests {
     @ParameterizedTest
     @ValueSource(strings = {"kim123@kakao.com"})
     void selectMemberByLikePost(String memberEmail) {
+
         List<MemberDTO> memberList3 = memberService.selectMemberByLikePost(memberEmail);
         memberList3.forEach(System.out::println);
 

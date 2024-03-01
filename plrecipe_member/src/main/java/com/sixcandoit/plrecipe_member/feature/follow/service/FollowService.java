@@ -29,5 +29,4 @@ public class FollowService {
         return followMapper.selectMemberWhoIFollow(userFollower);
     }
 
-
 }
