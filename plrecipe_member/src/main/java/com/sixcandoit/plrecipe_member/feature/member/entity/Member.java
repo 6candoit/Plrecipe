@@ -12,12 +12,13 @@ public class Member {
     private String joinDate;
     private String withdrawalDate;
     private MemberGrade memberGrade;
-    private boolean memberStatus;
+
+    private String memberStatus;
 
     public Member() {
     }
 
-    public Member(String memberEmail, String password, String memberName, String memberNickname, String memberNumber, String joinDate, String withdrawalDate, MemberGrade memberGrade, boolean memberStatus) {
+    public Member(String memberEmail, String password, String memberName, String memberNickname, String memberNumber, String joinDate, String withdrawalDate, MemberGrade memberGrade, String memberStatus) {
         this.memberEmail = memberEmail;
         this.password = password;
         this.memberName = memberName;
@@ -93,11 +94,11 @@ public class Member {
         this.memberGrade = memberGrade;
     }
 
-    public boolean isMemberStatus() {
+    public String getMemberStatus() {
         return memberStatus;
     }
 
-    public void setMemberStatus(boolean memberStatus) {
+    public void setMemberStatus(String memberStatus) {
         this.memberStatus = memberStatus;
     }
 
@@ -112,7 +113,7 @@ public class Member {
                 ", joinDate='" + joinDate + '\'' +
                 ", withdrawalDate='" + withdrawalDate + '\'' +
                 ", memberGrade=" + memberGrade +
-                ", memberStatus=" + memberStatus +
+                ", memberStatus='" + memberStatus + '\'' +
                 '}';
     }
 }

@@ -10,12 +10,12 @@ public class MemberDTO {
     private String joinDate;
     private String withdrawalDate;
     private MemberGrade memberGrade;
-    private boolean memberStatus;
+    private String memberStatus;
 
     public MemberDTO() {
     }
 
-    public MemberDTO(String memberEmail, String password, String memberName, String memberNickname, String memberNumber, String joinDate, String withdrawalDate, MemberGrade memberGrade, boolean memberStatus) {
+    public MemberDTO(String memberEmail, String password, String memberName, String memberNickname, String memberNumber, String joinDate, String withdrawalDate, MemberGrade memberGrade, String memberStatus) {
         this.memberEmail = memberEmail;
         this.password = password;
         this.memberName = memberName;
@@ -59,7 +59,7 @@ public class MemberDTO {
         return memberGrade;
     }
 
-    public boolean isMemberStatus() {
+    public String getMemberStatus() {
         return memberStatus;
     }
 
@@ -74,7 +74,7 @@ public class MemberDTO {
                 ", joinDate='" + joinDate + '\'' +
                 ", withdrawalDate='" + withdrawalDate + '\'' +
                 ", memberGrade=" + memberGrade +
-                ", memberStatus=" + memberStatus +
+                ", memberStatus='" + memberStatus + '\'' +
                 '}';
     }
 }

@@ -1,5 +1,5 @@
 package com.sixcandoit.plrecipe_member.feature.member.dto;
 
 public enum MemberGrade {
-    MEMBER, ADMIN
+    ROLL_MEMBER, ROLL_ADMIN
 }
