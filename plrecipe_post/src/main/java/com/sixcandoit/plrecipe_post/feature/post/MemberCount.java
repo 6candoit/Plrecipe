@@ -3,7 +3,7 @@ package com.sixcandoit.plrecipe_post.feature.post;
 public enum MemberCount {
     ONE(1),
     TWO(2),
-    THREE(3);
+    MANY(3);
 
     private final int value;
 
