@@ -4,6 +4,8 @@ import com.sixcandoit.plrecipe_group.feature.group.dto.GroupDTO;
 import com.sixcandoit.plrecipe_group.feature.group.dto.MemberDTO;
 import com.sixcandoit.plrecipe_group.feature.group.entity.Group;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -41,12 +43,12 @@ public class GroupServiceTestsByMyBatis {
 
     }
 
-//    @ParameterizedTest
-//    @ValueSource(strings = {"mfk5gd@daum.net"})
-//    void selectPublicOrPrivateGroup(String memberEmail) {
-//        List<GroupDTO> groupList = groupService.selectPublicOrPrivateGroup(memberEmail);
-//        groupList.forEach(System.out::println);
-//
-//        assertNotNull(groupList);
-//    }
+    @ParameterizedTest
+    @ValueSource(strings = {"mfk5gd@daum.net"})
+    void selectPublicOrPrivateGroup(String memberEmail) {
+        List<GroupDTO> groupList = groupService.selectPublicOrPrivateGroup(memberEmail);
+        groupList.forEach(System.out::println);
+
+        assertNotNull(groupList);
+    }
 }
