@@ -12,7 +12,9 @@ public class Group {
     private GroupMapper groupMapper;
 
     @Autowired
-    public Group(GroupMapper groupMapper) {this.groupMapper = groupMapper;}
+    public Group(GroupMapper groupMapper) {
+        this.groupMapper = groupMapper;
+    }
 
     public List<GroupDTO> selectAllGroup() {
         return groupMapper.selectAllGroup();
@@ -22,8 +24,9 @@ public class Group {
     public List<MemberDTO> selectMembersByGroupId(int groupId) {
         return groupMapper.selectMembersByGroupId(groupId);
 
-    public List<GroupDTO> selectPublicOrPrivateGroup(String memberEmail){
-        return groupMapper.selectPublicOrPrivateGroup(memberEmail);
-
+//    public List<GroupDTO> selectPublicOrPrivateGroup(String memberEmail){
+//        return groupMapper.selectPublicOrPrivateGroup(memberEmail);
+//
+//    }
     }
 }

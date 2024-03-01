@@ -38,12 +38,14 @@ public class GroupServiceTests {
             System.out.println(member);
         }
 
-    @ParameterizedTest
-    @ValueSource(strings={"mfk5gd@daum.net"})
-    void selectPublicOrPrivateGroup(String memberEmail){
-        List<GroupDTO> groupList = groupService.selectPublicOrPrivateGroup(memberEmail);
-        groupList.forEach(System.out::println);
-
-        assertNotNull(groupList);
     }
+
+//    @ParameterizedTest
+//    @ValueSource(strings = {"mfk5gd@daum.net"})
+//    void selectPublicOrPrivateGroup(String memberEmail) {
+//        List<GroupDTO> groupList = groupService.selectPublicOrPrivateGroup(memberEmail);
+//        groupList.forEach(System.out::println);
+//
+//        assertNotNull(groupList);
+//    }
 }

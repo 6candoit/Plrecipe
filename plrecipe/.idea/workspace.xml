@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2af33b19-7526-458a-a396-af271c65611f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/GroupMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/GroupMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/resources/com/sixcandoit/plrecipe/feature/group/GroupMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/main/resources/com/sixcandoit/plrecipe/feature/group/GroupMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/resources/application.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plrecipe/src/test/java/com/sixcandoit/plrecipe/feature/group/GroupServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/test/java/com/sixcandoit/plrecipe/feature/group/GroupServiceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plrecipe_post/src/main/java/com/sixcandoit/plrecipe_post/common/MyBatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../plrecipe_post/src/main/java/com/sixcandoit/plrecipe_post/config/MyBatisConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +35,7 @@
     "git-widget-placeholder": "feature/develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Candoit/plrecipe/plrecipe",
+    "last_opened_file_path": "C:/codes/Projects/Plrecipe",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +61,7 @@
       <updated>1708940383312</updated>
       <workItem from="1708940384351" duration="364000" />
       <workItem from="1709104583874" duration="549000" />
+      <workItem from="1709268174945" duration="56000" />
     </task>
     <servers />
   </component>
