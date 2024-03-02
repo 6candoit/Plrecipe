@@ -3,6 +3,7 @@ package com.sixcandoit.plrecipe_group.feature.group;
 import com.sixcandoit.plrecipe_group.feature.group.dto.GroupDTO;
 import com.sixcandoit.plrecipe_group.feature.group.dto.MemberDTO;
 import com.sixcandoit.plrecipe_group.feature.group.entity.Group;
+import com.sixcandoit.plrecipe_group.feature.group.service.GroupService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -17,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class GroupServiceTestsByMyBatis {
 
     @Autowired
-    private Group groupService;
+    private GroupService groupService;
 
     @Test
     void testAllGroupSelect() {
