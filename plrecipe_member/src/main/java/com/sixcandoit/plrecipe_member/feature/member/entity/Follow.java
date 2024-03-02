@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_member.feature.follow.entity;
+package com.sixcandoit.plrecipe_member.feature.member.entity;
 
 public class Follow {
 

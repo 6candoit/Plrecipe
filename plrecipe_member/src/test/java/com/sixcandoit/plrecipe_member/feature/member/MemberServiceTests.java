@@ -37,4 +37,5 @@ public class MemberServiceTests {
 
         assertTrue(!memberList3.isEmpty());
     }
+
 }

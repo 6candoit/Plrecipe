@@ -11,4 +11,6 @@ public interface MemberMapper {
     List<MemberDTO> selectAllMember();
 
     List<MemberDTO> selectMemberByLikePost(String memberEmail);
+
+
 }

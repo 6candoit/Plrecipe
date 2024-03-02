@@ -3,15 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sixcandoit.plrecipe_member.feature.follow.repository.FollowMapper">
+<mapper namespace="com.sixcandoit.plrecipe_member.feature.member.repository.FollowMapper">
 
-    <resultMap id="memberFollowMap" type="com.sixcandoit.plrecipe_member.feature.follow.dto.FollowDTO">
+    <resultMap id="memberFollowMap" type="com.sixcandoit.plrecipe_member.feature.member.dto.FollowDTO">
         <id property="followId" column="FOLLOW_ID"/>
         <result property="userFollow" column="USER_FOLLOW"/>
         <result property="userFollower" column="USER_FOLLOWER"/>
     </resultMap>
 
-    <resultMap id="memberFollowerMap" type="com.sixcandoit.plrecipe_member.feature.follow.dto.FollowDTO">
+    <resultMap id="memberFollowerMap" type="com.sixcandoit.plrecipe_member.feature.member.dto.FollowDTO">
         <id property="followId" column="FOLLOW_ID"/>
         <result property="userFollower" column="USER_FOLLOWER"/>
         <result property="userFollow" column="USER_FOLLOW"/>

@@ -1,7 +1,7 @@
-package com.sixcandoit.plrecipe_member.feature.follow.service;
+package com.sixcandoit.plrecipe_member.feature.member.service;
 
-import com.sixcandoit.plrecipe_member.feature.follow.dto.FollowDTO;
-import com.sixcandoit.plrecipe_member.feature.follow.repository.FollowMapper;
+import com.sixcandoit.plrecipe_member.feature.member.dto.FollowDTO;
+import com.sixcandoit.plrecipe_member.feature.member.repository.FollowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

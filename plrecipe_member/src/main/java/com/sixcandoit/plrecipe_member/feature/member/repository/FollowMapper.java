@@ -1,6 +1,6 @@
-package com.sixcandoit.plrecipe_member.feature.follow.repository;
+package com.sixcandoit.plrecipe_member.feature.member.repository;
 
-import com.sixcandoit.plrecipe_member.feature.follow.dto.FollowDTO;
+import com.sixcandoit.plrecipe_member.feature.member.dto.FollowDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
