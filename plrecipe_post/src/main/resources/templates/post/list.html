@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>게시글 번호</th>
+        <th>게시글 제목</th>
+        <th>게시글 내용</th>
+        <th>게시글 생성일</th>
+        <th>게시글 삭제일</th>
+        <th>게시글 작성자</th>
+        <th>코스 번호</th>
+        <th>게시글 공개여부</th>
+        <th>인원수</th>
+    </tr>
+    <tr th:each="post : ${ postList }">
+        <td th:text="${ post.postId }"></td>
+        <td th:text="${ post.postTitle }"></td>
+        <td th:text="${ post.postContent }"></td>
+        <td th:text="${ post.postDate }"></td>
+        <td th:text="${ post.postDeleteDate }"></td>
+        <td th:text="${ post.memberEmail }"></td>
+        <td th:text="${ post.courseId }"></td>
+        <td th:text="${ post.isPostPublic }"></td>
+        <td th:text="${ post.memberCount }"></td>
+    </tr>
+</table>
+
+<div id="paging" >
+
+    <!-- 맨 앞으로 이동 -->
+    <button th:onclick="'location.href=\'/post/list?page=' + @{${paging.startPage}} + '\''"><<</button>
+
+    <!-- 이전 페이지로 이동 -->
+    <button th:onclick="'location.href=\'/post/list?page=' + @{${paging.currentPage - 1}} + '\''"
+            th:disabled="${ postList.first }"><</button>
+
+    <!-- 숫자 버튼 -->
+    <th:block th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+        <button th:onclick="'location.href=\'/post/list?page=' + @{${page}} + '\''"
+                th:text="${ page }"
+                th:disabled="${ paging.currentPage eq page }">
+        </button>
+    </th:block>
+
+    <!-- 다음 페이지로 이동 -->
+    <button th:onclick="'location.href=\'/post/list?page=' + @{${paging.currentPage + 1}} + '\''"
+            th:disabled="${ postList.last }">></button>
+
+    <!-- 맨 끝으로 이동 -->
+    <button th:onclick="'location.href=\'/post/list?page=' + @{${paging.endPage}} + '\''">>></button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>modify</title>
+</head>
+<body>
+<h1>메뉴 이름 수정</h1>
+
+<form action="/post/modify" method="post">
+    <label>수정할 게시글 번호 : </label>
+    <input type="number" name="postId"><br>
+    <label>수정할 게시글 제목 : </label>
+    <input type="text" name="postTitle"><br>
+    <label>수정할 게시글 공개 여부 : </label>
+    <input type="text" name="postIsPublic"><br>
+    <label>수정할 게시글 코스 : </label>
+    <input type="number" name="courseId"><br>
+    <label>수정할 게시글 인원 수 : </label>
+    <input type="text" name="memberCount"><br>
+    <input type="submit" value="전송">
+</form>
+
+</body>
+</html>

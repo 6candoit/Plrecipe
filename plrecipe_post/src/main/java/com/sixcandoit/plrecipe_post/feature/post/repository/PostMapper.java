@@ -4,12 +4,15 @@ import com.sixcandoit.plrecipe_post.feature.post.MemberCount;
 import com.sixcandoit.plrecipe_post.feature.post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.feature.post.dto.PostHashtagDTO;
 import com.sixcandoit.plrecipe_post.feature.post.dto.PostLikeDTO;
+import com.sixcandoit.plrecipe_post.feature.post.entity.Post;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 @Mapper
-public interface PostMapper {
+public interface PostMapper{
+
     List<PostDTO> selectAllPost();
 
     List<PostDTO> selectMemberPosts(String memberEmail);

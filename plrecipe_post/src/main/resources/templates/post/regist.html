@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>regist</title>
+</head>
+<body>
+
+<h1>신규 메뉴 등록</h1>
+
+<form action="/post/regist" method="post">
+    <label>메뉴 이름 : </label><input type="text" name="menuName"><br>
+    <label>메뉴 가격 : </label><input type="number" name="menuPrice"><br>
+    <label>카테고리 : </label>
+    <select name="categoryCode" id="categoryCode">
+        <!--
+            카테고리 내용이 변화할 수 있다면 조회 해서 처리해야 하며 fetch로 처리
+         -->
+    </select><br>
+    <label>판매 상태 : </label>
+    <select name="orderableStatus">
+        <option value="Y">판매가능</option>
+        <option value="N">판매불가</option>
+    </select><br>
+    <input type="submit" value="전송">
+</form>
+
+<script>
+    fetch('/menu/category')
+        .then(res => res.json())
+        .then(data => {
+            const $categoryCode = document.getElementById('categoryCode');
+            console.log($categoryCode)
+
+            for(let index in data){
+                const $option = document.createElement('option');
+                $option.value = data[index].categoryCode;
+                $option.textContent = data[index].categoryName;
+
+                $categoryCode.appendChild($option);
+            }
+        });
+</script>
+
+</body>
+</html>

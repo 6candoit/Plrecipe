@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>게시글 번호</th>
+        <th>게시글 제목</th>
+        <th>게시글 내용</th>
+        <th>게시글 생성일</th>
+        <th>게시글 삭제일</th>
+        <th>게시글 작성자</th>
+        <th>코스 번호</th>
+        <th>게시글 공개여부</th>
+        <th>인원수</th>
+    </tr>
+    <tr>
+
+        <!-- 넘겨준 menu를 키값을 가지고 get으로 꺼냄. -->
+        <td th:text="${ post.postId }"></td>
+        <td th:text="${ post.postTitle }"></td>
+        <td th:text="${ post.postContent }"></td>
+        <td th:text="${ post.postDate }"></td>
+        <td th:text="${ post.postDeleteDate }"></td>
+        <td th:text="${ post.memberEmail }"></td>
+        <td th:text="${ post.courseId }"></td>
+        <td th:text="${ post.isPostPublic }"></td>
+        <td th:text="${ post.memberCount }"></td>
+    </tr>
+</table>
+
+</body>
+</html>

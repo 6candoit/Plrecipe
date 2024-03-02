@@ -1,7 +1,9 @@
 package com.sixcandoit.plrecipe_post.feature.post.dto;
 
 import com.sixcandoit.plrecipe_post.feature.post.MemberCount;
+import lombok.Setter;
 
+@Setter
 public class PostDTO {
     private int postId;
     private String postTitle;
