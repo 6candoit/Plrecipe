@@ -64,10 +64,15 @@ public class PlaceService {
         placeStarRepository.save(mapper.map(newStar, PlaceStar.class));
     }
 
+    @Transactional
+    public void modifyStar(PlaceStarDTO modifyStar) {
+        PlaceStar foundStar = placeStarRepository.findById(modifyStar.getStarId()).orElseThrow(IllegalArgumentException::new);
+        foundStar.setStarPoint(modifyStar.getStarPoint());
+        foundStar.setStarComment(modifyStar.getStarComment());
+    }
 
-
-
-
-
-
+    @Transactional
+    public void deletePlace(int placeId) {
+        placeRepository.deleteById(placeId);
+    }
 }

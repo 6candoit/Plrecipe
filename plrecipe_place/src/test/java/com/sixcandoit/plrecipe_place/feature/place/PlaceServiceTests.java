@@ -1,6 +1,8 @@
 package com.sixcandoit.plrecipe_place.feature.place;
 
 import com.sixcandoit.plrecipe_place.PlrecipePlaceApplication;
+import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceDTO;
+import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.feature.place.entity.*;
 import com.sixcandoit.plrecipe_place.feature.place.service.PlaceService;
 import org.junit.jupiter.api.Test;
@@ -93,4 +95,28 @@ public class PlaceServiceTests {
 
         assertNotNull(!starList.isEmpty());
     }
+
+    @Test
+    void insertPlace(){
+        PlaceDTO newPlace = new PlaceDTO("장소 insert 테스트", "서울시 도봉구", "0000", 3);
+        placeService.registPlace(newPlace);
+    }
+
+    @Test
+    void insertPlaceStar(){
+        PlaceStarDTO newStar = new PlaceStarDTO(3, "insert 별점", 3, "f414mce3@yahoo.com");
+        placeService.registStar(newStar);
+    }
+
+    @Test
+    void modifyPlaceStar(){
+        PlaceStarDTO modifyStar = new PlaceStarDTO(11,2, "modify 별점", 3, "f414mce3@yahoo.com");
+        placeService.modifyStar(modifyStar);
+    }
+
+    @Test
+    void deletePlace(){
+        placeService.deletePlace(31);
+    }
+
 }

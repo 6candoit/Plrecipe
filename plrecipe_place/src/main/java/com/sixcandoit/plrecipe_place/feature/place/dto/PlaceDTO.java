@@ -25,6 +25,13 @@ public class PlaceDTO {
         this.placeCategoryId = placeCategoryId;
     }
 
+    public PlaceDTO(String placeName, String placeLocation, String placePhoneNum, int placeCategoryId) {
+        this.placeName = placeName;
+        this.placeLocation = placeLocation;
+        this.placePhoneNum = placePhoneNum;
+        this.placeCategoryId = placeCategoryId;
+    }
+
     public int getPlaceId() {
         return placeId;
     }

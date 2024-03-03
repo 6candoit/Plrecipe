@@ -24,6 +24,13 @@ public class PlaceStarDTO {
         this.memberEmail = memberEmail;
     }
 
+    public PlaceStarDTO(int starPoint, String starComment, int placeId, String memberEmail) {
+        this.starPoint = starPoint;
+        this.starComment = starComment;
+        this.placeId = placeId;
+        this.memberEmail = memberEmail;
+    }
+
     public int getStarId() {
         return starId;
     }
