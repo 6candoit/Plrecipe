@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2af33b19-7526-458a-a396-af271c65611f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/main/java/com/sixcandoit/plrecipe/feature/group/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plrecipe/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plrecipe/src/test/java/com/sixcandoit/plrecipe/feature/group/GroupServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/plrecipe/src/test/java/com/sixcandoit/plrecipe/feature/group/GroupServiceTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plrecipe_post/src/main/java/com/sixcandoit/plrecipe_post/common/MyBatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../plrecipe_post/src/main/java/com/sixcandoit/plrecipe_post/config/MyBatisConfig.java" afterDir="false" />
-    </list>
+    <list default="true" id="2af33b19-7526-458a-a396-af271c65611f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +30,7 @@
     "git-widget-placeholder": "feature/develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/codes/Projects/Plrecipe",
+    "last_opened_file_path": "C:/team_project/Plrecipe/plrecipe/plrecipe",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +57,7 @@
       <workItem from="1708940384351" duration="364000" />
       <workItem from="1709104583874" duration="549000" />
       <workItem from="1709268174945" duration="56000" />
+      <workItem from="1709443892302" duration="15000" />
     </task>
     <servers />
   </component>
