@@ -36,7 +36,7 @@ public class PlaceController {
     public String searchPlace(@PathVariable String keyword, Model model) {
         log.info("keyword : " + keyword);
 
-        String apiKey = "d7d864e575af0ee8d61feb4f8559e1e3";
+        String apiKey = "카카오 api 앱 키";
         String baseUrl = "https://dapi.kakao.com/v2/local/search/keyword.json";
         JSONArray searchPlaces = null;
 
