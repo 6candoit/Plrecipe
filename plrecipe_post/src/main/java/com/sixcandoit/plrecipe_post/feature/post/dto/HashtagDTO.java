@@ -1,5 +1,7 @@
 package com.sixcandoit.plrecipe_post.feature.post.dto;
 
+import lombok.Setter;
+
 public class HashtagDTO {
     private int hashtagId;
     private String hashtagTitle;

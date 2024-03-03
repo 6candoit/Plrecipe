@@ -2,4 +2,16 @@
 GET localhost:8080/post/posts
 
 ### GET request memberPosts
-GET localhost:8080/post/posts/
+GET localhost:8080/post/posts/email/yun123@naver.com
+
+### GET request postsByStatus
+GET localhost:8080/post/posts/status/Y
+
+### GET request postsByMemberCounts
+GET localhost:8080/post/posts/memberCounts/TWO
+
+### GET request HashtagsByPostId
+GET localhost:8080/post/posts/hashtag/1
+
+### GET request LikesByPostId
+GET localhost:8080/post/posts/likes/1
