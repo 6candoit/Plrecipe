@@ -1,0 +1,5 @@
+### GET request posts
+GET localhost:8080/post/posts
+
+### GET request memberPosts
+GET localhost:8080/post/posts/
