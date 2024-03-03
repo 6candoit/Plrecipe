@@ -1,10 +1,10 @@
 package com.sixcandoit.plrecipe.feature.group;
 
-import com.sixcandoit.plrecipe.feature.member.MemberDTO;
+import com.sixcandoit.plrecipe.feature.group.dto.GroupDTO;
+import com.sixcandoit.plrecipe.feature.group.entity.Group;
+import com.sixcandoit.plrecipe.feature.member.dto.MemberDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;

@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sixcandoit.plrecipe.feature.group.GroupMapper">
+<mapper namespace="com.sixcandoit.plrecipe.feature.group.repository.GroupMapper">
 
-    <resultMap id="groupResultMap" type="com.sixcandoit.plrecipe.feature.group.GroupDTO">
+    <resultMap id="groupResultMap" type="com.sixcandoit.plrecipe.feature.group.dto.GroupDTO">
         <id property="groupId" column="GROUP_ID"/>
         <result property="groupName" column="GROUP_NAME"/>
         <result property="isGroupPublic" column="IS_GROUP_PUBLIC"/>
@@ -19,7 +19,7 @@
         select * from plecipe_group
     </select>
 
-    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe.feature.member.MemberDTO">
+    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe.feature.member.dto.MemberDTO">
         <id property="memberEmail" column="MEMBER_EMAIL"/>
         <result property="memberName" column="MEMBER_NAME"/>
         </resultMap>

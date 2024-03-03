@@ -1,5 +1,7 @@
 package com.sixcandoit.plrecipe.feature.member;
 
+import com.sixcandoit.plrecipe.feature.member.dto.MemberDTO;
+import com.sixcandoit.plrecipe.feature.member.entity.Member;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
