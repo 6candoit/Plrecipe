@@ -1,10 +1,28 @@
 package com.sixcandoit.plrecipe_place.feature.place.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity(name = "plrecipe_place")
+@Table(name = "place")
 public class Place {
+
+    @Id
+    @Column(name = "place_id")
     private int placeId;
+
+    @Column(name = "place_name")
     private String placeName;
+
+    @Column(name = "place_location")
     private String placeLocation;
+
+    @Column(name = "place_phone_num")
     private String placePhoneNum;
+
+    @Column(name = "place_category_id")
     private int placeCategoryId;
 
     public Place() {

@@ -1,9 +1,20 @@
 package com.sixcandoit.plrecipe_place.feature.place.entity;
 
+import jakarta.persistence.*;
+
+@Entity(name = "plrecipe_course")
+@Table(name = "course")
 public class Course {
 
+    @Id
+    @Column(name = "course_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int courseId;
+
+    @Column(name = "course_name")
     private String courseName;
+
+    @Column(name = "member_email")
     private String memberEmail;
 
     public Course() {

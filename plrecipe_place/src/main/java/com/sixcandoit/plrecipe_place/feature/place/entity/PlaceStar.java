@@ -1,11 +1,28 @@
 package com.sixcandoit.plrecipe_place.feature.place.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity(name = "plrecipe_place_star")
+@Table(name = "place_star")
 public class PlaceStar {
 
+    @Id
+    @Column(name = "star_id")
     private int starId;
+
+    @Column(name = "star_point")
     private int starPoint;
+
+    @Column(name = "star_comment")
     private String starComment;
+
+    @Column(name = "place_id")
     private int placeId;
+
+    @Column(name = "member_email")
     private String memberEmail;
 
     public PlaceStar() {
