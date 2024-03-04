@@ -7,6 +7,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +26,13 @@ import java.net.URLEncoder;
 @RequestMapping("/place")
 @Slf4j
 public class PlaceController {
+
+    private Environment env;
     private final PlaceService placeService;
 
     @Autowired
-    public PlaceController(PlaceService placeService) {
+    public PlaceController(Environment env, PlaceService placeService) {
+        this.env = env;
         this.placeService = placeService;
     }
 
@@ -36,7 +40,7 @@ public class PlaceController {
     public String searchPlace(@PathVariable String keyword, Model model) {
         log.info("keyword : " + keyword);
 
-        String apiKey = "카카오 api 앱 키";
+        String apiKey = env.getProperty("plrecipe.rest-key");
         String baseUrl = "https://dapi.kakao.com/v2/local/search/keyword.json";
         JSONArray searchPlaces = null;
 
