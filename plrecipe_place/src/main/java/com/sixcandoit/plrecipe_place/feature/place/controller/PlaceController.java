@@ -86,7 +86,7 @@ public class PlaceController {
         }
 
         model.addAttribute("searchPlaces", searchPlaces);
-        return "search_result";
+        return "place/search_result";
     }
 
 }
