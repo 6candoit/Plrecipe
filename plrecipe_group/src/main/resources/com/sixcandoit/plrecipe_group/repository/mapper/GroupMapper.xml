@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sixcandoit.plrecipe_group.feature.group.repository.GroupMapper">
+<mapper namespace="com.sixcandoit.plrecipe_group.repository.mapper.GroupMapper">
 
-    <resultMap id="groupResultMap" type="com.sixcandoit.plrecipe_group.feature.group.dto.GroupDTO">
+    <resultMap id="groupResultMap" type="com.sixcandoit.plrecipe_group.dto.GroupDTO">
         <id property="groupId" column="GROUP_ID"/>
         <result property="groupName" column="GROUP_NAME"/>
         <result property="isGroupPublic" column="IS_GROUP_PUBLIC"/>
@@ -17,27 +17,27 @@
 
     <select id="selectAllGroup" resultMap="groupResultMap">
         SELECT
-                  A.GROUP_ID
-                , A.GROUP_NAME
-                , A.IS_GROUP_PUBLIC
-                , A.GROUP_CREATE_DATE
-                , A.GROUP_WITHDRAWAL_DATE
-                , A.GROUP_COMMENT
-                , A.GROUP_STATUS
-            FROM PLRECIPE_GROUP A
+        A.GROUP_ID
+        , A.GROUP_NAME
+        , A.IS_GROUP_PUBLIC
+        , A.GROUP_CREATE_DATE
+        , A.GROUP_WITHDRAWAL_DATE
+        , A.GROUP_COMMENT
+        , A.GROUP_STATUS
+        FROM PLRECIPE_GROUP A
     </select>
 
-    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe_group.feature.group.dto.MemberDTO">
+    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe_group.dto.MemberDTO">
         <id property="memberEmail" column="MEMBER_EMAIL"/>
         <result property="memberName" column="MEMBER_NAME"/>
     </resultMap>
 
     <select id="selectMembersByGroupId" resultMap="memberResultMap" parameterType="int">
-    SELECT
-              A.MEMBER_EMAIL
-            , A.MEMBER_NAME
-         FROM member_info A
-         JOIN group_member B ON A.MEMBER_EMAIL = B.member_email
+        SELECT
+        A.MEMBER_EMAIL
+        , A.MEMBER_NAME
+        FROM member_info A
+        JOIN group_member B ON A.MEMBER_EMAIL = B.member_email
         WHERE B.group_id = #{groupId}
     </select>
 

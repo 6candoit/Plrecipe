@@ -1,18 +1,33 @@
-package com.sixcandoit.plrecipe_group.feature.group.dto;
-public class GroupDTO {
+package com.sixcandoit.plrecipe_group.aggregate;
 
+import jakarta.persistence.*;
+
+@Entity(name= "plrecipe-group")
+@Table(name = "plrecipe_group")
+public class Group {
+
+    @Id
+    @Column(name = "group_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int groupId;
+
+    @Column(name="group_name")
     private String groupName;
+    @Column(name="is_group_public")
     private String isGroupPublic;
+    @Column(name="group_create_date")
     private String groupCreateDate;
+    @Column(name="group_withdrawal_date")
     private String groupWithdrawalDate;
+    @Column(name="group_comment")
     private String groupComment;
+    @Column(name="group_status")
     private String groupStatus;
 
-    public GroupDTO() {
+    public Group() {
     }
 
-    public GroupDTO(int groupId, String groupName, String isGroupPublic, String groupCreateDate, String groupWithdrawalDate, String groupComment, String groupStatus) {
+    public Group(int groupId, String groupName, String isGroupPublic, String groupCreateDate, String groupWithdrawalDate, String groupComment, String groupStatus) {
         this.groupId = groupId;
         this.groupName = groupName;
         this.isGroupPublic = isGroupPublic;
@@ -80,7 +95,7 @@ public class GroupDTO {
 
     @Override
     public String toString() {
-        return "GroupDTO{" +
+        return "Group{" +
                 "groupId=" + groupId +
                 ", groupName='" + groupName + '\'' +
                 ", isGroupPublic='" + isGroupPublic + '\'' +

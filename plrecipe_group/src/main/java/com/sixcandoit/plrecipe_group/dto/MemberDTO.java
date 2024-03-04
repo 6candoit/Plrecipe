@@ -1,4 +1,6 @@
-package com.sixcandoit.plrecipe_group.feature.group.dto;
+package com.sixcandoit.plrecipe_group.dto;
+
+import com.sixcandoit.plrecipe_group.dto.MemberGrade;
 
 public class MemberDTO {
 

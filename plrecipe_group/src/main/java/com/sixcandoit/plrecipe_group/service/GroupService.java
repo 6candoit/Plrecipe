@@ -1,8 +1,8 @@
-package com.sixcandoit.plrecipe_group.feature.group.service;
+package com.sixcandoit.plrecipe_group.service;
 
-import com.sixcandoit.plrecipe_group.feature.group.dto.GroupDTO;
-import com.sixcandoit.plrecipe_group.feature.group.dto.MemberDTO;
-import com.sixcandoit.plrecipe_group.feature.group.repository.GroupMapper;
+import com.sixcandoit.plrecipe_group.dto.GroupDTO;
+import com.sixcandoit.plrecipe_group.dto.MemberDTO;
+import com.sixcandoit.plrecipe_group.repository.mapper.GroupMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
