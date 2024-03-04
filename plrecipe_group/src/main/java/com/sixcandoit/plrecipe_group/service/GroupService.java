@@ -1,5 +1,7 @@
 package com.sixcandoit.plrecipe_group.service;
 
+import com.sixcandoit.plrecipe_group.aggregate.Group;
+import com.sixcandoit.plrecipe_group.aggregate.GroupMember;
 import com.sixcandoit.plrecipe_group.dto.GroupDTO;
 import com.sixcandoit.plrecipe_group.dto.MemberDTO;
 import com.sixcandoit.plrecipe_group.repository.mapper.GroupMapper;
@@ -46,5 +48,14 @@ public class GroupService {
         entityManager.persist(group);
 
         return group;
+    }
+
+    @Transactional
+    public void addUserToGroup(int memberId, Group group) {
+        GroupMember membership = new GroupMember();
+        membership.setMemberId(memberId);
+        membership.setGroup(group);
+
+        entityManager.persist(membership);
     }
 }
