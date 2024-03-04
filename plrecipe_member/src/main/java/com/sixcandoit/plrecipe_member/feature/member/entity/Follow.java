@@ -1,10 +1,20 @@
 package com.sixcandoit.plrecipe_member.feature.member.entity;
 
+import jakarta.persistence.*;
+
+@Entity(name = "plrecipe_follow")
+@Table(name = "follow")
 public class Follow {
 
-
+    @Id
+    @Column(name = "follow_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int followId;
+
+    @Column(name = "user_follow")
     private String userFollow;
+
+    @Column(name = "user_follower")
     private String userFollower;
 
     public Follow() {
