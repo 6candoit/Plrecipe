@@ -1,7 +1,7 @@
-package com.sixcandoit.plrecipe_member.feature.member.service;
+package com.sixcandoit.plrecipe_member.service;
 
-import com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO;
-import com.sixcandoit.plrecipe_member.feature.member.repository.MemberMapper;
+import com.sixcandoit.plrecipe_member.dto.MemberDTO;
+import com.sixcandoit.plrecipe_member.repository.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_member.feature.member.dto;
+package com.sixcandoit.plrecipe_member.dto;
 
 public class FollowDTO {
 

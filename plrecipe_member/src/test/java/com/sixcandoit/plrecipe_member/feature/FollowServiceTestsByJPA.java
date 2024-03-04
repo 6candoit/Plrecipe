@@ -1,9 +1,8 @@
-package com.sixcandoit.plrecipe_member.feature.follow;
+package com.sixcandoit.plrecipe_member.feature;
 
-import com.sixcandoit.plrecipe_member.feature.member.entity.Follow;
+import com.sixcandoit.plrecipe_member.aggregate.Follow;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;

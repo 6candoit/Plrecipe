@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_member.feature.member;
+package com.sixcandoit.plrecipe_member.aggregate;
 
 public enum MemberGrade {
 

@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_member.feature.member.entity;
+package com.sixcandoit.plrecipe_member.aggregate;
 
 import jakarta.persistence.*;
 

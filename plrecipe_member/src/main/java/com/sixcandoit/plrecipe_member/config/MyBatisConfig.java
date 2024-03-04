@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_member.common;
+package com.sixcandoit.plrecipe_member.config;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;

@@ -1,8 +1,7 @@
-package com.sixcandoit.plrecipe_member.feature.follow;
+package com.sixcandoit.plrecipe_member.feature;
 
-import com.sixcandoit.plrecipe_member.feature.member.dto.FollowDTO;
-import com.sixcandoit.plrecipe_member.feature.member.service.FollowService;
-import org.junit.jupiter.api.Test;
+import com.sixcandoit.plrecipe_member.dto.FollowDTO;
+import com.sixcandoit.plrecipe_member.service.FollowService;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;

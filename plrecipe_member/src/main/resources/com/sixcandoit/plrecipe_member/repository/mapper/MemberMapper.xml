@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sixcandoit.plrecipe_member.feature.member.repository.MemberMapper">
+<mapper namespace="com.sixcandoit.plrecipe_member.repository.mapper.MemberMapper">
 
-    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO">
+    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe_member.dto.MemberDTO">
         <id property="memberEmail" column="MEMBER_EMAIL"/>
         <result property="password" column="PASSWORD"/>
         <result property="memberName" column="MEMBER_NAME"/>
