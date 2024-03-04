@@ -10,7 +10,7 @@
         <result property="postContent" column="POST_CONTENT"/>
         <result property="postDate" column="POST_DATE"/>
         <result property="postDeleteDate" column="POST_DELETE_DATE"/>
-        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="memberId" column="MEMBER_ID"/>
         <result property="courseId" column="COURSE_ID"/>
         <result property="isPostPublic" column="IS_POST_PUBLIC"/>
         <result property="memberCount" column="MEMBER_COUNT"/>
@@ -28,7 +28,7 @@
 
     <resultMap id="postLikeResultMap" type="com.sixcandoit.plrecipe_post.dto.PostLikeDTO">
         <id property="postLikeId" column="POST_LIKE_ID"/>
-        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="memberId" column="MEMBER_ID"/>
         <result property="postId" column="POST_ID"/>
     </resultMap>
 
@@ -39,7 +39,7 @@
             , A.POST_CONTENT
             , A.POST_DATE
             , A.POST_DELETE_DATE
-            , A.MEMBER_EMAIL
+            , A.MEMBER_ID
             , A.COURSE_ID
             , A.IS_POST_PUBLIC
             , A.MEMBER_COUNT
@@ -53,12 +53,12 @@
             , A.POST_CONTENT
             , A.POST_DATE
             , A.POST_DELETE_DATE
-            , A.MEMBER_EMAIL
+            , A.MEMBER_ID
             , A.COURSE_ID
             , A.IS_POST_PUBLIC
             , A.MEMBER_COUNT
           FROM POST A
-         WHERE A.MEMBER_EMAIL = #{memberEmail}
+         WHERE A.MEMBER_ID = #{memberId}
     </select>
 
     <select id="selectPostsByStatus" resultMap="postResultMap">
@@ -68,7 +68,7 @@
             , A.POST_CONTENT
             , A.POST_DATE
             , A.POST_DELETE_DATE
-            , A.MEMBER_EMAIL
+            , A.MEMBER_ID
             , A.COURSE_ID
             , A.IS_POST_PUBLIC
             , A.MEMBER_COUNT
@@ -83,7 +83,7 @@
             , A.POST_CONTENT
             , A.POST_DATE
             , A.POST_DELETE_DATE
-            , A.MEMBER_EMAIL
+            , A.MEMBER_ID
             , A.COURSE_ID
             , A.IS_POST_PUBLIC
             , A.MEMBER_COUNT
@@ -107,7 +107,7 @@
     <select id="selectPostByLikes" resultMap="postLikeResultMap">
         SELECT
               A.POST_LIKE_ID
-            , A.MEMBER_EMAIL
+            , A.MEMBER_ID
             , A.POST_ID
           FROM POST_LIKE A
          WHERE A.POST_ID = #{postId}

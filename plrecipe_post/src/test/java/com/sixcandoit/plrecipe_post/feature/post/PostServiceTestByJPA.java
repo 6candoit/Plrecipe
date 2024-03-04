@@ -47,7 +47,7 @@ public class PostServiceTestByJPA {
         post.setPostTitle("게시글 추가 테스트");
         post.setPostContent("게시글 내용");
         post.setPostDate(dateTest);
-        post.setMemberEmail("yun123@naver.com");
+        post.setMemberId(3);
         post.setCourseId(1);
         post.setIsPostPublic("N");
         post.setMemberCount(MemberCount.MANY);
@@ -65,58 +65,58 @@ public class PostServiceTestByJPA {
         Assertions.assertTrue(entityManager.contains(post));
     }
 
-//    @Test
-//    public void 게시글_이름_수정_테스트() {
-//
-//        Post post = entityManager.find(Post.class, 13);
-//        System.out.println("post = " + post);
-//
-//        String postTitleToChange = "게시글 수정 테스트";
-//
-//        EntityTransaction entityTransaction = entityManager.getTransaction();
-//        entityTransaction.begin();
-//
-//        try {
-//            post.setPostTitle(postTitleToChange);
-//            entityTransaction.commit();
-//        } catch (Exception e) {
-//            entityTransaction.rollback();
-//        }
-//
-//        Assertions.assertEquals(postTitleToChange, entityManager.find(Post.class, 13).getPostTitle());
-//
-//    }
-//
-//    @Test
-//    public void 게시글번호로_게시글_조회_테스트() {
-//
-//        int postId = 10;
-//
-//        Post foundPost = entityManager.find(Post.class, postId);
-//
-//        Assertions.assertNotNull(foundPost);
-//        Assertions.assertEquals(postId, foundPost.getPostId());
-//        System.out.println("foundPost = " + foundPost);
-//    }
-//
-//    @Test
-//    public void 게시글_삭제_테스트() {
-//
-//        Post postToRemove = entityManager.find(Post.class, 12);
-//
-//        EntityTransaction entityTransaction = entityManager.getTransaction();
-//        entityTransaction.begin();
-//
-//        try {
-//            entityManager.remove(postToRemove);
-//            entityTransaction.commit();
-//
-//        } catch (Exception e) {
-//            entityTransaction.rollback();
-//        }
-//
-//        // then
-//        Post removeMenu = entityManager.find(Post.class, 12);
-//        Assertions.assertEquals(null, removeMenu);
-//    }
+    @Test
+    public void 게시글_이름_수정_테스트() {
+
+        Post post = entityManager.find(Post.class, 10);
+        System.out.println("post = " + post);
+
+        String postTitleToChange = "게시글 수정 테스트";
+
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        try {
+            post.setPostTitle(postTitleToChange);
+            entityTransaction.commit();
+        } catch (Exception e) {
+            entityTransaction.rollback();
+        }
+
+        Assertions.assertEquals(postTitleToChange, entityManager.find(Post.class, 10).getPostTitle());
+
+    }
+
+    @Test
+    public void 게시글번호로_게시글_조회_테스트() {
+
+        int postId = 10;
+
+        Post foundPost = entityManager.find(Post.class, postId);
+
+        Assertions.assertNotNull(foundPost);
+        Assertions.assertEquals(postId, foundPost.getPostId());
+        System.out.println("foundPost = " + foundPost);
+    }
+
+    @Test
+    public void 게시글_삭제_테스트() {
+
+        Post postToRemove = entityManager.find(Post.class, 12);
+
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        try {
+            entityManager.remove(postToRemove);
+            entityTransaction.commit();
+
+        } catch (Exception e) {
+            entityTransaction.rollback();
+        }
+
+        // then
+        Post removeMenu = entityManager.find(Post.class, 12);
+        Assertions.assertEquals(null, removeMenu);
+    }
 }
