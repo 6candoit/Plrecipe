@@ -1,6 +1,6 @@
-package com.sixcandoit.plrecipe_post.feature.post.dto;
+package com.sixcandoit.plrecipe_post.dto;
 
-import com.sixcandoit.plrecipe_post.feature.post.MemberCount;
+import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
 import lombok.Setter;
 
 @Setter

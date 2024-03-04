@@ -1,12 +1,12 @@
-package com.sixcandoit.plrecipe_post.feature.post.service;
+package com.sixcandoit.plrecipe_post.service;
 
-import com.sixcandoit.plrecipe_post.feature.post.MemberCount;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostDTO;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostHashtagDTO;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostLikeDTO;
-import com.sixcandoit.plrecipe_post.feature.post.entity.Post;
-import com.sixcandoit.plrecipe_post.feature.post.repository.PostMapper;
-import com.sixcandoit.plrecipe_post.feature.post.repository.PostRepository;
+import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.dto.PostDTO;
+import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
+import com.sixcandoit.plrecipe_post.aggregate.Post;
+import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
+import com.sixcandoit.plrecipe_post.repository.repo.PostRepository;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

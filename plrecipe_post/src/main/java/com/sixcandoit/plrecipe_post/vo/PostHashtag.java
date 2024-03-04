@@ -1,7 +1,5 @@
-package com.sixcandoit.plrecipe_post.feature.post.entity;
+package com.sixcandoit.plrecipe_post.vo;
 
-import com.sixcandoit.plrecipe_post.feature.post.dto.HashtagDTO;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostDTO;
 import jakarta.persistence.*;
 
 @Entity(name = "plrecipe_postHashtag")

@@ -1,12 +1,10 @@
-package com.sixcandoit.plrecipe_post.feature.post.repository;
+package com.sixcandoit.plrecipe_post.repository.mapper;
 
-import com.sixcandoit.plrecipe_post.feature.post.MemberCount;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostDTO;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostHashtagDTO;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostLikeDTO;
-import com.sixcandoit.plrecipe_post.feature.post.entity.Post;
+import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.dto.PostDTO;
+import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 

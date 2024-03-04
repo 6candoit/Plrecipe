@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.feature.post;
+package com.sixcandoit.plrecipe_post.aggregate;
 
 public enum MemberCount {
     ONE(1),

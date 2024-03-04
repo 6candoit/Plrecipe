@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.common;
+package com.sixcandoit.plrecipe_post.config;
 
 import lombok.*;
 

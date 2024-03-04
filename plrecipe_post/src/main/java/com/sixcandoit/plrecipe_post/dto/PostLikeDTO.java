@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.feature.post.dto;
+package com.sixcandoit.plrecipe_post.dto;
 
 public class PostLikeDTO {
     private int postLikeId;

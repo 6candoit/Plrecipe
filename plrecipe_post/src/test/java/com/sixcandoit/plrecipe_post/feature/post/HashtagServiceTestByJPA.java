@@ -1,14 +1,11 @@
 package com.sixcandoit.plrecipe_post.feature.post;
 
-import com.sixcandoit.plrecipe_post.feature.post.entity.Hashtag;
-import com.sixcandoit.plrecipe_post.feature.post.entity.PostHashtag;
+import com.sixcandoit.plrecipe_post.vo.Hashtag;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
-
-import java.text.SimpleDateFormat;
 
 public class HashtagServiceTestByJPA {
     private static EntityManagerFactory entityManagerFactory;

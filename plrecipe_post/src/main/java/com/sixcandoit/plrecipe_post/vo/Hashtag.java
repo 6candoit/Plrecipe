@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.feature.post.entity;
+package com.sixcandoit.plrecipe_post.vo;
 
 import jakarta.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.common;
+package com.sixcandoit.plrecipe_post.config;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;

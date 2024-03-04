@@ -1,22 +1,15 @@
-package com.sixcandoit.plrecipe_post.feature.post.controller;
+package com.sixcandoit.plrecipe_post.controller;
 
-import com.sixcandoit.plrecipe_post.common.ResponseMessage;
-import com.sixcandoit.plrecipe_post.feature.post.MemberCount;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostDTO;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostHashtagDTO;
-import com.sixcandoit.plrecipe_post.feature.post.dto.PostLikeDTO;
-import com.sixcandoit.plrecipe_post.feature.post.entity.Post;
-import com.sixcandoit.plrecipe_post.feature.post.repository.PostMapper;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.dto.PostDTO;
+import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
+import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.lang.reflect.Member;
-import java.nio.charset.Charset;
 import java.util.List;
 
 @RestController

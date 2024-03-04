@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sixcandoit.plrecipe_post.feature.post.repository.PostMapper">
+<mapper namespace="com.sixcandoit.plrecipe_post.repository.mapper.PostMapper">
 
-    <resultMap id="postResultMap" type="com.sixcandoit.plrecipe_post.feature.post.dto.PostDTO">
+    <resultMap id="postResultMap" type="com.sixcandoit.plrecipe_post.dto.PostDTO">
         <id property="postId" column="POST_ID"/>
         <result property="postTitle" column="POST_TITLE"/>
         <result property="postContent" column="POST_CONTENT"/>
@@ -16,17 +16,17 @@
         <result property="memberCount" column="MEMBER_COUNT"/>
     </resultMap>
 
-    <resultMap id="HashtagResultMap" type="com.sixcandoit.plrecipe_post.feature.post.dto.HashtagDTO">
+    <resultMap id="HashtagResultMap" type="com.sixcandoit.plrecipe_post.dto.HashtagDTO">
         <id property="hashtagId" column="HASHTAG_ID"/>
         <result property="hashtagTitle" column="HASHTAG_TITLE"/>
     </resultMap>
 
-    <resultMap id="postHashtagResultMap" type="com.sixcandoit.plrecipe_post.feature.post.dto.PostHashtagDTO">
+    <resultMap id="postHashtagResultMap" type="com.sixcandoit.plrecipe_post.dto.PostHashtagDTO">
         <association property="postDTO" resultMap="postResultMap"/>
         <association property="hashtagDTO" resultMap="HashtagResultMap"/>
     </resultMap>
 
-    <resultMap id="postLikeResultMap" type="com.sixcandoit.plrecipe_post.feature.post.dto.PostLikeDTO">
+    <resultMap id="postLikeResultMap" type="com.sixcandoit.plrecipe_post.dto.PostLikeDTO">
         <id property="postLikeId" column="POST_LIKE_ID"/>
         <result property="memberEmail" column="MEMBER_EMAIL"/>
         <result property="postId" column="POST_ID"/>

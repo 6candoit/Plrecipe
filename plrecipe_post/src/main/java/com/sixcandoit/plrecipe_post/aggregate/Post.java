@@ -1,6 +1,5 @@
-package com.sixcandoit.plrecipe_post.feature.post.entity;
+package com.sixcandoit.plrecipe_post.aggregate;
 
-import com.sixcandoit.plrecipe_post.feature.post.MemberCount;
 import jakarta.persistence.*;
 
 @Entity(name = "plrecipe_post")

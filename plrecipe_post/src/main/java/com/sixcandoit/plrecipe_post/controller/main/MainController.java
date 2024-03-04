@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.main.controller;
+package com.sixcandoit.plrecipe_post.controller.main;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
