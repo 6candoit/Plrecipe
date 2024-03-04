@@ -9,7 +9,7 @@ public class Member {
 
     @Id
     @Column(name = "member_email")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String memberEmail;
 
     @Column(name = "password")

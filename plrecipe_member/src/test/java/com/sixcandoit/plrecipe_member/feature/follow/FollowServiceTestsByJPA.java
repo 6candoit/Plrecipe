@@ -55,37 +55,37 @@ public class FollowServiceTestsByJPA {
 //        Assertions.assertTrue(entityManager.contains(follow));
 //    }
 
-//    @Test
-//    public void 팔로우_조회() {
-//
-//        String userFollow = "kim123@kakao.com";
-//
-//        Follow foundMember = entityManager.find(Follow.class, userFollow);
-//
-//        Assertions.assertNotNull(foundMember);
-//        Assertions.assertEquals(userFollow, foundMember.getUserFollow());
-//
-//        System.out.println("foundMember = " + foundMember);
-//    }
-
     @Test
-    public void 팔로우_취소_테스트() {
+    public void 팔로우_조회() {
 
-        Follow followToRemove = entityManager.find(Follow.class, 10);
+        String userFollow = "kim123@kakao.com";
 
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        entityTransaction.begin();
+        Follow foundMember = entityManager.find(Follow.class, userFollow);
 
-        try {
-            entityManager.remove(followToRemove);
-            entityTransaction.commit();
-        } catch (Exception e) {
-            entityTransaction.rollback();
-        }
+        Assertions.assertNotNull(foundMember);
+        Assertions.assertEquals(userFollow, foundMember.getUserFollow());
 
-        // then
-        Follow removeFollow = entityManager.find(Follow.class, 10);
-        Assertions.assertEquals(null, removeFollow);
-
+        System.out.println("foundMember = " + foundMember);
     }
+
+//    @Test
+//    public void 팔로우_취소_테스트() {
+//
+//        Follow followToRemove = entityManager.find(Follow.class, 10);
+//
+//        EntityTransaction entityTransaction = entityManager.getTransaction();
+//        entityTransaction.begin();
+//
+//        try {
+//            entityManager.remove(followToRemove);
+//            entityTransaction.commit();
+//        } catch (Exception e) {
+//            entityTransaction.rollback();
+//        }
+//
+//        // then
+//        Follow removeFollow = entityManager.find(Follow.class, 10);
+//        Assertions.assertEquals(null, removeFollow);
+//
+//    }
 }
