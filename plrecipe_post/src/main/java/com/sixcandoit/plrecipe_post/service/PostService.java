@@ -7,6 +7,9 @@ import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
 import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
 import com.sixcandoit.plrecipe_post.repository.repo.PostRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +17,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PostService {
@@ -27,6 +33,9 @@ public class PostService {
     private final PostMapper postMapper;
     private final PostRepository postRepository;
 
+    private static List<PostDTO> posts;
+    private EntityManager entityManager;
+    private static EntityManagerFactory entityManagerFactory;
     @Autowired
     public PostService(ModelMapper mapper, PostMapper postMapper, PostRepository postRepository) {
         this.mapper = mapper;
@@ -68,6 +77,26 @@ public class PostService {
 
     }
 
+
+//    @Transactional
+//    public void modifyPostDelete(PostDTO modifyDeleteDate, int postId) {
+//        Date date = new Date();
+//        SimpleDateFormat format  =new SimpleDateFormat("yyyy-MM-dd");
+//        String dateTest = format.format(date);
+//
+//        Post post = entityManager.find(Post.class, postId);
+//
+//        EntityTransaction entityTransaction = entityManager.getTransaction();
+//        entityTransaction.begin();
+//
+//        try{
+//            post.setPostDeleteDate(dateTest);
+//            entityTransaction.commit();
+//        } catch (Exception e) {
+//            entityTransaction.rollback();
+//        }
+//    }
+
     @Transactional
     public void deletePost(int postId) {
         postRepository.deleteById(postId);
@@ -97,5 +126,17 @@ public class PostService {
 
     public List<PostLikeDTO> selectPostByLikes(int postId) {
         return postMapper.selectPostByLikes(postId);
+    }
+
+    public void modifyPostTest(PostDTO modifyPost) {
+        Date date = new Date();
+        SimpleDateFormat format  =new SimpleDateFormat("yyyy-MM-dd");
+        String dateTest = format.format(date);
+
+        Post foundPost = postRepository.findById(modifyPost.getPostId()).orElseThrow(IllegalArgumentException::new);
+        foundPost.setPostTitle(modifyPost.getPostTitle());
+        foundPost.setIsPostPublic(modifyPost.getIsPostPublic());
+        foundPost.setMemberCount(modifyPost.getMemberCount());
+        foundPost.setPostDate(dateTest);
     }
 }

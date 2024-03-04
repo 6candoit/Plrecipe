@@ -73,6 +73,7 @@ public class PostController {
         return "redirect:/post/" + modifyPost.getPostId();
     }
 
+    /* 게시글 삭제 */
     @GetMapping("/delete")
     public void deletePage() {}
 
