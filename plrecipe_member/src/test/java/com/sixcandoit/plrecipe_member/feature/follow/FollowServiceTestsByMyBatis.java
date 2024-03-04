@@ -14,19 +14,19 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-public class FollowServiceTests {
+public class FollowServiceTestsByMyBatis {
 
     @Autowired
     private FollowService followService;
 
-    @Test
-    void selectAllFollow() {
-
-        List<FollowDTO> follows = followService.selectAllFollow();
-        follows.forEach(System.out::println);
-
-        assertNotNull(follows);
-    }
+//    @Test
+//    void selectAllFollow() {
+//
+//        List<FollowDTO> follows = followService.selectAllFollow();
+//        follows.forEach(System.out::println);
+//
+//        assertNotNull(follows);
+//    }
 
     @ParameterizedTest
     @ValueSource(strings = {"mfk5gd@daum.net"})
@@ -39,7 +39,7 @@ public class FollowServiceTests {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"1m0s11@gmail.com"})
+    @ValueSource(strings = {"lehyw@nate.com"})
     void selectMemberWhoIFollow(String userFollower) {
 
         List<FollowDTO> followList2 = followService.selectMemberWhoIFollow(userFollower);

@@ -1,5 +1,7 @@
 package com.sixcandoit.plrecipe_member.feature.member.dto;
 
+import com.sixcandoit.plrecipe_member.feature.member.MemberGrade;
+
 public class MemberDTO {
 
     private String memberEmail;

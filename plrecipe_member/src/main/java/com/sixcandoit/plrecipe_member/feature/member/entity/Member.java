@@ -1,18 +1,40 @@
 package com.sixcandoit.plrecipe_member.feature.member.entity;
 
-import com.sixcandoit.plrecipe_member.feature.member.dto.MemberGrade;
+import com.sixcandoit.plrecipe_member.feature.member.MemberGrade;
+import jakarta.persistence.*;
 
+@Entity(name = "plrecipe_member")
+@Table(name = "member_info")
 public class Member {
 
+    @Id
+    @Column(name = "member_email")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String memberEmail;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "member_name")
     private String memberName;
+
+    @Column(name = "member_nickname")
     private String memberNickname;
+
+    @Column(name = "member_number")
     private String memberNumber;
+
+    @Column(name = "join_date")
     private String joinDate;
+
+    @Column(name = "withdrawal_date")
     private String withdrawalDate;
+
+    @Column(name = "member_grade")
+    @Enumerated(EnumType.STRING)
     private MemberGrade memberGrade;
 
+    @Column(name = "member_status")
     private String memberStatus;
 
     public Member() {
