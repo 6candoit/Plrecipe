@@ -28,16 +28,18 @@
     </select>
 
     <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe_group.dto.MemberDTO">
-        <id property="memberEmail" column="MEMBER_EMAIL"/>
+        <id property="memberId" column="MEMBER_ID"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
         <result property="memberName" column="MEMBER_NAME"/>
     </resultMap>
 
     <select id="selectMembersByGroupId" resultMap="memberResultMap" parameterType="int">
         SELECT
-        A.MEMBER_EMAIL
-        , A.MEMBER_NAME
+              A.MEMBER_ID
+            , A.MEMBER_EMAIL
+            , A.MEMBER_NAME
         FROM member_info A
-        JOIN group_member B ON A.MEMBER_EMAIL = B.member_email
+        JOIN group_member B ON A.member_id = B.member_id
         WHERE B.group_id = #{groupId}
     </select>
 
@@ -50,9 +52,9 @@
         A.group_withdrawal_date,
         A.group_comment,
         A.group_status,
-        B.member_email
+        B.member_id
         FROM plrecipe_group A
         JOIN group_member B ON(A.group_id = B.group_id)
-        WHERE MEMBER_EMAIL = #{memberEmail};
+        WHERE MEMBER_ID = #{memberId};
     </select>
 </mapper>

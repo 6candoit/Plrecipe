@@ -12,6 +12,6 @@ public interface GroupMapper {
 
     List<MemberDTO> selectMembersByGroupId(int groupId);
 
-    List<GroupDTO> selectPublicOrPrivateGroup(String memberEmail);
+    List<GroupDTO> selectPublicOrPrivateGroup(int memberId);
 
 }

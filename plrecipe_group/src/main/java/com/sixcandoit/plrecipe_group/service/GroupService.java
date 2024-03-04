@@ -28,8 +28,8 @@ public class GroupService {
 
     }
 
-    public List<GroupDTO> selectPublicOrPrivateGroup(String memberEmail){
-        return groupMapper.selectPublicOrPrivateGroup(memberEmail);
+    public List<GroupDTO> selectPublicOrPrivateGroup(int memberId){
+        return groupMapper.selectPublicOrPrivateGroup(memberId);
 
     }
 }

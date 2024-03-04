@@ -44,9 +44,9 @@ public class GroupServiceTestsByMyBatis {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"mfk5gd@daum.net"})
-    void selectPublicOrPrivateGroup(String memberEmail) {
-        List<GroupDTO> groupList = groupService.selectPublicOrPrivateGroup(memberEmail);
+    @ValueSource(ints = {1})
+    void selectPublicOrPrivateGroup(int memberId) {
+        List<GroupDTO> groupList = groupService.selectPublicOrPrivateGroup(memberId);
         groupList.forEach(System.out::println);
 
         assertNotNull(groupList);
