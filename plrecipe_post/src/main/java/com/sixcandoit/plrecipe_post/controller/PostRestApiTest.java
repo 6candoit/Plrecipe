@@ -26,9 +26,9 @@ public class PostRestApiTest {
         return postMapper.selectAllPost();
     }
 
-    @GetMapping("/posts/email/{memberEmail}")
-    public List<PostDTO> selectMemberPosts(@PathVariable("memberEmail") String memberEmail) {
-        return postMapper.selectMemberPosts(memberEmail);
+    @GetMapping("/posts/email/{memberId}")
+    public List<PostDTO> selectMemberPosts(@PathVariable int memberId) {
+        return postMapper.selectMemberPosts(memberId);
     }
 
     @GetMapping("/posts/status/{postStatus}")

@@ -32,9 +32,9 @@ public class PostServiceTestsByMyBatis {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"park123@naver.com", "yun123@naver.com"})
-    void selectMemberPosts(String memberEmail) {
-        List<PostDTO> postList = postService.selectMemberPosts(memberEmail);
+    @ValueSource(ints = {1, 2})
+    void selectMemberPosts(int memberId) {
+        List<PostDTO> postList = postService.selectMemberPosts(memberId);
 
         postList.forEach(System.out::println);
 

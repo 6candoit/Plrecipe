@@ -47,7 +47,7 @@ public class PostServiceTestByJPA {
         post.setPostTitle("게시글 추가 테스트");
         post.setPostContent("게시글 내용");
         post.setPostDate(dateTest);
-        post.setMemberEmail("yun123@naver.com");
+        post.setMemberId(3);
         post.setCourseId(1);
         post.setIsPostPublic("N");
         post.setMemberCount(MemberCount.MANY);
@@ -68,7 +68,7 @@ public class PostServiceTestByJPA {
     @Test
     public void 게시글_이름_수정_테스트() {
 
-        Post post = entityManager.find(Post.class, 13);
+        Post post = entityManager.find(Post.class, 10);
         System.out.println("post = " + post);
 
         String postTitleToChange = "게시글 수정 테스트";
@@ -83,7 +83,7 @@ public class PostServiceTestByJPA {
             entityTransaction.rollback();
         }
 
-        Assertions.assertEquals(postTitleToChange, entityManager.find(Post.class, 13).getPostTitle());
+        Assertions.assertEquals(postTitleToChange, entityManager.find(Post.class, 10).getPostTitle());
 
     }
 

@@ -13,7 +13,7 @@ public interface PostMapper{
 
     List<PostDTO> selectAllPost();
 
-    List<PostDTO> selectMemberPosts(String memberEmail);
+    List<PostDTO> selectMemberPosts(int memberId);
 
     List<PostDTO> selectPostsByStatus(String postStatus);
 

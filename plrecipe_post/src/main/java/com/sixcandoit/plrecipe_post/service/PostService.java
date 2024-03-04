@@ -79,8 +79,8 @@ public class PostService {
         return postMapper.selectAllPost();
     }
 
-    public List<PostDTO> selectMemberPosts(String memberEmail) {
-        return postMapper.selectMemberPosts(memberEmail);
+    public List<PostDTO> selectMemberPosts(int memberId) {
+        return postMapper.selectMemberPosts(memberId);
     }
 
     public List<PostDTO> selectPostsByStatus(String postStatus) {
