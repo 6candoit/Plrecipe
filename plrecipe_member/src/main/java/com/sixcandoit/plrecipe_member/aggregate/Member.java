@@ -7,8 +7,11 @@ import jakarta.persistence.*;
 public class Member {
 
     @Id
+    @Column(name = "member_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int memberId;
+
     @Column(name = "member_email")
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String memberEmail;
 
     @Column(name = "password")
@@ -39,7 +42,8 @@ public class Member {
     public Member() {
     }
 
-    public Member(String memberEmail, String password, String memberName, String memberNickname, String memberNumber, String joinDate, String withdrawalDate, MemberGrade memberGrade, String memberStatus) {
+    public Member(int memberid, String memberEmail, String password, String memberName, String memberNickname, String memberNumber, String joinDate, String withdrawalDate, MemberGrade memberGrade, String memberStatus) {
+        this.memberId = memberId;
         this.memberEmail = memberEmail;
         this.password = password;
         this.memberName = memberName;
@@ -49,6 +53,14 @@ public class Member {
         this.withdrawalDate = withdrawalDate;
         this.memberGrade = memberGrade;
         this.memberStatus = memberStatus;
+    }
+
+    public int getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
     }
 
     public String getMemberEmail() {
@@ -126,7 +138,8 @@ public class Member {
     @Override
     public String toString() {
         return "Member{" +
-                "memberEmail='" + memberEmail + '\'' +
+                "memberId='" + memberId + '\'' +
+                ", memberEmail='" + memberEmail + '\'' +
                 ", password='" + password + '\'' +
                 ", memberName='" + memberName + '\'' +
                 ", memberNickname='" + memberNickname + '\'' +

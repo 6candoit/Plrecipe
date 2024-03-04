@@ -3,13 +3,13 @@ package com.sixcandoit.plrecipe_member.dto;
 public class FollowDTO {
 
     private int followId;
-    private String userFollow;
-    private String userFollower;
+    private int userFollow;
+    private int userFollower;
 
     public FollowDTO() {
     }
 
-    public FollowDTO(int followId, String userFollow, String userFollower) {
+    public FollowDTO(int followId, int userFollow, int userFollower) {
         this.followId = followId;
         this.userFollow = userFollow;
         this.userFollower = userFollower;
@@ -19,11 +19,11 @@ public class FollowDTO {
         return followId;
     }
 
-    public String getUserFollow() {
+    public int getUserFollow() {
         return userFollow;
     }
 
-    public String getUserFollower() {
+    public int getUserFollower() {
         return userFollower;
     }
 
@@ -31,8 +31,8 @@ public class FollowDTO {
     public String toString() {
         return "FollowDTO{" +
                 "followId=" + followId +
-                ", userFollow='" + userFollow + '\'' +
-                ", userFollower='" + userFollower + '\'' +
+                ", userFollow=" + userFollow +
+                ", userFollower=" + userFollower +
                 '}';
     }
 }

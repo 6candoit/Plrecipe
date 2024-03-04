@@ -21,8 +21,8 @@ public class MemberService {
         return memberMapper.selectAllMember();
     }
 
-    public List<MemberDTO> selectMemberByLikePost(String memberEmail) {
-        return memberMapper.selectMemberByLikePost(memberEmail);
+    public List<MemberDTO> selectMemberByLikePost(int memberId) {
+        return memberMapper.selectMemberByLikePost(memberId);
     }
 
 }

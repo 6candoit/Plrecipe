@@ -3,6 +3,7 @@ package com.sixcandoit.plrecipe_member.feature;
 import com.sixcandoit.plrecipe_member.aggregate.Follow;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,40 +34,51 @@ public class FollowServiceTestsByJPA {
         entityManager.close();
     }
 
-//    @Test
-//    public void 팔로우_테스트() {
-//
-//        Follow follow = new Follow();
-//
-//        follow.setUserFollow("cho123@daum.net");
-//        follow.setUserFollower("mfk5gd@daum.net");
-//
-//        EntityTransaction entityTransaction = entityManager.getTransaction();
-//        entityTransaction.begin();
-//
-//        try {
-//            entityManager.persist(follow);
-//            entityTransaction.commit();
-//        } catch (Exception e) {
-//            entityTransaction.rollback();
-//        }
-//
-//        Assertions.assertTrue(entityManager.contains(follow));
-//    }
-
     @Test
-    public void 팔로우_조회() {
+    public void 팔로우_테스트() {
 
-        String userFollow = "kim123@kakao.com";
+        Follow follow = new Follow();
 
-        Follow foundMember = entityManager.find(Follow.class, userFollow);
+        follow.setUserFollow(15);
+        follow.setUserFollower(5);
 
-        Assertions.assertNotNull(foundMember);
-        Assertions.assertEquals(userFollow, foundMember.getUserFollow());
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
 
-        System.out.println("foundMember = " + foundMember);
+        try {
+            entityManager.persist(follow);
+            entityTransaction.commit();
+        } catch (Exception e) {
+            entityTransaction.rollback();
+        }
+
+        Assertions.assertTrue(entityManager.contains(follow));
     }
 
+//    @Test
+//    public void 팔로우_조회() {
+//
+//        int follow_id = 11;
+//
+//        Follow foundMember = entityManager.find(Follow.class, follow_id);
+//        Assertions.assertNotNull(foundMember);
+//        Assertions.assertEquals(follow_id, foundMember.getFollowId());
+//
+//        System.out.println("foundMember = " + foundMember);
+//    }
+
+//    @Test
+//    public void 팔로우_조회_회원() {
+//
+//        int user_follow = 7;
+//
+//        Follow foundMember = entityManager.find(Follow.class, user_follow);
+//        Assertions.assertNotNull(foundMember);
+//        Assertions.assertEquals(user_follow, foundMember.getUserFollower());
+//
+//        System.out.println("foundMember = " + foundMember);
+//    }
+//
 //    @Test
 //    public void 팔로우_취소_테스트() {
 //

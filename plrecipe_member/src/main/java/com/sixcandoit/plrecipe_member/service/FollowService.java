@@ -21,11 +21,11 @@ public class FollowService {
         return followMapper.selectAllFollow();
     }
 
-    public List<FollowDTO> selectMemberWhoFollowsMe(String userFollow) {
+    public List<FollowDTO> selectMemberWhoFollowsMe(int userFollow) {
         return followMapper.selectMemberWhoFollowsMe(userFollow);
     }
 
-    public List<FollowDTO> selectMemberWhoIFollow(String userFollower) {
+    public List<FollowDTO> selectMemberWhoIFollow(int userFollower) {
         return followMapper.selectMemberWhoIFollow(userFollower);
     }
 

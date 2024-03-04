@@ -6,7 +6,8 @@
 <mapper namespace="com.sixcandoit.plrecipe_member.repository.mapper.MemberMapper">
 
     <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe_member.dto.MemberDTO">
-        <id property="memberEmail" column="MEMBER_EMAIL"/>
+        <id property="memberId" column="MEMBER_ID"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
         <result property="password" column="PASSWORD"/>
         <result property="memberName" column="MEMBER_NAME"/>
         <result property="memberNickname" column="MEMBER_NICKNAME"/>
@@ -19,7 +20,8 @@
 
     <select id="selectAllMember" resultMap="memberResultMap">
         SELECT
-              A.MEMBER_EMAIL
+              A.MEMBER_ID
+            , A.MEMBER_EMAIL
             , A.PASSWORD
             , A.MEMBER_NAME
             , A.MEMBER_NICKNAME
@@ -31,16 +33,16 @@
           FROM MEMBER_INFO A
     </select>
 
-    <select id="selectMemberByLikePost" parameterType="String" resultMap="memberResultMap">
+    <select id="selectMemberByLikePost" parameterType="_int" resultMap="memberResultMap">
         SELECT
-          B.member_email
+          B.member_id
         , A.post_id
         , B.post_title
         , B.post_content
         , B.post_date
         FROM POST_LIKE A
         JOIN POST B ON (A.POST_ID = B.POST_ID)
-        WHERE B.MEMBER_EMAIL = #{memberEmail};
+        WHERE B.MEMBER_ID = #{memberId};
     </select>
 
 </mapper>

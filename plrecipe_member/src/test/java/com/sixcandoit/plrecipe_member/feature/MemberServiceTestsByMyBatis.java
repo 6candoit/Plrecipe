@@ -29,10 +29,10 @@ public class MemberServiceTestsByMyBatis {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"kim123@kakao.com"})
-    void selectMemberByLikePost(String memberEmail) {
+    @ValueSource(strings = {"1"})
+    void selectMemberByLikePost(int memberId) {
 
-        List<MemberDTO> memberList3 = memberService.selectMemberByLikePost(memberEmail);
+        List<MemberDTO> memberList3 = memberService.selectMemberByLikePost(memberId);
         memberList3.forEach(System.out::println);
 
         assertTrue(!memberList3.isEmpty());

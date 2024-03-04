@@ -20,12 +20,12 @@
     <select id="selectAllFollow" resultMap="memberFollowMap">
         SELECT
               A.FOLLOW_ID
-            , A.USSER_FOLLOW
+            , A.USER_FOLLOW
             , A.UESR_FOLLOWER
         FROM FOLLOW_INFO A
     </select>
 
-    <select id="selectMemberWhoFollowsMe" parameterType="String" resultMap="memberFollowMap">
+    <select id="selectMemberWhoFollowsMe" parameterType="_int" resultMap="memberFollowMap">
         SELECT
           A.FOLLOW_ID
         , A.USER_FOLLOW
@@ -34,7 +34,7 @@
         WHERE A.USER_FOLLOW = #{userFollow};
     </select>
 
-    <select id="selectMemberWhoIFollow" parameterType="String" resultMap="memberFollowerMap">
+    <select id="selectMemberWhoIFollow" parameterType="_int" resultMap="memberFollowerMap">
         SELECT
         A.FOLLOW_ID
         , A.USER_FOLLOW

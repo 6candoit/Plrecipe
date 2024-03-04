@@ -3,7 +3,7 @@ package com.sixcandoit.plrecipe_member.aggregate;
 import jakarta.persistence.*;
 
 @Entity(name = "plrecipe_follow")
-@Table(name = "follow")
+@Table(name = "follow_info")
 public class Follow {
 
     @Id
@@ -12,15 +12,15 @@ public class Follow {
     private int followId;
 
     @Column(name = "user_follow")
-    private String userFollow;
+    private int userFollow;
 
     @Column(name = "user_follower")
-    private String userFollower;
+    private int userFollower;
 
     public Follow() {
     }
 
-    public Follow(int followId, String userFollow, String userFollower) {
+    public Follow(int followId, int userFollow, int userFollower) {
         this.followId = followId;
         this.userFollow = userFollow;
         this.userFollower = userFollower;
@@ -34,19 +34,19 @@ public class Follow {
         this.followId = followId;
     }
 
-    public String getUserFollow() {
+    public int getUserFollow() {
         return userFollow;
     }
 
-    public void setUserFollow(String userFollow) {
+    public void setUserFollow(int userFollow) {
         this.userFollow = userFollow;
     }
 
-    public String getUserFollower() {
+    public int getUserFollower() {
         return userFollower;
     }
 
-    public void setUserFollower(String userFollower) {
+    public void setUserFollower(int userFollower) {
         this.userFollower = userFollower;
     }
 
@@ -54,8 +54,8 @@ public class Follow {
     public String toString() {
         return "Follow{" +
                 "followId=" + followId +
-                ", userFollow='" + userFollow + '\'' +
-                ", userFollower='" + userFollower + '\'' +
+                ", userFollow=" + userFollow +
+                ", userFollower=" + userFollower +
                 '}';
     }
 }

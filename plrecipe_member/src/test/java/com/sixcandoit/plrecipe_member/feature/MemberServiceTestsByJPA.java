@@ -70,7 +70,7 @@ public class MemberServiceTestsByJPA {
 //    @Test
 //    public void 회원_닉네임_수정_테스트() {
 //
-//        Member member = entityManager.find(Member.class, "cho123@daum.net");
+//        Member member = entityManager.find(Member.class, 4);
 //        System.out.println("member = " + member);
 //
 //        String changeNicknameTo = "쥬라기공원1";
@@ -85,21 +85,21 @@ public class MemberServiceTestsByJPA {
 //            entityTransaction.rollback();
 //        }
 //
-//        Assertions.assertEquals(changeNicknameTo, entityManager.find(Member.class, "cho123@daum.net").getMemberNickname());
+//        Assertions.assertEquals(changeNicknameTo, entityManager.find(Member.class, 4).getMemberNickname());
 //
 //    }
 //
-    @Test
-    public void 이메일로_회원_조회_테스트() {
-
-        String memberEmail = "coein231@gmail.com";
-
-        Member foundMember = entityManager.find(Member.class, memberEmail);
-        Assertions.assertNotNull(foundMember);
-        Assertions.assertEquals(memberEmail, foundMember.getMemberEmail());
-        System.out.println("foundMember = " + foundMember);
-
-    }
+//    @Test
+//    public void 회원id로_회원_조회_테스트() {
+//
+//        int memberId = 5;
+//
+//        Member foundMember = entityManager.find(Member.class, memberId);
+//        Assertions.assertNotNull(foundMember);
+//        Assertions.assertEquals(memberId, foundMember.getMemberId());
+//        System.out.println("foundMember = " + foundMember);
+//
+//    }
 //
 //    @Test
 //    public void 이름으로_회원_조회_테스() {
@@ -113,26 +113,26 @@ public class MemberServiceTestsByJPA {
 //
 //    }
 //
-//    @Test
-//    public void 회원_탈퇴_테스트() {
-//
-//        Member member = entityManager.find(Member.class, "seo@naver.com");
-//
-//        String withdrawalDate = "2024.03.04";
-//        String memeberStatus = "N";
-//
-//        EntityTransaction entityTransaction = entityManager.getTransaction();
-//        entityTransaction.begin();
-//
-//        try {
-//            member.setWithdrawalDate(withdrawalDate);
-//            member.setMemberStatus(memeberStatus);
-//            entityTransaction.commit();
-//        } catch (Exception e) {
-//            entityTransaction.rollback();
-//        }
-//
-//        Assertions.assertEquals(withdrawalDate, entityManager.find(Member.class, "seo@naver.com").getWithdrawalDate());
-////        Assertions.assertEquals(withdrawalDate, entityManager.find(Member.class, "kim123@kakao.com").getMemberStatus());
-//    }
+    @Test
+    public void 회원_탈퇴_테스트() {
+
+        Member member = entityManager.find(Member.class, 7);
+
+        String withdrawalDate = "2024.03.04";
+        String memeberStatus = "N";
+
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        try {
+            member.setWithdrawalDate(withdrawalDate);
+            member.setMemberStatus(memeberStatus);
+            entityTransaction.commit();
+        } catch (Exception e) {
+            entityTransaction.rollback();
+        }
+
+        Assertions.assertEquals(withdrawalDate, entityManager.find(Member.class, 7).getWithdrawalDate());
+//        Assertions.assertEquals(withdrawalDate, entityManager.find(Member.class, 7).getMemberStatus());
+    }
 }

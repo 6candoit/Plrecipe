@@ -10,7 +10,7 @@ public interface FollowMapper {
 
     List<FollowDTO> selectAllFollow();
 
-    List<FollowDTO> selectMemberWhoFollowsMe(String userFollow);
+    List<FollowDTO> selectMemberWhoFollowsMe(int userFollow);
 
-    List<FollowDTO> selectMemberWhoIFollow(String userFollower);
+    List<FollowDTO> selectMemberWhoIFollow(int userFollower);
 }
