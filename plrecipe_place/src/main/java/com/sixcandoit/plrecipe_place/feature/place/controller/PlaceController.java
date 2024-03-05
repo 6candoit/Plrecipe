@@ -1,26 +1,14 @@
 package com.sixcandoit.plrecipe_place.feature.place.controller;
 
 import com.sixcandoit.plrecipe_place.feature.place.dto.SearchPlaceDTO;
-import com.sixcandoit.plrecipe_place.feature.place.service.PlaceService;
+import com.sixcandoit.plrecipe_place.feature.place.service.PlaceServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.List;
 
 
@@ -30,18 +18,18 @@ import java.util.List;
 public class PlaceController {
 
     private Environment env;
-    private final PlaceService placeService;
+    private final PlaceServiceImpl placeServiceImpl;
 
     @Autowired
-    public PlaceController(Environment env, PlaceService placeService) {
+    public PlaceController(Environment env, PlaceServiceImpl placeServiceImpl) {
         this.env = env;
-        this.placeService = placeService;
+        this.placeServiceImpl = placeServiceImpl;
     }
 
     @GetMapping("/searchPlace/{keyword}")
     public String searchPlace(@PathVariable String keyword, Model model) {
         
-        List<SearchPlaceDTO> searchPlaces = placeService.getSearchPlaceByAPI(keyword);
+        List<SearchPlaceDTO> searchPlaces = placeServiceImpl.getSearchPlaceByAPI(keyword);
         model.addAttribute("searchPlaces", searchPlaces);
 
         System.out.println("searchPlaces = " + searchPlaces);

@@ -1,6 +1,5 @@
 package com.sixcandoit.plrecipe_place.feature.place;
 
-import com.sixcandoit.plrecipe_place.PlrecipePlaceApplication;
 import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.feature.place.entity.*;
@@ -11,7 +10,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-public class PlaceServiceTests {
+public class PlaceServiceImplTests {
 
     @Autowired
     private PlaceService placeService;

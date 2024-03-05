@@ -2,6 +2,7 @@ package com.sixcandoit.plrecipe_place.feature.place;
 
 import com.sixcandoit.plrecipe_place.feature.place.entity.Place;
 import com.sixcandoit.plrecipe_place.feature.place.service.PlaceService;
+import com.sixcandoit.plrecipe_place.feature.place.service.PlaceServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
-public class CoursePlaceServiceTests {
+public class CoursePlaceServiceImplTests {
 
     @Autowired
     private PlaceService placeService;
