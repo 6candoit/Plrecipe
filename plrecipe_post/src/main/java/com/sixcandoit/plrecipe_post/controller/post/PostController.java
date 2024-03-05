@@ -4,7 +4,6 @@ import com.sixcandoit.plrecipe_post.config.Pagination;
 import com.sixcandoit.plrecipe_post.config.PagingButtonInfo;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.service.PostService;
-import com.sixcandoit.plrecipe_post.service.PostServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -60,15 +59,15 @@ public class PostController {
     }
 
 
-    @GetMapping("/modify")
-    public void modifyPost() {}
-
-    @PostMapping("/modify")
-    public String modifyPost(PostDTO modifyPost) {
-        postService.modifyPost(modifyPost);
-
-        return "redirect:/post/" + modifyPost.getPostId();
-    }
+//    @GetMapping("/modify")
+//    public void modifyPost() {}
+//
+//    @PostMapping("/modify")
+//    public String modifyPost(PostDTO modifyPost) {
+//        postService.modifyPost(modifyPost);
+//
+//        return "redirect:/post/" + modifyPost.getPostId();
+//    }
 
     /* 게시글 삭제 */
     @GetMapping("/delete")

@@ -1,6 +1,7 @@
 package com.sixcandoit.plrecipe_post.controller;
 
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
@@ -21,10 +22,10 @@ import java.util.List;
 public class PostRestApiTest {
     private PostService postService;
     private ModelMapper modelMapper;
-    private PostService postMapper;
+    private PostMapper postMapper;
 
     @Autowired
-    public PostRestApiTest(PostService postService, ModelMapper modelMapper, PostService postMapper) {
+    public PostRestApiTest(PostService postService, ModelMapper modelMapper, PostMapper postMapper) {
         this.postService = postService;
         this.modelMapper = modelMapper;
         this.postMapper = postMapper;
@@ -70,4 +71,23 @@ public class PostRestApiTest {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responsePost);
     }
+
+//    @GetMapping("/modify")
+//    public void modifyPost() {}
+//
+//    @PostMapping("/modify")
+//    private ResponseEntity<ResponsePost> modifyPost(@RequestBody RequestPost post) {
+//        PostDTO postDTO = modelMapper.map(post, PostDTO.class);
+//
+//        postService.modifyPost(postDTO);
+//        ResponsePost responsePost =  modelMapper.map(postDTO, ResponsePost.class);
+//
+//        return ResponseEntity.status(HttpStatus.CREATED).body(responsePost);
+//    }
+
+    @PatchMapping("/modify/{postId}")
+    public ResponseEntity<Post> modifyPost (@RequestBody RequestPost requestPost, @PathVariable int postId ) {
+        return ResponseEntity.ok(postService.modifyPost(postId, requestPost));
+    }
+
 }

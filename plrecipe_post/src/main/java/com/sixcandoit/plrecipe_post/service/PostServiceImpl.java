@@ -7,6 +7,8 @@ import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
 import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
 import com.sixcandoit.plrecipe_post.repository.repo.PostRepository;
+import com.sixcandoit.plrecipe_post.vo.RequestPost;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +16,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -54,24 +58,41 @@ public class PostServiceImpl implements PostService {
 
     @Transactional
     @Override
-    public void modifyPost(PostDTO modifyPost) {
-        /* 게시글 수정 오류(코스, email이 null값으로 들어가서 오류가 발생되는거로 추정됨.) */
-        Date date = new Date();
-        SimpleDateFormat format  =new SimpleDateFormat("yyyy-MM-dd");
-        String dateTest = format.format(date);
-
-        Post foundPost = postRepository.findById(modifyPost.getPostId()).orElseThrow(IllegalArgumentException::new);
-        foundPost.setPostTitle(modifyPost.getPostTitle());
-        foundPost.setIsPostPublic(modifyPost.getIsPostPublic());
-        foundPost.setMemberCount(modifyPost.getMemberCount());
-        foundPost.setPostDate(dateTest);
-
-    }
-
-    @Transactional
-    @Override
     public void deletePost(int postId) {
         postRepository.deleteById(postId);
+    }
+
+//    @Transactional
+//    @Override
+//    public void modifyPost(PostDTO postDTO) {
+//        /* 게시글 수정 오류(코스, email이 null값으로 들어가서 오류가 발생되는거로 추정됨.) */
+//        Date date = new Date();
+//        SimpleDateFormat format  = new SimpleDateFormat("yyyy-MM-dd");
+//        String dateTest = format.format(date);
+//
+//        Post foundPost = postRepository.findById(postDTO.getPostId()).orElseThrow(IllegalArgumentException::new);
+//        foundPost.setPostTitle(postDTO.getPostTitle());
+//        foundPost.setIsPostPublic(postDTO.getIsPostPublic());
+//        foundPost.setMemberCount(postDTO.getMemberCount());
+//        foundPost.setPostDate(dateTest);
+//
+//    }
+
+
+    @Override
+    public Post modifyPost(int postId, RequestPost requestPost) {
+        Optional<Post> optionalPost = postRepository.findById(postId);
+        if (!optionalPost.isPresent()) {
+            throw new EntityNotFoundException("게시글이 존재하지 않습니다.");
+        }
+        Post post = optionalPost.get();
+        post.setPostTitle(requestPost.getPostTitle());
+        post.setPostContent(requestPost.getPostContent());
+        post.setCourseId(requestPost.getCourseId());
+        post.setIsPostPublic(requestPost.getIsPostPublic());
+        post.setMemberCount(requestPost.getMemberCount());
+
+        return postRepository.save(post);
     }
 
     @Override

@@ -1,11 +1,14 @@
 package com.sixcandoit.plrecipe_post.service;
 
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
+import com.sixcandoit.plrecipe_post.vo.RequestPost;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -14,7 +17,7 @@ public interface PostService {
 
     Page<PostDTO> findPostList(Pageable pageable);
 
-    void modifyPost(PostDTO modifyPost);
+//    void modifyPost(PostDTO postDTO);
 
     void deletePost(int postId);
 
@@ -31,4 +34,6 @@ public interface PostService {
     List<PostLikeDTO> selectPostByLikes(int postId);
 
     void registPost(PostDTO postDTO);
+
+    Post modifyPost(int postId, RequestPost requestPost);
 }

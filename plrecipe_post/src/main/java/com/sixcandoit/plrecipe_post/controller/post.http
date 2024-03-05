@@ -28,3 +28,15 @@ Content-Type: application/json
   "isPostPublic": "N",
   "memberCount": "ONE"
 }
+
+### PUT modify Post
+PATCH localhost:8080/post/modify/1
+Content-Type: application/json
+
+{
+  "postTitle": "게시글 제목 수정 테스트??",
+  "postContent": "게시글 내용 수정 테스트??",
+  "courseId": 2,
+  "isPostPublic": "Y",
+  "memberCount": "TWO"
+}
