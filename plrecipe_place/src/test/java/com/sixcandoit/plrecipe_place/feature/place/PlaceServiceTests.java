@@ -78,6 +78,18 @@ public class PlaceServiceTests {
         assertNotNull(!placeList.isEmpty());
     }
 
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 4})
+    void selectCoursePlaceByCourseId(int courseId){
+
+        List<CoursePlace> coursePlaceList = placeService.selectCoursePlaceByCourseId(courseId);
+        coursePlaceList.forEach(System.out::println);
+
+        assertNotNull(!coursePlaceList.isEmpty());
+    }
+
+
     @ParameterizedTest
     @ValueSource(strings = {"park123@naver.com"})
     void selectCourseByMember(String memberEmail){
