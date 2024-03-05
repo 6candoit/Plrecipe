@@ -1,0 +1,37 @@
+### GET request members
+GET localhost:8080/member/members
+
+### GET request memberById
+GET localhost:8080/member/2
+
+### PUT regist Member
+POST localhost:8080/member/regist
+content-Type: application/json
+
+{
+  "memberEmail": "fubao@naver.com",
+  "password": "test01",
+  "memberName": "김복보",
+  "memberNickname": "푸야",
+  "memberNumber": "010-1234-5678",
+  "memberGrade": "ROLL_MEMBER",
+  "memberStatus": "Y"
+}
+
+### PUT insert Follow
+POST localhost:8080/follow/new
+content-Type: application/json
+
+{
+  "userFollow": 12,
+  "userFollower": 5
+}
+
+### DELETE delete Follow
+DELETE localhost:8080/follow/unfollow
+content-Type: application/json
+
+{
+  "followId": 10
+}
+

@@ -27,6 +27,18 @@ public class FollowDTO {
         return userFollower;
     }
 
+    public void setFollowId(int followId) {
+        this.followId = followId;
+    }
+
+    public void setUserFollow(int userFollow) {
+        this.userFollow = userFollow;
+    }
+
+    public void setUserFollower(int userFollower) {
+        this.userFollower = userFollower;
+    }
+
     @Override
     public String toString() {
         return "FollowDTO{" +

@@ -71,6 +71,46 @@ public class MemberDTO {
         return memberStatus;
     }
 
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
+    }
+
+    public void setMemberEmail(String memberEmail) {
+        this.memberEmail = memberEmail;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public void setMemberNickname(String memberNickname) {
+        this.memberNickname = memberNickname;
+    }
+
+    public void setMemberNumber(String memberNumber) {
+        this.memberNumber = memberNumber;
+    }
+
+    public void setJoinDate(String joinDate) {
+        this.joinDate = joinDate;
+    }
+
+    public void setWithdrawalDate(String withdrawalDate) {
+        this.withdrawalDate = withdrawalDate;
+    }
+
+    public void setMemberGrade(MemberGrade memberGrade) {
+        this.memberGrade = memberGrade;
+    }
+
+    public void setMemberStatus(String memberStatus) {
+        this.memberStatus = memberStatus;
+    }
+
     @Override
     public String toString() {
         return "MemberDTO{" +
