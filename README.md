@@ -84,7 +84,7 @@
 
 |DA#|ubuntu|mariaDB|Java|JavaSpring|MyBatis|JPA|
 |---|---|---|---|---|---|---|
-|<img src="https://github.com/beyond-sw-camp/be04-1st-4goda-vite/blob/main/PNG/Readme/da%23.png" height="100" />|<img src="https://github.com/beyond-sw-camp/be04-1st-4goda-vite/blob/main/PNG/Readme/ubuntu.png" height="100" />|<img src="https://github.com/beyond-sw-camp/be04-1st-4goda-vite/blob/main/PNG/Readme/mariadb.png" height="100" />|<img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/java.png" height="100">|<img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/javaspring.png" height="100">|<img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/mybatis.png" height="100">|<img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/jpa.png" height="100">|   
+|<img src="https://github.com/beyond-sw-camp/be04-1st-4goda-vite/blob/main/PNG/Readme/da%23.png" height="100" />|<img src="https://github.com/beyond-sw-camp/be04-1st-4goda-vite/blob/main/PNG/Readme/ubuntu.png" height="100" />|<img src="https://github.com/beyond-sw-camp/be04-1st-4goda-vite/blob/main/PNG/Readme/mariadb.png" height="100" />|<img src="https://github.com/6candoit/Plrecipe/blob/c31bd4fc4d3309f1112ee2f76e6228fd649c6997/PNG/java.png" height="100">|<img src="https://github.com/6candoit/Plrecipe/blob/c31bd4fc4d3309f1112ee2f76e6228fd649c6997/PNG/javaspring.png" height="100">|<img src="https://github.com/6candoit/Plrecipe/blob/c31bd4fc4d3309f1112ee2f76e6228fd649c6997/PNG/mybatis.png" height="100">|<img src="https://github.com/6candoit/Plrecipe/blob/c31bd4fc4d3309f1112ee2f76e6228fd649c6997/PNG/jpa.png" height="100">|   
 
 </div>
 
