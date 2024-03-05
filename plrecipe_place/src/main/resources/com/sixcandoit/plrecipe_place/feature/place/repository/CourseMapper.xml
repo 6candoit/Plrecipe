@@ -5,12 +5,6 @@
 <mapper namespace="com.sixcandoit.plrecipe_place.feature.place.repository.CourseMapper">
 
     <resultMap id="placeResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.Place">
-        <id property="placeId" column="place_id"/>
-        <result property="placeName" column="place_name"/>
-        <result property="placeLocation" column="place_location"/>
-    </resultMap>
-
-    <resultMap id="placeResultMap2" type="com.sixcandoit.plrecipe_place.feature.place.entity.Place">
         <id property="placeId" column="PLACE_ID"/>
         <result property="placeName" column="PLACE_NAME"/>
         <result property="placeLocation" column="PLACE_LOCATION"/>
@@ -27,7 +21,7 @@
     <resultMap id="coursePlaceResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.CoursePlace">
         <id property="placeCourseId" column="PLACE_COURSE_ID"/>
         <association property="course" resultMap="courseResultMap"/>
-        <collection property="places" resultMap="placeResultMap2"/>
+        <collection property="places" resultMap="placeResultMap"/>
     </resultMap>
 
     <select id="selectCoursePlaceByCourseId" parameterType="_int" resultMap="coursePlaceResultMap">
@@ -50,12 +44,24 @@
 
     <select id="getPlacesByCourseName" resultMap="placeResultMap">
         SELECT
-              p.place_id,
-              p.place_name,
-              p.place_location
-        FROM place p
+               p.PLACE_ID,
+               p.PLACE_NAME,
+               p.PLACE_LOCATION,
+               p.PLACE_PHONE_NUM,
+               p.PLACE_CATEGORY_ID
+          FROM place p
           JOIN course_place cp ON p.place_id = cp.place_id
           JOIN course c ON cp.course_id = c.course_id
          WHERE c.course_Id = #{courseId}
     </select>
+
+    <select id="selectCourseByMember" parameterType="_int" resultMap="courseResultMap">
+        SELECT
+               A.COURSE_ID,
+               A.COURSE_NAME,
+               A.MEMBER_ID
+          FROM COURSE A
+         WHERE MEMBER_ID = #{memberId}
+    </select>
+
 </mapper>

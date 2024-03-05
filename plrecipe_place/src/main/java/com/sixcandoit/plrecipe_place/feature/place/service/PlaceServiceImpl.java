@@ -40,16 +40,14 @@ public class PlaceServiceImpl implements PlaceService {
     private final PlaceRepository placeRepository;
     private final PlaceStarRepository placeStarRepository;
     private final PlaceMapper placeMapper;
-    private final CourseMapper courseMapper;
     private Environment env;
 
     @Autowired
-    public PlaceServiceImpl(ModelMapper mapper, PlaceRepository placeRepository, PlaceStarRepository placeStarRepository, PlaceMapper placeMapper, CourseMapper courseMapper, Environment env) {
+    public PlaceServiceImpl(ModelMapper mapper, PlaceRepository placeRepository, PlaceStarRepository placeStarRepository, PlaceMapper placeMapper, Environment env) {
         this.mapper = mapper;
         this.placeRepository = placeRepository;
         this.placeStarRepository = placeStarRepository;
         this.placeMapper = placeMapper;
-        this.courseMapper = courseMapper;
         this.env = env;
     }
 
@@ -80,21 +78,8 @@ public class PlaceServiceImpl implements PlaceService {
         return searchPlaceList;
     }
 
-    /* 코스id로 한 코스의 정보와 코스에 해당하는 장소 리스트 select (CoursePlace) */
-    public List<CoursePlace> selectCoursePlaceByCourseId(int courseId){
-        return courseMapper.selectCoursePlaceByCourseId(courseId);
-    }
-
     /* 장소에 달린 별점 select */
     public List<PlaceStar> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}
-
-    /* 코스id에 해당하는 장소 리스트 select */
-    public List<Place> getPlacesByCourseName(int courseId){ return courseMapper.getPlacesByCourseName(courseId);}
-
-    /* 멤버id로 멤버가 작성한 코스 리스트 select */
-    public List<Course> selectCourseByMember(int memberId){
-        return placeMapper.selectCourseByMember(memberId);
-    }
 
     /* 멤버id로 멤버가 작성한 별점 리스트 select  */
     public List<PlaceStar> selectStarByMember(int memberId){

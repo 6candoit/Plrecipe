@@ -16,7 +16,5 @@ public interface PlaceMapper {
 
     List<PlaceStar> selectStarByPlace(int placeId);
 
-    List<Course> selectCourseByMember(int memberId);
-
     List<PlaceStar> selectStarByMember(int memberId);
 }

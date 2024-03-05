@@ -72,27 +72,6 @@ public class PlaceServiceImplTests {
         assertNotNull(!placeList.isEmpty());
     }
 
-
-    @ParameterizedTest
-    @ValueSource(ints = {1, 2, 3, 4})
-    void selectCoursePlaceByCourseId(int courseId){
-
-        List<CoursePlace> coursePlaceList = placeService.selectCoursePlaceByCourseId(courseId);
-        coursePlaceList.forEach(System.out::println);
-
-        assertNotNull(!coursePlaceList.isEmpty());
-    }
-
-
-    @ParameterizedTest
-    @ValueSource(ints = {1, 2, 3, 4})
-    void selectCourseByMember(int memberId){
-        List<Course> courseList = placeService.selectCourseByMember(memberId);
-        courseList.forEach(System.out::println);
-
-        assertNotNull(!courseList.isEmpty());
-    }
-
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4})
     void selectStarByMember(int memberId){

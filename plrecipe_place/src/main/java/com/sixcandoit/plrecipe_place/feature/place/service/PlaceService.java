@@ -17,10 +17,6 @@ public interface PlaceService {
 
     List<PlaceStar> selectStarByPlace(int placeId);
 
-    List<CoursePlace> selectCoursePlaceByCourseId(int courseId);
-
-    List<Course> selectCourseByMember(int memberId);
-
     List<PlaceStar> selectStarByMember(int memberId);
 
     void registPlace(PlaceDTO newPlace);
@@ -31,5 +27,4 @@ public interface PlaceService {
 
     void deletePlace(int i);
 
-    List<Place> getPlacesByCourseName(int courseId);
 }
