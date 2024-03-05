@@ -32,8 +32,8 @@
 ### 2. 프로젝트 필요성
 <br/>
 <figure class="half">
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/여행자비율통계.png" height=180></a>
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/레저시설이용률통계.png" height=180></a>
+ <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/여행자비율통계.png" height=175></a>
+ <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/레저시설이용률통계.png" height=175></a>
 </figure>
 <br/>
 
