@@ -15,12 +15,12 @@ public class Course {
     private String courseName;
 
     @Column(name = "member_id")
-    private String memberId;
+    private int memberId;
 
     public Course() {
     }
 
-    public Course(int courseId, String courseName, String memberId) {
+    public Course(int courseId, String courseName, int memberId) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.memberId = memberId;
@@ -42,11 +42,11 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public String getMemberId() {
+    public int getMemberId() {
         return memberId;
     }
 
-    public void setMemberId(String memberId) {
+    public void setMemberId(int memberId) {
         this.memberId = memberId;
     }
 
