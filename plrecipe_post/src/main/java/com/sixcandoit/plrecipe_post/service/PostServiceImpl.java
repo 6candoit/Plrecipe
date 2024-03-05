@@ -79,26 +79,32 @@ public class PostServiceImpl implements PostService {
 
     /* --------------------- Mybatis --------------------- */
 
+    @Override
     public List<PostDTO> selectAllPost() {
         return postMapper.selectAllPost();
     }
 
+    @Override
     public List<PostDTO> selectMemberPosts(int memberId) {
         return postMapper.selectMemberPosts(memberId);
     }
 
+    @Override
     public List<PostDTO> selectPostsByStatus(String postStatus) {
         return postMapper.selectPostsByStatus(postStatus);
     }
 
+    @Override
     public List<PostDTO> selectPostsByMemberCounts(MemberCount memberCount) {
         return postMapper.selectPostsByMemberCounts(memberCount);
     }
 
+    @Override
     public List<PostHashtagDTO> selectPostHashtags(int postId) {
         return postMapper.selectPostHashtags(postId);
     }
 
+    @Override
     public List<PostLikeDTO> selectPostByLikes(int postId) {
         return postMapper.selectPostByLikes(postId);
     }

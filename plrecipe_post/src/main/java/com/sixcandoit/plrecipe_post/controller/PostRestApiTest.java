@@ -5,6 +5,7 @@ import com.sixcandoit.plrecipe_post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
 import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
+import com.sixcandoit.plrecipe_post.service.PostService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,39 +16,39 @@ import java.util.List;
 @RestController
 @RequestMapping("/post")
 public class PostRestApiTest {
-    private PostMapper postMapper;
+    private PostService postService;
 
-    public PostRestApiTest(PostMapper postMapper) {
-        this.postMapper = postMapper;
+    public PostRestApiTest(PostService postService) {
+        this.postService = postService;
     }
 
     @GetMapping("/posts")
     public List<PostDTO> selectAllPost() {
-        return postMapper.selectAllPost();
+        return postService.selectAllPost();
     }
 
     @GetMapping("/posts/email/{memberId}")
     public List<PostDTO> selectMemberPosts(@PathVariable int memberId) {
-        return postMapper.selectMemberPosts(memberId);
+        return postService.selectMemberPosts(memberId);
     }
 
     @GetMapping("/posts/status/{postStatus}")
     public List<PostDTO> selectPostsByStatus(@PathVariable("postStatus") String postStatus){
-        return postMapper.selectPostsByStatus(postStatus);
+        return postService.selectPostsByStatus(postStatus);
     }
 
     @GetMapping("/posts/memberCounts/{memberCounts}")
     public List<PostDTO> selectPostsByMemberCounts(@PathVariable("memberCounts") MemberCount memberCounts) {
-        return postMapper.selectPostsByMemberCounts(memberCounts);
+        return postService.selectPostsByMemberCounts(memberCounts);
     }
 
     @GetMapping("/posts/hashtag/{postId}")
     public List<PostHashtagDTO> selectPostHashtags(@PathVariable int postId) {
-        return postMapper.selectPostHashtags(postId);
+        return postService.selectPostHashtags(postId);
     }
 
     @GetMapping("/posts/likes/{postId}")
     public List<PostLikeDTO> selectPostsByLikes(@PathVariable int postId) {
-        return postMapper.selectPostByLikes(postId);
+        return postService.selectPostByLikes(postId);
     }
 }
