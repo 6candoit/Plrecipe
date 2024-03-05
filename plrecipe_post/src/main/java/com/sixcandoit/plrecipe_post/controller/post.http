@@ -16,20 +16,40 @@ GET localhost:8080/post/posts/hashtag/1
 ### GET request LikesByPostId
 GET localhost:8080/post/posts/likes/1
 
-### PUT regist Post
+### POST regist Post
 POST localhost:8080/post/regist
 Content-Type: application/json
 
 {
-  "postTitle": "추가가 될까요 제발",
+  "postTitle": "시간도 추가가 될까요 제발",
   "postContent": "제발요 해주세요",
+  "postDate": "current_time",
   "memberId": 2,
   "courseId": 3,
   "isPostPublic": "N",
   "memberCount": "ONE"
 }
 
-### PUT modify Post
+### POST regist Hashtag
+POST localhost:8080/post/hashtag/regist
+Content-Type: application/json
+
+{
+  "hashtagTitle": "해시태그 추가 테스트"
+}
+
+### POST regist PostHashtag
+POST localhost:8080/post/regist/post_hashtag
+Content-Type: application/json
+
+{
+  "hashtagId": 1,
+  "postId": 12
+}
+
+### POST regist PostHashtag
+
+### PATCH modify Post
 PATCH localhost:8080/post/modify/1
 Content-Type: application/json
 
@@ -39,4 +59,12 @@ Content-Type: application/json
   "courseId": 2,
   "isPostPublic": "Y",
   "memberCount": "TWO"
+}
+
+### PATCH delete Post
+PATCH localhost:8080/post/delete/12
+Content-Type: application/json
+
+{
+  "postDeleteDate": "current_date"
 }

@@ -2,6 +2,7 @@ package com.sixcandoit.plrecipe_post.dto;
 
 import lombok.Setter;
 
+@Setter
 public class HashtagDTO {
     private int hashtagId;
     private String hashtagTitle;

@@ -1,12 +1,15 @@
 package com.sixcandoit.plrecipe_post.service;
 
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.dto.HashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
 import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
+import com.sixcandoit.plrecipe_post.repository.repo.HashtagRepository;
 import com.sixcandoit.plrecipe_post.repository.repo.PostRepository;
+import com.sixcandoit.plrecipe_post.vo.Hashtag;
 import com.sixcandoit.plrecipe_post.vo.RequestPost;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -62,22 +65,17 @@ public class PostServiceImpl implements PostService {
         postRepository.deleteById(postId);
     }
 
-//    @Transactional
-//    @Override
-//    public void modifyPost(PostDTO postDTO) {
-//        /* 게시글 수정 오류(코스, email이 null값으로 들어가서 오류가 발생되는거로 추정됨.) */
-//        Date date = new Date();
-//        SimpleDateFormat format  = new SimpleDateFormat("yyyy-MM-dd");
-//        String dateTest = format.format(date);
-//
-//        Post foundPost = postRepository.findById(postDTO.getPostId()).orElseThrow(IllegalArgumentException::new);
-//        foundPost.setPostTitle(postDTO.getPostTitle());
-//        foundPost.setIsPostPublic(postDTO.getIsPostPublic());
-//        foundPost.setMemberCount(postDTO.getMemberCount());
-//        foundPost.setPostDate(dateTest);
-//
-//    }
+    @Override
+    public void registPost(PostDTO postDTO) {
+        Date date = new Date();
+        SimpleDateFormat format  =new SimpleDateFormat("yyyy-MM-dd");
+        String dateTest = format.format(date);
 
+        Post post = mapper.map(postDTO, Post.class);
+        post.setPostDate(dateTest);
+
+        postRepository.save(post);
+    }
 
     @Override
     public Post modifyPost(int postId, RequestPost requestPost) {
@@ -96,15 +94,20 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void registPost(PostDTO postDTO) {
+    public Post modifyPostDeleteDate(int postId, RequestPost requestPost) {
+        Optional<Post> optionalPost = postRepository.findById(postId);
+        if (!optionalPost.isPresent()) {
+            throw new EntityNotFoundException("게시글이 존재하지 않습니다.");
+        }
+
         Date date = new Date();
         SimpleDateFormat format  =new SimpleDateFormat("yyyy-MM-dd");
         String dateTest = format.format(date);
 
-        Post post = mapper.map(postDTO, Post.class);
-        post.setPostDate(dateTest);
+        Post post = optionalPost.get();
+        post.setPostDeleteDate(dateTest);
 
-        postRepository.save(post);
+        return postRepository.save(post);
     }
 
     /* --------------------- Mybatis --------------------- */
