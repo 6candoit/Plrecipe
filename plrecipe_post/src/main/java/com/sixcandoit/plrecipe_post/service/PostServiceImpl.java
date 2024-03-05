@@ -51,9 +51,6 @@ public class PostServiceImpl implements PostService {
         return postList.map(post -> mapper.map(post, PostDTO.class));
     }
 
-    public void registPost(PostDTO newPost) {
-        postRepository.save(mapper.map(newPost, Post.class));
-    }
 
     @Transactional
     @Override
@@ -75,6 +72,18 @@ public class PostServiceImpl implements PostService {
     @Override
     public void deletePost(int postId) {
         postRepository.deleteById(postId);
+    }
+
+    @Override
+    public void registPost(PostDTO postDTO) {
+        Date date = new Date();
+        SimpleDateFormat format  =new SimpleDateFormat("yyyy-MM-dd");
+        String dateTest = format.format(date);
+
+        Post post = mapper.map(postDTO, Post.class);
+        post.setPostDate(dateTest);
+
+        postRepository.save(post);
     }
 
     /* --------------------- Mybatis --------------------- */

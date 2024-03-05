@@ -29,4 +29,6 @@ public interface PostService {
     List<PostHashtagDTO> selectPostHashtags(int postId);
 
     List<PostLikeDTO> selectPostByLikes(int postId);
+
+    void registPost(PostDTO postDTO);
 }

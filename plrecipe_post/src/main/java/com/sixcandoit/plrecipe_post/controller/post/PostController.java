@@ -59,10 +59,6 @@ public class PostController {
         return "post/list";
     }
 
-//    @GetMapping("/regist")
-//    public void registPage(){}
-
-//    @GetMapping(value = "/category", produces = "application/json; charset=UTF-8")
 
     @GetMapping("/modify")
     public void modifyPost() {}
