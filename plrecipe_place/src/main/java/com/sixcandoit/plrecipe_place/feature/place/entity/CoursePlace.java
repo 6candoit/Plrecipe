@@ -19,7 +19,7 @@ public class CoursePlace {
     @Column(name = "place_id")
     private int placeId;
 
-    @Column(name = "sequence")
+    @Column(name = "place_sequence")
     private int sequence;
 
     public CoursePlace() {
