@@ -1,31 +1,30 @@
 ### GET request posts
-GET localhost:8080/main/posts
+GET localhost:8080/post/posts
 
 ### GET request memberPosts
-GET localhost:8080/main/posts/email/1
+GET localhost:8080/post/posts/email/1
 
 ### GET request postsByStatus
-GET localhost:8080/main/posts/status/Y
+GET localhost:8080/post/posts/status/Y
 
 ### GET request postsByMemberCounts
-GET localhost:8080/main/posts/memberCounts/TWO
+GET localhost:8080/post/posts/memberCounts/TWO
 
 ### GET request HashtagsByPostId
-GET localhost:8080/main/posts/hashtag/1
+GET localhost:8080/post/posts/hashtag/1
 
 ### GET request LikesByPostId
-GET localhost:8080/main/posts/likes/1
+GET localhost:8080/post/posts/likes/1
 
-### PUT modifyPost
-PUT localhost:8080/main/modify/1
+### PUT regist Post
+POST localhost:8080/post/regist
 Content-Type: application/json
 
 {
-  "postTitle": "수정될까",
-  "postIsPublic": "Y",
-  "memberCount": "TWO"
+  "postTitle": "추가가 될까요 제발",
+  "postContent": "제발요 해주세요",
+  "memberId": 2,
+  "courseId": 3,
+  "isPostPublic": "N",
+  "memberCount": "ONE"
 }
-
-### GET modified post
-GET localhost:8080/main/post/1
-

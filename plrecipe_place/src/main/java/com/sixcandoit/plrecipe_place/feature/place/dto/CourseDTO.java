@@ -1,26 +1,15 @@
 package com.sixcandoit.plrecipe_place.feature.place.dto;
 
 public class CourseDTO {
-
-    private int courseId;
     private String courseName;
-    private String memberEmail;
+    private int memberId;
 
     public CourseDTO() {
     }
 
-    public CourseDTO(int courseId, String courseName, String memberEmail) {
-        this.courseId = courseId;
+    public CourseDTO(String courseName, int memberId) {
         this.courseName = courseName;
-        this.memberEmail = memberEmail;
-    }
-
-    public int getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
+        this.memberId = memberId;
     }
 
     public String getCourseName() {
@@ -31,20 +20,19 @@ public class CourseDTO {
         this.courseName = courseName;
     }
 
-    public String getMemberEmail() {
-        return memberEmail;
+    public int getMemberId() {
+        return memberId;
     }
 
-    public void setMemberEmail(String memberEmail) {
-        this.memberEmail = memberEmail;
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
     }
 
     @Override
     public String toString() {
         return "CourseDTO{" +
-                "courseId=" + courseId +
-                ", courseName='" + courseName + '\'' +
-                ", memberEmail='" + memberEmail + '\'' +
+                "courseName='" + courseName + '\'' +
+                ", memberId=" + memberId +
                 '}';
     }
 }

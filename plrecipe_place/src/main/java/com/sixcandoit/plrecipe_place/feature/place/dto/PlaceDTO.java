@@ -7,8 +7,6 @@ import jakarta.persistence.Table;
 
 
 public class PlaceDTO {
-
-    private int placeId;
     private String placeName;
     private String placeLocation;
     private String placePhoneNum;
@@ -17,27 +15,11 @@ public class PlaceDTO {
     public PlaceDTO() {
     }
 
-    public PlaceDTO(int placeId, String placeName, String placeLocation, String placePhoneNum, int placeCategoryId) {
-        this.placeId = placeId;
-        this.placeName = placeName;
-        this.placeLocation = placeLocation;
-        this.placePhoneNum = placePhoneNum;
-        this.placeCategoryId = placeCategoryId;
-    }
-
     public PlaceDTO(String placeName, String placeLocation, String placePhoneNum, int placeCategoryId) {
         this.placeName = placeName;
         this.placeLocation = placeLocation;
         this.placePhoneNum = placePhoneNum;
         this.placeCategoryId = placeCategoryId;
-    }
-
-    public int getPlaceId() {
-        return placeId;
-    }
-
-    public void setPlaceId(int placeId) {
-        this.placeId = placeId;
     }
 
     public String getPlaceName() {
@@ -75,8 +57,7 @@ public class PlaceDTO {
     @Override
     public String toString() {
         return "PlaceDTO{" +
-                "placeId=" + placeId +
-                ", placeName='" + placeName + '\'' +
+                "placeName='" + placeName + '\'' +
                 ", placeLocation='" + placeLocation + '\'' +
                 ", placePhoneNum='" + placePhoneNum + '\'' +
                 ", placeCategoryId=" + placeCategoryId +
