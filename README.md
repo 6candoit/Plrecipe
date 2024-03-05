@@ -1,4 +1,4 @@
-# ⚽Plrecipe📜
+# <p align="center">⚽Plrecipe📜</p>
 
 <p align="center"></p>
 
