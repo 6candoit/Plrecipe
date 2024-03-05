@@ -15,7 +15,7 @@
 | [배성민](https://github.com/mini-xi) | [한소혜](https://github.com/Sosohy) | [윤재은](https://github.com/yunjaeeun) | [조수빈](https://github.com/chosoobin37) | [김재현](https://github.com/jaehyeon-SMU) |
 </div>
 
-## 🎈 프로젝트 개요
+## 프로젝트 개요
 
 ### 1. 프로젝트 소개
 
@@ -33,7 +33,7 @@
 
 
 
-## 📟 기술스택
+## 기술스택
 <div align="center">
 
 |DA#|ubuntu|mariaDB|
@@ -42,11 +42,11 @@
 
 </div>
 
-## 📝 WBS
+## WBS
 
 <p align="center"></p>
 
-## 📘 요구사항
+## 요구사항
 <details>
 <summary><b>Plrecipe 상세정책</b></summary>
     
