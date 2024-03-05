@@ -4,6 +4,7 @@ import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.SearchPlaceDTO;
 import com.sixcandoit.plrecipe_place.feature.place.entity.Course;
+import com.sixcandoit.plrecipe_place.feature.place.entity.CoursePlace;
 import com.sixcandoit.plrecipe_place.feature.place.entity.Place;
 import com.sixcandoit.plrecipe_place.feature.place.entity.PlaceStar;
 import com.sixcandoit.plrecipe_place.feature.place.repository.CourseMapper;
@@ -78,6 +79,10 @@ public class PlaceService {
         }
 
         return searchPlaceList;
+    }
+
+    public List<CoursePlace> selectCoursePlaceByCourseId(int courseId){
+        return courseMapper.selectCoursePlaceByCourseId(courseId);
     }
 
     public List<PlaceStar> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}

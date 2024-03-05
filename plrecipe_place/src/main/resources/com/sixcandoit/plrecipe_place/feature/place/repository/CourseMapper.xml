@@ -9,6 +9,44 @@
         <result property="placeLocation" column="place_location"/>
     </resultMap>
 
+    <resultMap id="placeResultMap2" type="com.sixcandoit.plrecipe_place.feature.place.entity.Place">
+        <id property="placeId" column="PLACE_ID"/>
+        <result property="placeName" column="PLACE_NAME"/>
+        <result property="placeLocation" column="PLACE_LOCATION"/>
+        <result property="placePhoneNum" column="PLACE_PHONE_NUM"/>
+        <result property="placeCategoryId" column="PLACE_CATEGORY_ID"/>
+    </resultMap>
+
+    <resultMap id="courseResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.Course">
+        <id property="courseId" column="COURSE_ID"/>
+        <result property="courseName" column="COURSE_NAME"/>
+        <result property="memberEmail" column="MEMBER_EMAIL"/>
+    </resultMap>
+
+    <resultMap id="coursePlaceResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.CoursePlace">
+        <id property="placeCourseId" column="PLACE_COURSE_ID"/>
+        <association property="course" resultMap="courseResultMap"/>
+        <collection property="places" resultMap="placeResultMap2"/>
+    </resultMap>
+
+    <select id="selectCoursePlaceByCourseId" parameterType="_int" resultMap="coursePlaceResultMap">
+        SELECT
+               A.COURSE_ID,
+               A.COURSE_NAME,
+               A.MEMBER_EMAIL,
+               B.PLACE_COURSE_ID,
+               C.PLACE_ID,
+               C.PLACE_NAME,
+               C.PLACE_LOCATION,
+               C.PLACE_PHONE_NUM,
+               C.PLACE_CATEGORY_ID
+          FROM COURSE A
+          JOIN COURSE_PLACE B on A.course_ID = B.course_ID
+          JOIN PLACE C ON C.PLACE_ID = B.PLACE_ID
+         WHERE B.course_id = #{courseId}
+         ORDER BY B.PLACE_SEQUENCE;
+    </select>
+
     <select id="getPlacesByCourseName" resultMap="placeResultMap">
         SELECT
               p.place_id,
