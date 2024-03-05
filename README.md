@@ -32,8 +32,8 @@
 ### 2. 프로젝트 필요성
 <br/>
 <figure class="half">
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/여행자비율통계.png" height=215></a>
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/레저시설이용률통계.png" height=215></a>
+ <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/여행자비율통계.png" height=180></a>
+ <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/레저시설이용률통계.png" height=180></a>
 </figure>
 <br/>
 
@@ -53,9 +53,11 @@
 
 <br/>
 &nbsp;위의 그래프는 2021년 이후로 해외로 출국하는 사람과 국내 여행 일수가 늘어나는 여행자 수가 다시 상승하는 추세를 보여주고 있습니다. 이러한 변화된 여행 환경에 적응하며 여행을 다시 시작하는 사람들은 새로운 여행지를 고민하거나 다른 사람의 여행이나 놀거리에 대한 궁금증을 가질 수 있습니다.
-
-&nbsp;저희 프로젝트는 이러한 사용자들의 고민을 해소하고, 사용자의 추억을 공유하고 저장하는 공간을 제공하기 위해 기획되었습니다. 여행을 또는 놀이를 계획하기 전에는 두근거리는 마음으로 새로운 여행지를 고민하고, 여행이나 즐거운 시간의 여운을 남기며 즐기는 것을 돕고자 합니다.
-
+   
+<br/>
+&nbsp;저희 프로젝트는 이러한 사용자들의 고민을 해소하고, 사용자의 추억을 공유하고 저장하는 공간을 제공하기 위해 기획되었습니다. 여행을 또는 놀이를 계획하기 전에는 두근거리는 마음으로 새로운 여행지를 고민하고, 여행이나 즐거운 시간의 여운을 남기며 즐기는 것을 돕고자 합니다.  
+   
+<br/>
 &nbsp;프로젝트를 통해 사용자들은 여행이나 놀이를 즐기는 동안 추억을 저장하고 나누며, 개인의 행복한 시간을 두 배로 늘릴 수 있는 경험을 제공받게 될 것입니다. 이를 통해 여행에 대한 즐거움을 더욱 풍요롭게 누릴 수 있을 것으로 기대됩니다.
 <br/>
 <br/>
