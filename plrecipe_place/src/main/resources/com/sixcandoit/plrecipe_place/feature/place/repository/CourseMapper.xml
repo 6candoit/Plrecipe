@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sixcandoit.plrecipe_place.feature.place.repository.CourseMapper">
+
     <resultMap id="placeResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.Place">
         <id property="placeId" column="place_id"/>
         <result property="placeName" column="place_name"/>
@@ -20,7 +21,7 @@
     <resultMap id="courseResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.Course">
         <id property="courseId" column="COURSE_ID"/>
         <result property="courseName" column="COURSE_NAME"/>
-        <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="memberId" column="MEMBER_ID"/>
     </resultMap>
 
     <resultMap id="coursePlaceResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.CoursePlace">
@@ -33,7 +34,7 @@
         SELECT
                A.COURSE_ID,
                A.COURSE_NAME,
-               A.MEMBER_EMAIL,
+               A.MEMBER_ID,
                B.PLACE_COURSE_ID,
                C.PLACE_ID,
                C.PLACE_NAME,

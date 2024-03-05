@@ -14,16 +14,16 @@ public class Course {
     @Column(name = "course_name")
     private String courseName;
 
-    @Column(name = "member_email")
-    private String memberEmail;
+    @Column(name = "member_id")
+    private String memberId;
 
     public Course() {
     }
 
-    public Course(int courseId, String courseName, String memberEmail) {
+    public Course(int courseId, String courseName, String memberId) {
         this.courseId = courseId;
         this.courseName = courseName;
-        this.memberEmail = memberEmail;
+        this.memberId = memberId;
     }
 
     public int getCourseId() {
@@ -42,12 +42,12 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public String getMemberEmail() {
-        return memberEmail;
+    public String getMemberId() {
+        return memberId;
     }
 
-    public void setMemberEmail(String memberEmail) {
-        this.memberEmail = memberEmail;
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class Course {
         return "Course{" +
                 "courseId=" + courseId +
                 ", courseName='" + courseName + '\'' +
-                ", memberEmail='" + memberEmail + '\'' +
+                ", memberId='" + memberId + '\'' +
                 '}';
     }
 }

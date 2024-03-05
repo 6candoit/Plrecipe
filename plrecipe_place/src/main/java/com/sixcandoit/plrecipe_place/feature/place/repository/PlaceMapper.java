@@ -16,7 +16,7 @@ public interface PlaceMapper {
 
     List<PlaceStar> selectStarByPlace(int placeId);
 
-    List<Course> selectCourseByMember(String memberEmail);
+    List<Course> selectCourseByMember(int memberId);
 
-    List<PlaceStar> selectStarByMember(String memberEmail);
+    List<PlaceStar> selectStarByMember(int memberId);
 }

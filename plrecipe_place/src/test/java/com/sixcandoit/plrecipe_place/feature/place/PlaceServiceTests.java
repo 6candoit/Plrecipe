@@ -35,7 +35,6 @@ public class PlaceServiceTests {
         assertTrue(!placeList.isEmpty());
     }
 
-
     static Stream<Map<String, Object>> getParams() {
         return Stream.of(
                 createParams("붕어", null, null, null),
@@ -65,11 +64,8 @@ public class PlaceServiceTests {
         assertTrue(true);
     }
 
-
-
-
     @ParameterizedTest
-    @ValueSource(ints = {1, 2, 3, 4, 5, 6})
+    @ValueSource(ints = {1, 2, 3, 4})
     void findStarByPlace(int placeId){
 
         List<PlaceStar> placeList = placeService.selectStarByPlace(placeId);
@@ -91,18 +87,18 @@ public class PlaceServiceTests {
 
 
     @ParameterizedTest
-    @ValueSource(strings = {"park123@naver.com"})
-    void selectCourseByMember(String memberEmail){
-        List<Course> courseList = placeService.selectCourseByMember(memberEmail);
+    @ValueSource(ints = {1, 2, 3, 4})
+    void selectCourseByMember(int memberId){
+        List<Course> courseList = placeService.selectCourseByMember(memberId);
         courseList.forEach(System.out::println);
 
         assertNotNull(!courseList.isEmpty());
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"park123@naver.com"})
-    void selectStarByMember(String memberEmail){
-        List<PlaceStar> starList = placeService.selectStarByMember(memberEmail);
+    @ValueSource(ints = {1, 2, 3, 4})
+    void selectStarByMember(int memberId){
+        List<PlaceStar> starList = placeService.selectStarByMember(memberId);
         starList.forEach(System.out::println);
 
         assertNotNull(!starList.isEmpty());
@@ -116,13 +112,13 @@ public class PlaceServiceTests {
 
     @Test
     void insertPlaceStar(){
-        PlaceStarDTO newStar = new PlaceStarDTO(3, "insert 별점", 3, "f414mce3@yahoo.com");
+        PlaceStarDTO newStar = new PlaceStarDTO(3, "insert 별점", 3, 3);
         placeService.registStar(newStar);
     }
 
     @Test
     void modifyPlaceStar(){
-        PlaceStarDTO modifyStar = new PlaceStarDTO(11,2, "modify 별점", 3, "f414mce3@yahoo.com");
+        PlaceStarDTO modifyStar = new PlaceStarDTO(11,2, "modify 별점", 3, 3);
         placeService.modifyStar(modifyStar);
     }
 

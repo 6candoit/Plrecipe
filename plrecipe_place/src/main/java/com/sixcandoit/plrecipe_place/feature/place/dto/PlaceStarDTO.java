@@ -1,34 +1,26 @@
 package com.sixcandoit.plrecipe_place.feature.place.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 public class PlaceStarDTO {
 
     private int starId;
     private int starPoint;
     private String starComment;
     private int placeId;
-    private String memberEmail;
+    private int memberId;
 
-    public PlaceStarDTO() {
+    public PlaceStarDTO(int starPoint, String starComment, int placeId, int memberId) {
+        this.starPoint = starPoint;
+        this.starComment = starComment;
+        this.placeId = placeId;
+        this.memberId = memberId;
     }
 
-    public PlaceStarDTO(int starId, int starPoint, String starComment, int placeId, String memberEmail) {
+    public PlaceStarDTO(int starId, int starPoint, String starComment, int placeId, int memberId) {
         this.starId = starId;
         this.starPoint = starPoint;
         this.starComment = starComment;
         this.placeId = placeId;
-        this.memberEmail = memberEmail;
-    }
-
-    public PlaceStarDTO(int starPoint, String starComment, int placeId, String memberEmail) {
-        this.starPoint = starPoint;
-        this.starComment = starComment;
-        this.placeId = placeId;
-        this.memberEmail = memberEmail;
+        this.memberId = memberId;
     }
 
     public int getStarId() {
@@ -63,12 +55,12 @@ public class PlaceStarDTO {
         this.placeId = placeId;
     }
 
-    public String getMemberEmail() {
-        return memberEmail;
+    public int getMemberId() {
+        return memberId;
     }
 
-    public void setMemberEmail(String memberEmail) {
-        this.memberEmail = memberEmail;
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
     }
 
     @Override
@@ -78,7 +70,7 @@ public class PlaceStarDTO {
                 ", starPoint=" + starPoint +
                 ", starComment='" + starComment + '\'' +
                 ", placeId=" + placeId +
-                ", memberEmail='" + memberEmail + '\'' +
+                ", memberId=" + memberId +
                 '}';
     }
 }

@@ -89,12 +89,12 @@ public class PlaceService {
 
     public List<Place> getPlacesByCourseName(int courseId){ return courseMapper.getPlacesByCourseName(courseId);}
 
-    public List<Course> selectCourseByMember(String memberEmail){
-        return placeMapper.selectCourseByMember(memberEmail);
+    public List<Course> selectCourseByMember(int memberId){
+        return placeMapper.selectCourseByMember(memberId);
     }
 
-    public List<PlaceStar> selectStarByMember(String memberEmail){
-        return placeMapper.selectStarByMember(memberEmail);
+    public List<PlaceStar> selectStarByMember(int memberId){
+        return placeMapper.selectStarByMember(memberId);
     }
 
 

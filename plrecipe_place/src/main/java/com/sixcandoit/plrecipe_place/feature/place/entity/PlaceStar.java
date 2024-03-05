@@ -22,18 +22,18 @@ public class PlaceStar {
     @Column(name = "place_id")
     private int placeId;
 
-    @Column(name = "member_email")
-    private String memberEmail;
+    @Column(name = "member_id")
+    private int memberId;
 
     public PlaceStar() {
     }
 
-    public PlaceStar(int starId, int starPoint, String starComment, int placeId, String memberEmail) {
+    public PlaceStar(int starId, int starPoint, String starComment, int placeId, int memberId) {
         this.starId = starId;
         this.starPoint = starPoint;
         this.starComment = starComment;
         this.placeId = placeId;
-        this.memberEmail = memberEmail;
+        this.memberId = memberId;
     }
 
     public int getStarId() {
@@ -68,22 +68,22 @@ public class PlaceStar {
         this.placeId = placeId;
     }
 
-    public String getMemberEmail() {
-        return memberEmail;
+    public int getMemberId() {
+        return memberId;
     }
 
-    public void setMemberEmail(String memberEmail) {
-        this.memberEmail = memberEmail;
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
     }
 
     @Override
     public String toString() {
-        return "PlaceStarDTO{" +
+        return "PlaceStar{" +
                 "starId=" + starId +
                 ", starPoint=" + starPoint +
                 ", starComment='" + starComment + '\'' +
                 ", placeId=" + placeId +
-                ", memberEmail='" + memberEmail + '\'' +
+                ", memberId=" + memberId +
                 '}';
     }
 }

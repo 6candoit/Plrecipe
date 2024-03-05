@@ -4,15 +4,15 @@ public class CourseDTO {
 
     private int courseId;
     private String courseName;
-    private String memberEmail;
+    private int memberId;
 
     public CourseDTO() {
     }
 
-    public CourseDTO(int courseId, String courseName, String memberEmail) {
+    public CourseDTO(int courseId, String courseName, int memberId) {
         this.courseId = courseId;
         this.courseName = courseName;
-        this.memberEmail = memberEmail;
+        this.memberId = memberId;
     }
 
     public int getCourseId() {
@@ -31,12 +31,12 @@ public class CourseDTO {
         this.courseName = courseName;
     }
 
-    public String getMemberEmail() {
-        return memberEmail;
+    public int getMemberId() {
+        return memberId;
     }
 
-    public void setMemberEmail(String memberEmail) {
-        this.memberEmail = memberEmail;
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class CourseDTO {
         return "CourseDTO{" +
                 "courseId=" + courseId +
                 ", courseName='" + courseName + '\'' +
-                ", memberEmail='" + memberEmail + '\'' +
+                ", memberEmail='" + memberId + '\'' +
                 '}';
     }
 }
