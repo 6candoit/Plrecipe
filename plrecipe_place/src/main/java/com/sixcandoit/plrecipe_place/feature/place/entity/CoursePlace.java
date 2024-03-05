@@ -4,28 +4,32 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity(name = "plrecipe_course_place")
+@Entity(name = "plrecipe_course_and_place")
 @Table(name = "course_place")
 public class CoursePlace {
 
     @Id
     @Column(name = "place_course_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int placeCourseId;
 
-    @JoinColumn(name = "courseId")
-    @ManyToOne
-    private Course course;
+    @Column(name = "course_id")
+    private int courseId;
 
-    @OneToMany(mappedBy="placeId")
-    private List<Place> places;
+    @Column(name = "place_id")
+    private int placeId;
+
+    @Column(name = "sequence")
+    private int sequence;
 
     public CoursePlace() {
     }
 
-    public CoursePlace(int placeCourseId, Course course, List<Place> places) {
+    public CoursePlace(int placeCourseId, int courseId, int placeId, int sequence) {
         this.placeCourseId = placeCourseId;
-        this.course = course;
-        this.places = places;
+        this.courseId = courseId;
+        this.placeId = placeId;
+        this.sequence = sequence;
     }
 
     public int getPlaceCourseId() {
@@ -36,28 +40,37 @@ public class CoursePlace {
         this.placeCourseId = placeCourseId;
     }
 
-    public Course getCourse() {
-        return course;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
-    public List<Place> getPlaces() {
-        return places;
+    public int getPlaceId() {
+        return placeId;
     }
 
-    public void setPlaces(List<Place> places) {
-        this.places = places;
+    public void setPlaceId(int placeId) {
+        this.placeId = placeId;
+    }
+
+    public int getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(int sequence) {
+        this.sequence = sequence;
     }
 
     @Override
     public String toString() {
         return "CoursePlace{" +
                 "placeCourseId=" + placeCourseId +
-                ", course=" + course +
-                ", places=" + places +
+                ", courseId=" + courseId +
+                ", placeId=" + placeId +
+                ", sequence=" + sequence +
                 '}';
     }
 }

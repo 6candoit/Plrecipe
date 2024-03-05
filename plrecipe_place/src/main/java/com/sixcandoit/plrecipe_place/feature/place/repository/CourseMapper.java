@@ -1,7 +1,7 @@
 package com.sixcandoit.plrecipe_place.feature.place.repository;
 
 import com.sixcandoit.plrecipe_place.feature.place.entity.Course;
-import com.sixcandoit.plrecipe_place.feature.place.entity.CoursePlace;
+import com.sixcandoit.plrecipe_place.feature.place.entity.CourseAndPlace;
 import com.sixcandoit.plrecipe_place.feature.place.entity.Place;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,5 +11,5 @@ import java.util.List;
 public interface CourseMapper {
     List<Place> getPlacesByCourseName(int courseId);
     List<Course> selectCourseByMember(int memberId);
-    List<CoursePlace> selectCoursePlaceByCourseId(int courseId);
+    List<CourseAndPlace> selectCoursePlaceByCourseId(int courseId);
 }

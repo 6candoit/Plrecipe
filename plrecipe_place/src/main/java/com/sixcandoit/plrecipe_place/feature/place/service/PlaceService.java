@@ -2,8 +2,6 @@ package com.sixcandoit.plrecipe_place.feature.place.service;
 
 import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceStarDTO;
-import com.sixcandoit.plrecipe_place.feature.place.entity.Course;
-import com.sixcandoit.plrecipe_place.feature.place.entity.CoursePlace;
 import com.sixcandoit.plrecipe_place.feature.place.entity.Place;
 import com.sixcandoit.plrecipe_place.feature.place.entity.PlaceStar;
 

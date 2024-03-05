@@ -18,7 +18,7 @@
         <result property="memberId" column="MEMBER_ID"/>
     </resultMap>
 
-    <resultMap id="coursePlaceResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.CoursePlace">
+    <resultMap id="coursePlaceResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.CourseAndPlace">
         <id property="placeCourseId" column="PLACE_COURSE_ID"/>
         <association property="course" resultMap="courseResultMap"/>
         <collection property="places" resultMap="placeResultMap"/>

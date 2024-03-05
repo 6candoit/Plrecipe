@@ -1,9 +1,6 @@
 package com.sixcandoit.plrecipe_place.feature.place.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity(name = "plrecipe_place_star")
 @Table(name = "place_star")
@@ -11,6 +8,7 @@ public class PlaceStar {
 
     @Id
     @Column(name = "star_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int starId;
 
     @Column(name = "star_point")
