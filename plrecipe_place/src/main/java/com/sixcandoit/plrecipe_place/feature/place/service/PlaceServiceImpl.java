@@ -61,9 +61,11 @@ public class PlaceServiceImpl implements PlaceService {
 
     public List<SearchPlaceDTO> getSearchPlaceByAPI(String keyword){
 
+        /* restApi 이용해서 사용자가 검색한 장소 리스트 JSONArray로 가져오기 */
         JSONArray searchPlaces = getSearchPlaceByKeyword(keyword);
         List<SearchPlaceDTO> searchPlaceList = new ArrayList<>();
 
+        /* 장소 리스트 SearchPlace 객체로 담아서 변환 */
         for (int i = 0; i < searchPlaces.size(); i++) {
 
             JSONObject place = (JSONObject) searchPlaces.get(i);
@@ -75,35 +77,41 @@ public class PlaceServiceImpl implements PlaceService {
 
             searchPlaceList.add(searchPlaceDTO);
         }
-
         return searchPlaceList;
     }
 
+    /* 코스id로 한 코스의 정보와 코스에 해당하는 장소 리스트 select (CoursePlace) */
     public List<CoursePlace> selectCoursePlaceByCourseId(int courseId){
         return courseMapper.selectCoursePlaceByCourseId(courseId);
     }
 
+    /* 장소에 달린 별점 select */
     public List<PlaceStar> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}
 
+    /* 코스id에 해당하는 장소 리스트 select */
     public List<Place> getPlacesByCourseName(int courseId){ return courseMapper.getPlacesByCourseName(courseId);}
 
+    /* 멤버id로 멤버가 작성한 코스 리스트 select */
     public List<Course> selectCourseByMember(int memberId){
         return placeMapper.selectCourseByMember(memberId);
     }
 
+    /* 멤버id로 멤버가 작성한 별점 리스트 select  */
     public List<PlaceStar> selectStarByMember(int memberId){
         return placeMapper.selectStarByMember(memberId);
     }
 
-
+    /* 장소 insert */
     public void registPlace(PlaceDTO newPlace) {
         placeRepository.save(mapper.map(newPlace, Place.class));
     }
 
+    /* 별점 insert */
     public void registStar(PlaceStarDTO newStar) {
         placeStarRepository.save(mapper.map(newStar, PlaceStar.class));
     }
 
+    /* 별점 modify */
     @Transactional
     public void modifyStar(PlaceStarDTO modifyStar) {
         PlaceStar foundStar = placeStarRepository.findById(modifyStar.getStarId()).orElseThrow(IllegalArgumentException::new);
@@ -111,14 +119,16 @@ public class PlaceServiceImpl implements PlaceService {
         foundStar.setStarComment(modifyStar.getStarComment());
     }
 
+    /* 장소 delete */
     @Transactional
     public void deletePlace(int placeId) {
         placeRepository.deleteById(placeId);
     }
 
-
+    /* 카카오 장소 rest-api로 사용자가 검색한 키워드 장소 검색해서 반환 */
     private JSONArray getSearchPlaceByKeyword(String keyword){
 
+        /* yml파일에서 api 인증 키 불러오기 */
         String apiKey = env.getProperty("plrecipe.rest-key");
         String baseUrl = "https://dapi.kakao.com/v2/local/search/keyword.json";
         JSONArray searchPlaces = null;
@@ -126,12 +136,14 @@ public class PlaceServiceImpl implements PlaceService {
         try {
             keyword = URLEncoder.encode(keyword, "UTF-8");
 
+            /* 요청 url 작성 */
             String requestUrl = baseUrl + "?query=" + keyword;
 
             URL url = new URL(requestUrl);
 
             URLConnection conn = url.openConnection();
 
+            /* 인증키 세팅 */
             conn.setRequestProperty("Authorization", "KakaoAK " + apiKey);
 
             BufferedReader br = null;
@@ -148,7 +160,9 @@ public class PlaceServiceImpl implements PlaceService {
             br.close();
 
             JSONParser parser = new JSONParser();
-            JSONObject jsonObject = (JSONObject) parser.parse(jsonData);
+            JSONObject jsonObject = (JSONObject) parser.parse(jsonData);  // 받아온 String -> JsonObject로 파싱
+
+            /* 장소 정보들 들어있는 documents 뽑아서 JSONArray로 변환 */
             searchPlaces = (JSONArray) jsonObject.get("documents");
 
         } catch (UnsupportedEncodingException e) {

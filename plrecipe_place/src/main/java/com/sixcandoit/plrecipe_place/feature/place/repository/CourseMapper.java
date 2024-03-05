@@ -9,6 +9,5 @@ import java.util.List;
 @Mapper
 public interface CourseMapper {
     List<Place> getPlacesByCourseName(int courseId);
-
     List<CoursePlace> selectCoursePlaceByCourseId(int courseId);
 }

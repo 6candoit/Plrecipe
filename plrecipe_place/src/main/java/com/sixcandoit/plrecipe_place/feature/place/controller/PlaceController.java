@@ -16,16 +16,14 @@ import java.util.List;
 @RequestMapping("/place")
 @Slf4j
 public class PlaceController {
-
-    private Environment env;
     private final PlaceServiceImpl placeServiceImpl;
 
     @Autowired
-    public PlaceController(Environment env, PlaceServiceImpl placeServiceImpl) {
-        this.env = env;
+    public PlaceController(PlaceServiceImpl placeServiceImpl) {
         this.placeServiceImpl = placeServiceImpl;
     }
 
+    /* 장소 추가를 위해 키워드로 장소 검색해서 장소 리스트 받아오기 */
     @GetMapping("/searchPlace/{keyword}")
     public String searchPlace(@PathVariable String keyword, Model model) {
         
