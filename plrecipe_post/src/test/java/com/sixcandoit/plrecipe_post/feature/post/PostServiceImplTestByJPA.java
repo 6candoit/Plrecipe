@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class PostServiceTestByJPA {
+public class PostServiceImplTestByJPA {
 
     private static EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;

@@ -4,6 +4,7 @@ import com.sixcandoit.plrecipe_post.config.Pagination;
 import com.sixcandoit.plrecipe_post.config.PagingButtonInfo;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.service.PostService;
+import com.sixcandoit.plrecipe_post.service.PostServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
