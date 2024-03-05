@@ -87,13 +87,4 @@
         WHERE MEMBER_ID = #{memberId}
     </select>
 
-    <select id="selectCourseByMember" parameterType="_int" resultMap="courseResultMap">
-        SELECT
-                A.COURSE_ID,
-                A.COURSE_NAME,
-                A.MEMBER_ID
-            FROM COURSE A
-           WHERE MEMBER_ID = #{memberId}
-    </select>
-
 </mapper>
