@@ -47,8 +47,8 @@
 <br/>
 
 <figure class="half">
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/내국인출국자통계.png" height=175></a>
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/1인평균국내여행일수통계.png" height=175></a>
+ <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/내국인출국자통계.png" height=145></a>
+ <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/1인평균국내여행일수통계.png" height=145></a>
 </figure>
 
 <br/>
