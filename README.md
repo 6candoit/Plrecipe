@@ -82,7 +82,7 @@
 ## 기술스택
 <div align="center">
 
-|DA#|ubuntu|mariaDB|Java|JavaSpring|MyBatis|JPA|
+|DA#|Ubuntu|MariaDB|Java|JavaSpring|MyBatis|JPA|
 |---|---|---|---|---|---|---|
 |<img src="https://github.com/beyond-sw-camp/be04-1st-4goda-vite/blob/main/PNG/Readme/da%23.png" height="100" />|<img src="https://github.com/beyond-sw-camp/be04-1st-4goda-vite/blob/main/PNG/Readme/ubuntu.png" height="100" />|<img src="https://github.com/beyond-sw-camp/be04-1st-4goda-vite/blob/main/PNG/Readme/mariadb.png" height="100" />|<img src="https://github.com/6candoit/Plrecipe/blob/f48babc85d68e3a266a609d889c41d26433944c6/PNG/java.png" height="100">|<img src="https://github.com/6candoit/Plrecipe/blob/f48babc85d68e3a266a609d889c41d26433944c6/PNG/javaspring.png" height="100">|<img src="https://github.com/6candoit/Plrecipe/blob/f48babc85d68e3a266a609d889c41d26433944c6/PNG/mybatis.png" height="100">|<img src="https://github.com/6candoit/Plrecipe/blob/f48babc85d68e3a266a609d889c41d26433944c6/PNG/jpa.png" height="100">|   
 
