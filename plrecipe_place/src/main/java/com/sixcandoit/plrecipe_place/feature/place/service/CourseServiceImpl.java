@@ -26,17 +26,20 @@ public class CourseServiceImpl implements CourseService {
     private final CourseMapper courseMapper;
     private final ModelMapper mapper;
     private final CourseRepository courseRepository;
-    private final PlaceRepository placeRepository;
     private final CoursePlaceRepository coursePlaceRepository;
 
 
     @Autowired
-    public CourseServiceImpl(CourseMapper courseMapper, ModelMapper mapper, CourseRepository courseRepository, PlaceRepository placeRepository, CoursePlaceRepository coursePlaceRepository) {
+    public CourseServiceImpl(CourseMapper courseMapper, ModelMapper mapper, CourseRepository courseRepository, CoursePlaceRepository coursePlaceRepository) {
         this.courseMapper = courseMapper;
         this.mapper = mapper;
         this.courseRepository = courseRepository;
-        this.placeRepository = placeRepository;
         this.coursePlaceRepository = coursePlaceRepository;
+    }
+
+    /* 멤버id로 멤버가 작성한 코스 리스트 select */
+    public List<Course> selectCourseByMember(int memberId){
+        return courseMapper.selectCourseByMember(memberId);
     }
 
     /* 코스id로 한 코스의 정보와 코스에 해당하는 장소 리스트 select (CoursePlace) */
@@ -49,18 +52,19 @@ public class CourseServiceImpl implements CourseService {
         return courseMapper.getPlacesByCourseName(courseId);
     }
 
+    /* 코스 insert */
     @Override
     public void registCourse(CourseAndPlace cp) {
 
-        /* 코스 정보 저장 */
+        /* 코스 정보 insert */
         Course newCourse = cp.getCourse();
         courseRepository.save(newCourse);
-        System.out.println("newCourse = " + cp);
 
         /* 코스장소 정보 insert */
         saveCoursePlace(newCourse.getCourseId(), cp.getPlaces());
     }
 
+    /* 코스장소(중간테이블)에 정보 insert */
     public void saveCoursePlace(int courseId, List<Place> placeList){
 
         /* 코스id와 장소id를 중간객체 리스트로 만들어서 저장 */
@@ -79,6 +83,7 @@ public class CourseServiceImpl implements CourseService {
 
     }
 
+    /* 코스 정보 수정 */
     @Transactional
     public void modifyCourse(CourseAndPlace modifyCP) {
 
@@ -91,11 +96,13 @@ public class CourseServiceImpl implements CourseService {
 
     }
 
+    /* 코스장소 삭제 */
     @Transactional
     public void deleteCoursePlace(int courseId){
         coursePlaceRepository.deleteAllByCourseId(courseId);
     }
 
+    /* 코스 삭제 */
     @Transactional
     public void deleteCourse(CourseAndPlace deleteCP) {
 
@@ -105,8 +112,4 @@ public class CourseServiceImpl implements CourseService {
 
     }
 
-    /* 멤버id로 멤버가 작성한 코스 리스트 select */
-    public List<Course> selectCourseByMember(int memberId){
-        return courseMapper.selectCourseByMember(memberId);
-    }
 }

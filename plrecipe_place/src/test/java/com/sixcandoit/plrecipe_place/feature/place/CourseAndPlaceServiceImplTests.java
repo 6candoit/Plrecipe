@@ -69,7 +69,7 @@ public class CourseAndPlaceServiceImplTests {
     @Test
     void modifyCourse(){
 
-        Course course = courseService.selectCourseByMember(5).get(0);
+        Course course = courseService.selectCourseByMember(6).get(0);
         course.setCourseName("---코스수정테스트---");
         List<Place> placeList = courseService.getPlacesByCourseName(course.getCourseId());
         placeList.add(placeList.get(1));
@@ -81,7 +81,7 @@ public class CourseAndPlaceServiceImplTests {
 
     @Test
     void deleteCourse(){
-        Course course = courseService.selectCourseByMember(5).get(0);
+        Course course = courseService.selectCourseByMember(6).get(0);
         List<Place> placeList = courseService.getPlacesByCourseName(course.getCourseId());
 
         CourseAndPlace cp = new CourseAndPlace(course, placeList);
