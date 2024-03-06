@@ -31,7 +31,7 @@ Content-Type: application/json
 }
 
 ### POST regist Hashtag
-POST localhost:8080/post/hashtag/regist
+POST localhost:8080/post/regist/hashtag
 Content-Type: application/json
 
 {
@@ -44,7 +44,7 @@ Content-Type: application/json
 
 {
   "hashtagId": 1,
-  "postId": 12
+  "postId": 10
 }
 
 ### POST regist PostHashtag
@@ -62,9 +62,21 @@ Content-Type: application/json
 }
 
 ### PATCH delete Post
-PATCH localhost:8080/post/delete/12
+PATCH localhost:8080/post/delete/10
 Content-Type: application/json
 
 {
   "postDeleteDate": "current_date"
+}
+
+### GET delete post_hashtag
+DELETE localhost:8080/post/hashtag/delete/15
+
+### POST regist post_like
+POST localhost:8080/post/like
+Content-Type: application/json
+
+{
+  "memberId": "21",
+  "postId": "10"
 }

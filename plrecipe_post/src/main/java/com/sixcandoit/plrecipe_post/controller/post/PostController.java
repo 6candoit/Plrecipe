@@ -73,7 +73,7 @@ public class PostController {
     @GetMapping("/delete")
     public void deletePage() {}
 
-    @PostMapping("/delete")
+    @PostMapping("/delete/{postId}")
     public String deletePost(@RequestParam int postId) {
         postService.deletePost(postId);
 

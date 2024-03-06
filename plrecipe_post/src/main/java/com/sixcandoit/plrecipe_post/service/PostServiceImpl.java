@@ -8,8 +8,10 @@ import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
 import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
 import com.sixcandoit.plrecipe_post.repository.repo.HashtagRepository;
+import com.sixcandoit.plrecipe_post.repository.repo.PostLikeRepository;
 import com.sixcandoit.plrecipe_post.repository.repo.PostRepository;
 import com.sixcandoit.plrecipe_post.vo.Hashtag;
+import com.sixcandoit.plrecipe_post.vo.PostLike;
 import com.sixcandoit.plrecipe_post.vo.RequestPost;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -33,12 +35,14 @@ public class PostServiceImpl implements PostService {
     private final ModelMapper mapper;
     private final PostMapper postMapper;
     private final PostRepository postRepository;
+    private final PostLikeRepository postLikeRepository;
 
     @Autowired
-    public PostServiceImpl(ModelMapper mapper, PostMapper postMapper, PostRepository postRepository) {
+    public PostServiceImpl(ModelMapper mapper, PostMapper postMapper, PostRepository postRepository, PostLikeRepository postLikeRepository) {
         this.mapper = mapper;
         this.postMapper = postMapper;
         this.postRepository = postRepository;
+        this.postLikeRepository = postLikeRepository;
     }
 
     @Override
@@ -108,6 +112,14 @@ public class PostServiceImpl implements PostService {
         post.setPostDeleteDate(dateTest);
 
         return postRepository.save(post);
+    }
+
+    @Override
+    public void postLike(PostDTO postDTO) {
+        PostLike postLike = mapper.map(postDTO, PostLike.class);
+        postLike.setPostId(postDTO.getPostId());
+        postLike.setMemberId(postDTO.getMemberId());
+        postLikeRepository.save(postLike);
     }
 
     /* --------------------- Mybatis --------------------- */

@@ -1,7 +1,7 @@
 package com.sixcandoit.plrecipe_post.service;
 
 import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
-import com.sixcandoit.plrecipe_post.repository.PostHashtagRepository;
+import com.sixcandoit.plrecipe_post.repository.repo.PostHashtagRepository;
 import com.sixcandoit.plrecipe_post.vo.PostHashtag;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -25,5 +25,10 @@ public class PostHashtagServiceImpl implements PostHashtagService{
         PostHashtag postHashtag = mapper.map(postHashtagDTO, PostHashtag.class);
 
         postHashtagRepository.save(postHashtag);
+    }
+
+    @Override
+    public void deletePost(int postHashtagId) {
+        postHashtagRepository.deleteById(postHashtagId);
     }
 }

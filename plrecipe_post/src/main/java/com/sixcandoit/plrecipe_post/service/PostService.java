@@ -37,4 +37,6 @@ public interface PostService {
     Post modifyPost(int postId, RequestPost requestPost);
 
     Post modifyPostDeleteDate(int postId, RequestPost requestPost);
+
+    void postLike(PostDTO postDTO);
 }

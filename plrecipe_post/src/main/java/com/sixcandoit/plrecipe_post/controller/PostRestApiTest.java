@@ -35,8 +35,6 @@ public class PostRestApiTest {
         this.postHashtagService = postHashtagService;
     }
 
-    @Autowired
-
 
     @GetMapping("/posts")
     public List<PostDTO> selectAllPost() {
@@ -111,4 +109,25 @@ public class PostRestApiTest {
         return ResponseEntity.ok(postService.modifyPostDeleteDate(postId, requestPost));
     }
 
+
+    @GetMapping("/hashtag/delete")
+    public void deletePage() {}
+
+    @DeleteMapping("/hashtag/delete/{postHashtagId}")
+    public ResponseEntity<PostHashtag> deletePostHashTag(@PathVariable int postHashtagId) {
+        postHashtagService.deletePost(postHashtagId);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/like")
+    private ResponseEntity<ResponsePost> postLike(@RequestBody RequestPost post) {
+        PostDTO postDTO = modelMapper.map(post, PostDTO.class);
+
+        postService.postLike(postDTO);
+
+        ResponsePost responsePost = modelMapper.map(postDTO, ResponsePost.class);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responsePost);
+    }
 }
