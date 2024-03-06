@@ -30,6 +30,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void registMember(MemberDTO memberDTO) {
+
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String dateTest = format.format(date);
@@ -41,10 +42,12 @@ public class MemberServiceImpl implements MemberService {
     }
     @Override
     public Member modifyMember(int memberId, RequestMember requestMember) {
+
         Optional<Member> optionalMember = memberRepository.findById(memberId);
         if (!optionalMember.isPresent()) {
             throw new EntityNotFoundException("회원이 존재하지 않습니다.");
         }
+
         Member member = optionalMember.get();
         member.setMemberEmail(requestMember.getMemberEmail());
         member.setPassword(requestMember.getPassword());
@@ -63,17 +66,21 @@ public class MemberServiceImpl implements MemberService {
             throw new EntityNotFoundException("회원이 존재하지 않습니다.");
         }
         Member member = optionalMember.get();
+
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateTest = format.format(date);
+
         member.setMemberStatus(requestMember.getMemberStatus());
+        member.setWithdrawalDate(dateTest);
 
         return memberRepository.save(member);
     }
-
     //    ---------------------------------------------------------------
     @Override
     public List<MemberDTO> selectAllMember() {
         return memberMapper.selectAllMember();
     }
-
     @Override
     public MemberDTO selectMemberById(int memberId) {
         Optional<Member> userEntity = memberRepository.findById(memberId);
@@ -81,10 +88,8 @@ public class MemberServiceImpl implements MemberService {
 
         return userDTO;
     }
-
     @Override
     public List<MemberDTO> selectMemberByLikePost(int memberId) {
         return memberMapper.selectMemberByLikePost(memberId);
     }
-
 }

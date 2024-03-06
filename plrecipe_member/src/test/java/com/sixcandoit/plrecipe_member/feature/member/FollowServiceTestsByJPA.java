@@ -67,19 +67,6 @@ public class FollowServiceTestsByJPA {
         System.out.println("foundMember = " + foundMember);
     }
 
-//    @Test
-//    public void 팔로우_조회_회원() {
-//
-//        int user_follow = 15;
-//        int user_follower = 5;
-//
-//        Follow foundMember = entityManager.find(Follow.class, user_follow);
-//        Assertions.assertNotNull(foundMember);
-//        Assertions.assertEquals(user_follower, foundMember.getUserFollower());
-//
-//        System.out.println("foundMember = " + foundMember);
-//    }
-
     @Test
     public void 팔로우_취소_테스트() {
 

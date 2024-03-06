@@ -19,15 +19,6 @@ public class FollowServiceTestsByMyBatis {
     @Autowired
     private FollowService followService;
 
-//    @Test
-//    void selectAllFollow() {
-//
-//        List<FollowDTO> follows = followService.selectAllFollow();
-//        follows.forEach(System.out::println);
-//
-//        assertNotNull(follows);
-//    }
-
     @ParameterizedTest
     @ValueSource(ints = {1})
     void selectMemberWhoFollowsMe(int userFollow) {

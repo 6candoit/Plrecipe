@@ -53,10 +53,9 @@ public class MemberController {
     //    회원가입
     @PostMapping("/regist")
     private ResponseEntity<ResponseMember> registMember(@RequestBody RequestMember member) {
+
         MemberDTO memberDTO = modelMapper.map(member, MemberDTO.class);
-
         memberServiceImpl.registMember(memberDTO);
-
         ResponseMember responseMember = modelMapper.map(memberDTO, ResponseMember.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMember);
@@ -71,6 +70,6 @@ public class MemberController {
     //   회원탈퇴 -> 탈퇴날짜 입력 및 memberStatus 변경
     @PatchMapping("/withdraw/{memberId}")
     public ResponseEntity<Member> withdrawMember(@RequestBody RequestMember requestMember, @PathVariable int memberId) {
-        return ResponseEntity.ok(memberServiceImpl.modifyMember(memberId, requestMember));
+        return ResponseEntity.ok(memberServiceImpl.withdrawMember(memberId, requestMember));
     }
 }

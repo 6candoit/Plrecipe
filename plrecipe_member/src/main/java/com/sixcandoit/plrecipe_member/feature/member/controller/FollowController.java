@@ -20,7 +20,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/follow")
-@Slf4j
 public class FollowController {
 
     private final FollowServiceImpl followServiceImpl;
@@ -48,10 +47,9 @@ public class FollowController {
 
     @PostMapping("/new")
     private ResponseEntity<ResponseFollow> followMember(@RequestBody RequestFollow follow) {
+
         FollowDTO followDTO = modelMapper.map(follow, FollowDTO.class);
-
         followServiceImpl.followMember(followDTO);
-
         ResponseFollow responseFollow = modelMapper.map((followDTO), ResponseFollow.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseFollow);
@@ -66,9 +64,4 @@ public class FollowController {
         return ResponseEntity.ok().build();
     }
 
-//    public String cancelFollow(@RequestParam int followId) {
-//        followServiceImpl.cancelFollow(followId);
-//
-//        return "redirect:/follow";
-//    }
 }

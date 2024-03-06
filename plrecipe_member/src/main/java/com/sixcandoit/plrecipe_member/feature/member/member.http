@@ -32,10 +32,10 @@ PATCH localhost:8080/member/modify/4
 Content-Type: application/json
 
 {
-  "memberEmail": "chosoobin37@gmail.com",
-  "password": "passchange",
+  "memberEmail": "newsoobin@gmail.com",
+  "password": "newPass",
   "memberName": "제갈수빈",
-  "memberNickname": "쥬라기월드",
+  "memberNickname": "쥬라기월드37",
   "memberNumber": "010-0307-0307"
 }
 

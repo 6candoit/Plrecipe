@@ -99,17 +99,6 @@ public class MemberServiceTestsByJPA {
         System.out.println("foundMember = " + foundMember);
     }
 
-//    @Test
-//    public void 이름으로_회원_조회_테스트() {
-//
-//        String memberName = "조수빈";
-//
-//        Member foundMember = entityManager.find(Member.class, memberName);
-//        Assertions.assertNotNull(foundMember);
-//        Assertions.assertEquals(memberName, foundMember.getMemberEmail());
-//        System.out.println("foundMember = " + foundMember);
-//    }
-
     @Test
     public void 회원_탈퇴_테스트() {
 

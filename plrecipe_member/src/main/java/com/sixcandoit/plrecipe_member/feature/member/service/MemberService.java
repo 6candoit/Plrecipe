@@ -10,9 +10,9 @@ public interface MemberService {
 
     List<MemberDTO> selectAllMember();
     MemberDTO selectMemberById(int memberId);
+    List<MemberDTO> selectMemberByLikePost(int memberId);
     void registMember(MemberDTO memberDTO);
     Member modifyMember(int memberId, RequestMember requestMember);
     Member withdrawMember(int memberId, RequestMember requestMember);
-// -----------------------------------------------------------------
-    List<MemberDTO> selectMemberByLikePost(int memberId);
+
 }
