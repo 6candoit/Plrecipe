@@ -4,6 +4,8 @@ import com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO;
 import com.sixcandoit.plrecipe_member.feature.member.entity.Member;
 import com.sixcandoit.plrecipe_member.feature.member.repository.MemberMapper;
 import com.sixcandoit.plrecipe_member.feature.member.repository.MemberRepository;
+import com.sixcandoit.plrecipe_member.feature.vo.RequestMember;
+import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -26,16 +29,6 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDTO findMemberById(int memberId) {
-        Member member = memberRepository.findById(memberId).orElseThrow(IllegalArgumentException::new);
-        return mapper.map(member, MemberDTO.class);
-    }
-
-    @Override
-    public void modifyMember(MemberDTO modifyMember) {
-    }
-
-    @Override
     public void registMember(MemberDTO memberDTO) {
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -46,6 +39,34 @@ public class MemberServiceImpl implements MemberService {
 
         memberRepository.save(member);
     }
+    @Override
+    public Member modifyMember(int memberId, RequestMember requestMember) {
+        Optional<Member> optionalMember = memberRepository.findById(memberId);
+        if (!optionalMember.isPresent()) {
+            throw new EntityNotFoundException("회원이 존재하지 않습니다.");
+        }
+        Member member = optionalMember.get();
+        member.setMemberEmail(requestMember.getMemberEmail());
+        member.setPassword(requestMember.getPassword());
+        member.setMemberName(requestMember.getMemberName());
+        member.setMemberNickname(requestMember.getMemberNickname());
+        member.setMemberNumber(requestMember.getMemberNumber());
+
+        return memberRepository.save(member);
+    }
+
+    @Override
+    public Member withdrawMember(int memberId, RequestMember requestMember) {
+
+        Optional<Member> optionalMember = memberRepository.findById(memberId);
+        if (!optionalMember.isPresent()) {
+            throw new EntityNotFoundException("회원이 존재하지 않습니다.");
+        }
+        Member member = optionalMember.get();
+        member.setMemberStatus(requestMember.getMemberStatus());
+
+        return memberRepository.save(member);
+    }
 
     //    ---------------------------------------------------------------
     @Override
@@ -54,13 +75,16 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public List<MemberDTO> selectMemberByLikePost(int memberId) {
-        return memberMapper.selectMemberByLikePost(memberId);
+    public MemberDTO selectMemberById(int memberId) {
+        Optional<Member> userEntity = memberRepository.findById(memberId);
+        MemberDTO userDTO = mapper.map(userEntity, MemberDTO.class);
+
+        return userDTO;
     }
 
     @Override
-    public String selectMemberById(int memberId) {
-        return null;
+    public List<MemberDTO> selectMemberByLikePost(int memberId) {
+        return memberMapper.selectMemberByLikePost(memberId);
     }
 
 }

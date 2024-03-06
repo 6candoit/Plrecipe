@@ -57,10 +57,15 @@ public class CourseAndPlaceServiceImplTests {
     }
 
     @Test
-    void insertCoursePlace(){
-        CourseDTO course = new CourseDTO("코스생성", 2);
+    void registCourse(){
+        Course course = new Course("코스생성", 2);
         List<Place> placeList = courseService.getPlacesByCourseName(1);
-        courseService.registCoursePlace(course, placeList);
+
+        CourseAndPlace cp = new CourseAndPlace(course, placeList);
+
+        courseService.registCourse(cp);
     }
+
+
 
 }

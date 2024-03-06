@@ -26,6 +26,11 @@ public class Course {
         this.memberId = memberId;
     }
 
+    public Course(String courseName, int memberId) {
+        this.courseName = courseName;
+        this.memberId = memberId;
+    }
+
     public int getCourseId() {
         return courseId;
     }

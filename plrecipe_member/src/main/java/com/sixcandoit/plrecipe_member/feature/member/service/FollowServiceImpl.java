@@ -25,9 +25,8 @@ public class FollowServiceImpl implements FollowService {
         this.followMapper = followMapper;
         this.followRepository = followRepository;
     }
-    @Transactional
     @Override
-    public void unFollow(int followId) {
+    public void cancelFollow(int followId) {
         followRepository.deleteById(followId);
     }
 
@@ -53,7 +52,6 @@ public class FollowServiceImpl implements FollowService {
 
     @Override
     public void followMember(FollowDTO followDTO) {
-
         Follow follow = mapper.map(followDTO, Follow.class);
         followRepository.save((follow));
     }

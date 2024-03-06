@@ -13,5 +13,5 @@ public interface CourseService {
     List<Course> selectCourseByMember(int memberId);
     List<Place> getPlacesByCourseName(int courseId);
 
-    void registCoursePlace(CourseDTO course, List<Place> placeList);
+    void registCourse(CourseAndPlace cp);
 }

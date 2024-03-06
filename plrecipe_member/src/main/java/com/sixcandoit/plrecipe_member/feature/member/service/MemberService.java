@@ -2,20 +2,17 @@ package com.sixcandoit.plrecipe_member.feature.member.service;
 
 import com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO;
 import com.sixcandoit.plrecipe_member.feature.member.entity.Member;
+import com.sixcandoit.plrecipe_member.feature.vo.RequestMember;
 
 import java.util.List;
 
 public interface MemberService {
 
-    MemberDTO findMemberById(int memberId);
-
-    void modifyMember(MemberDTO modifyMember);
-
     List<MemberDTO> selectAllMember();
-
-    List<MemberDTO> selectMemberByLikePost(int memberId);
-
-    String selectMemberById(int memberId);
-
+    MemberDTO selectMemberById(int memberId);
     void registMember(MemberDTO memberDTO);
+    Member modifyMember(int memberId, RequestMember requestMember);
+    Member withdrawMember(int memberId, RequestMember requestMember);
+// -----------------------------------------------------------------
+    List<MemberDTO> selectMemberByLikePost(int memberId);
 }

@@ -31,6 +31,7 @@
             , A.MEMBER_GRADE
             , A.MEMBER_STATUS
           FROM MEMBER_INFO A
+          WHERE A.MEMBER_STATUS = 'Y'
     </select>
 
     <select id="selectMemberByLikePost" parameterType="_int" resultMap="memberResultMap">

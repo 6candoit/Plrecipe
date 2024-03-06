@@ -18,6 +18,11 @@ public class CourseAndPlace {
         this.places = places;
     }
 
+    public CourseAndPlace(Course course, List<Place> places) {
+        this.course = course;
+        this.places = places;
+    }
+
     public int getPlaceCourseId() {
         return placeCourseId;
     }

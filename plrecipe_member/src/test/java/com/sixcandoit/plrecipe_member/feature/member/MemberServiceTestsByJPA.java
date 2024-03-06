@@ -130,6 +130,5 @@ public class MemberServiceTestsByJPA {
         }
 
         Assertions.assertEquals(withdrawalDate, entityManager.find(Member.class, 33).getWithdrawalDate());
-//        Assertions.assertEquals(withdrawalDate, entityManager.find(Member.class, 7).getMemberStatus());
     }
 }
