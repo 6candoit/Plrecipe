@@ -31,7 +31,7 @@ public class FollowController {
         this.modelMapper = modelMapper;
     }
 
-    //  전체 팔로우 조회
+    // 전체 팔로우 조회
     @GetMapping("/follows")
     public List<FollowDTO> selectAllFollows(){
         return followServiceImpl.selectAllFollows();
@@ -46,13 +46,13 @@ public class FollowController {
         return ResponseEntity.status(HttpStatus.OK).body(returnValue);
     }
 
-    //    나를 팔로우하는 전체 회원 조회 -> 내 팔로워 조회
+    // 나를 팔로우하는 전체 회원 조회 -> 내 팔로워 조회
     @GetMapping("follower/{userFollow}")
     public List<FollowDTO> selectMemberWhoFollowsMe(@PathVariable("userFollow") int userFollow) {
         return followServiceImpl.selectMemberWhoFollowsMe(userFollow);
     }
 
-    //    내가 팔로우 하는 회원 전체 조회 -> 내 팔로잉 조회
+    // 내가 팔로우 하는 회원 전체 조회 -> 내 팔로잉 조회
     @GetMapping("following/{userFollower}")
     public List<FollowDTO> selectMemberWhoIFollow(@PathVariable("userFollower") int userFollower) {
         return followServiceImpl.selectMemberWhoIFollow(userFollower);

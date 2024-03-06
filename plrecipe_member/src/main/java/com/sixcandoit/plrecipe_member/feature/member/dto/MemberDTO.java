@@ -14,7 +14,6 @@ public class MemberDTO {
     private String withdrawalDate;
     private MemberGrade memberGrade;
     private String memberStatus;
-
     public MemberDTO() {
     }
 

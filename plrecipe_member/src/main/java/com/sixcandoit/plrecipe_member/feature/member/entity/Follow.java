@@ -29,7 +29,6 @@ public class Follow {
     public int getFollowId() {
         return followId;
     }
-
     public void setFollowId(int followId) {
         this.followId = followId;
     }

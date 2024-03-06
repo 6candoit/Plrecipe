@@ -34,13 +34,13 @@ public class MemberController {
         this.modelMapper = modelMapper;
     }
 
-    //    회원전체조회
+    // 회원전체조회
     @GetMapping("/members")
     public List<MemberDTO> selectAllMember() {
         return memberServiceImpl.selectAllMember();
     }
 
-    //    회원ID로 회원 조회
+    // 회원ID로 회원 조회
     @GetMapping("/{memberId}")
     public ResponseEntity<ResponseMember> selectMemberById(@PathVariable("memberId") int memberId) {
 
@@ -50,7 +50,7 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.OK).body(returnValue);
     }
 
-    //    회원가입
+    // 회원가입
     @PostMapping("/regist")
     private ResponseEntity<ResponseMember> registMember(@RequestBody RequestMember member) {
 
@@ -61,13 +61,13 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMember);
     }
 
-    //   회원정보 수정
+    // 회원정보 수정
     @PatchMapping("/modify/{memberId}")
     public ResponseEntity<Member> modifyMember(@RequestBody RequestMember requestMember, @PathVariable int memberId) {
         return ResponseEntity.ok(memberServiceImpl.modifyMember(memberId, requestMember));
     }
 
-    //   회원탈퇴 -> 탈퇴날짜 입력 및 memberStatus 변경
+    // 회원탈퇴 -> 탈퇴날짜 입력 및 memberStatus 변경
     @PatchMapping("/withdraw/{memberId}")
     public ResponseEntity<Member> withdrawMember(@RequestBody RequestMember requestMember, @PathVariable int memberId) {
         return ResponseEntity.ok(memberServiceImpl.withdrawMember(memberId, requestMember));
