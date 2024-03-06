@@ -14,4 +14,7 @@ public interface CourseService {
     List<Place> getPlacesByCourseName(int courseId);
 
     void registCourse(CourseAndPlace cp);
+    void modifyCourse(CourseAndPlace cp);
+
+    void deleteCourse(CourseAndPlace cp);
 }
