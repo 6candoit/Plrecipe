@@ -1,6 +1,7 @@
 package com.sixcandoit.plrecipe_member.feature.member.controller;
 
 import com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO;
+import com.sixcandoit.plrecipe_member.feature.member.entity.Follow;
 import com.sixcandoit.plrecipe_member.feature.member.service.FollowServiceImpl;
 import com.sixcandoit.plrecipe_member.feature.vo.RequestFollow;
 import com.sixcandoit.plrecipe_member.feature.vo.ResponseFollow;
@@ -57,12 +58,17 @@ public class FollowController {
     }
 
     @GetMapping("/unfollow")
-    public void unFollow() {    }
+    public void cancelFollow() {    }
 
-    @DeleteMapping("/unfollow")
-    public String unFollow(@RequestParam int followId) {
-        followServiceImpl.unFollow(followId);
-
-        return "redirect:/follow";
+    @DeleteMapping("/unfollow/{followId}")
+    public ResponseEntity<ResponseFollow> cancelFollow(@PathVariable int followId) {
+        followServiceImpl.cancelFollow(followId);
+        return ResponseEntity.ok().build();
     }
+
+//    public String cancelFollow(@RequestParam int followId) {
+//        followServiceImpl.cancelFollow(followId);
+//
+//        return "redirect:/follow";
+//    }
 }

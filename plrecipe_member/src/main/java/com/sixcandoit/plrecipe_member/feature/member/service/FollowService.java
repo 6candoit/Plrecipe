@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface FollowService {
 
-    void unFollow(int followId);
+    void cancelFollow(int followId);
     List<FollowDTO> selectMemberWhoFollowsMe(int userFollow);
     List<FollowDTO> selectMemberWhoIFollow(int userFollower);
     FollowDTO findFollowById(int followId);

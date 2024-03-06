@@ -2,7 +2,7 @@
 GET localhost:8080/member/members
 
 ### GET request memberById
-GET localhost:8080/member/2
+GET localhost:8080/member/33
 
 ### PUT regist Member
 POST localhost:8080/member/regist
@@ -23,15 +23,33 @@ POST localhost:8080/follow/new
 content-Type: application/json
 
 {
-  "userFollow": 12,
+  "userFollow": 24,
   "userFollower": 5
 }
 
-### DELETE delete Follow
-DELETE localhost:8080/follow/unfollow
-content-Type: application/json
+### PATCH modify Member
+PATCH localhost:8080/member/modify/4
+Content-Type: application/json
 
 {
-  "followId": 10
+  "memberEmail": "chosoobin37@gmail.com",
+  "password": "passchange",
+  "memberName": "제갈수빈",
+  "memberNickname": "쥬라기월드",
+  "memberNumber": "010-0307-0307"
 }
+
+### PATCH withdraw Member
+PATCH localhost:8080/member/withdraw/10
+Content-Type: application/json
+
+{
+  "memberStatus": "N"
+}
+
+### DELETE delete Follow
+DELETE localhost:8080/follow/unfollow/26
+content-Type: application/json
+
+
 
