@@ -18,5 +18,5 @@ public class RequestTest {
 //    private String isPostPublic;
 //    private MemberCount memberCount;
 //    private List<Integer> hashtagId;
-    private List<Hashtag> hashtag;
+    private List<Integer> hashtagId;
 }

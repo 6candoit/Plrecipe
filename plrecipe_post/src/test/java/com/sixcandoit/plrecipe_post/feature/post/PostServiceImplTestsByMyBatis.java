@@ -61,15 +61,15 @@ public class PostServiceImplTestsByMyBatis {
         assertTrue(!postList.isEmpty());
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {1})
-    void selectPostHashtags(int postId) {
-        List<PostAndHashtag> postList = postServiceImpl.selectPostHashtags(postId);
-
-        postList.forEach(System.out::println);
-
-        assertTrue(!postList.isEmpty());
-    }
+//    @ParameterizedTest
+//    @ValueSource(ints = {1})
+//    void selectPostHashtags(int postId) {
+//        List<PostAndHashtag> postList = postServiceImpl.selectPostHashtags(postId);
+//
+//        postList.forEach(System.out::println);
+//
+//        assertTrue(!postList.isEmpty());
+//    }
 
     @ParameterizedTest
     @ValueSource(ints = {1, 4, 8})

@@ -62,7 +62,7 @@ public class PostRestApiTest {
     }
 
     @GetMapping("/posts/hashtag/{postId}")
-    public List<PostAndHashtag> selectPostHashtags(@PathVariable int postId) {
+    public List<PostHashtagDTO> selectPostHashtags(@PathVariable int postId) {
         return postService.selectPostHashtags(postId);
     }
 
@@ -93,12 +93,11 @@ public class PostRestApiTest {
         return ResponseEntity.status(HttpStatus.CREATED).body(responsePost);
     }
 
-    @PostMapping("/test")
-    private ResponseEntity<?> test(@RequestBody RequestTest test) {
+    @PostMapping("/regist_both")
+    private ResponseEntity<?> registPostAndHashtag(@RequestBody RequestTest test) {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         PostAndHashtag postAndHashtag = modelMapper.map(test, PostAndHashtag.class);
-        System.out.println(postAndHashtag.toString());
-        postService.test(postAndHashtag);
+        postService.registPostAndHashtag(postAndHashtag);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

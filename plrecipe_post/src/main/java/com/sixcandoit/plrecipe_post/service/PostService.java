@@ -3,8 +3,10 @@ package com.sixcandoit.plrecipe_post.service;
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
 import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
+import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
 import com.sixcandoit.plrecipe_post.vo.PostAndHashtag;
 import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
+import com.sixcandoit.plrecipe_post.vo.PostHashtag;
 import com.sixcandoit.plrecipe_post.vo.post.RequestPost;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,7 +28,7 @@ public interface PostService {
 
     List<PostDTO> selectPostsByMemberCounts(MemberCount memberCounts);
 
-    List<PostAndHashtag> selectPostHashtags(int postId);
+    List<PostHashtagDTO> selectPostHashtags(int postId);
 
     List<PostLikeDTO> selectPostByLikes(int postId);
 
@@ -38,5 +40,5 @@ public interface PostService {
 
     void postLike(PostDTO postDTO);
 
-    void test(PostAndHashtag postAndHashtag);
+    void registPostAndHashtag(PostAndHashtag postAndHashtag);
 }
