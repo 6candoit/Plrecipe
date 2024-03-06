@@ -11,5 +11,5 @@ import java.util.List;
 public interface CourseMapper {
     List<Place> getPlacesByCourseName(int courseId);
     List<Course> selectCourseByMember(int memberId);
-    List<CourseAndPlace> selectCoursePlaceByCourseId(int courseId);
+    CourseAndPlace selectCoursePlaceByCourseId(int courseId);
 }
