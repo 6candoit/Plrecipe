@@ -41,10 +41,11 @@ public class CourseAndPlaceServiceImplTests {
     @ValueSource(ints = {1, 2, 3, 4})
     void selectCoursePlaceByCourseId(int courseId){
 
-        List<CourseAndPlace> courseAndPlaceList = courseService.selectCoursePlaceByCourseId(courseId);
-        courseAndPlaceList.forEach(System.out::println);
+        CourseAndPlace courseAndPlaceList = courseService.selectCoursePlaceByCourseId(courseId);
+        //courseAndPlaceList.forEach(System.out::println);
 
-        assertNotNull(!courseAndPlaceList.isEmpty());
+
+        assertNotNull(courseAndPlaceList);
     }
 
     @ParameterizedTest

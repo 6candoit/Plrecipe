@@ -46,7 +46,7 @@ public class PlaceController {
     }
 
     /* 장소 불러오기 */
-    @GetMapping("/find/{placeId}")
+    @GetMapping(value = {"/find/{placeId}", "/find"})
     public List<Place> findPlace(@PathVariable(required = false) String placeId){
         if(placeId == null)
             return placeService.selectAllPlace();
@@ -122,21 +122,22 @@ public class PlaceController {
 
     /* 설명. 코스 관련 */
 
+    /* 설명. 코스플레이스 리스트로 받아와져서 -> 하나의 객체에 1코스 n장소로 다시 바꿔야 함 */
     /* 코스id로 코스와 코스에 등록된 장소 리스트 조회 */
     @GetMapping("/course/findInfo/{courseId}")
-    public List<CourseAndPlace> selectCoursePlaceByCourseId(@PathVariable int courseId){
+    public CourseAndPlace selectCoursePlaceByCourseId(@PathVariable int courseId){
         return courseService.selectCoursePlaceByCourseId(courseId);
     }
 
     /* 멤버id로 멤버가 생성한 코스 조회 */
-    @GetMapping("/course/findUserId/{userId}")
+    @GetMapping("/course/findUserId/{memberId}")
     List<Course> selectCourseByMember(@PathVariable int memberId){
         return courseService.selectCourseByMember(memberId);
     }
 
     /* 코스id로 장소만 불러오기 */
     @GetMapping("/course/findPlaces/{courseId}")
-    List<Place> getPlacesByCourseName(int courseId){
+    List<Place> getPlacesByCourseName(@PathVariable int courseId){
         return courseService.getPlacesByCourseName(courseId);
     }
 
