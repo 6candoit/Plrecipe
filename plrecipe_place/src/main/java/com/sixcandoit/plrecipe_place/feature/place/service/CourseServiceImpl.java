@@ -104,9 +104,8 @@ public class CourseServiceImpl implements CourseService {
 
     /* 코스 삭제 */
     @Transactional
-    public void deleteCourse(CourseAndPlace deleteCP) {
+    public void deleteCourse(int courseId) {
 
-        int courseId = deleteCP.getCourse().getCourseId();
         deleteCoursePlace(courseId);
         courseRepository.deleteById(courseId);
 

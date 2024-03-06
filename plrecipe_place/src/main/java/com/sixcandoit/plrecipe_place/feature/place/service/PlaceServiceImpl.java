@@ -48,8 +48,18 @@ public class PlaceServiceImpl implements PlaceService {
         this.env = env;
     }
 
+    /* 모든 장소 select */
     public List<Place> selectAllPlace() {
         return placeMapper.selectAllPlace();
+    }
+
+    /* 장소 select */
+    public List<Place> selectPlaceById(int placeId) {
+
+        List<Place> place = new ArrayList<>();
+        place.add(placeRepository.findById(placeId).orElseThrow(IllegalArgumentException::new));
+
+        return place;
     }
 
     public List<Place> selectPlaceByFilter(Map<String, Object> filter) { return placeMapper.selectPlaceByFilter(filter);}
@@ -105,6 +115,12 @@ public class PlaceServiceImpl implements PlaceService {
     @Transactional
     public void deletePlace(int placeId) {
         placeRepository.deleteById(placeId);
+    }
+
+    /* 별점 delete */
+    @Override
+    public void deleteStar(int starId) {
+        placeStarRepository.deleteById(starId);
     }
 
     /* 카카오 장소 rest-api로 사용자가 검색한 키워드 장소 검색해서 반환 */
