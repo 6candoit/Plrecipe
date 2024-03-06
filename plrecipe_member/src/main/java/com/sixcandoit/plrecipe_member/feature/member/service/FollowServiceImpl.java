@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FollowServiceImpl implements FollowService {
@@ -41,11 +42,6 @@ public class FollowServiceImpl implements FollowService {
     }
 
     @Override
-    public FollowDTO findFollowById(int followId) {
-        return null;
-    }
-
-    @Override
     public List<FollowDTO> selectAllFollows() {
         return followMapper.selectAllFollow();
     }
@@ -55,4 +51,14 @@ public class FollowServiceImpl implements FollowService {
         Follow follow = mapper.map(followDTO, Follow.class);
         followRepository.save((follow));
     }
+
+    @Override
+    public FollowDTO selectFollowById(int followId) {
+        Optional<Follow> userEntity = followRepository.findById((followId));
+        FollowDTO followDTO = mapper.map(userEntity, FollowDTO.class);
+
+        return followDTO;
+    }
+
+
 }

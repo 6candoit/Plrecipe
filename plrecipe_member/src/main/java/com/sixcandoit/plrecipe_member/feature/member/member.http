@@ -18,12 +18,21 @@ content-Type: application/json
   "memberStatus": "Y"
 }
 
+### GET request followById
+GET localhost:8080/follow/15
+
+### GET request memberWhoFollowsMe
+GET localhost:8080/follow/follower/1
+
+### GET request memberWhoIFollow
+GET localhost:8080/follow/following/5
+
 ### PUT insert Follow
 POST localhost:8080/follow/new
 content-Type: application/json
 
 {
-  "userFollow": 24,
+  "userFollow": 25,
   "userFollower": 5
 }
 
