@@ -44,11 +44,13 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /* 코스id에 해당하는 장소 리스트 select */
-    public List<Place> getPlacesByCourseName(int courseId){ return courseMapper.getPlacesByCourseName(courseId);}
+    public List<Place> getPlacesByCourseName(int courseId){
+        return courseMapper.getPlacesByCourseName(courseId);
+    }
 
 
     @Override
-    public void registCoursePlace(CourseDTO course, List<PlaceDTO> placeList) {
+    public void registCoursePlace(CourseDTO course, List<Place> placeList) {
 
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
@@ -56,15 +58,10 @@ public class CourseServiceImpl implements CourseService {
         Course newCourse = mapper.map(course, Course.class);
         courseRepository.save(newCourse);
 
-        /* 장소 정보 저장 */ // 장소 이미 있는 id 가져올 것이기 때문에 수정 필요
-        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        List<Place> places = placeList.stream().map(place -> mapper.map(place, Place.class)).collect(Collectors.toList());
-        placeRepository.saveAll(places);
-
         /* 코스id와 장소id를 중간객체 리스트로 만들어서 저장 */
         List<CoursePlaceDTO> coursePlaceList = new ArrayList<>();
         for (int i = 0; i < placeList.size(); i++) {
-            CoursePlaceDTO coursePlaceDTO = new CoursePlaceDTO(newCourse.getCourseId(), places.get(i).getPlaceId(), i);
+            CoursePlaceDTO coursePlaceDTO = new CoursePlaceDTO(newCourse.getCourseId(), placeList.get(i).getPlaceId(), i+1);
             coursePlaceList.add(coursePlaceDTO);
         }
 

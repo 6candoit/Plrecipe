@@ -1,5 +1,6 @@
 package com.sixcandoit.plrecipe_place.feature.place;
 
+import com.netflix.discovery.converters.Auto;
 import com.sixcandoit.plrecipe_place.feature.place.dto.CourseDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceDTO;
 import com.sixcandoit.plrecipe_place.feature.place.entity.Course;
@@ -19,9 +20,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 public class CourseAndPlaceServiceImplTests {
+    private final CourseService courseService;
 
     @Autowired
-    private CourseService courseService;
+    public CourseAndPlaceServiceImplTests(CourseService courseService) {
+        this.courseService = courseService;
+    }
 
     @Test
     void getPlacesByCourseName() {
@@ -55,14 +59,8 @@ public class CourseAndPlaceServiceImplTests {
     @Test
     void insertCoursePlace(){
         CourseDTO course = new CourseDTO("코스생성", 2);
-        List<PlaceDTO> placeList = new ArrayList<>();
-        placeList.add(new PlaceDTO("테스트 장소1", "경기도 고양시", "031-0000-0000", 3));
-        placeList.add(new PlaceDTO("테스트 장소2", "서울22", "01-0000-0000", 4));
-        placeList.add(new PlaceDTO("테스트 장소3", "광명22", "02-0000-0000", 5));
-        placeList.add(new PlaceDTO("테스트 장소4", "강서22", "03-0000-0000", 6));
-
+        List<Place> placeList = courseService.getPlacesByCourseName(1);
         courseService.registCoursePlace(course, placeList);
-
     }
 
 }
