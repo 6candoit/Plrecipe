@@ -81,12 +81,10 @@ public class CourseAndPlaceServiceImplTests {
 
     @Test
     void deleteCourse(){
+
         Course course = courseService.selectCourseByMember(6).get(0);
-        List<Place> placeList = courseService.getPlacesByCourseName(course.getCourseId());
 
-        CourseAndPlace cp = new CourseAndPlace(course, placeList);
-
-        courseService.deleteCourse(cp);
+        courseService.deleteCourse(course.getCourseId());
     }
 
 

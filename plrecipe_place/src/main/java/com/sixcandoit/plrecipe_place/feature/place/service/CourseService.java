@@ -16,5 +16,5 @@ public interface CourseService {
     void registCourse(CourseAndPlace cp);
     void modifyCourse(CourseAndPlace cp);
 
-    void deleteCourse(CourseAndPlace cp);
+    void deleteCourse(int courseId);
 }
