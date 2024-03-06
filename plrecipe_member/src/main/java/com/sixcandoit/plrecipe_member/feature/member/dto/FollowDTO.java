@@ -5,7 +5,6 @@ public class FollowDTO {
     private int followId;
     private int userFollow;
     private int userFollower;
-
     public FollowDTO() {
     }
 
