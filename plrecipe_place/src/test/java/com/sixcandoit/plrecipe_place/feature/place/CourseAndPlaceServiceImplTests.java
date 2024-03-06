@@ -58,12 +58,35 @@ public class CourseAndPlaceServiceImplTests {
 
     @Test
     void registCourse(){
-        Course course = new Course("코스생성", 2);
-        List<Place> placeList = courseService.getPlacesByCourseName(1);
 
+        Course course = new Course("22코스생성테스트22", 6);
+        List<Place> placeList = courseService.getPlacesByCourseName(1);
         CourseAndPlace cp = new CourseAndPlace(course, placeList);
 
         courseService.registCourse(cp);
+    }
+
+    @Test
+    void modifyCourse(){
+
+        Course course = courseService.selectCourseByMember(5).get(0);
+        course.setCourseName("---코스수정테스트---");
+        List<Place> placeList = courseService.getPlacesByCourseName(course.getCourseId());
+        placeList.add(placeList.get(1));
+
+        CourseAndPlace cp = new CourseAndPlace(course, placeList);
+
+        courseService.modifyCourse(cp);
+    }
+
+    @Test
+    void deleteCourse(){
+        Course course = courseService.selectCourseByMember(5).get(0);
+        List<Place> placeList = courseService.getPlacesByCourseName(course.getCourseId());
+
+        CourseAndPlace cp = new CourseAndPlace(course, placeList);
+
+        courseService.deleteCourse(cp);
     }
 
 
