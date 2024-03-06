@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.vo;
+package com.sixcandoit.plrecipe_post.vo.post;
 
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
 import lombok.Data;

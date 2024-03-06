@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.vo;
+package com.sixcandoit.plrecipe_post.vo.hashtag;
 
 import jakarta.persistence.*;
 

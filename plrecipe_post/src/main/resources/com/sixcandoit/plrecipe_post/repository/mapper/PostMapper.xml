@@ -21,7 +21,7 @@
         <result property="hashtagTitle" column="HASHTAG_TITLE"/>
     </resultMap>
 
-    <resultMap id="postHashtagResultMap" type="com.sixcandoit.plrecipe_post.dto.PostHashtagDTO">
+    <resultMap id="postHashtagResultMap" type="com.sixcandoit.plrecipe_post.vo.PostAndHashtag">
         <association property="postDTO" resultMap="postResultMap"/>
         <association property="hashtagDTO" resultMap="HashtagResultMap"/>
     </resultMap>

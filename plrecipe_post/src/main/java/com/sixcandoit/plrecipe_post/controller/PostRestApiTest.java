@@ -5,13 +5,18 @@ import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.dto.HashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.vo.PostAndHashtag;
 import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
-import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
 import com.sixcandoit.plrecipe_post.service.HashtagService;
 import com.sixcandoit.plrecipe_post.service.PostHashtagService;
 import com.sixcandoit.plrecipe_post.service.PostService;
 import com.sixcandoit.plrecipe_post.vo.*;
+import com.sixcandoit.plrecipe_post.vo.hashtag.RequestHashtag;
+import com.sixcandoit.plrecipe_post.vo.hashtag.ResponseHashtag;
+import com.sixcandoit.plrecipe_post.vo.post.RequestPost;
+import com.sixcandoit.plrecipe_post.vo.post.ResponsePost;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,7 +62,7 @@ public class PostRestApiTest {
     }
 
     @GetMapping("/posts/hashtag/{postId}")
-    public List<PostHashtagDTO> selectPostHashtags(@PathVariable int postId) {
+    public List<PostAndHashtag> selectPostHashtags(@PathVariable int postId) {
         return postService.selectPostHashtags(postId);
     }
 
@@ -88,13 +93,23 @@ public class PostRestApiTest {
         return ResponseEntity.status(HttpStatus.CREATED).body(responsePost);
     }
 
+    @PostMapping("/test")
+    private ResponseEntity<?> test(@RequestBody RequestTest test) {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        PostAndHashtag postAndHashtag = modelMapper.map(test, PostAndHashtag.class);
+        System.out.println(postAndHashtag.toString());
+        postService.test(postAndHashtag);
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
     @PostMapping("/regist/post_hashtag")
     private ResponseEntity<ResponsePostHashtag> registPostHashtag(@RequestBody RequestPostHashtag postHashtag) {
-        PostHashtagDTO postHashtagDTO = modelMapper.map(postHashtag, PostHashtagDTO.class);
+        PostAndHashtag postAndHashtag = modelMapper.map(postHashtag, PostAndHashtag.class);
 
-        postHashtagService.registPostHashtag(postHashtagDTO);
+        postHashtagService.registPostHashtag(postAndHashtag);
 
-        ResponsePostHashtag responsePostHashtag = modelMapper.map(postHashtagDTO, ResponsePostHashtag.class);
+        ResponsePostHashtag responsePostHashtag = modelMapper.map(postAndHashtag, ResponsePostHashtag.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responsePostHashtag);
     }

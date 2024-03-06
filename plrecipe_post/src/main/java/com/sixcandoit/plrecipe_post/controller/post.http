@@ -38,16 +38,6 @@ Content-Type: application/json
   "hashtagTitle": "해시태그 추가 테스트"
 }
 
-### POST regist PostHashtag
-POST localhost:8080/post/regist/post_hashtag
-Content-Type: application/json
-
-{
-  "hashtagId": 1,
-  "postId": 10
-}
-
-### POST regist PostHashtag
 
 ### PATCH modify Post
 PATCH localhost:8080/post/modify/1
@@ -70,7 +60,7 @@ Content-Type: application/json
 }
 
 ### GET delete post_hashtag
-DELETE localhost:8080/post/hashtag/delete/15
+DELETE localhost:8080/post/hashtag/delete/11
 
 ### POST regist post_like
 POST localhost:8080/post/like
@@ -79,4 +69,27 @@ Content-Type: application/json
 {
   "memberId": "21",
   "postId": "10"
+}
+
+### POST test
+POST localhost:8080/post/test
+Content-Type: application/json
+
+{
+  "post":{
+    "postTitle": "게시글 제목 수정 테스트??",
+    "postContent": "게시글 내용 수정 테스트??",
+    "courseId": 2,
+    "memberId": 1,
+    "isPostPublic": "Y",
+    "memberCount": "TWO",
+    "postDate": "123"
+  },
+  "hashtag": [
+    {"hashtagId": 1},
+    {"hashtagId": 2},
+    {"hashtagId": 5},
+    {"hashtagId": 4},
+    {"hashtagId": 3}
+  ]
 }

@@ -1,9 +1,9 @@
 package com.sixcandoit.plrecipe_post.service;
 
-import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.vo.PostAndHashtag;
 
 public interface PostHashtagService {
-    void registPostHashtag(PostHashtagDTO postHashtagDTO);
+    void registPostHashtag(PostAndHashtag postAndHashtag);
 
     void deletePost(int postHashtagId);
 }

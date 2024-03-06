@@ -2,7 +2,7 @@ package com.sixcandoit.plrecipe_post.feature.post;
 
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
-import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.vo.PostAndHashtag;
 import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
 import com.sixcandoit.plrecipe_post.service.PostServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -64,7 +64,7 @@ public class PostServiceImplTestsByMyBatis {
     @ParameterizedTest
     @ValueSource(ints = {1})
     void selectPostHashtags(int postId) {
-        List<PostHashtagDTO> postList = postServiceImpl.selectPostHashtags(postId);
+        List<PostAndHashtag> postList = postServiceImpl.selectPostHashtags(postId);
 
         postList.forEach(System.out::println);
 
