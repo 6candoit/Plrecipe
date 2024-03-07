@@ -12,11 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import com.sixcandoit.plrecipe_member.feature.member.repository.MemberRepository;
-import com.sixcandoit.plrecipe_member.feature.member.service.MemberService;
 
 import java.util.List;
 
@@ -47,17 +42,6 @@ public class MemberController {
         ResponseMember returnValue = modelMapper.map(memberDTO, ResponseMember.class);
 
         return ResponseEntity.status(HttpStatus.OK).body(returnValue);
-    }
-
-    // 회원가입
-    @PostMapping("/regist")
-    private ResponseEntity<ResponseMember> registMember(@RequestBody RequestMember member) {
-
-        MemberDTO memberDTO = modelMapper.map(member, MemberDTO.class);
-        memberService.registMember(memberDTO);
-        ResponseMember responseMember = modelMapper.map(memberDTO, ResponseMember.class);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseMember);
     }
 
     // 회원정보 수정
