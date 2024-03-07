@@ -2,6 +2,7 @@ package com.sixcandoit.plrecipe_member.feature.member.controller;
 
 import com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO;
 import com.sixcandoit.plrecipe_member.feature.member.entity.Member;
+import com.sixcandoit.plrecipe_member.feature.member.service.MemberService;
 import com.sixcandoit.plrecipe_member.feature.member.service.MemberServiceImpl;
 import com.sixcandoit.plrecipe_member.feature.vo.RequestMember;
 import com.sixcandoit.plrecipe_member.feature.vo.ResponseMember;
