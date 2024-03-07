@@ -162,6 +162,7 @@ public class PostServiceImpl implements PostService {
         return postMapper.selectAllPost();
     }
 
+/* 제발 푸쉬좀 */
     @Override
     public List<PostDTO> selectPostByMember(int memberId) {
         List<PostDTO> postList = postMapper.selectMemberPosts(memberId);
