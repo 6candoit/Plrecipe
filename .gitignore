@@ -42,3 +42,5 @@ plrecipe_member/src/main/resources/application.yml
 plrecipe_place/src/main/resources/application.yml
 plrecipe/plrecipe/src/test/resources/META-INF/persistence.xml
 plrecipe_member/src/test/resources/META-INF/persistence.xml
+plrecipe_gateway/src/main/resources/application.yml
+plrecipe_main/src/main/resources/application.yml

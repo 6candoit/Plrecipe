@@ -41,7 +41,7 @@ public class MemberController {
 
     // 회원ID로 회원 조회
     @GetMapping("/searchMember/{memberId}")
-    public ResponseEntity<ResponseMember> selectMemberById(@PathVariable("memberId") int memberId) {
+    public ResponseEntity<ResponseMember> selectMemberById(@PathVariable("memberId")String memberId) {
 
         MemberDTO memberDTO = memberServiceImpl.selectMemberById(memberId);
         ResponseMember returnValue = modelMapper.map(memberDTO, ResponseMember.class);
