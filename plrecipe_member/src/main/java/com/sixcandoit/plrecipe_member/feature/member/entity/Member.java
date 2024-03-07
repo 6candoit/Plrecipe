@@ -1,9 +1,19 @@
 package com.sixcandoit.plrecipe_member.feature.member.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity(name = "plrecipe_member")
 @Table(name = "member_info")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Member {
 
     @Id
@@ -27,127 +37,35 @@ public class Member {
     private String memberNumber;
 
     @Column(name = "join_date")
-    private String joinDate;
+    private String joinDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());;
 
     @Column(name = "withdrawal_date")
-    private String withdrawalDate;
+    private String withdrawalDate = null;
 
     @Column(name = "member_grade")
     @Enumerated(EnumType.STRING)
-    private MemberGrade memberGrade;
+    private MemberGrade memberGrade = MemberGrade.ROLL_MEMBER;
 
     @Column(name = "member_status")
-    private String memberStatus;
+    private String memberStatus = "Y";
 
-    public Member() {
-    }
+    public static Member createMember(Member user, PasswordEncoder passwordEncoder) {
 
-    public Member(int memberid, String memberEmail, String password, String memberName, String memberNickname, String memberNumber, String joinDate, String withdrawalDate, MemberGrade memberGrade, String memberStatus) {
-        this.memberId = memberId;
-        this.memberEmail = memberEmail;
-        this.password = password;
-        this.memberName = memberName;
-        this.memberNickname = memberNickname;
-        this.memberNumber = memberNumber;
-        this.joinDate = joinDate;
-        this.withdrawalDate = withdrawalDate;
-        this.memberGrade = memberGrade;
-        this.memberStatus = memberStatus;
-    }
+        Member member = new Member();
+        member.setMemberName(user.getMemberName());
+        member.setMemberEmail(user.getMemberEmail());
+        member.setMemberNumber(user.getMemberNumber());
+        member.setMemberNickname(user.getMemberNickname());
+//        member.setJoinDate(user.getJoinDate());
+//        member.setMemberStatus(user.getMemberStatus());
+//        member.setMemberGrade(user.getMemberGrade());
+//        member.setWithdrawalDate(user.getWithdrawalDate());
 
-    public int getMemberId() {
-        return memberId;
-    }
+        String password = passwordEncoder.encode(user.getPassword());
+        member.setPassword(password);
 
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
-    }
+        member.setMemberGrade(MemberGrade.ROLL_MEMBER);
 
-    public String getMemberEmail() {
-        return memberEmail;
-    }
-
-    public void setMemberEmail(String memberEmail) {
-        this.memberEmail = memberEmail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getMemberName() {
-        return memberName;
-    }
-
-    public void setMemberName(String memberName) {
-        this.memberName = memberName;
-    }
-
-    public String getMemberNickname() {
-        return memberNickname;
-    }
-
-    public void setMemberNickname(String memberNickname) {
-        this.memberNickname = memberNickname;
-    }
-
-    public String getMemberNumber() {
-        return memberNumber;
-    }
-
-    public void setMemberNumber(String memberNumber) {
-        this.memberNumber = memberNumber;
-    }
-
-    public String getJoinDate() {
-        return joinDate;
-    }
-
-    public void setJoinDate(String joinDate) {
-        this.joinDate = joinDate;
-    }
-
-    public String getWithdrawalDate() {
-        return withdrawalDate;
-    }
-
-    public void setWithdrawalDate(String withdrawalDate) {
-        this.withdrawalDate = withdrawalDate;
-    }
-
-    public MemberGrade getMemberGrade() {
-        return memberGrade;
-    }
-
-    public void setMemberGrade(MemberGrade memberGrade) {
-        this.memberGrade = memberGrade;
-    }
-
-    public String getMemberStatus() {
-        return memberStatus;
-    }
-
-    public void setMemberStatus(String memberStatus) {
-        this.memberStatus = memberStatus;
-    }
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "memberId='" + memberId + '\'' +
-                ", memberEmail='" + memberEmail + '\'' +
-                ", password='" + password + '\'' +
-                ", memberName='" + memberName + '\'' +
-                ", memberNickname='" + memberNickname + '\'' +
-                ", memberNumber='" + memberNumber + '\'' +
-                ", joinDate='" + joinDate + '\'' +
-                ", withdrawalDate='" + withdrawalDate + '\'' +
-                ", memberGrade=" + memberGrade +
-                ", memberStatus='" + memberStatus + '\'' +
-                '}';
+        return member;
     }
 }

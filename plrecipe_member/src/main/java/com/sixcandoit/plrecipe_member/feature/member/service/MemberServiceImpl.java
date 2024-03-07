@@ -1,45 +1,41 @@
 package com.sixcandoit.plrecipe_member.feature.member.service;
 
 import com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO;
+import com.sixcandoit.plrecipe_member.feature.member.dto.RegisterDTO;
 import com.sixcandoit.plrecipe_member.feature.member.entity.Member;
 import com.sixcandoit.plrecipe_member.feature.member.repository.MemberMapper;
 import com.sixcandoit.plrecipe_member.feature.member.repository.MemberRepository;
 import com.sixcandoit.plrecipe_member.feature.vo.RequestMember;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-    private final ModelMapper mapper;
+    private final ModelMapper modelMapper;
     private final MemberMapper memberMapper;
     private final MemberRepository memberRepository;
 
-    @Autowired
-    public MemberServiceImpl(ModelMapper mapper, MemberMapper memberMapper, MemberRepository memberRepository) {
-        this.mapper = mapper;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public MemberServiceImpl(ModelMapper mapper, MemberMapper memberMapper, MemberRepository memberRepository,
+                             BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.modelMapper = mapper;
         this.memberMapper = memberMapper;
         this.memberRepository = memberRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @Override
-    public void registMember(MemberDTO memberDTO) {
-
-        Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String dateTest = format.format(date);
-
-        Member member = mapper.map(memberDTO, Member.class);
-        member.setJoinDate(dateTest);
-
-        memberRepository.save(member);
-    }
     @Override
     public Member modifyMember(int memberId, RequestMember requestMember) {
 
@@ -84,12 +80,27 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public MemberDTO selectMemberById(int memberId) {
         Optional<Member> userEntity = memberRepository.findById(memberId);
-        MemberDTO userDTO = mapper.map(userEntity, MemberDTO.class);
+        MemberDTO userDTO = modelMapper.map(userEntity, MemberDTO.class);
 
         return userDTO;
     }
     @Override
     public List<MemberDTO> selectMemberByLikePost(int memberId) {
         return memberMapper.selectMemberByLikePost(memberId);
+    }
+
+    @Transactional
+    @Override
+    public void registUser(RegisterDTO registerDTO) {
+//        registerDTO.setMemberEmail(UUID.randomUUID().toString());
+
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        Member memberEntity = modelMapper.map(registerDTO, Member.class);
+
+//        userEntity.setEncryptedPwd("암호화 된 비밀번호");
+        memberEntity.setPassword(bCryptPasswordEncoder.encode(registerDTO.getPassword()));
+
+        System.out.println("DB넣기 전 memberEntity = " + memberEntity);
+        memberRepository.save(memberEntity);
     }
 }
