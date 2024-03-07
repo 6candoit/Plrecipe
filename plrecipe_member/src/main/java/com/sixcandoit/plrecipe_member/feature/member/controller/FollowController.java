@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/follow")
+//@RequestMapping("/plrecipe-follow")
 public class FollowController {
 
     private final FollowServiceImpl followServiceImpl;
@@ -38,7 +38,7 @@ public class FollowController {
     }
 
     //  followId로 팔로우 조회
-    @GetMapping("/{followId}")
+    @GetMapping("/searchFollow/{followId}")
     public ResponseEntity<ResponseFollow> selectFollowById(@PathVariable("followId") int followId) {
         FollowDTO followDTO = followServiceImpl.selectFollowById(followId);
         ResponseFollow returnValue = modelMapper.map(followDTO, ResponseFollow.class);
