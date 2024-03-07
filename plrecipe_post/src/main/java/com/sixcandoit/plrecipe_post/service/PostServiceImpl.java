@@ -1,6 +1,7 @@
 package com.sixcandoit.plrecipe_post.service;
 
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.client.MemberServiceClient;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.dto.PostAndHashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
@@ -13,6 +14,7 @@ import com.sixcandoit.plrecipe_post.repository.repo.PostLikeRepository;
 import com.sixcandoit.plrecipe_post.repository.repo.PostRepository;
 import com.sixcandoit.plrecipe_post.vo.PostHashtag;
 import com.sixcandoit.plrecipe_post.vo.PostLike;
+import com.sixcandoit.plrecipe_post.vo.member.ResponseMember;
 import com.sixcandoit.plrecipe_post.vo.post.RequestPost;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -39,16 +41,17 @@ public class PostServiceImpl implements PostService {
     private final PostMapper postMapper;
     private final PostRepository postRepository;
     private final PostLikeRepository postLikeRepository;
-
     private final PostHashtagRepository postHashtagRepository;
+    private final MemberServiceClient memberServiceClient;
 
     @Autowired
-    public PostServiceImpl(ModelMapper mapper, PostMapper postMapper, PostRepository postRepository, PostLikeRepository postLikeRepository, PostHashtagRepository postHashtagRepository) {
+    public PostServiceImpl(ModelMapper mapper, PostMapper postMapper, PostRepository postRepository, PostLikeRepository postLikeRepository, PostHashtagRepository postHashtagRepository, MemberServiceClient memberServiceClient) {
         this.mapper = mapper;
         this.postMapper = postMapper;
         this.postRepository = postRepository;
         this.postLikeRepository = postLikeRepository;
         this.postHashtagRepository = postHashtagRepository;
+        this.memberServiceClient = memberServiceClient;
     }
 
     @Override
@@ -159,9 +162,21 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDTO> selectMemberPosts(int memberId) {
-        return postMapper.selectMemberPosts(memberId);
+    public PostDTO selectMemberPosts(String memberId) {
+        Post post = postRepository.findById(Integer.valueOf(memberId))
+                .orElseThrow(() -> {
+                    return new RuntimeException("조회된 게시글 없음");
+                });
+
+        PostDTO postDTO = mapper.map(post, PostDTO.class);
+
+        List<ResponseMember> members = memberServiceClient.getPostMember(memberId);
+
+        postDTO.setMember(members);
+
+        return postDTO;
     }
+
 
     @Override
     public List<PostDTO> selectPostsByStatus(String postStatus) {

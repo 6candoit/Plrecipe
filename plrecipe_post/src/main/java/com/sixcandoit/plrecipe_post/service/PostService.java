@@ -22,7 +22,7 @@ public interface PostService {
 
     List<PostDTO> selectAllPost();
 
-    List<PostDTO> selectMemberPosts(int memberId);
+    
 
     List<PostDTO> selectPostsByStatus(String postStatus);
 
@@ -41,4 +41,6 @@ public interface PostService {
     void postLike(PostDTO postDTO);
 
     void registPostAndHashtag(PostAndHashtag postAndHashtag);
+
+    PostDTO selectMemberPosts(String memberId);
 }

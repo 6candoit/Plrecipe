@@ -34,6 +34,10 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
 	implementation 'org.modelmapper:modelmapper:3.1.1'
+
+	// feignClient를 추가 시 넣을 dependency (main() 있는 클래스에 어노테이션 추가
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
 }
 
 dependencyManagement {

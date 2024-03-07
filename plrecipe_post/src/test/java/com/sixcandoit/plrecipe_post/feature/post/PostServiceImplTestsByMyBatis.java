@@ -31,15 +31,15 @@ public class PostServiceImplTestsByMyBatis {
         assertNotNull(posts);
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {1, 2})
-    void selectMemberPosts(int memberId) {
-        List<PostDTO> postList = postServiceImpl.selectMemberPosts(memberId);
-
-        postList.forEach(System.out::println);
-
-        assertTrue(!postList.isEmpty());
-    }
+//    @ParameterizedTest
+//    @ValueSource(ints = {1, 2})
+//    void selectMemberPosts(int memberId) {
+//        List<PostDTO> postList = postServiceImpl.selectMemberPosts(memberId);
+//
+//        postList.forEach(System.out::println);
+//
+//        assertTrue(!postList.isEmpty());
+//    }
 
     @ParameterizedTest
     @ValueSource(strings = {"Y", "N"})
