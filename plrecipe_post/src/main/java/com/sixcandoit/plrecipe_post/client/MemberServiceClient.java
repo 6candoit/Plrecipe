@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "plrecipe-member", url = "https://localhost:8000")
+@FeignClient(name = "plrecipe-member", url = "localhost:8000")
 public interface MemberServiceClient {
 
-    @GetMapping("/plrecipe-member/{memberId}")
-    List<ResponseMember> getPostMember(@PathVariable("memberId") String memberId);
+    @GetMapping("/plrecipe-member/searchMember/{memberId}")
+    List<ResponseMember> getPostMember(@PathVariable("memberId") int memberId);
 }

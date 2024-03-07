@@ -170,7 +170,7 @@ public class PostServiceImpl implements PostService {
 
         PostDTO postDTO = mapper.map(post, PostDTO.class);
 
-        List<ResponseMember> members = memberServiceClient.getPostMember(memberId);
+        List<ResponseMember> members = memberServiceClient.getPostMember(Integer.valueOf(memberId));
 
         postDTO.setMember(members);
 
