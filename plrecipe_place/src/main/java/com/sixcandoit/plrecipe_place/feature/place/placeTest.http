@@ -2,13 +2,13 @@
 GET http://localhost:8000/plrecipe-place/findBasePlace/스타필드
 
 ### getPlace
-GET localhost:8080/place/find/3
+GET localhost:8080/place/find/5
 
 ### getPlaceAll
 GET localhost:8080/place/find
 
 ### searchPlaceByFilter
-POST localhost:8080/place/searchPlace
+POST http://localhost:8000/plrecipe-place/searchPlace
 Content-Type: application/json
 
 {
@@ -73,7 +73,7 @@ GET localhost:8080/place/course/findInfo/5
 
 
 ### selectCourseByMember
-GET localhost:8080/place/course/findUserId/1
+GET localhost:8000/plrecipe-place/course/findUserId/3
 
 ### getPlacesByCourseId
 GET localhost:8080/place/course/findPlaces/1
