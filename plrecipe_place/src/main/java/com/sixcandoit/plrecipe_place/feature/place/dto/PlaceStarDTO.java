@@ -8,6 +8,9 @@ public class PlaceStarDTO {
     private int placeId;
     private int memberId;
 
+    public PlaceStarDTO() {
+    }
+
     public PlaceStarDTO(int starPoint, String starComment, int placeId, int memberId) {
         this.starPoint = starPoint;
         this.starComment = starComment;

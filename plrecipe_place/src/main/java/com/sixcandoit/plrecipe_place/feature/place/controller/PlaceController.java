@@ -63,7 +63,7 @@ public class PlaceController {
     /* 장소 등록 */
     @PostMapping("/regist")
     public ResponseEntity<PlaceDTO> registPlace(@RequestBody PlaceDTO newPlace){
-
+        System.out.println("newPlace = " + newPlace);
         placeService.registPlace(newPlace);
 
        return ResponseEntity.status(HttpStatus.CREATED).body(newPlace);
