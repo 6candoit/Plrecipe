@@ -52,6 +52,8 @@ public class SecurityConfig {
                 .requestMatchers(new AntPathRequestMatcher("/register")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/login")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/searchMember/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/searchFollow/**")).permitAll()
         ).authenticationManager(authenticationManager);
 
         http.addFilter(getAuthenticationFilter(authenticationManager));
