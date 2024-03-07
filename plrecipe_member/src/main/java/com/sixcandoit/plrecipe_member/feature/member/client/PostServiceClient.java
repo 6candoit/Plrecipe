@@ -11,7 +11,7 @@ import java.util.List;
 public interface PostServiceClient {
 
     @GetMapping("/plrecipe-post/posts/email/{memberId}")
-    List<ResponsePost> selectMemberPosts(@PathVariable() int memberId);
+    List<ResponsePost> selectMemberPosts(@PathVariable() String memberId);
 
 }
 

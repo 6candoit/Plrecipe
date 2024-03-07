@@ -24,26 +24,26 @@ import java.util.List;
 //@RequestMapping("/plrecipe-member")
 public class MemberController {
 
-    private final MemberServiceImpl memberServiceImpl;
+    private final MemberService memberService;
     private final ModelMapper modelMapper;
 
     @Autowired
-    public MemberController(MemberServiceImpl memberServiceImpl, ModelMapper modelMapper) {
-        this.memberServiceImpl = memberServiceImpl;
+    public MemberController(MemberService memberService, ModelMapper modelMapper) {
+        this.memberService = memberService;
         this.modelMapper = modelMapper;
     }
 
     // 회원전체조회
     @GetMapping("/members")
     public List<MemberDTO> selectAllMember() {
-        return memberServiceImpl.selectAllMember();
+        return memberService.selectAllMember();
     }
 
     // 회원ID로 회원 조회
     @GetMapping("/searchMember/{memberId}")
     public ResponseEntity<ResponseMember> selectMemberById(@PathVariable("memberId")int memberId) {
 
-        MemberDTO memberDTO = memberServiceImpl.selectMemberById(memberId);
+        MemberDTO memberDTO = memberService.selectMemberById(memberId);
         ResponseMember returnValue = modelMapper.map(memberDTO, ResponseMember.class);
 
         return ResponseEntity.status(HttpStatus.OK).body(returnValue);
@@ -54,7 +54,7 @@ public class MemberController {
     private ResponseEntity<ResponseMember> registMember(@RequestBody RequestMember member) {
 
         MemberDTO memberDTO = modelMapper.map(member, MemberDTO.class);
-        memberServiceImpl.registMember(memberDTO);
+        memberService.registMember(memberDTO);
         ResponseMember responseMember = modelMapper.map(memberDTO, ResponseMember.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMember);
@@ -63,12 +63,12 @@ public class MemberController {
     // 회원정보 수정
     @PatchMapping("/modify/{memberId}")
     public ResponseEntity<Member> modifyMember(@RequestBody RequestMember requestMember, @PathVariable int memberId) {
-        return ResponseEntity.ok(memberServiceImpl.modifyMember(memberId, requestMember));
+        return ResponseEntity.ok(memberService.modifyMember(memberId, requestMember));
     }
 
     // 회원탈퇴 -> 탈퇴날짜 입력 및 memberStatus 변경
     @PatchMapping("/withdraw/{memberId}")
     public ResponseEntity<Member> withdrawMember(@RequestBody RequestMember requestMember, @PathVariable int memberId) {
-        return ResponseEntity.ok(memberServiceImpl.withdrawMember(memberId, requestMember));
+        return ResponseEntity.ok(memberService.withdrawMember(memberId, requestMember));
     }
 }

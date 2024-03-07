@@ -22,25 +22,25 @@ import java.util.List;
 //@RequestMapping("/plrecipe-follow")
 public class FollowController {
 
-    private final FollowServiceImpl followServiceImpl;
+    private final FollowService followService;
     private final ModelMapper modelMapper;
 
     @Autowired
-    public FollowController(FollowServiceImpl followServiceImpl, ModelMapper modelMapper) {
-        this.followServiceImpl = followServiceImpl;
+    public FollowController(FollowService followService, ModelMapper modelMapper) {
+        this.followService = followService;
         this.modelMapper = modelMapper;
     }
 
     // 전체 팔로우 조회
     @GetMapping("/follows")
     public List<FollowDTO> selectAllFollows(){
-        return followServiceImpl.selectAllFollows();
+        return followService.selectAllFollows();
     }
 
     //  followId로 팔로우 조회
     @GetMapping("/searchFollow/{followId}")
     public ResponseEntity<ResponseFollow> selectFollowById(@PathVariable("followId") int followId) {
-        FollowDTO followDTO = followServiceImpl.selectFollowById(followId);
+        FollowDTO followDTO = followService.selectFollowById(followId);
         ResponseFollow returnValue = modelMapper.map(followDTO, ResponseFollow.class);
 
         return ResponseEntity.status(HttpStatus.OK).body(returnValue);
@@ -49,13 +49,13 @@ public class FollowController {
     // 나를 팔로우하는 전체 회원 조회 -> 내 팔로워 조회
     @GetMapping("follower/{userFollow}")
     public List<FollowDTO> selectMemberWhoFollowsMe(@PathVariable("userFollow") int userFollow) {
-        return followServiceImpl.selectMemberWhoFollowsMe(userFollow);
+        return followService.selectMemberWhoFollowsMe(userFollow);
     }
 
     // 내가 팔로우 하는 회원 전체 조회 -> 내 팔로잉 조회
     @GetMapping("following/{userFollower}")
     public List<FollowDTO> selectMemberWhoIFollow(@PathVariable("userFollower") int userFollower) {
-        return followServiceImpl.selectMemberWhoIFollow(userFollower);
+        return followService.selectMemberWhoIFollow(userFollower);
     }
 
     // 팔로우 하기
@@ -63,7 +63,7 @@ public class FollowController {
     private ResponseEntity<ResponseFollow> followMember(@RequestBody RequestFollow follow) {
 
         FollowDTO followDTO = modelMapper.map(follow, FollowDTO.class);
-        followServiceImpl.followMember(followDTO);
+        followService.followMember(followDTO);
         ResponseFollow responseFollow = modelMapper.map((followDTO), ResponseFollow.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseFollow);
@@ -76,7 +76,7 @@ public class FollowController {
     // 팔로우 취소하기
     @DeleteMapping("/unfollow/{followId}")
     public ResponseEntity<ResponseFollow> cancelFollow(@PathVariable int followId) {
-        followServiceImpl.cancelFollow(followId);
+        followService.cancelFollow(followId);
         return ResponseEntity.ok().build();
     }
 

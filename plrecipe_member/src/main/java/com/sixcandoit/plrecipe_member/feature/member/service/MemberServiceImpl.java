@@ -93,20 +93,20 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public MemberDTO selectMemberById(int memberId) {
+
         Optional<Member> userEntity = memberRepository.findById(memberId);
-        MemberDTO userDTO = mapper.map(userEntity, MemberDTO.class);
+        MemberDTO memberDTO = mapper.map(userEntity, MemberDTO.class);
 
-//        List<ResponsePost> postList = postServiceClient.selectMemberPosts(memberId);
-//        userDTO.setPosts(postList);
+//        List<ResponsePost> postList = postServiceClient.selectMemberPosts(Integer.valueOf(memberId).toString());
+//        memberDTO.setPosts(postList);
 
-        return userDTO;
+        return memberDTO;
     }
     @Override
     public List<MemberDTO> selectMemberByLikePost(int memberId) {
         return memberMapper.selectMemberByLikePost(memberId);
     }
-// --------------------------------------------------------------------------
-//    비밀번호 제약조건 확인 method
+
     private boolean isValidPassword(String password) {
         // 비밀번호는 최소 8자 이상, 영문 소문자, 숫자 각각 하나 이상 포함해야 함
         String regex = "^(?=.*[a-z])(?=.*\\d).{6,}$";

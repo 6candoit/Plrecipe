@@ -22,7 +22,7 @@ public interface PostService {
 
     List<PostDTO> selectAllPost();
 
-    
+
 
     List<PostDTO> selectPostsByStatus(String postStatus);
 

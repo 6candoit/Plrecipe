@@ -34,7 +34,6 @@ public class MemberDTO {
         this.memberStatus = memberStatus;
     }
 
-
     public int getMemberId() {
         return memberId;
     }
@@ -142,6 +141,7 @@ public class MemberDTO {
                 ", withdrawalDate='" + withdrawalDate + '\'' +
                 ", memberGrade=" + memberGrade +
                 ", memberStatus='" + memberStatus + '\'' +
+                ", posts=" + posts +
                 '}';
     }
 }
