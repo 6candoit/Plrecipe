@@ -88,7 +88,7 @@ public class MemberServiceImpl implements MemberService {
         Optional<Member> userEntity = memberRepository.findById(memberId);
 //        MemberDTO userDTO = modelMapper.map(userEntity, MemberDTO.class);
 
-        MemberDTO memberDTO = mapper.map(userEntity, MemberDTO.class);
+        MemberDTO memberDTO = modelMapper.map(userEntity, MemberDTO.class);
 
 //        List<ResponsePost> postList = postServiceClient.selectMemberPosts(Integer.valueOf(memberId).toString());
 //        memberDTO.setPosts(postList);
@@ -96,6 +96,7 @@ public class MemberServiceImpl implements MemberService {
 
         return memberDTO;
     }
+
     @Override
     public List<MemberDTO> selectMemberByLikePost(int memberId) {
         return memberMapper.selectMemberByLikePost(memberId);
@@ -121,7 +122,7 @@ public class MemberServiceImpl implements MemberService {
     public RegisterDTO getUserDetailsByEmail(String memberEmail) {
         Member memberEntity = memberRepository.findByMemberEmail(memberEmail);
 
-        if(memberEntity == null)
+        if (memberEntity == null)
             throw new UsernameNotFoundException(memberEmail + " 아이디의 유저는 존재하지 않음");
 
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
@@ -135,17 +136,17 @@ public class MemberServiceImpl implements MemberService {
 
         Member memberEntity = memberRepository.findByMemberEmail(memberEmail);
 
-        if(memberEntity == null)
+        if (memberEntity == null)
             throw new UsernameNotFoundException(memberEmail + "아이디의 유저는 존재하지 않음");
 
         return new User(memberEntity.getMemberEmail(), memberEntity.getPassword(),
                 true, true, true, true,
                 new ArrayList<>());
+    }
 
     private boolean isValidPassword(String password) {
         // 비밀번호는 최소 8자 이상, 영문 소문자, 숫자 각각 하나 이상 포함해야 함
         String regex = "^(?=.*[a-z])(?=.*\\d).{6,}$";
         return password.matches(regex);
-
     }
 }
