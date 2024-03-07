@@ -9,7 +9,7 @@ import java.util.List;
 public interface MemberService {
 
     List<MemberDTO> selectAllMember();
-    MemberDTO selectMemberById(int memberId);
+    MemberDTO selectMemberById(String memberId);
     List<MemberDTO> selectMemberByLikePost(int memberId);
     void registMember(MemberDTO memberDTO);
     Member modifyMember(int memberId, RequestMember requestMember);

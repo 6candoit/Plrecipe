@@ -92,8 +92,8 @@ public class MemberServiceImpl implements MemberService {
         return memberMapper.selectAllMember();
     }
     @Override
-    public MemberDTO selectMemberById(int memberId) {
-        Optional<Member> userEntity = memberRepository.findById(memberId);
+    public MemberDTO selectMemberById(String memberId) {
+        Optional<Member> userEntity = memberRepository.findById(Integer.valueOf(memberId));
         MemberDTO userDTO = mapper.map(userEntity, MemberDTO.class);
 
         return userDTO;
