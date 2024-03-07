@@ -5,15 +5,14 @@ import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.SearchPlaceDTO;
 import com.sixcandoit.plrecipe_place.feature.place.entity.Place;
 import com.sixcandoit.plrecipe_place.feature.place.entity.PlaceStar;
-import com.sixcandoit.plrecipe_place.feature.place.repository.PlaceMapper;
-import com.sixcandoit.plrecipe_place.feature.place.repository.PlaceRepository;
-import com.sixcandoit.plrecipe_place.feature.place.repository.PlaceStarRepository;
+import com.sixcandoit.plrecipe_place.feature.place.repository.*;
 import jakarta.transaction.Transactional;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
@@ -33,20 +32,22 @@ import java.util.Map;
 @Service
 public class PlaceServiceImpl implements PlaceService {
 
-    private final ModelMapper mapper;
-    private final PlaceRepository placeRepository;
-    private final PlaceStarRepository placeStarRepository;
-    private final PlaceMapper placeMapper;
-    private Environment env;
-
-    @Autowired
-    public PlaceServiceImpl(ModelMapper mapper, PlaceRepository placeRepository, PlaceStarRepository placeStarRepository, PlaceMapper placeMapper, Environment env) {
+    public PlaceServiceImpl(ModelMapper mapper, PlaceRepository placeRepository, PlaceStarRepository placeStarRepository, CoursePlaceRepository coursePlaceRepository, PlaceMapper placeMapper, Environment env) {
         this.mapper = mapper;
         this.placeRepository = placeRepository;
         this.placeStarRepository = placeStarRepository;
+        this.coursePlaceRepository = coursePlaceRepository;
         this.placeMapper = placeMapper;
         this.env = env;
     }
+
+    private final ModelMapper mapper;
+    private final PlaceRepository placeRepository;
+    private final PlaceStarRepository placeStarRepository;
+    private final CoursePlaceRepository coursePlaceRepository;
+    private final PlaceMapper placeMapper;
+    private Environment env;
+
 
     /* 모든 장소 select */
     public List<Place> selectAllPlace() {
@@ -95,6 +96,7 @@ public class PlaceServiceImpl implements PlaceService {
 
     /* 장소 insert */
     public void registPlace(PlaceDTO newPlace) {
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         placeRepository.save(mapper.map(newPlace, Place.class));
     }
 
@@ -114,6 +116,7 @@ public class PlaceServiceImpl implements PlaceService {
     /* 장소 delete */
     @Transactional
     public void deletePlace(int placeId) {
+        coursePlaceRepository.deleteAllByPlaceId(placeId);
         placeRepository.deleteById(placeId);
     }
 
