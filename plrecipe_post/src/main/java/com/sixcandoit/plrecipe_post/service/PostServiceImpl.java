@@ -18,6 +18,7 @@ import com.sixcandoit.plrecipe_post.vo.member.ResponseMember;
 import com.sixcandoit.plrecipe_post.vo.post.RequestPost;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.POST;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -162,21 +163,21 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDTO selectMemberPosts(String memberId) {
-        Post post = postRepository.findById(Integer.valueOf(memberId))
-                .orElseThrow(() -> {
-                    return new RuntimeException("조회된 게시글 없음");
-                });
+    public List<PostDTO> selectPostByMember(int memberId) {
+        List<PostDTO> postList = postMapper.selectMemberPosts(memberId);
 
-        PostDTO postDTO = mapper.map(post, PostDTO.class);
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<PostDTO> postDTOList = postList.stream()
+                .map(post -> mapper.map(post, PostDTO.class))
+                .collect(Collectors.toList());
 
-        List<ResponseMember> members = memberServiceClient.getPostMember(Integer.valueOf(memberId));
+        for (int i = 0; i < postDTOList.size(); i++) {
+            ResponseMember responseMember = memberServiceClient.getMemberInfo(postDTOList.get(i).getMemberId());
+            postDTOList.get(i).setMember(responseMember);
+        }
 
-        postDTO.setMember(members);
-
-        return postDTO;
+        return postDTOList;
     }
-
 
     @Override
     public List<PostDTO> selectPostsByStatus(String postStatus) {

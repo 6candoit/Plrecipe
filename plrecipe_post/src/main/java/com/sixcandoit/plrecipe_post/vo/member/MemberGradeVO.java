@@ -1,13 +1,13 @@
 package com.sixcandoit.plrecipe_post.vo.member;
 
-public enum MemberGrade {
+public enum MemberGradeVO {
 
     ROLL_MEMBER(1),
     ROLL_ADMIN(2);
 
     private final int value;
 
-    MemberGrade(int value) {
+    MemberGradeVO(int value) {
         this.value = value;
     }
 
@@ -15,8 +15,8 @@ public enum MemberGrade {
         return value;
     }
 
-    public static MemberGrade fromValue(int value) {
-        for (MemberGrade enumValue : MemberGrade.values()) {
+    public static MemberGradeVO fromValue(int value) {
+        for (MemberGradeVO enumValue : MemberGradeVO.values()) {
             if (enumValue.getValue() == value) {
                 return enumValue;
             }

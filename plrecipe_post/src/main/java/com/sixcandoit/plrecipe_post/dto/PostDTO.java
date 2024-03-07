@@ -22,5 +22,5 @@ public class PostDTO {
     private String isPostPublic;
     private MemberCount memberCount;
 
-    private List<ResponseMember> member;
+    private ResponseMember member;
 }

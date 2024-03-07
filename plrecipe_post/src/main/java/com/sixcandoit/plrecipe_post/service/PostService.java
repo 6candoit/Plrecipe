@@ -42,5 +42,5 @@ public interface PostService {
 
     void registPostAndHashtag(PostAndHashtag postAndHashtag);
 
-    PostDTO selectMemberPosts(String memberId);
+    List<PostDTO> selectPostByMember(int memberId);
 }

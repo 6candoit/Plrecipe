@@ -96,8 +96,8 @@ public class MemberServiceImpl implements MemberService {
         Optional<Member> userEntity = memberRepository.findById(memberId);
         MemberDTO userDTO = mapper.map(userEntity, MemberDTO.class);
 
-        List<ResponsePost> postList = postServiceClient.selectMemberPosts(memberId);
-        userDTO.setPosts(postList);
+//        List<ResponsePost> postList = postServiceClient.selectMemberPosts(memberId);
+//        userDTO.setPosts(postList);
 
         return userDTO;
     }

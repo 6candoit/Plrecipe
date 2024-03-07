@@ -11,5 +11,5 @@ import java.util.List;
 public interface MemberServiceClient {
 
     @GetMapping("/plrecipe-member/searchMember/{memberId}")
-    List<ResponseMember> getPostMember(@PathVariable("memberId") int memberId);
+   ResponseMember getMemberInfo(@PathVariable int memberId);
 }

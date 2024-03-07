@@ -48,12 +48,8 @@ public class PostRestApiTest {
     }
 
     @GetMapping("/posts/email/{memberId}")
-    public ResponseEntity<ResponsePost> selectMemberPosts(@PathVariable("memberId") String memberId) {
-        PostDTO postDTO = postService.selectMemberPosts(memberId);
-
-        ResponsePost returnValue = modelMapper.map(postDTO, ResponsePost.class);
-
-        return ResponseEntity.status(HttpStatus.OK).body(returnValue);
+    List<PostDTO> selectMemberPosts(@PathVariable int memberId) {
+        return postService.selectPostByMember(memberId);
     }
 
     @GetMapping("/posts/status/{postStatus}")
