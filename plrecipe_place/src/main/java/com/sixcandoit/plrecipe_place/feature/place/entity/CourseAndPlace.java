@@ -1,58 +1,26 @@
 package com.sixcandoit.plrecipe_place.feature.place.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
+@AllArgsConstructor
 public class CourseAndPlace {
-    private int placeCourseId;
-    private Course course;       // ManyToOne
-    private List<Place> places;  // OneToMany
+    private int courseId;
+    private String courseName;
+    private int memberId;
+    private List<Place> places;
 
     public CourseAndPlace() {
     }
 
-    public CourseAndPlace(int placeCourseId, Course course, List<Place> places) {
-        this.placeCourseId = placeCourseId;
-        this.course = course;
+    public CourseAndPlace(Course course, List<Place> places){
+        this.courseId = course.getCourseId();
+        this.courseName = course.getCourseName();
+        this.memberId = course.getMemberId();
         this.places = places;
-    }
-
-    public CourseAndPlace(Course course, List<Place> places) {
-        this.course = course;
-        this.places = places;
-    }
-
-    public int getPlaceCourseId() {
-        return placeCourseId;
-    }
-
-    public void setPlaceCourseId(int placeCourseId) {
-        this.placeCourseId = placeCourseId;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public List<Place> getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(List<Place> places) {
-        this.places = places;
-    }
-
-    @Override
-    public String toString() {
-        return "CourseAndPlace{" +
-                "placeCourseId=" + placeCourseId +
-                ", course=" + course +
-                ", places=" + places +
-                '}';
     }
 }
