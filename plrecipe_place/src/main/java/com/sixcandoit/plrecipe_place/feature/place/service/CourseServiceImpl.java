@@ -1,5 +1,6 @@
 package com.sixcandoit.plrecipe_place.feature.place.service;
 
+import com.sixcandoit.plrecipe_place.feature.place.client.MemberServiceClient;
 import com.sixcandoit.plrecipe_place.feature.place.dto.CourseDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.CoursePlaceDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceDTO;
@@ -11,6 +12,7 @@ import com.sixcandoit.plrecipe_place.feature.place.repository.CourseMapper;
 import com.sixcandoit.plrecipe_place.feature.place.repository.CoursePlaceRepository;
 import com.sixcandoit.plrecipe_place.feature.place.repository.CourseRepository;
 import com.sixcandoit.plrecipe_place.feature.place.repository.PlaceRepository;
+import com.sixcandoit.plrecipe_place.feature.place.vo.ResponseMember;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,18 +30,33 @@ public class CourseServiceImpl implements CourseService {
     private final CourseRepository courseRepository;
     private final CoursePlaceRepository coursePlaceRepository;
 
+    private final MemberServiceClient memberServiceClient;
 
     @Autowired
-    public CourseServiceImpl(CourseMapper courseMapper, ModelMapper mapper, CourseRepository courseRepository, CoursePlaceRepository coursePlaceRepository) {
+    public CourseServiceImpl(CourseMapper courseMapper, ModelMapper mapper, CourseRepository courseRepository, CoursePlaceRepository coursePlaceRepository, MemberServiceClient memberServiceClient) {
         this.courseMapper = courseMapper;
         this.mapper = mapper;
         this.courseRepository = courseRepository;
         this.coursePlaceRepository = coursePlaceRepository;
+        this.memberServiceClient = memberServiceClient;
     }
 
     /* 멤버id로 멤버가 작성한 코스 리스트 select */
-    public List<Course> selectCourseByMember(int memberId){
-        return courseMapper.selectCourseByMember(memberId);
+    public List<CourseDTO> selectCourseByMember(int memberId){
+
+        List<Course> courseList = courseMapper.selectCourseByMember(memberId);
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<CourseDTO> courseDTOList = courseList.stream()
+                .map(course -> mapper.map(course, CourseDTO.class))
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < courseDTOList.size(); i++) {
+            ResponseMember rm = memberServiceClient.getMemberInfo(courseDTOList.get(i).getMemberId());
+            courseDTOList.get(i).setMember(rm);
+        }
+
+        return courseDTOList;
     }
 
     /* 설명. 코스플레이스 리스트로 받아와져서 -> 하나의 객체에 1코스 n장소로 다시 바꿔야 함 */
