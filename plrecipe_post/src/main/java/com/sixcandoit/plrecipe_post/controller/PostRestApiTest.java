@@ -25,7 +25,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/post")
+//@RequestMapping("/post")
+@RequestMapping("/")
 public class PostRestApiTest {
     private HashtagService hashtagService;
     private PostService postService;
@@ -100,17 +101,6 @@ public class PostRestApiTest {
         postService.registPostAndHashtag(postAndHashtag);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
-
-    @PostMapping("/regist/post_hashtag")
-    private ResponseEntity<ResponsePostHashtag> registPostHashtag(@RequestBody RequestPostHashtag postHashtag) {
-        PostAndHashtag postAndHashtag = modelMapper.map(postHashtag, PostAndHashtag.class);
-
-        postHashtagService.registPostHashtag(postAndHashtag);
-
-        ResponsePostHashtag responsePostHashtag = modelMapper.map(postAndHashtag, ResponsePostHashtag.class);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(responsePostHashtag);
     }
 
     @PatchMapping("/modify/{postId}")
