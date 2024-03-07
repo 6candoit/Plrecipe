@@ -9,16 +9,15 @@ import com.sixcandoit.plrecipe_member.feature.vo.RequestMember;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -102,5 +101,31 @@ public class MemberServiceImpl implements MemberService {
 
         System.out.println("DB넣기 전 memberEntity = " + memberEntity);
         memberRepository.save(memberEntity);
+    }
+
+    @Override
+    public RegisterDTO getUserDetailsByEmail(String memberEmail) {
+        Member memberEntity = memberRepository.findByMemberEmail(memberEmail);
+
+        if(memberEntity == null)
+            throw new UsernameNotFoundException(memberEmail + " 아이디의 유저는 존재하지 않음");
+
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        RegisterDTO userDTO = modelMapper.map(memberEntity, RegisterDTO.class);
+
+        return userDTO;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String memberEmail) throws UsernameNotFoundException {
+
+        Member memberEntity = memberRepository.findByMemberEmail(memberEmail);
+
+        if(memberEntity == null)
+            throw new UsernameNotFoundException(memberEmail + "아이디의 유저는 존재하지 않음");
+
+        return new User(memberEntity.getMemberEmail(), memberEntity.getPassword(),
+                true, true, true, true,
+                new ArrayList<>());
     }
 }
