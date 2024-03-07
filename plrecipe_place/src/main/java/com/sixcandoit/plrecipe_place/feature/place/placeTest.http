@@ -1,0 +1,159 @@
+### get Places using kakaoApi
+GET http://localhost:8000/plrecipe-place/findBasePlace/스타필드
+
+### getPlace
+GET localhost:8080/place/find/3
+
+### getPlaceAll
+GET localhost:8080/place/find
+
+### searchPlaceByFilter
+POST localhost:8080/place/searchPlace
+Content-Type: application/json
+
+{
+  "name":"붕어",
+  "region": null,
+  "category": null,
+  "star": null
+
+}
+
+### registPlace
+POST localhost:8080/place/regist
+Content-Type: application/json
+
+{
+  "placeName": "장소insert",
+  "placeLocation": "고양시",
+  "placePhoneNum": "031-0000-0000",
+  "placeCategoryId": 2
+}
+
+### deletePlace
+DELETE localhost:8080/place/delete/61
+
+
+### selectStarByPlace
+GET localhost:8080/place/star/3
+
+### selectStarByMember
+GET localhost:8080/place/star/member/5
+
+### registStar
+POST localhost:8080/place/star/regist
+Content-Type: application/json
+
+{
+  "starPoint": 5,
+  "starComment": "별점 등록",
+  "placeId": 2,
+  "memberId": 4
+}
+
+### modifyStar
+PATCH localhost:8080/place/star/modify
+Content-Type: application/json
+
+{
+  "starId": 23,
+  "starPoint": 2,
+  "starComment": "별점 수정",
+  "placeId": 2,
+  "memberId": 4
+}
+
+
+### deleteStar
+DELETE localhost:8080/place/star/delete/23
+
+
+### selectCoursePlaceByCourseId
+GET localhost:8080/place/course/findInfo/5
+
+
+### selectCourseByMember
+GET localhost:8080/place/course/findUserId/1
+
+### getPlacesByCourseId
+GET localhost:8080/place/course/findPlaces/1
+
+### registCourse
+POST localhost:8080/place/course/regist
+Content-Type: application/json
+
+{
+  "courseName": "코스 생성",
+  "memberId": 4,
+  "places": [
+    {
+      "placeId": 12,
+      "placeName": "기억력붕어빵집",
+      "placeLocation": "경기도 고양시 일산동구 호수로 567번길 89-2",
+      "placePhoneNum": "010-1212-3434",
+      "placeCategoryId": 6
+    },
+    {
+      "placeId": 13,
+      "placeName": "못나가만화방",
+      "placeLocation": "대구광역시 수성구 무학로 321번길 78-3",
+      "placePhoneNum": "02-1234-9876",
+      "placeCategoryId": 6
+    },
+    {
+      "placeId": 14,
+      "placeName": "대왕문어타코야끼",
+      "placeLocation": "부산광역시 해운대구 송정해변로 432번길 10-4",
+      "placePhoneNum": "010-0000-8888",
+      "placeCategoryId": 6
+    },
+    {
+      "placeId": 15,
+      "placeName": "아기자기소품샾",
+      "placeLocation": "인천광역시 남동구 논고개로 654번길 32-5",
+      "placePhoneNum": "010-6321-4789",
+      "placeCategoryId": 6
+    }
+  ]
+}
+
+### modifyCourse
+PATCH localhost:8080/place/course/modify
+Content-Type: application/json
+
+{
+  "courseId": 40,
+  "courseName": "코스 수정",
+  "memberId": 4,
+  "places": [
+    {
+      "placeId": 13,
+      "placeName": "못나가만화방",
+      "placeLocation": "대구광역시 수성구 무학로 321번길 78-3",
+      "placePhoneNum": "02-1234-9876",
+      "placeCategoryId": 6
+    },
+    {
+      "placeId": 14,
+      "placeName": "대왕문어타코야끼",
+      "placeLocation": "부산광역시 해운대구 송정해변로 432번길 10-4",
+      "placePhoneNum": "010-0000-8888",
+      "placeCategoryId": 6
+    },
+    {
+      "placeId": 15,
+      "placeName": "아기자기소품샾",
+      "placeLocation": "인천광역시 남동구 논고개로 654번길 32-5",
+      "placePhoneNum": "010-6321-4789",
+      "placeCategoryId": 6
+    }
+  ]
+}
+
+### deleteCourse
+DELETE  localhost:8080/place/course/delete/40
+
+
+
+
+

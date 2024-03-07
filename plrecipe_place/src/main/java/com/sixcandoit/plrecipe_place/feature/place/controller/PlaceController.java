@@ -25,7 +25,6 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/place")
 @Slf4j
 public class PlaceController {
     private final PlaceService placeService;
@@ -41,7 +40,7 @@ public class PlaceController {
 
     /* 장소 추가를 위해 키워드로 장소 검색해서 초기 장소 리스트 받아오기 - searchPlaceDTO (등록할 장소 검색) */
     @GetMapping("/findBasePlace/{keyword}")
-    public List<SearchPlaceDTO> findBasePlace(@PathVariable String keyword, Model model) {
+    public List<SearchPlaceDTO> findBasePlace(@PathVariable String keyword) {
         return placeService.getSearchPlaceByAPI(keyword);
     }
 
@@ -63,7 +62,7 @@ public class PlaceController {
     /* 장소 등록 */
     @PostMapping("/regist")
     public ResponseEntity<PlaceDTO> registPlace(@RequestBody PlaceDTO newPlace){
-
+        System.out.println("newPlace = " + newPlace);
         placeService.registPlace(newPlace);
 
        return ResponseEntity.status(HttpStatus.CREATED).body(newPlace);

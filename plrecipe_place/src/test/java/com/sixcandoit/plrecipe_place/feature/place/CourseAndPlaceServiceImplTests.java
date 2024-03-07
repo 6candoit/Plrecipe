@@ -42,8 +42,6 @@ public class CourseAndPlaceServiceImplTests {
     void selectCoursePlaceByCourseId(int courseId){
 
         CourseAndPlace courseAndPlaceList = courseService.selectCoursePlaceByCourseId(courseId);
-        //courseAndPlaceList.forEach(System.out::println);
-
 
         assertNotNull(courseAndPlaceList);
     }

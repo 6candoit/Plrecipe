@@ -12,4 +12,7 @@ public interface CoursePlaceRepository extends JpaRepository<CoursePlace, Intege
     @Query("delete from plrecipe_course_and_place A where A.courseId = :courseId")
     void deleteAllByCourseId(@Param("courseId") int courseId);
 
+    @Modifying
+    @Query("delete from plrecipe_course_and_place A where A.placeId = :placeId")
+    void deleteAllByPlaceId(int placeId);
 }

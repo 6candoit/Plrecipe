@@ -38,7 +38,17 @@ public class MemberServiceImpl implements MemberService {
         Member member = mapper.map(memberDTO, Member.class);
         member.setJoinDate(dateTest);
 
+        String password = memberDTO.getPassword();
+        if (!isValidPassword(password)) {
+            throw new IllegalArgumentException("비밀번호는 최소 6자 이상이어야 하며, 영문 소문자, 숫자를 각각 하나 이상 포함해야 합니다.");
+        }
         memberRepository.save(member);
+    }
+
+    private boolean isValidPassword(String password) {
+        // 비밀번호는 최소 8자 이상, 영문 소문자, 숫자 각각 하나 이상 포함해야 함
+        String regex = "^(?=.*[a-z])(?=.*\\d).{6,}$";
+        return password.matches(regex);
     }
     @Override
     public Member modifyMember(int memberId, RequestMember requestMember) {
@@ -76,7 +86,7 @@ public class MemberServiceImpl implements MemberService {
 
         return memberRepository.save(member);
     }
-    //    ---------------------------------------------------------------
+
     @Override
     public List<MemberDTO> selectAllMember() {
         return memberMapper.selectAllMember();

@@ -21,8 +21,7 @@ import com.sixcandoit.plrecipe_member.feature.member.service.MemberService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/member")
-@Slf4j
+//@RequestMapping("/plrecipe-member")
 public class MemberController {
 
     private final MemberServiceImpl memberServiceImpl;
@@ -41,7 +40,7 @@ public class MemberController {
     }
 
     // 회원ID로 회원 조회
-    @GetMapping("/{memberId}")
+    @GetMapping("/searchMember/{memberId}")
     public ResponseEntity<ResponseMember> selectMemberById(@PathVariable("memberId") int memberId) {
 
         MemberDTO memberDTO = memberServiceImpl.selectMemberById(memberId);

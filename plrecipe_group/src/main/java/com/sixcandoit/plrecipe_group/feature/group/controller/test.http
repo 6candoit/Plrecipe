@@ -1,14 +1,14 @@
 ### GET request groups
-GET localhost:8080/group/groups
+GET localhost:8000/plrecipe-group/groups
 
 ### GET request memberbygroupid
-GET localhost:8080/group/groups/member/1
+GET localhost:8000/plrecipe-group/groups/member/1
 
 ### GET request publicOrPrivate
-GET localhost:8080/group/groups/public/1
+GET localhost:8000/plrecipe-group/groups/public/1
 
 ### PUT regist Group
-POST localhost:8080/group/regist
+POST localhost:8000/plrecipe-group/regist
 content-Type: application/json
 
 {
@@ -19,7 +19,7 @@ content-Type: application/json
 }
 
 ### PUT modify Group
-PATCH localhost:8080/group/modify/1
+PATCH localhost:8000/plrecipe-group/modify/1
 content-Type: application/json
 
 {
@@ -29,7 +29,7 @@ content-Type: application/json
 }
 
 ### PUT delete Group
-PATCH localhost:8080/group/delete/1
+PATCH localhost:8000/plrecipe-group/delete/1
 content-Type: application/json
 
 {
@@ -37,14 +37,14 @@ content-Type: application/json
 }
 
 ### DELETE withdrawal Group
-DELETE localhost:8080/group/withdrawal/2
+DELETE localhost:8000/plrecipe-group/withdrawal/2
 content-Type:application/json
 
 
 ### POST invited Group
-POST localhost:8080/group/invite/1/10
+POST localhost:8000/plrecipe-group/invite/1/10
 content-Type: application/json
 
 ### POST invite Accept
-POST  localhost:8080/group/accept-invitation/1/10
+POST  localhost:8000/plrecipe-group/accept-invitation/1/10
 content-Type: application/json
