@@ -1,10 +1,12 @@
 package com.sixcandoit.plrecipe_member.feature.member.service;
 
+import com.sixcandoit.plrecipe_member.feature.member.client.PostServiceClient;
 import com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO;
 import com.sixcandoit.plrecipe_member.feature.member.entity.Member;
 import com.sixcandoit.plrecipe_member.feature.member.repository.MemberMapper;
 import com.sixcandoit.plrecipe_member.feature.member.repository.MemberRepository;
 import com.sixcandoit.plrecipe_member.feature.vo.RequestMember;
+import com.sixcandoit.plrecipe_member.feature.vo.ResponsePost;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +22,14 @@ public class MemberServiceImpl implements MemberService {
     private final ModelMapper mapper;
     private final MemberMapper memberMapper;
     private final MemberRepository memberRepository;
+    private final PostServiceClient postServiceClient;
 
     @Autowired
-    public MemberServiceImpl(ModelMapper mapper, MemberMapper memberMapper, MemberRepository memberRepository) {
+    public MemberServiceImpl(ModelMapper mapper, MemberMapper memberMapper, MemberRepository memberRepository, PostServiceClient postServiceClient) {
         this.mapper = mapper;
         this.memberMapper = memberMapper;
         this.memberRepository = memberRepository;
+        this.postServiceClient = postServiceClient;
     }
 
     @Override
@@ -45,11 +49,6 @@ public class MemberServiceImpl implements MemberService {
         memberRepository.save(member);
     }
 
-    private boolean isValidPassword(String password) {
-        // 비밀번호는 최소 8자 이상, 영문 소문자, 숫자 각각 하나 이상 포함해야 함
-        String regex = "^(?=.*[a-z])(?=.*\\d).{6,}$";
-        return password.matches(regex);
-    }
     @Override
     public Member modifyMember(int memberId, RequestMember requestMember) {
 
@@ -91,15 +90,26 @@ public class MemberServiceImpl implements MemberService {
     public List<MemberDTO> selectAllMember() {
         return memberMapper.selectAllMember();
     }
+
     @Override
-    public MemberDTO selectMemberById(String memberId) {
-        Optional<Member> userEntity = memberRepository.findById(Integer.valueOf(memberId));
+    public MemberDTO selectMemberById(int memberId) {
+        Optional<Member> userEntity = memberRepository.findById(memberId);
         MemberDTO userDTO = mapper.map(userEntity, MemberDTO.class);
+
+        List<ResponsePost> postList = postServiceClient.selectMemberPosts(memberId);
+        userDTO.setPosts(postList);
 
         return userDTO;
     }
     @Override
     public List<MemberDTO> selectMemberByLikePost(int memberId) {
         return memberMapper.selectMemberByLikePost(memberId);
+    }
+// --------------------------------------------------------------------------
+//    비밀번호 제약조건 확인 method
+    private boolean isValidPassword(String password) {
+        // 비밀번호는 최소 8자 이상, 영문 소문자, 숫자 각각 하나 이상 포함해야 함
+        String regex = "^(?=.*[a-z])(?=.*\\d).{6,}$";
+        return password.matches(regex);
     }
 }

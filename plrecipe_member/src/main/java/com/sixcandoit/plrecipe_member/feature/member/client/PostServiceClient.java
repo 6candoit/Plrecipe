@@ -10,7 +10,7 @@ import java.util.List;
 @FeignClient(name ="plrecipe-post" , url = "localhost:8000")
 public interface PostServiceClient {
 
-    @GetMapping("plrecipe-post/posts/email/{memberId}")
+    @GetMapping("/plrecipe-post/posts/email/{memberId}")
     List<ResponsePost> selectMemberPosts(@PathVariable() int memberId);
 
 }
