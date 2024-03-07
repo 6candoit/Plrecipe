@@ -1,5 +1,5 @@
 ### get Places using kakaoApi
-GET localhost:8080/place/findBasePlace/스타필드
+GET http://localhost:8000/plrecipe-place/findBasePlace/스타필드
 
 ### getPlace
 GET localhost:8080/place/find/3
