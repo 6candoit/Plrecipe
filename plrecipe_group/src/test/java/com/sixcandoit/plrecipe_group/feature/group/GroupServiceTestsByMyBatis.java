@@ -1,8 +1,9 @@
 package com.sixcandoit.plrecipe_group.feature.group;
 
-import com.sixcandoit.plrecipe_group.dto.GroupDTO;
-import com.sixcandoit.plrecipe_group.dto.MemberDTO;
-import com.sixcandoit.plrecipe_group.service.GroupService;
+import com.sixcandoit.plrecipe_group.feature.group.dto.GroupDTO;
+import com.sixcandoit.plrecipe_group.feature.group.dto.MemberDTO;
+import com.sixcandoit.plrecipe_group.feature.group.service.GroupService;
+import com.sixcandoit.plrecipe_group.feature.group.service.GroupServiceimpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -17,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class GroupServiceTestsByMyBatis {
 
     @Autowired
-    private GroupService groupService;
+    private GroupServiceimpl groupServiceimpl;
 
     @Test
     void testAllGroupSelect() {
 
-        List<GroupDTO> groupList = groupService.selectAllGroup();
+        List<GroupDTO> groupList = groupServiceimpl.selectAllGroup();
         groupList.forEach(System.out::println);
 
         assertNotNull(groupList);
@@ -33,7 +34,7 @@ public class GroupServiceTestsByMyBatis {
     void testSelectMembersByGroupId() {
         int groupId = 1;
 
-        List<MemberDTO> members = groupService.selectMembersByGroupId(groupId);
+        List<MemberDTO> members = groupServiceimpl.selectMembersByGroupId(groupId);
 
         assertNotNull(members);
 
@@ -46,7 +47,7 @@ public class GroupServiceTestsByMyBatis {
     @ParameterizedTest
     @ValueSource(ints = {1})
     void selectPublicOrPrivateGroup(int memberId) {
-        List<GroupDTO> groupList = groupService.selectPublicOrPrivateGroup(memberId);
+        List<GroupDTO> groupList = groupServiceimpl.selectPublicOrPrivateGroup(memberId);
         groupList.forEach(System.out::println);
 
         assertNotNull(groupList);

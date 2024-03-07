@@ -9,12 +9,12 @@ import com.sixcandoit.plrecipe_place.feature.place.entity.Place;
 import java.util.List;
 
 public interface CourseService {
-    List<CourseAndPlace> selectCoursePlaceByCourseId(int courseId);
-    List<Course> selectCourseByMember(int memberId);
+    CourseAndPlace selectCoursePlaceByCourseId(int courseId);
+    List<CourseDTO> selectCourseByMember(int memberId);
     List<Place> getPlacesByCourseName(int courseId);
 
     void registCourse(CourseAndPlace cp);
     void modifyCourse(CourseAndPlace cp);
 
-    void deleteCourse(CourseAndPlace cp);
+    void deleteCourse(int courseId);
 }

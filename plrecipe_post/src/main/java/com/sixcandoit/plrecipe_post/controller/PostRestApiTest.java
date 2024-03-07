@@ -5,13 +5,18 @@ import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.dto.HashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.vo.PostAndHashtag;
 import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
-import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
 import com.sixcandoit.plrecipe_post.service.HashtagService;
 import com.sixcandoit.plrecipe_post.service.PostHashtagService;
 import com.sixcandoit.plrecipe_post.service.PostService;
 import com.sixcandoit.plrecipe_post.vo.*;
+import com.sixcandoit.plrecipe_post.vo.hashtag.RequestHashtag;
+import com.sixcandoit.plrecipe_post.vo.hashtag.ResponseHashtag;
+import com.sixcandoit.plrecipe_post.vo.post.RequestPost;
+import com.sixcandoit.plrecipe_post.vo.post.ResponsePost;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +25,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/post")
+//@RequestMapping("/post")
+@RequestMapping("/")
 public class PostRestApiTest {
     private HashtagService hashtagService;
     private PostService postService;
@@ -42,8 +48,8 @@ public class PostRestApiTest {
     }
 
     @GetMapping("/posts/email/{memberId}")
-    public List<PostDTO> selectMemberPosts(@PathVariable int memberId) {
-        return postService.selectMemberPosts(memberId);
+    List<PostDTO> selectMemberPosts(@PathVariable int memberId) {
+        return postService.selectPostByMember(memberId);
     }
 
     @GetMapping("/posts/status/{postStatus}")
@@ -88,15 +94,13 @@ public class PostRestApiTest {
         return ResponseEntity.status(HttpStatus.CREATED).body(responsePost);
     }
 
-    @PostMapping("/regist/post_hashtag")
-    private ResponseEntity<ResponsePostHashtag> registPostHashtag(@RequestBody RequestPostHashtag postHashtag) {
-        PostHashtagDTO postHashtagDTO = modelMapper.map(postHashtag, PostHashtagDTO.class);
+    @PostMapping("/regist_both")
+    private ResponseEntity<?> registPostAndHashtag(@RequestBody RequestTest test) {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        PostAndHashtag postAndHashtag = modelMapper.map(test, PostAndHashtag.class);
+        postService.registPostAndHashtag(postAndHashtag);
 
-        postHashtagService.registPostHashtag(postHashtagDTO);
-
-        ResponsePostHashtag responsePostHashtag = modelMapper.map(postHashtagDTO, ResponsePostHashtag.class);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(responsePostHashtag);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PatchMapping("/modify/{postId}")

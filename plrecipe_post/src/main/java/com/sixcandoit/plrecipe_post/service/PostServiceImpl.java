@@ -1,33 +1,39 @@
 package com.sixcandoit.plrecipe_post.service;
 
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
-import com.sixcandoit.plrecipe_post.dto.HashtagDTO;
+import com.sixcandoit.plrecipe_post.client.MemberServiceClient;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
+import com.sixcandoit.plrecipe_post.dto.PostAndHashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.repository.repo.PostHashtagRepository;
+import com.sixcandoit.plrecipe_post.vo.PostAndHashtag;
 import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
 import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
-import com.sixcandoit.plrecipe_post.repository.repo.HashtagRepository;
 import com.sixcandoit.plrecipe_post.repository.repo.PostLikeRepository;
 import com.sixcandoit.plrecipe_post.repository.repo.PostRepository;
-import com.sixcandoit.plrecipe_post.vo.Hashtag;
+import com.sixcandoit.plrecipe_post.vo.PostHashtag;
 import com.sixcandoit.plrecipe_post.vo.PostLike;
-import com.sixcandoit.plrecipe_post.vo.RequestPost;
+import com.sixcandoit.plrecipe_post.vo.member.ResponseMember;
+import com.sixcandoit.plrecipe_post.vo.post.RequestPost;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.POST;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -36,13 +42,17 @@ public class PostServiceImpl implements PostService {
     private final PostMapper postMapper;
     private final PostRepository postRepository;
     private final PostLikeRepository postLikeRepository;
+    private final PostHashtagRepository postHashtagRepository;
+    private final MemberServiceClient memberServiceClient;
 
     @Autowired
-    public PostServiceImpl(ModelMapper mapper, PostMapper postMapper, PostRepository postRepository, PostLikeRepository postLikeRepository) {
+    public PostServiceImpl(ModelMapper mapper, PostMapper postMapper, PostRepository postRepository, PostLikeRepository postLikeRepository, PostHashtagRepository postHashtagRepository, MemberServiceClient memberServiceClient) {
         this.mapper = mapper;
         this.postMapper = postMapper;
         this.postRepository = postRepository;
         this.postLikeRepository = postLikeRepository;
+        this.postHashtagRepository = postHashtagRepository;
+        this.memberServiceClient = memberServiceClient;
     }
 
     @Override
@@ -122,6 +132,29 @@ public class PostServiceImpl implements PostService {
         postLikeRepository.save(postLike);
     }
 
+    public void registPostAndHashtag(PostAndHashtag postHashtag){
+        Post newPost = postHashtag.getPost();
+        postRepository.save(newPost);
+
+
+        savePostHashtags(newPost.getPostId(), postHashtag.getHashtagId());
+    }
+
+    private void savePostHashtags(int postId, List<Integer> hashtags) {
+        List<PostAndHashtagDTO> postHashtagList = new ArrayList<>();
+        for (int i = 0; i < hashtags.size(); i++) {
+            PostAndHashtagDTO postAndHashtagDTO = new PostAndHashtagDTO(hashtags.get(i), postId);
+            postHashtagList.add(postAndHashtagDTO);
+        }
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<PostHashtag> postHashtags = postHashtagList.stream()
+                .map(postHashtag -> mapper.map(postHashtag, PostHashtag.class))
+                .collect(Collectors.toList());
+        postHashtagRepository.saveAll(postHashtags);
+
+    }
+
     /* --------------------- Mybatis --------------------- */
 
     @Override
@@ -129,9 +162,22 @@ public class PostServiceImpl implements PostService {
         return postMapper.selectAllPost();
     }
 
+    /* 제발 푸쉬좀123131 */
     @Override
-    public List<PostDTO> selectMemberPosts(int memberId) {
-        return postMapper.selectMemberPosts(memberId);
+    public List<PostDTO> selectPostByMember(int memberId) {
+        List<PostDTO> postList = postMapper.selectMemberPosts(memberId);
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<PostDTO> postDTOList = postList.stream()
+                .map(post -> mapper.map(post, PostDTO.class))
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < postDTOList.size(); i++) {
+            ResponseMember responseMember = memberServiceClient.getMemberInfo(postDTOList.get(i).getMemberId());
+            postDTOList.get(i).setMember(responseMember);
+        }
+
+        return postDTOList;
     }
 
     @Override

@@ -2,7 +2,7 @@
 GET localhost:8080/post/posts
 
 ### GET request memberPosts
-GET localhost:8080/post/posts/email/1
+GET localhost:8000/plrecipe-post/posts/email/1
 
 ### GET request postsByStatus
 GET localhost:8080/post/posts/status/Y
@@ -10,7 +10,7 @@ GET localhost:8080/post/posts/status/Y
 ### GET request postsByMemberCounts
 GET localhost:8080/post/posts/memberCounts/TWO
 
-### GET request HashtagsByPostId
+### GET request HashtagsByPostId(fail)
 GET localhost:8080/post/posts/hashtag/1
 
 ### GET request LikesByPostId
@@ -38,16 +38,6 @@ Content-Type: application/json
   "hashtagTitle": "해시태그 추가 테스트"
 }
 
-### POST regist PostHashtag
-POST localhost:8080/post/regist/post_hashtag
-Content-Type: application/json
-
-{
-  "hashtagId": 1,
-  "postId": 10
-}
-
-### POST regist PostHashtag
 
 ### PATCH modify Post
 PATCH localhost:8080/post/modify/1
@@ -70,7 +60,7 @@ Content-Type: application/json
 }
 
 ### GET delete post_hashtag
-DELETE localhost:8080/post/hashtag/delete/15
+DELETE localhost:8080/post/hashtag/delete/26
 
 ### POST regist post_like
 POST localhost:8080/post/like
@@ -79,4 +69,21 @@ Content-Type: application/json
 {
   "memberId": "21",
   "postId": "10"
+}
+
+### POST test
+POST localhost:8000/plrecipe-post/regist_both
+Content-Type: application/json
+
+{
+  "post":{
+    "postTitle": "게시글 제목 수정 테스트??",
+    "postContent": "게시글 내용 수정 테스트??",
+    "courseId": 2,
+    "memberId": 1,
+    "isPostPublic": "Y",
+    "memberCount": "TWO",
+    "postDate": "123"
+  },
+  "hashtagId": [1, 2, 3, 4, 5]
 }

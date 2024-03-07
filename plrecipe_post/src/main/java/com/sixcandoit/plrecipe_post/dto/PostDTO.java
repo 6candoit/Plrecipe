@@ -1,7 +1,10 @@
 package com.sixcandoit.plrecipe_post.dto;
 
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.vo.member.ResponseMember;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,5 +22,5 @@ public class PostDTO {
     private String isPostPublic;
     private MemberCount memberCount;
 
-
+    private ResponseMember member;
 }

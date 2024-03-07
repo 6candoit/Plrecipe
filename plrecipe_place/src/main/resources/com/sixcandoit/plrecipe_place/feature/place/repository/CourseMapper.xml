@@ -19,8 +19,9 @@
     </resultMap>
 
     <resultMap id="coursePlaceResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.CourseAndPlace">
-        <id property="placeCourseId" column="PLACE_COURSE_ID"/>
-        <association property="course" resultMap="courseResultMap"/>
+        <id property="courseId" column="COURSE_ID"/>
+        <result property="courseName" column="COURSE_NAME"/>
+        <result property="memberId" column="MEMBER_ID"/>
         <collection property="places" resultMap="placeResultMap"/>
     </resultMap>
 
@@ -29,7 +30,6 @@
                A.COURSE_ID,
                A.COURSE_NAME,
                A.MEMBER_ID,
-               B.PLACE_COURSE_ID,
                C.PLACE_ID,
                C.PLACE_NAME,
                C.PLACE_LOCATION,

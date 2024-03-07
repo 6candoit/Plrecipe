@@ -1,38 +1,18 @@
 package com.sixcandoit.plrecipe_place.feature.place.dto;
 
+import com.sixcandoit.plrecipe_place.feature.place.vo.ResponseMember;
+import lombok.Data;
+
+@Data
 public class CourseDTO {
+    private int courseId;
     private String courseName;
     private int memberId;
+
+    private ResponseMember member;
 
     public CourseDTO() {
     }
 
-    public CourseDTO(String courseName, int memberId) {
-        this.courseName = courseName;
-        this.memberId = memberId;
-    }
 
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public int getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
-    }
-
-    @Override
-    public String toString() {
-        return "CourseDTO{" +
-                "courseName='" + courseName + '\'' +
-                ", memberId=" + memberId +
-                '}';
-    }
 }

@@ -46,4 +46,10 @@
         WHERE B.MEMBER_ID = #{memberId};
     </select>
 
+    <select id="selectMemberPosts" parameterType="_int" resultMap="memberResultMap">
+        SELECT *
+        FROM MEMBER_INFO
+        WHERE MEMBER_ID = #{memberId};
+    </select>
+
 </mapper>

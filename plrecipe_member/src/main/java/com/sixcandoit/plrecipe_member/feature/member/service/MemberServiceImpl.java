@@ -1,11 +1,13 @@
 package com.sixcandoit.plrecipe_member.feature.member.service;
 
+import com.sixcandoit.plrecipe_member.feature.member.client.PostServiceClient;
 import com.sixcandoit.plrecipe_member.feature.member.dto.MemberDTO;
 import com.sixcandoit.plrecipe_member.feature.member.dto.RegisterDTO;
 import com.sixcandoit.plrecipe_member.feature.member.entity.Member;
 import com.sixcandoit.plrecipe_member.feature.member.repository.MemberMapper;
 import com.sixcandoit.plrecipe_member.feature.member.repository.MemberRepository;
 import com.sixcandoit.plrecipe_member.feature.vo.RequestMember;
+import com.sixcandoit.plrecipe_member.feature.vo.ResponsePost;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -24,15 +26,18 @@ public class MemberServiceImpl implements MemberService {
     private final ModelMapper modelMapper;
     private final MemberMapper memberMapper;
     private final MemberRepository memberRepository;
+    private final PostServiceClient postServiceClient;
+
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public MemberServiceImpl(ModelMapper mapper, MemberMapper memberMapper, MemberRepository memberRepository,
-                             BCryptPasswordEncoder bCryptPasswordEncoder) {
+                             BCryptPasswordEncoder bCryptPasswordEncoder, PostServiceClient postServiceClient) {
         this.modelMapper = mapper;
         this.memberMapper = memberMapper;
         this.memberRepository = memberRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.postServiceClient = postServiceClient;
     }
 
     @Override
@@ -71,22 +76,31 @@ public class MemberServiceImpl implements MemberService {
 
         return memberRepository.save(member);
     }
-    //    ---------------------------------------------------------------
+
     @Override
     public List<MemberDTO> selectAllMember() {
         return memberMapper.selectAllMember();
     }
+
     @Override
     public MemberDTO selectMemberById(int memberId) {
-        Optional<Member> userEntity = memberRepository.findById(memberId);
-        MemberDTO userDTO = modelMapper.map(userEntity, MemberDTO.class);
 
-        return userDTO;
+        Optional<Member> userEntity = memberRepository.findById(memberId);
+//        MemberDTO userDTO = modelMapper.map(userEntity, MemberDTO.class);
+
+        MemberDTO memberDTO = mapper.map(userEntity, MemberDTO.class);
+
+//        List<ResponsePost> postList = postServiceClient.selectMemberPosts(Integer.valueOf(memberId).toString());
+//        memberDTO.setPosts(postList);
+
+
+        return memberDTO;
     }
     @Override
     public List<MemberDTO> selectMemberByLikePost(int memberId) {
         return memberMapper.selectMemberByLikePost(memberId);
     }
+
 
     @Transactional
     @Override
@@ -127,5 +141,11 @@ public class MemberServiceImpl implements MemberService {
         return new User(memberEntity.getMemberEmail(), memberEntity.getPassword(),
                 true, true, true, true,
                 new ArrayList<>());
+
+    private boolean isValidPassword(String password) {
+        // 비밀번호는 최소 8자 이상, 영문 소문자, 숫자 각각 하나 이상 포함해야 함
+        String regex = "^(?=.*[a-z])(?=.*\\d).{6,}$";
+        return password.matches(regex);
+
     }
 }

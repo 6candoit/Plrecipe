@@ -1,6 +1,9 @@
 package com.sixcandoit.plrecipe_member.feature.member.dto;
 
 import com.sixcandoit.plrecipe_member.feature.member.entity.MemberGrade;
+import com.sixcandoit.plrecipe_member.feature.vo.ResponsePost;
+
+import java.util.List;
 
 public class MemberDTO {
 
@@ -14,6 +17,7 @@ public class MemberDTO {
     private String withdrawalDate;
     private MemberGrade memberGrade;
     private String memberStatus;
+    private List<ResponsePost> posts;
     public MemberDTO() {
     }
 
@@ -68,6 +72,7 @@ public class MemberDTO {
 
     public String getMemberStatus() {
         return memberStatus;
+
     }
 
     public void setMemberId(int memberId) {
@@ -110,6 +115,19 @@ public class MemberDTO {
         this.memberStatus = memberStatus;
     }
 
+//    ---------------------------------------------------------------------------------
+    public MemberDTO(List<ResponsePost> posts) {
+        this.posts = posts;
+    }
+
+    public List<ResponsePost> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<ResponsePost> posts) {
+        this.posts = posts;
+    }
+
     @Override
     public String toString() {
         return "MemberDTO{" +
@@ -123,6 +141,7 @@ public class MemberDTO {
                 ", withdrawalDate='" + withdrawalDate + '\'' +
                 ", memberGrade=" + memberGrade +
                 ", memberStatus='" + memberStatus + '\'' +
+                ", posts=" + posts +
                 '}';
     }
 }
