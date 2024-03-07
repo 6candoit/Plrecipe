@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface CourseService {
     CourseAndPlace selectCoursePlaceByCourseId(int courseId);
-    List<Course> selectCourseByMember(int memberId);
+    List<CourseDTO> selectCourseByMember(int memberId);
     List<Place> getPlacesByCourseName(int courseId);
 
     void registCourse(CourseAndPlace cp);

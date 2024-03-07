@@ -1,5 +1,6 @@
 package com.sixcandoit.plrecipe_place.feature.place.controller;
 
+import com.sixcandoit.plrecipe_place.feature.place.dto.CourseDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.feature.place.dto.SearchPlaceDTO;
@@ -130,7 +131,7 @@ public class PlaceController {
 
     /* 멤버id로 멤버가 생성한 코스 조회 */
     @GetMapping("/course/findUserId/{memberId}")
-    List<Course> selectCourseByMember(@PathVariable int memberId){
+    List<CourseDTO> selectCourseByMember(@PathVariable int memberId){
         return courseService.selectCourseByMember(memberId);
     }
 

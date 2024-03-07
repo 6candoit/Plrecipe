@@ -49,7 +49,7 @@ public class CourseAndPlaceServiceImplTests {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4})
     void selectCourseByMember(int memberId){
-        List<Course> courseList = courseService.selectCourseByMember(memberId);
+        List<CourseDTO> courseList = courseService.selectCourseByMember(memberId);
         courseList.forEach(System.out::println);
 
         assertNotNull(!courseList.isEmpty());
@@ -68,12 +68,13 @@ public class CourseAndPlaceServiceImplTests {
     @Test
     void modifyCourse(){
 
-        Course course = courseService.selectCourseByMember(6).get(0);
-        course.setCourseName("---코스수정테스트---");
-        List<Place> placeList = courseService.getPlacesByCourseName(course.getCourseId());
+        CourseDTO courseDTO = courseService.selectCourseByMember(6).get(0);
+        Course modifyCourse = new Course(courseDTO.getCourseId(), courseDTO.getCourseName(), courseDTO.getMemberId());
+        modifyCourse.setCourseName("---코스수정테스트---");
+        List<Place> placeList = courseService.getPlacesByCourseName(modifyCourse.getCourseId());
         placeList.add(placeList.get(1));
 
-        CourseAndPlace cp = new CourseAndPlace(course, placeList);
+        CourseAndPlace cp = new CourseAndPlace(modifyCourse, placeList);
 
         courseService.modifyCourse(cp);
     }
@@ -81,7 +82,7 @@ public class CourseAndPlaceServiceImplTests {
     @Test
     void deleteCourse(){
 
-        Course course = courseService.selectCourseByMember(6).get(0);
+        CourseDTO course = courseService.selectCourseByMember(6).get(0);
 
         courseService.deleteCourse(course.getCourseId());
     }
