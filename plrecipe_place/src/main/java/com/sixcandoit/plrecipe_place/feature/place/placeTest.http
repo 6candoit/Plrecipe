@@ -2,10 +2,10 @@
 GET http://localhost:8000/plrecipe-place/findBasePlace/스타필드
 
 ### getPlace
-GET localhost:8080/place/find/5
+GET http://localhost:8000/plrecipe-place/find/5
 
 ### getPlaceAll
-GET localhost:8080/place/find
+GET http://localhost:8000/plrecipe-place/find
 
 ### searchPlaceByFilter
 POST http://localhost:8000/plrecipe-place/searchPlace
@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ### registPlace
-POST localhost:8080/place/regist
+POST http://localhost:8000/plrecipe-place/regist
 Content-Type: application/json
 
 {
@@ -31,17 +31,17 @@ Content-Type: application/json
 }
 
 ### deletePlace
-DELETE localhost:8080/place/delete/61
+DELETE http://localhost:8000/plrecipe-place/delete/61
 
 
 ### selectStarByPlace
-GET localhost:8080/place/star/3
+GET http://localhost:8000/plrecipe-place/star/3
 
 ### selectStarByMember
-GET localhost:8080/place/star/member/5
+GET http://localhost:8000/plrecipe-place/star/member/5
 
 ### registStar
-POST localhost:8080/place/star/regist
+POST http://localhost:8000/plrecipe-place/star/regist
 Content-Type: application/json
 
 {
@@ -52,7 +52,7 @@ Content-Type: application/json
 }
 
 ### modifyStar
-PATCH localhost:8080/place/star/modify
+PATCH http://localhost:8000/plrecipe-place/star/modify
 Content-Type: application/json
 
 {
@@ -65,21 +65,21 @@ Content-Type: application/json
 
 
 ### deleteStar
-DELETE localhost:8080/place/star/delete/23
+DELETE http://localhost:8000/plrecipe-place/star/delete/23
 
 
 ### selectCoursePlaceByCourseId
-GET localhost:8080/place/course/findInfo/5
+GET http://localhost:8000/plrecipe-place/course/findInfo/5
 
 
 ### selectCourseByMember
-GET localhost:8000/plrecipe-place/course/findUserId/3
+GET http://localhost:8000/plrecipe-place/course/findUserId/3
 
 ### getPlacesByCourseId
-GET localhost:8080/place/course/findPlaces/1
+GET http://localhost:8000/plrecipe-place/course/findPlaces/1
 
 ### registCourse
-POST localhost:8080/place/course/regist
+POST http://localhost:8000/plrecipe-place/course/regist
 Content-Type: application/json
 
 {
@@ -118,7 +118,7 @@ Content-Type: application/json
 }
 
 ### modifyCourse
-PATCH localhost:8080/place/course/modify
+PATCH http://localhost:8000/plrecipe-place/course/modify
 Content-Type: application/json
 
 {
@@ -151,7 +151,7 @@ Content-Type: application/json
 }
 
 ### deleteCourse
-DELETE  localhost:8080/place/course/delete/40
+DELETE  http://localhost:8000/plrecipe-place/course/delete/40
 
 
 
