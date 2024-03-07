@@ -72,7 +72,7 @@ Content-Type: application/json
 }
 
 ### POST test
-POST localhost:8080/post/regist_both
+POST localhost:8000/plrecipe-post/regist_both
 Content-Type: application/json
 
 {

@@ -58,7 +58,7 @@ public class CourseServiceImpl implements CourseService {
     public void registCourse(CourseAndPlace cp) {
 
         /* 코스 정보 insert */
-        Course newCourse = cp.getCourse();
+        Course newCourse = new Course(cp.getCourseName(), cp.getMemberId());
         courseRepository.save(newCourse);
 
         /* 코스장소 정보 insert */
@@ -88,9 +88,9 @@ public class CourseServiceImpl implements CourseService {
     @Transactional
     public void modifyCourse(CourseAndPlace modifyCP) {
 
-        int courseId = modifyCP.getCourse().getCourseId();
+        int courseId = modifyCP.getCourseId();
         Course foundCourse = courseRepository.findById(courseId).orElseThrow(IllegalArgumentException::new);
-        foundCourse.setCourseName(modifyCP.getCourse().getCourseName());
+        foundCourse.setCourseName(modifyCP.getCourseName());
 
         deleteCoursePlace(courseId);
         saveCoursePlace(courseId, modifyCP.getPlaces());
