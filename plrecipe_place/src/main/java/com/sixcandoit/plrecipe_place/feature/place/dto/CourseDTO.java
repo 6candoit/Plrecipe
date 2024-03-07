@@ -7,7 +7,6 @@ import lombok.Data;
 public class CourseDTO {
     private int courseId;
     private String courseName;
-    private int memberId;
 
     private ResponseMember member;
 

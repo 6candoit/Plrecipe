@@ -52,7 +52,7 @@ public class CourseServiceImpl implements CourseService {
                 .collect(Collectors.toList());
 
         for (int i = 0; i < courseDTOList.size(); i++) {
-            ResponseMember rm = memberServiceClient.getMemberInfo(courseDTOList.get(i).getMemberId());
+            ResponseMember rm = memberServiceClient.getMemberInfo(courseList.get(i).getMemberId());
             courseDTOList.get(i).setMember(rm);
         }
 
