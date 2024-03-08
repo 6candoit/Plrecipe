@@ -1,17 +1,13 @@
 package com.sixcandoit.plrecipe_member.feature.member.controller;
 
 import com.sixcandoit.plrecipe_member.feature.member.dto.RegisterDTO;
-import com.sixcandoit.plrecipe_member.feature.member.entity.Member;
-import com.sixcandoit.plrecipe_member.feature.member.entity.MemberGrade;
-import com.sixcandoit.plrecipe_member.feature.member.entity.ResponseUser;
-import com.sixcandoit.plrecipe_member.feature.member.repository.MemberRepository;
+import com.sixcandoit.plrecipe_member.feature.vo.ResponseUser;
 import com.sixcandoit.plrecipe_member.feature.member.service.MemberService;
 import com.sixcandoit.plrecipe_member.feature.vo.RequestUser;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -71,6 +67,7 @@ public class LoginController {
 
         ResponseUser responseUser = modelMapper.map(userDTO, ResponseUser.class);
 
+//        return ResponseEntity.status(HttpStatus.CREATED).build();
         return ResponseEntity.status(HttpStatus.CREATED).body(responseUser);
 
 //        memberRepository.save(user);
