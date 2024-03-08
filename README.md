@@ -175,10 +175,97 @@
 
 ## DDD(Event-Storming/Context-Map) 설계
 
+**Event-Storming이란<br/>**
+서비스와 관계 있는 모든 이해관계자들이 서로가 가지고 있는 생각을 공유하며 서비스에서 발생하는 이벤트를 중심(Event-First)으로 분석하는 기법
+<br/>
+
+**Domain Devision Design<br/>**
+도메인 패턴을 중심에 놓고 설계하는 방식<br/>
+
+- 도메인 그 자체와 도메인 로직에 초점을 맞춘다. 일반적으로 많이 사용하는 데이터 중심의 접근법을 탈피해서 순수한 도메인의 모델과 로직에 집중하는 것
+- 보편적인(ubiquitous) 언어의 사용. 도메인 전문가와 소프트웨어 개발자 간의 커뮤니케이션 문제를 없애고 상호가 이해할 수 있고 모든 문서와 코드에 이르기까지 동일한 표현과 단어로 구성된 단일화된 언어체계를 구축해나가는 과정. 이로서 분석 작업과 설계 그리고 구현에 이르기까지 통일된 방식으로 커뮤니케이션이 가능해짐.
+- 소프트웨어 엔티티와 도메인 컨셉트를 가능한 가장 가까이 일치시킴. 분석 모델과 설계가 다르고 그것과 코드가 다른 구조가 아니라 도메인 모델부터 코드까지 항상 함께 움직이는 구조의 모델을 지향하는 것이 DDD의 핵심원리.
+
+1. Domain Event
+: 발생하는 모든 이벤트(도메인 내 변경의 파생 작업)
+
+2. External System
+: 외부 시스템(외부 Api)
+
+3. Command
+: 각 도메인 이벤트를 발생시키는 명령
+
+4. Hot Spot
+: DDD 설계 중 추후에 논의할 점(해결될 경우에 탈착)
+
+5. Actor
+: 이벤트의 주체
+
+6. Aggregate
+: Command 수행을 위해 CRUD해야 하는 데이터 객체 정의
+
+7. Policy
+: 정책(서비스할 기능)
+
 <details>
 <summary><b>DDD 설계 과정</b></summary>
 
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd1.png">
+</div>
+
+가나다
+ 
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd2.png">
+</div>
+
+가나다
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd3.png">
+</div>
+
+가나다
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd4.png">
+</div>
+
+가나다
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd5.png">
+</div>
+
+가나다
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd6.png">
+</div>
+
+가나다
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd7.png">
+</div>
+
+가나다
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd8.png">
+</div>
+
+가나다
+
 </details>
+<br/>
+
+<strong>* Context Map</strong>
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/contextmap.png">
+</div>
 
 ## 모델링
 
