@@ -578,7 +578,7 @@ REFERENCES `post` (
 
 
 ## ⚪ Project Architecture(프로젝트 아키텍처)
-### Monolith Architecture(모놀리스 아키텍처)
+### 1. Monolith Architecture(모놀리스 아키텍처)
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/monolith_image.png" height=250>
 </div>
@@ -588,7 +588,7 @@ REFERENCES `post` (
 - 각 서비스 실행할 경우 하나로 모여있는 서버로 요청
 - 서버에서 요청을 처리
 
-**1. Monolith Architecture의 장점**
+**1-1. Monolith Architecture의 장점**
 
 &nbsp;&nbsp;a. 간단한 배포 방식
 
@@ -598,14 +598,14 @@ REFERENCES `post` (
 
 &nbsp;&nbsp;d. 코드의 재사용 용이
 
-**2. Monolith Architecture의 단점** 
+**1-2. Monolith Architecture의 단점** 
 
 &nbsp;&nbsp;a. 높은 결합도 - 혼란스로운 경계선(소유권)
 
 &nbsp;&nbsp;b. 혼란스로운 경계선(소유권)
 
 
-### MicroService Architecture(마이크로 서비스 아키텍처)
+### 2. MicroService Architecture(마이크로 서비스 아키텍처)
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/microservice_image.png" height=250>
 </div>
@@ -616,7 +616,7 @@ REFERENCES `post` (
 - 서비스들은 네트워크를 통해 서로 통신
 - 서비스별로 데이터베이스 소유
 
-***1-1. 마이크로 서비스의 장점***
+***2-1. 마이크로 서비스의 장점***
 
 - 독립적인 특성으로 인해 확장성, 견고성
 
@@ -624,31 +624,31 @@ REFERENCES `post` (
 
 - 언어, 플랫폼, 데이터베이스 등 종류에 상관없이 조합 가능
 
-***1-2. 마이크로 서비스의 단점***
+***2-2. 마이크로 서비스의 단점***
 
 - 다수의 네트워크 통신으로 예측이 힘들고 패킷 손실이 야기될 수 있음
 
 - 서비스를 분산할 수로 높은 비용, 시스템의 복잡도 상승, 고도의 기술이 필요
 
-***1-3. 사용자 인터페이스***
+***A. 사용자 인터페이스***
 
 - 마이크로 서비스를 사용 시 UI도 고려해야 됨
 
-***1-4. 기술***
+***B. 기술***
 
 - 장점중 하나인 [언어, 플랫폼, 데이터베이스 등 종류에 상관없이 조합 가능]과 같이 기술의 제한 없이 구축 가능
 
-***2 결합도와 응집력***
+***2-3. 결합도와 응집력***
 
 마이크로 서비스 아키텍처의 가장 중요한 요소는 결합도와 응집력.(응집력 높고 결합도 낮은게 안정적)
 
-2-1. 응집력(Cohesion)
+a. 응집력(Cohesion)
 
 - 관련된 것끼리 묶인것
 
 - 변경시 함께 바뀜
 
-2-2. 결합도(Coupling)
+b. 결합도(Coupling)
 
 - 다른 것과 연관된 것
 
