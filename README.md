@@ -283,6 +283,9 @@
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/contextmap.png">
 </div>
 
+- 핵심 기능 우선 구현
+- Root간 1:N, 1:1 관계 설정
+
 ## 모델링
 
 ## DDL
