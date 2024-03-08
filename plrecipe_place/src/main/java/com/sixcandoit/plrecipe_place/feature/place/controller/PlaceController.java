@@ -122,7 +122,6 @@ public class PlaceController {
 
     /* 설명. 코스 관련 */
 
-    /* 설명. 코스플레이스 리스트로 받아와져서 -> 하나의 객체에 1코스 n장소로 다시 바꿔야 함 */
     /* 코스id로 코스와 코스에 등록된 장소 리스트 조회 */
     @GetMapping("/course/findInfo/{courseId}")
     public CourseAndPlace selectCoursePlaceByCourseId(@PathVariable int courseId){
