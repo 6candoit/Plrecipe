@@ -106,12 +106,70 @@
 ## 요구사항
 <details>
 <summary><b>Plrecipe 상세정책</b></summary>
+
+- **게시글**
     
-- 회원등급 관련
+    - 게시글에는 (1개 이상의 장소를 담은) 코스가 필수로 포함되어야 한다.
+    - 게시글 내용은 0글자 이상 작성되어야 한다.(내용 필수 아님)
+    - 게시글 이미지는 0개 이상 포함될 수 있다.(이미지 필수 아님)
+    - 게시글은 공개/비공개 설정이 가능하다.
+        - 그룹 게시물의 경우
+            - 공개 -> 모든 사람에게 공개 및 그룹에 추가
+            - 비공개 -> 그룹에게만 공개
+    - 게시글 수정은 게시글을 작성한 회원/(그룹 게시물의 경우)그룹원만 가능하다.
+    - 게시글 삭제는 게시글을 작성한 회원/(그룹 게시물의 경우)그룹원/관리자만 가능하다.
+    - 게시글 삭제의 경우 실제 DB에서 삭제되지 않고 삭제 일자가 업데이트 된다.
+        
+        -> 삭제 일자가 업데이트 된 게시글은 페이지에서 보이지 않는다.
+        
+- **해시태그**
+    
+    - 게시글에는 해시태그가 0개 이상 등록되어야 한다.(해시태그 필수 아님)
+    - 이미 저장된 해시태그 중 원하는 태그가 없을 경우, 태그를 회원이 직접 등록할 수도 있다.
+    - 게시글의 해시태그는 10개까지 등록 가능하다.
+
+- **회원**
+  
+  - 회원의 ID는 이메일 형식으로 중복될 수 없다.
+  - 회원의 비밀번호는 영어와 숫자를 같이 써야 하고 15자를 넘길 수 없다.
+  - 회원의 닉네임은 중복 불가능하다.
+  - 회원의 닉네임은 부적절한 닉네임일시 제재를 받을 수 있다.
+  - 회원등급은 일반회원과 관리자로 구분된다.
+  - 회원상태는 활성화/비활성화(임시정지, 영구정지)로 구분된다.
+  - 회원상태가 임시정지/비활성화일 경우에는 일반적인 기능 사용이 제한 되고 고객센터만 사용 가능하다.
+  - 회원이 탈퇴할 시에도 정보는 데이터베이스에 저장되어 있다.
+  - 전화번호는 반드시 기입해야 한다.
+  - 회원은 팔로우, 팔로워를 갖는다.
+  - 팔로워는 팔로우 하는 대상의 공개된 정보를 열람할 수 있다(회원이 속한 그룹, 회원이 작성한 게시물, 회원 닉네임)
+        
+- **그룹**
+
+  - 그룹은 처음에 생성될 때 본인만 포함되어 있는(1인) 그룹이 생성된다.
+  -그룹에 다른 회원을 초대할 시 회원ID로 초대한다.
+  - 그룹 이름을 따로 설정하지 않을 시 "(그룹을 생성한 회원 닉네임)의 그룹"으로 표시된다.
+  - 그룹에 구성원을 초대 했을 때 '초대 수락' 후에 그룹에 포함된다.
+  - 회원(본인)이 속한 그룹을 공개/비공개로 처리할 수 있다.
+  - 회원(본인)은 그룹을 (상단)고정할 수 있다.
+  - 그룹원은 (그룹 내 게시글 등록, 본인이 쓴 게시글 삭제, 게시글 수정(본인 포함 그룹원), 그룹 탈퇴, 그룹 내 게시글 댓글 작성) 권한을 갖는다.
+  - 그룹장은 그룹원의 권한을 포함해 그룹원 추방, 그룹 이름 수정, 그룹원 초대 권한, 그룹 공개 여부 권한, 그룹장 위임을 갖는다.
+  - 그룹장이 그룹을 탈퇴한 경우 두 번째로 그룹에 포함된 사람이 그룹장이 된다.
+  - 이미 초대한 그룹원이 수락 또는 거절을 하기 전(대기 중)인 경우, 재초대가 불가능하다.
+
+- **코스**
+  
+    - 중복된 장소는 코스에 등록할 수 없음.
+    - 코스 블럭은  장소 카테고리별로 색깔이 매겨짐.
+    - 코스는 상단부터 쌓이고 갔던 장소는 재 방문 불가능
+    - 장소 데이터베이스에 존재하지 않으면 코스 작성하는 도중에 사용자가 장소 등록 가능
+    - 코스 만들고 사용자가 코스 이름 붙일 수 있음
    
-- 운영자 권한
-    
-- 회원 권한
+- **장소**
+
+    - 장소 카테고리(음식점, 카페, 문화, 액티비티, 산책, 기타)
+    - 외부 API에서 받아온 장소를 사용자가 적절한 카테고리를 붙여 장소 등록
+    - 장소 등록시 카테고리를 무조건 붙여야 함.
+    - 장소를 등록하기 전에 동일한 주소 또는 이름으로 이미 등록되어 있는 정보를 사용자에게 한번 확인 시키고 등록하는 절차로 진행(동일한 주소, 이름이 없는 경우 확인하지 않음)
+    - 장소 별점을 남길 때 간단한 한 줄 코멘트 작성 가능 (별점은 1 ~ 5개)
     
 </details>
 
@@ -119,7 +177,263 @@
 
 ## 모델링
 
-## DDL / DML
+## DDL
+<details>
+<summary><b>DDL</b></summary>
+    
+```
+CREATE TABLE `member_info` (
+	`member_id`	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `member_email`   VARCHAR(127)   NOT NULL UNIQUE,
+   `password`   VARCHAR(255)   NOT NULL,
+   `member_name`   VARCHAR(63)   NOT NULL,
+   `member_nickname`   VARCHAR(31)   NOT NULL UNIQUE,
+   `member_number`   VARCHAR(15)   NOT NULL,
+   `join_date`   VARCHAR(255)   NOT NULL,
+   `withdrawal_date`   VARCHAR(255)   NULL,
+   `member_grade`   ENUM('ROLL_MEMBER', 'ROLL_ADMIN')   NOT NULL,
+   `member_status`  CHAR(1) NOT NULL    DEFAULT 'Y'
+);
+
+CREATE TABLE `post` (
+   `post_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `post_title`   VARCHAR(255)   NOT NULL,
+   `post_content`   VARCHAR(255)   NOT NULL,
+   `post_date`   VARCHAR(255)   NOT NULL,
+   `post_delete_date`   VARCHAR(255)   NULL,
+   `member_id`   INT   NOT NULL,
+   `course_id`   INT   NOT NULL,
+   `is_post_public`   CHAR(1) NOT NULL    DEFAULT 'Y',
+   `member_count`   ENUM('ONE', 'TWO', 'MANY')   NOT NULL
+);
+
+CREATE TABLE `plrecipe_group` (
+   `group_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `group_name`   VARCHAR(255)   NOT NULL,
+   `is_group_public`   CHAR(1) NOT NULL    DEFAULT 'Y',
+   `group_create_date`   VARCHAR(255)   NOT NULL,
+   `group_withdrawal_date` VARCHAR(255) NULL,
+   `group_comment`   VARCHAR(255)   NULL,
+   `group_status`  CHAR(1) NOT NULL    DEFAULT 'Y'
+);
+
+CREATE TABLE `follow_info` (
+   `follow_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `user_follow`   INT   NOT NULL,
+   `user_follower`  INT   NOT NULL
+);
+
+CREATE TABLE `place_star` (
+   `star_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `star_point`   INT   NOT NULL,
+   `star_comment`   VARCHAR(255)   NULL,
+   `place_id`   INT   NOT NULL,
+   `member_id`   INT   NOT NULL
+);
+
+CREATE TABLE `place` (
+   `place_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `place_name`   VARCHAR(127)   NOT NULL,
+   `place_location`   VARCHAR(255)   NOT NULL,
+   `place_phone_num`   VARCHAR(15)   NULL,
+   `place_category_id`   INT   NOT NULL
+);
+
+CREATE TABLE `image` (
+   `image_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `image_location`   VARCHAR(255)   NOT NULL,
+   `image_name`   VARCHAR(255)   NOT NULL,
+   `post_id`   INT   NOT NULL,
+   `member_id`   INT   NOT NULL,
+   `group_id`   INT   NOT NULL,
+   `image_rename`   VARCHAR(255)   NULL
+);
+
+CREATE TABLE `course` (
+   `course_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `course_name`   VARCHAR(127)   NULL,
+   `member_id`   INT   NOT NULL
+);
+
+CREATE TABLE `group_member` (
+   `group_member_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `groupmember_sequence`   INT   NOT NULL,
+   `invite_state_id`   ENUM('ACCEPT', 'WAITING', 'DENY')   NOT NULL,
+   `group_id`   INT   NOT NULL,
+   `member_id`   INT NOT NULL
+);
+
+CREATE TABLE `course_place` (
+   `place_course_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `place_id`   INT   NOT NULL,
+   `course_id`   INT   NOT NULL,
+   `place_sequence`   INT   NOT NULL
+);
+
+CREATE TABLE `place_category` (
+   `place_category_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `place_category_name`   VARCHAR(63)   NOT NULL
+);
+
+CREATE TABLE `hashtag` (
+   `hashtag_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `hashtag_title`   VARCHAR(255)   NOT NULL
+);
+
+CREATE TABLE `post_hashtag` (
+   `post_hashtag_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `hashtag_id`   INT   NOT NULL,
+   `post_id`   INT   NOT NULL
+);
+
+CREATE TABLE `post_like` (
+   `post_like_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `member_id`   INT   NOT NULL,
+   `post_id`   INT   NOT NULL
+);
+
+-- ALTER TABLE `member_info` ADD CONSTRAINT `PK_MEMBER_INFO` PRIMARY KEY (
+--    `member_id`
+-- );
+
+
+ALTER TABLE `post` ADD CONSTRAINT `FK_member_info_TO_post_1` FOREIGN KEY (
+   `member_id`
+)
+REFERENCES `member_info` (
+   `member_id`
+);
+
+ALTER TABLE `post` ADD CONSTRAINT `FK_course_TO_post_1` FOREIGN KEY (
+   `course_id`
+)
+REFERENCES `course` (
+   `course_id`
+);
+
+ALTER TABLE `follow_info` ADD CONSTRAINT `FK_member_info_TO_follow_info_1` FOREIGN KEY (
+   `user_follow`
+)
+REFERENCES `member_info` (
+   `member_id`
+);
+
+ALTER TABLE `follow_info` ADD CONSTRAINT `FK_member_info_TO_follow_info_2` FOREIGN KEY (
+   `user_follower`
+)
+REFERENCES `member_info` (
+   `member_id`
+);
+
+ALTER TABLE `place_star` ADD CONSTRAINT `FK_place_TO_place_star_1` FOREIGN KEY (
+   `place_id`
+)
+REFERENCES `place` (
+   `place_id`
+);
+
+ALTER TABLE `place_star` ADD CONSTRAINT `FK_member_info_TO_place_star_1` FOREIGN KEY (
+   `member_id`
+)
+REFERENCES `member_info` (
+   `member_id`
+);
+
+ALTER TABLE `place` ADD CONSTRAINT `FK_place_category_TO_place_1` FOREIGN KEY (
+   `place_category_id`
+)
+REFERENCES `place_category` (
+   `place_category_id`
+);
+
+
+ALTER TABLE `image` ADD CONSTRAINT `FK_post_TO_image_1` FOREIGN KEY (
+   `post_id`
+)
+REFERENCES `post` (
+   `post_id`
+);
+
+ALTER TABLE `image` ADD CONSTRAINT `FK_member_info_TO_image_1` FOREIGN KEY (
+   `member_id`
+)
+REFERENCES `member_info` (
+   `member_id`
+);
+
+ALTER TABLE `image` ADD CONSTRAINT `FK_plrecipe_group_TO_image_1` FOREIGN KEY (
+   `group_id`
+)
+REFERENCES `plrecipe_group` (
+   `group_id`
+);
+
+ALTER TABLE `course` ADD CONSTRAINT `FK_member_info_TO_course_1` FOREIGN KEY (
+   `member_id`
+)
+REFERENCES `member_info` (
+   `member_id`
+);
+
+ALTER TABLE `group_member` ADD CONSTRAINT `FK_plrecipe_group_TO_group_member_1` FOREIGN KEY (
+   `group_id`
+)
+REFERENCES `plrecipe_group` (
+   `group_id`
+);
+
+ALTER TABLE `group_member` ADD CONSTRAINT `FK_member_info_TO_group_member_1` FOREIGN KEY (
+   `member_id`
+)
+REFERENCES `member_info` (
+   `member_id`
+);
+
+ALTER TABLE `course_place` ADD CONSTRAINT `FK_place_TO_course_place_1` FOREIGN KEY (
+   `place_id`
+)
+REFERENCES `place` (
+   `place_id`
+);
+
+ALTER TABLE `course_place` ADD CONSTRAINT `FK_course_TO_course_place_1` FOREIGN KEY (
+   `course_id`
+)
+REFERENCES `course` (
+   `course_id`
+);
+
+ALTER TABLE `post_hashtag` ADD CONSTRAINT `FK_hashtag_TO_post_hashtag_1` FOREIGN KEY (
+   `hashtag_id`
+)
+REFERENCES `hashtag` (
+   `hashtag_id`
+);
+
+ALTER TABLE `post_hashtag` ADD CONSTRAINT `FK_post_TO_post_hashtag_1` FOREIGN KEY (
+   `post_id`
+)
+REFERENCES `post` (
+   `post_id`
+);
+
+ALTER TABLE `post_like` ADD CONSTRAINT `FK_member_info_TO_post_like_1` FOREIGN KEY (
+   `member_id`
+)
+REFERENCES `member_info` (
+   `member_id`
+);
+
+ALTER TABLE `post_like` ADD CONSTRAINT `FK_post_TO_post_like_1` FOREIGN KEY (
+   `post_id`
+)
+REFERENCES `post` (
+   `post_id`
+);
+```
+
+</details>
+
 
 ## Project Architecture(프로젝트 아키텍처)
 ### Monolith Architecture(모놀리스 아키텍처)
