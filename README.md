@@ -219,11 +219,11 @@
  <img src="https://github.com/6candoit/Plrecipe/blob/5fc203e0989f0f13a5a119b9e1f75cd48b280bce/PNG/plrecipe_architecture_test1.drawio2.png" height=500>
 </div>
 
-- 유저는 게이트웨이를 통해 원하는 서비스와 매칭됨(Member, Group, Post, Place)
-- 로그인 시, 토큰을 발급받아 이후 인증이 필요한 서비스에 접근 가능함(Spring Security 6 version 활용)
-- 장소 서비스는 API를 통해 장소 정보를 받아옴(외부 Api는 Kakaomap api 사용)
 - 유레카 서버와 유레카 클라이언트로 구성됨
-- 비밀번호 암호화 및 로그인 인증을 구현함(JWT(java web token) 활용)
+- 유저는 게이트웨이를 통해 원하는 서비스와 매칭됨(Member, Group, Post, Place)
+- 비밀번호 암호화 및 로그인 인증을 구현함(Spring Security 6 version 활용)
+- 로그인 시, 토큰을 발급받아 이후 인증이 필요한 서비스에 접근 가능함(JWT(java web token) 활용)
+- 장소 서비스는 API를 통해 장소 정보를 받아옴(외부 Api는 Kakaomap api 사용)
 - 각 서비스끼리 통신하여 필요한 정보를 주고 받음
 - (현재 DB는 하나의 DB를 사용함)
 
