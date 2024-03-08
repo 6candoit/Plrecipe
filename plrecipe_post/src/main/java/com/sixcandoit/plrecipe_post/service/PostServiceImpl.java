@@ -133,7 +133,11 @@ public class PostServiceImpl implements PostService {
     }
 
     public void registPostAndHashtag(PostAndHashtag postHashtag){
+        Date date = new Date();
+        SimpleDateFormat format  =new SimpleDateFormat("yyyy-MM-dd");
+        String dateTest = format.format(date);
         Post newPost = postHashtag.getPost();
+        newPost.setPostDate(dateTest);
         postRepository.save(newPost);
 
 

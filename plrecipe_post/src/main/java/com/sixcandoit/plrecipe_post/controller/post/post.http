@@ -1,23 +1,23 @@
 ### GET request posts
-GET localhost:8080/post/posts
+GET localhost:8000/plrecipe-post/posts
 
 ### GET request memberPosts
-GET localhost:8000/plrecipe-post/posts/email/1
+GET localhost:8000/plrecipe-post/posts/1
 
 ### GET request postsByStatus
-GET localhost:8080/post/posts/status/Y
+GET localhost:8000/plrecipe-post/status/Y
 
 ### GET request postsByMemberCounts
-GET localhost:8080/post/posts/memberCounts/TWO
+GET localhost:8000/plrecipe-post/memberCounts/TWO
 
 ### GET request HashtagsByPostId(fail)
-GET localhost:8080/post/posts/hashtag/1
+GET localhost:8000/plrecipe-post/hashtag/1
 
 ### GET request LikesByPostId
-GET localhost:8080/post/posts/likes/1
+GET localhost:8000/plrecipe-post/likes/1
 
 ### POST regist Post
-POST localhost:8080/post/regist
+POSTlocalhost:8000/plrecipe-post/regist
 Content-Type: application/json
 
 {
@@ -31,7 +31,7 @@ Content-Type: application/json
 }
 
 ### POST regist Hashtag
-POST localhost:8080/post/regist/hashtag
+POST localhost:8000/plrecipe-post/regist/hashtag
 Content-Type: application/json
 
 {
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 
 ### PATCH modify Post
-PATCH localhost:8080/post/modify/1
+PATCH localhost:8000/plrecipe-post/modify/1
 Content-Type: application/json
 
 {
@@ -52,7 +52,7 @@ Content-Type: application/json
 }
 
 ### PATCH delete Post
-PATCH localhost:8080/post/delete/10
+PATCH localhost:8000/plrecipe-post/delete/10
 Content-Type: application/json
 
 {
@@ -60,10 +60,10 @@ Content-Type: application/json
 }
 
 ### GET delete post_hashtag
-DELETE localhost:8080/post/hashtag/delete/26
+DELETE localhost:8000/plrecipe-post/hashtag/delete/26
 
 ### POST regist post_like
-POST localhost:8080/post/like
+POST localhost:8000/plrecipe-post/like
 Content-Type: application/json
 
 {

@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.controller;
+package com.sixcandoit.plrecipe_post.controller.post;
 
 import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
 import com.sixcandoit.plrecipe_post.aggregate.Post;
@@ -47,27 +47,27 @@ public class PostRestApiTest {
         return postService.selectAllPost();
     }
 
-    @GetMapping("/posts/email/{memberId}")
+    @GetMapping("/posts/{memberId}")
     List<PostDTO> selectMemberPosts(@PathVariable int memberId) {
         return postService.selectPostByMember(memberId);
     }
 
-    @GetMapping("/posts/status/{postStatus}")
+    @GetMapping("/status/{postStatus}")
     public List<PostDTO> selectPostsByStatus(@PathVariable("postStatus") String postStatus){
         return postService.selectPostsByStatus(postStatus);
     }
 
-    @GetMapping("/posts/memberCounts/{memberCounts}")
+    @GetMapping("/memberCounts/{memberCounts}")
     public List<PostDTO> selectPostsByMemberCounts(@PathVariable("memberCounts") MemberCount memberCounts) {
         return postService.selectPostsByMemberCounts(memberCounts);
     }
 
-    @GetMapping("/posts/hashtag/{postId}")
+    @GetMapping("/hashtag/{postId}")
     public List<PostHashtagDTO> selectPostHashtags(@PathVariable int postId) {
         return postService.selectPostHashtags(postId);
     }
 
-    @GetMapping("/posts/likes/{postId}")
+    @GetMapping("/likes/{postId}")
     public List<PostLikeDTO> selectPostsByLikes(@PathVariable int postId) {
         return postService.selectPostByLikes(postId);
     }
