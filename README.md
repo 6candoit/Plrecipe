@@ -31,11 +31,13 @@
   
 ### 2. 프로젝트 필요성
 <br/>
+<div align="center">
 <figure class="half">
  <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/여행자비율통계.png" height=175></a>
  <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/레저시설이용률통계.png" height=175></a>
 </figure>
 <br/>
+</div>
 
 &nbsp;위의 자료는 2021년까지의 여행자 비율과 레저시설 이용률에 대한 통계를 보여주고 있습니다. 그래프를 통해 하락하는 모습을 확인할 수 있는데, 이는 COVID-19의 영향으로 인한 것입니다. 이로 인해 자유로운 여행이나 활동이 제한되었고, 이는 여행자 비율과 레저시설 이용률에 영향을 주었습니다.
 
@@ -46,10 +48,12 @@
 &nbsp;아래는 이러한 경향을 보여주는 자료 예시입니다.
 <br/>
 
+<div align="center">
 <figure class="half">
  <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/내국인출국자통계.png" height=145></a>
  <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/6df6df5c68a2f455fa2c00be59c41d229cd051c6/PNG/1인평균국내여행일수통계.png" height=145></a>
 </figure>
+</div>
 
 <br/>
 &nbsp;위의 그래프는 2021년 이후로 해외로 출국하는 사람과 국내 여행 일수가 늘어나는 여행자 수가 다시 상승하는 추세를 보여주고 있습니다. 이러한 변화된 여행 환경에 적응하며 여행을 다시 시작하는 사람들은 새로운 여행지를 고민하거나 다른 사람의 여행이나 놀거리에 대한 궁금증을 가질 수 있습니다.
@@ -117,7 +121,7 @@
 최종 아키텍처
 
 ## Eureka Server
-<p align="center"><img src="https://github.com/6candoit/Plrecipe/blob/3127aa3c06426140eb0887869201fe4d40b9a96f/PNG/eurekaserver.png" height=400></p>
+<p align="center"><img src="https://github.com/6candoit/Plrecipe/blob/3127aa3c06426140eb0887869201fe4d40b9a96f/PNG/eurekaserver.png" height=350></p>
 
 &nbsp;Eureka 서버는 마이크로서비스 아키텍처에서 사용되는 서비스 디스커버리 및 로드 밸런싱 도구 중 하나입니다. Netflix에서 개발한 Eureka는 클라우드 환경에서 동적으로 변하는 서비스 인스턴스를 관리하고, 이를 검색할 수 있는 기능을 제공합니다.
 
@@ -133,13 +137,15 @@
 
 ## API 개발 및 설계 도구
 ### Postman
+<div align="center">
 <figure class="half">
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image.png" height=145></a>
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image2.png" height=145></a>
+ <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image.png" height=130></a>
+ <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image2.png" height=130></a>
 </figure>
-<img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image3.png" height=405>
+<img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image3.png" height=365>
+</div>
 
-API 개발 및 테스트를 위한 협업 도구로서, 다양한 기능을 제공하는 플랫폼
+<strong>API 개발 및 테스트를 위한 협업 도구로서, 다양한 기능을 제공하는 플랫폼</strong>
 
 1. API 요청 및 응답 테스트: Postman을 사용하면 다양한 HTTP 메서드(GET, POST, PUT, DELETE 등)를 사용하여 API 엔드포인트에 요청을 보낼 수 있고 헤더, 쿠키, 인증 등 다양한 요청 구성이 가능하며, 받은 응답을 쉽게 확인할 수 있음.
 
