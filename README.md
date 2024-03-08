@@ -98,11 +98,31 @@
     
 - 회원등급 관련
    
-    
 - 운영자 권한
-
     
 - 회원 권한
-
     
 </details>
+
+## DDD(Event-Storming/Context-Map) 설계
+
+## 모델링
+
+## DDL / DML
+
+## Project Architecture(프로젝트 아키텍처)
+### Monolith Architecture(모놀리스 아키텍처)
+### MicroService Architecture(마이크로 서비스 아키텍처)
+
+최종 아키텍처
+
+## Eureka Server
+
+## API 개발 및 설계 도구
+### Postman
+각각 설명
+### Swagger
+각각 설명
+
+## 테스트
+
