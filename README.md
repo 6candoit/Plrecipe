@@ -290,11 +290,27 @@
 
 ### 1. 개념 모델링
 
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/05df842097d0c404817695a759fbfb8f2e055b1c/PNG/개념image.png" height=400>
+</div>
+
 ### 2. 논리 모델링
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/05df842097d0c404817695a759fbfb8f2e055b1c/PNG/논리image.png" height=600>
+</div>
 
 ### 3. 물리 모델링
 
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/05df842097d0c404817695a759fbfb8f2e055b1c/PNG/물리image.png" height=550>
+</div>
+
 ### ERD Cloud 활용
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/05df842097d0c404817695a759fbfb8f2e055b1c/PNG/erdimage.png" height=400>
+</div>
 
 ## DDL
 <details>
