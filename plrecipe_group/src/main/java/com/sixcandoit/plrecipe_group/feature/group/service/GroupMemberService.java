@@ -1,7 +1,10 @@
 package com.sixcandoit.plrecipe_group.feature.group.service;
 
 
+import com.sixcandoit.plrecipe_group.feature.group.dto.GroupMemberDTO;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 public interface GroupMemberService {
 
@@ -12,4 +15,6 @@ public interface GroupMemberService {
 
    @Transactional
    void acceptGroupInvitation(int groupId, int memberId);
+
+   List<GroupMemberDTO> selectMembersByGroupId(int groupId);
 }

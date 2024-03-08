@@ -7,7 +7,7 @@ import lombok.Data;
 
 
 @Entity
-@Table(name = "group_member")
+@Table(name = "group_member", uniqueConstraints = @UniqueConstraint(columnNames = { "groupId", "memberId" }))
 @Data
 public class GroupMember {
 

@@ -2,6 +2,7 @@ package com.sixcandoit.plrecipe_group.feature.group.controller;
 
 import com.sixcandoit.plrecipe_group.feature.group.aggregate.GroupEntity;
 import com.sixcandoit.plrecipe_group.feature.group.dto.GroupDTO;
+import com.sixcandoit.plrecipe_group.feature.group.dto.GroupMemberDTO;
 import com.sixcandoit.plrecipe_group.feature.group.dto.MemberDTO;
 import com.sixcandoit.plrecipe_group.feature.group.service.GroupMemberService;
 import com.sixcandoit.plrecipe_group.feature.group.service.GroupService;
@@ -21,7 +22,6 @@ public class GroupRestApiTest {
 
     private GroupService groupService;
     private ModelMapper modelMapper;
-
     private GroupMemberService groupMemberService;
 
     @Autowired
@@ -36,9 +36,14 @@ public class GroupRestApiTest {
         return groupService.selectAllGroup();
     }
 
+//    @GetMapping("/groups/member/{groupId}")
+//    public List<MemberDTO> selectMembersByGroupId(@PathVariable int groupId) {
+//        return groupService.selectMembersByGroupId(groupId);
+//    }
+
     @GetMapping("/groups/member/{groupId}")
-    public List<MemberDTO> selectMembersByGroupId(@PathVariable int groupId) {
-        return groupService.selectMembersByGroupId(groupId);
+    List<GroupMemberDTO> selectMembersByGroupId(@PathVariable int groupId) {
+        return groupMemberService.selectMembersByGroupId(groupId);
     }
 
     @GetMapping("/groups/public/{memberId}")

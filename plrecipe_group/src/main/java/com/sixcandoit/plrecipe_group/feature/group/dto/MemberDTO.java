@@ -13,6 +13,9 @@ public class MemberDTO {
     private MemberGrade memberGrade;
     private String memberStatus;
 
+//    public void setMemberId(int memberId) {
+//        this.memberId = memberId;
+//    }
     public MemberDTO() {
     }
 
