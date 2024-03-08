@@ -94,7 +94,14 @@
 
 ## WBS
 
-<p align="center"></p>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3431f2808430514cfcd53cde0d556e64828373a8/PNG/wbs.png" height=600>
+</div>
+
+<div align="right">
+ 
+[WBS](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=1108790350)
+</div>
 
 ## 요구사항
 <details>
