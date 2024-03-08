@@ -100,7 +100,7 @@
 
 <div align="right">
  
-[WBS](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=1108790350)
+[WBS 바로가기](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=1108790350)
 </div>
 
 ## 요구사항
