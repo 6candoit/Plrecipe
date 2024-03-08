@@ -205,6 +205,7 @@
  <img src="https://github.com/6candoit/Plrecipe/blob/5fc203e0989f0f13a5a119b9e1f75cd48b280bce/PNG/plrecipe_architecture_test1.drawio1.png" height=320>
 </div>
 <br/>
+
 아키텍처를 구성하기 위해 신경써야할 요소
 1. 장애를 감안한 설계
 2. 모든 계층의 보안
