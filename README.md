@@ -749,6 +749,14 @@ REFERENCES `post` (
 ## 🔴 테스트
 
 <details>
+<summary><b><strong>테스트케이스 정의</strong></b></summary>
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/1d87b7714944d08af9986750fc15c800cd993e43/PNG/Plrecipe_test/테스트 케이스 정의서.jpg">
+</div>
+</details>
+
+<details>
 <summary><b><strong>Member</strong></b></summary>
 
 <div align="center">
