@@ -175,6 +175,11 @@
 
 ## DDD(Event-Storming/Context-Map) 설계
 
+<details>
+<summary><b>DDD 설계 과정</b></summary>
+
+</details>
+
 ## 모델링
 
 ## DDL
