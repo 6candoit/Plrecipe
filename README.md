@@ -748,6 +748,79 @@ REFERENCES `post` (
 
 ## 🔴 테스트
 
+<details>
+<summary><b><strong>Member</strong></b></summary>
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/login.png">
+</div>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/logintoken.png">
+</div>
+Login<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/memberRegist.png">
+</div>
+Regist Member<br/><br/>
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/modifyMember.png">
+</div>
+Modify Member<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/pwEncryption.png">
+</div>
+Password Encryption<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/selectAll.png">
+</div>
+All Member Select<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/selectByMemberID.png">
+</div>
+Select By MemberId<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/withdrawMember.png">
+</div>
+Withdraw Member<br/><br/>
+<details>
+	<summary><b>Follow</b></summary>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/follow/insertFollow.png">
+</div>
+	Insert Follow<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/follow/searchFollower.png">
+</div>
+	Search Follower<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/follow/insertFollowing.png">
+</div>
+	Search Follwing<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/follow/searchByFollowiD.png">
+</div>
+	Search By FollowID<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/follow/deletefollow.png">
+</div>
+	Delete Follow<br/><br/>
+</details>
+ 
+</details>
+
+<details>
+<summary><b><strong>Post</strong></b></summary>
+</details>
+
+<details>
+<summary><b><strong>Place</strong></b></summary>
+</details>
+
+<details>
+<summary><b><strong>Group</strong></b></summary>
+</details>
+
 
 ## 💎 회고
 
