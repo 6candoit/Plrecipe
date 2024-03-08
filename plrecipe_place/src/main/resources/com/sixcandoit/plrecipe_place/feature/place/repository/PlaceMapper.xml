@@ -5,12 +5,17 @@
 
 <mapper namespace="com.sixcandoit.plrecipe_place.feature.place.repository.PlaceMapper">
 
+    <resultMap id="categoryResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.PlaceCategory">
+        <id property="placeCategoryId" column="PLACE_CATEGORY_ID"/>
+        <result property="placeCategoryName" column="PLACE_CATEGORY_NAME"/>
+    </resultMap>
+
     <resultMap id="placeResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.Place">
         <id property="placeId" column="PLACE_ID"/>
         <result property="placeName" column="PLACE_NAME"/>
         <result property="placeLocation" column="PLACE_LOCATION"/>
         <result property="placePhoneNum" column="PLACE_PHONE_NUM"/>
-        <result property="placeCategoryId" column="PLACE_CATEGORY_ID"/>
+        <association property="placeCategory" resultMap="categoryResultMap"/>
     </resultMap>
 
     <resultMap id="starResultMap" type="com.sixcandoit.plrecipe_place.feature.place.entity.PlaceStar">
@@ -33,8 +38,10 @@
                A.PLACE_NAME,
                A.PLACE_LOCATION,
                A.PLACE_PHONE_NUM,
-               A.PLACE_CATEGORY_ID
-        FROM PLACE A
+               B.PLACE_CATEGORY_ID,
+               B.PLACE_CATEGORY_NAME
+          FROM PLACE A
+          JOIN PLACE_CATEGORY B ON (A.PLACE_CATEGORY_ID = B.PLACE_CATEGORY_ID)
     </select>
 
     <select id="selectPlaceByFilter" parameterType="hashmap" resultMap="placeResultMap">
@@ -43,7 +50,8 @@
                A.PLACE_NAME,
                A.PLACE_LOCATION,
                A.PLACE_PHONE_NUM,
-               A.PLACE_CATEGORY_ID
+               B.PLACE_CATEGORY_ID,
+               B.PLACE_CATEGORY_NAME
           FROM PLACE A
           JOIN PLACE_CATEGORY B ON (A.PLACE_CATEGORY_ID = B.PLACE_CATEGORY_ID)
           LEFT JOIN PLACE_STAR C ON (A.PLACE_ID = C.PLACE_ID)

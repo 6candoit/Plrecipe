@@ -83,7 +83,7 @@ public class PlaceServiceImplTests {
 
     @Test
     void insertPlace(){
-        PlaceDTO newPlace = new PlaceDTO("장소 insert 테스트", "서울시 도봉구", "0000", 3);
+        PlaceDTO newPlace = new PlaceDTO("장소 insert 테스트", "서울시 도봉구", "0000", new PlaceCategory(3, "문화"));
         placeService.registPlace(newPlace);
     }
 

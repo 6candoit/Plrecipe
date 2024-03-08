@@ -1,35 +1,76 @@
 package com.sixcandoit.plrecipe_place.feature.place.dto;
 
+import com.sixcandoit.plrecipe_place.feature.place.entity.PlaceCategory;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
 public class PlaceDTO {
 
     private int placeId;
     private String placeName;
     private String placeLocation;
     private String placePhoneNum;
-    private int placeCategoryId;
+    private PlaceCategory placeCategory;
 
-    public PlaceDTO(int placeId, String placeName, String placeLocation, String placePhoneNum, int placeCategoryId) {
+    public PlaceDTO() {
+    }
+
+    public PlaceDTO(int placeId, String placeName, String placeLocation, String placePhoneNum, PlaceCategory placeCategory) {
         this.placeId = placeId;
         this.placeName = placeName;
         this.placeLocation = placeLocation;
         this.placePhoneNum = placePhoneNum;
-        this.placeCategoryId = placeCategoryId;
+        this.placeCategory = placeCategory;
     }
 
-    public PlaceDTO(String placeName, String placeLocation, String placePhoneNum, int placeCategoryId) {
+    public PlaceDTO(String placeName, String placeLocation, String placePhoneNum, PlaceCategory placeCategory) {
         this.placeName = placeName;
         this.placeLocation = placeLocation;
         this.placePhoneNum = placePhoneNum;
-        this.placeCategoryId = placeCategoryId;
+        this.placeCategory = placeCategory;
+    }
+
+    public int getPlaceId() {
+        return placeId;
+    }
+
+    public void setPlaceId(int placeId) {
+        this.placeId = placeId;
+    }
+
+    public String getPlaceName() {
+        return placeName;
+    }
+
+    public void setPlaceName(String placeName) {
+        this.placeName = placeName;
+    }
+
+    public String getPlaceLocation() {
+        return placeLocation;
+    }
+
+    public void setPlaceLocation(String placeLocation) {
+        this.placeLocation = placeLocation;
+    }
+
+    public String getPlacePhoneNum() {
+        return placePhoneNum;
+    }
+
+    public void setPlacePhoneNum(String placePhoneNum) {
+        this.placePhoneNum = placePhoneNum;
+    }
+
+    public PlaceCategory getPlaceCategory() {
+        return placeCategory;
+    }
+
+    public void setPlaceCategory(PlaceCategory placeCategory) {
+        this.placeCategory = placeCategory;
     }
 
     @Override
@@ -39,7 +80,7 @@ public class PlaceDTO {
                 ", placeName='" + placeName + '\'' +
                 ", placeLocation='" + placeLocation + '\'' +
                 ", placePhoneNum='" + placePhoneNum + '\'' +
-                ", placeCategoryId=" + placeCategoryId +
+                ", placeCategory=" + placeCategory +
                 '}';
     }
 }
