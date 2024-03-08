@@ -214,49 +214,65 @@
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd1.png">
 </div>
 
-가나다
+1-1. Domain 작성
  
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd2.png">
 </div>
 
-가나다
+2-1. Command → Domain Event를 기반으로 작성 (명사형)<br/>
+2-2. 각 Domain Event를 발생시키는 명령<br/>
+2-3. 하나의 Command에 2개 이상의 Domain Event 가능<br/>
+2-4. 비슷한 기능들의 Domain Event들끼리 가까운 위치에 추가<br/>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd3.png">
 </div>
 
-가나다
+3-1. Actor → 회원 또는 관리자로 분리<br/>
+3-2. Domain Event를 기준으로 일반 회원 → 그룹장, 그룹원 등 세부화<br/>
+3-3. Actor → 하나의 Command에 두 명 이상인 경우 有<br/>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd4.png">
 </div>
 
-가나다
+4-1. Command 수행을 위해 CRUD 해야 하는 데이터 객체 정의<br/>
+4-2. 작성할 때는 Command가 수행되었을 때 변경되는 데이터 고려해 Aggregate 작성<br/>
+4-3. 장소 별점 관련 Policy 추가<br/>
+4-4. 고도화 고려 및 장소 등록 관련 추가 메모 작성<br/>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd5.png">
 </div>
 
-가나다
+5-1. 정책 추가<br/>
+5-2. 메모 추가(기능의 정확한 정의, 고도화 가능성)<br/>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd6.png">
 </div>
 
-가나다
+6-1. 게시글 / 게시글(부가기능) / 게시글 댓글 / 장소 / 회원 / 그룹 / 계정 정보<br/>
+6-2. Domain으로 분리<br/>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd7.png">
 </div>
 
-가나다
+7-1. Boundary(경계): 각 도메인 모델의 경계를 정의함. 이는 모델이 관리하는 데이터와 비즈니스 규칙을 나타냄.<br/>
+7-2. Relationships(관계): 다른 도메인 모델과의 관계를 정의함. 이는 모델 간에 어떤 종류의 통신이 필요한지를 보여줌.<br/>
+7-3. Shared Kernel(공유 커널): 두 개 이상의 도메인 모델 간에 공유되는 부분을 나타냄. 이는 각 모델이 특정 비즈니스 기능을 수행하는 데 필요한 공통 요소를 나타냄.<br/>
+7-4. Customer/Supplier Relationships(고객/공급자 관계): 서로 다른 도메인 모델 간에 발생하는 요청과 응답의 흐름을 나타냄. 이는 서로 다른 모델 간에 어떤 종류의 통신이 이루어지는지를 보여줌.<br/>
+<br/>
+***7-5. 위의 4가지를 고려해서 Context Mapping<br/>***
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd8.png">
 </div>
 
-가나다
+8-1. Root 설정 후 중간객체 생성<br/>
+8-2. 정책 재설정
 
 </details>
 <br/>
