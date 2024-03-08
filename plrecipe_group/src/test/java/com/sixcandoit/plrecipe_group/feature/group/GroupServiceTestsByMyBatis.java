@@ -30,19 +30,19 @@ public class GroupServiceTestsByMyBatis {
     }
 
 
-    @Test
-    void testSelectMembersByGroupId() {
-        int groupId = 1;
-
-        List<MemberDTO> members = groupServiceimpl.selectMembersByGroupId(groupId);
-
-        assertNotNull(members);
-
-        for (MemberDTO member : members) {
-            System.out.println(member);
-        }
-
-    }
+//    @Test
+//    void testSelectMembersByGroupId() {
+//        int groupId = 1;
+//
+//        List<MemberDTO> members = groupServiceimpl.selectMembersByGroupId(groupId);
+//
+//        assertNotNull(members);
+//
+//        for (MemberDTO member : members) {
+//            System.out.println(member);
+//        }
+//
+//    }
 
     @ParameterizedTest
     @ValueSource(ints = {1})

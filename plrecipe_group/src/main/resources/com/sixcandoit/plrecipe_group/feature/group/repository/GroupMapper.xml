@@ -15,6 +15,16 @@
         <result property="groupStatus" column="GROUP_STATUS"/>
     </resultMap>
 
+    <resultMap id="groupMemberResultMap" type="com.sixcandoit.plrecipe_group.feature.group.dto.GroupMemberDTO">
+        <id property="groupMemberId" column="GROUP_MEMBER_ID"/>
+        <result property="groupMemberSequence" column="GROUP_MEMBER_SEQUENCE"/>
+        <result property="inviteStateId" column="INVITE_STATE_ID"/>
+<!--        <association property="groupDTO" resultMap="groupResultMap"/>-->
+<!--        <association property="memberDTO" resultMap="memberResultMap"/>-->
+        <association property="groupDTO" javaType="com.sixcandoit.plrecipe_group.feature.group.dto.GroupDTO"/>
+        <association property="memberDTO" javaType="com.sixcandoit.plrecipe_group.feature.group.dto.MemberDTO"/>
+    </resultMap>
+
     <select id="selectAllGroup" resultMap="groupResultMap">
         SELECT
         A.GROUP_ID
@@ -31,18 +41,25 @@
     <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe_group.feature.group.dto.MemberDTO">
         <id property="memberId" column="MEMBER_ID"/>
         <result property="memberEmail" column="MEMBER_EMAIL"/>
+        <result property="password" column="PASSWORD"/>
         <result property="memberName" column="MEMBER_NAME"/>
+        <result property="memberNickname" column="MEMBER_NICKNAME"/>
+        <result property="memberNumber" column="MEMBER_NUMBER"/>
+        <result property="joinDate" column="JOIN_DATE"/>
+        <result property="withdrawalDate" column="WITHDRAWAL_DATE"/>
+        <result property="memberGrade" column="MEMBER_GRADE"/>
+        <result property="memberStatus" column="MEMBER_STATUS"/>
     </resultMap>
 
-    <select id="selectMembersByGroupId" resultMap="memberResultMap" parameterType="int">
-        SELECT
-              A.MEMBER_ID
-            , A.MEMBER_EMAIL
-            , A.MEMBER_NAME
-        FROM member_info A
-        JOIN group_member B ON A.member_id = B.member_id
-        WHERE B.group_id = #{groupId}
-    </select>
+<!--    <select id="selectMembersByGroupId" resultMap="memberResultMap" parameterType="int">-->
+<!--        SELECT-->
+<!--              A.MEMBER_ID-->
+<!--            , A.MEMBER_EMAIL-->
+<!--            , A.MEMBER_NAME-->
+<!--        FROM member_info A-->
+<!--        JOIN group_member B ON A.member_id = B.member_id-->
+<!--        WHERE B.group_id = #{groupId}-->
+<!--    </select>-->
 
     <select id="selectPublicOrPrivateGroup" resultMap="groupResultMap">
         SELECT
@@ -58,4 +75,15 @@
         JOIN group_member B ON(A.group_id = B.group_id)
         WHERE MEMBER_ID = #{memberId};
     </select>
+
+    <select id="selectMembersByGroupId" resultMap="groupMemberResultMap">
+        SELECT
+                A.group_id,
+                A.member_id
+          FROM group_member A
+         WHERE GROUP_ID = #{groupId};
+    </select>
+
+
+
 </mapper>

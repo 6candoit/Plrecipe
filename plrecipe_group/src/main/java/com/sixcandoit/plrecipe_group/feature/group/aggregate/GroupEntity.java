@@ -22,11 +22,10 @@ public class GroupEntity {
     private String groupComment;
     @Column(name="group_status")
     private String groupStatus;
-
     public GroupEntity() {
     }
 
-    public GroupEntity(int groupId, String groupName, String isGroupPublic, String groupCreateDate, String groupWithdrawalDate, String groupComment, String groupStatus) {
+    public GroupEntity(int groupId, String groupName, String isGroupPublic, String groupCreateDate, String groupWithdrawalDate, String groupComment, String groupStatus, int memberId) {
         this.groupId = groupId;
         this.groupName = groupName;
         this.isGroupPublic = isGroupPublic;
@@ -35,6 +34,8 @@ public class GroupEntity {
         this.groupComment = groupComment;
         this.groupStatus = groupStatus;
     }
+
+
 
     public int getGroupId() {
         return groupId;
