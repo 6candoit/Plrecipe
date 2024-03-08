@@ -794,7 +794,7 @@ Withdraw Member<br/><br/>
 </div>
 	Search Follower<br/><br/>
 	<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/follow/insertFollowing.png">
+<img src="https://github.com/6candoit/Plrecipe/blob/8be88e02c8f5babacc9ae0f4e2cd6efaf1de8617/PNG/Plrecipe_test/member/follow/searchFollowing.png">
 </div>
 	Search Follwing<br/><br/>
 	<div align="center">
