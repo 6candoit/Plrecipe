@@ -202,11 +202,11 @@
 ### 프로젝트 아키텍처
 
 <div align="center">
- <img src="https://github.com/6candoit/Plrecipe/blob/47a4ff26a4a00c04123fbd013211d303b937ff95/PNG/plrecipe_architecture_test1.drawio_test1.png" height=320>
+ <img src="https://github.com/6candoit/Plrecipe/blob/5fc203e0989f0f13a5a119b9e1f75cd48b280bce/PNG/plrecipe_architecture_test1.drawio1.png" height=320>
 </div>
 
 <div align="center">
- <img src="https://github.com/6candoit/Plrecipe/blob/47a4ff26a4a00c04123fbd013211d303b937ff95/PNG/plrecipe_architecture_test1.drawio_test2.png" height=500>
+ <img src="https://github.com/6candoit/Plrecipe/blob/5fc203e0989f0f13a5a119b9e1f75cd48b280bce/PNG/plrecipe_architecture_test1.drawio2.png" height=500>
 </div>
 
 ## Eureka Server
