@@ -83,7 +83,7 @@
 <br/>
 <br/>
 
-## 기술스택
+## 💾 기술스택
 <div align="center">
 
 |DA#|Ubuntu|MariaDB|Java|JavaSpring|MyBatis|JPA|
@@ -92,7 +92,7 @@
 
 </div>
 
-## WBS
+## 🗓️ WBS
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/3431f2808430514cfcd53cde0d556e64828373a8/PNG/wbs.png" height=600>
@@ -103,7 +103,7 @@
 [WBS 바로가기](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=1108790350)
 </div>
 
-## 요구사항
+## 📝 요구사항
 <details>
 <summary><b>Plrecipe 상세정책</b></summary>
 
@@ -173,7 +173,14 @@
     
 </details>
 
-## DDD(Event-Storming/Context-Map) 설계
+<img src="https://github.com/6candoit/Plrecipe/blob/622b4aa295688ae08a82b6786b608c3d12811034/PNG/요구사항image.png">
+
+<div align="right">
+ 
+[요구사항 명세서 바로가기](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=1108790350](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=0))
+</div>
+
+## 📱 DDD(Event-Storming/Context-Map) 설계
 
 **Event-Storming이란<br/>**
 : 서비스와 관계 있는 모든 이해관계자들이 서로가 가지고 있는 생각을 공유하며 서비스에서 발생하는 이벤트를 중심(Event-First)으로 분석하는 기법
@@ -286,7 +293,7 @@
 - 핵심 기능 우선 구현
 - Root간 1:N, 1:1 관계 설정
 
-## 모델링
+## ⚙️ 모델링
 
 ### 1. 개념 모델링
 
@@ -312,7 +319,7 @@
 <img src="https://github.com/6candoit/Plrecipe/blob/05df842097d0c404817695a759fbfb8f2e055b1c/PNG/erdimage.png" height=400>
 </div>
 
-## DDL
+## 📜 DDL
 <details>
 <summary><b>DDL</b></summary>
     
@@ -570,7 +577,7 @@ REFERENCES `post` (
 </details>
 
 
-## Project Architecture(프로젝트 아키텍처)
+## ⚪ Project Architecture(프로젝트 아키텍처)
 ### Monolith Architecture(모놀리스 아키텍처)
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/monolith_image.png" height=250>
@@ -683,7 +690,7 @@ REFERENCES `post` (
 - 각 서비스끼리 통신하여 필요한 정보를 주고 받음
 - (현재 DB는 하나의 DB를 사용함)
 
-## Eureka Server
+## 🟡 Eureka Server
 <p align="center"><img src="https://github.com/6candoit/Plrecipe/blob/3127aa3c06426140eb0887869201fe4d40b9a96f/PNG/eurekaserver.png" height=350></p>
 
 &nbsp;Eureka 서버는 마이크로서비스 아키텍처에서 사용되는 서비스 디스커버리 및 로드 밸런싱 도구 중 하나입니다. Netflix에서 개발한 Eureka는 클라우드 환경에서 동적으로 변하는 서비스 인스턴스를 관리하고, 이를 검색할 수 있는 기능을 제공합니다.
@@ -698,7 +705,7 @@ REFERENCES `post` (
 
 3. 서비스 상태 감시: Eureka는 등록된 서비스 인스턴스들의 상태를 주기적으로 감시하고, 문제가 발생한 인스턴스들을 자동으로 감지하고 제거함.
 
-## API 개발 및 설계 도구
+## 🟠 API 개발 및 설계 도구
 ### Postman
 <div align="center">
 <figure class="half">
@@ -739,10 +746,10 @@ REFERENCES `post` (
 
 5. 인증 및 보안: Swagger를 사용하여 API에 대한 인증 및 보안 기능을 정의. 이를 통해 API를 보호하고 안전하게 사용할 수 있도록 함.
 
-## 테스트
+## 🔴 테스트
 
 
-## 회고
+## 💎 회고
 
 |&nbsp;&nbsp;팀&nbsp;원&nbsp;&nbsp;&nbsp;|회고록|
 |:---:|---|
