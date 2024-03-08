@@ -10,25 +10,11 @@ GET localhost:8000/plrecipe-post/status/Y
 ### GET request postsByMemberCounts
 GET localhost:8000/plrecipe-post/memberCounts/TWO
 
-### GET request HashtagsByPostId(fail)
+### GET request HashtagsByPostId
 GET localhost:8000/plrecipe-post/hashtag/1
 
 ### GET request LikesByPostId
 GET localhost:8000/plrecipe-post/likes/1
-
-### POST regist Post
-POSTlocalhost:8000/plrecipe-post/regist
-Content-Type: application/json
-
-{
-  "postTitle": "시간도 추가가 될까요 제발",
-  "postContent": "제발요 해주세요",
-  "postDate": "current_time",
-  "memberId": 2,
-  "courseId": 3,
-  "isPostPublic": "N",
-  "memberCount": "ONE"
-}
 
 ### POST regist Hashtag
 POST localhost:8000/plrecipe-post/regist/hashtag
