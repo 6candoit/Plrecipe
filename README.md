@@ -144,7 +144,7 @@
 </figure>
 <img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image3.png" height=365>
 </div>
-
+<br/>
 <strong>API 개발 및 테스트를 위한 협업 도구로서, 다양한 기능을 제공하는 플랫폼</strong>
 
 1. API 요청 및 응답 테스트: Postman을 사용하면 다양한 HTTP 메서드(GET, POST, PUT, DELETE 등)를 사용하여 API 엔드포인트에 요청을 보낼 수 있고 헤더, 쿠키, 인증 등 다양한 요청 구성이 가능하며, 받은 응답을 쉽게 확인할 수 있음.
@@ -160,7 +160,21 @@
 6. 모니터링: Postman에서는 API의 성능을 모니터링하고 관리할 수 있는 기능도 제공.
 
 ### Swagger
-각각 설명
+<div align="center">
+ <img src="https://github.com/6candoit/Plrecipe/blob/a627030605c9c3fc5ab29d1895da59c28b9c406e/PNG/swagger_image.png" height=150>
+</div>
+<br/>
+<strong>RESTful API를 설계, 빌드, 문서화하기 위한 프레임워크. OpenAPI Specification의 일부로, API에 대한 자세한 문서를 제공하여 개발자들이 API를 쉽게 이해하고 사용가능하도록 함</strong>
+
+1. API 설계: Swagger를 사용하여 API 엔드포인트, 매개변수, 헤더, 응답 형식 등을 정의. 이를 통해 API의 구조를 명확하게 정의하고 일관성 있게 유지함.
+
+2. 문서 자동 생성: Swagger는 API의 구조를 기반으로 자동으로 API 문서를 생성. 이 문서에는 API의 엔드포인트, 매개변수, 응답 형식, 인증 방법 등에 대한 자세한 설명이 포함.
+
+3. 인터랙티브 API 테스트: Swagger UI를 사용하면 API를 테스트할 수 있는 인터랙티브한 환경을 제공. 개발자들은 Swagger UI를 통해 API 엔드포인트를 호출하고 응답을 확인.
+
+4. 클라이언트 코드 생성: Swagger를 사용하여 API에 대한 클라이언트 코드를 자동으로 생성. 이를 통해 개발자들은 API를 사용하는 클라이언트 애플리케이션을 쉽게 개발할 수 있음.
+
+5. 인증 및 보안: Swagger를 사용하여 API에 대한 인증 및 보안 기능을 정의. 이를 통해 API를 보호하고 안전하게 사용할 수 있도록 함.
 
 ## 테스트
 
