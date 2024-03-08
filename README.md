@@ -877,37 +877,47 @@ Select Post By Status<br/><br/>
 
 <details>
 <summary><b><strong>Place</strong></b></summary>
-
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/registPlace.png">
 </div>
 Regist Place<br/><br/>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/placeUsingKakaoAPI.png">
 </div>
+<div align="center">
 Place Using KakaoAPI<br/><br/>
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/registStar.png">
 </div>
 Regist Star (To place)<br/><br/>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/modifyStar.png">
 </div>
 Modify Star<br/><br/>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/deletePlace.png">
 </div>
 Delete Place<br/><br/>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/deleteStar.png">
 </div>
 Delete Star<br/><br/>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectAllPlace.png">
 </div>
 Select All Place<br/><br/>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectPlaceByPlaceID.png">
 </div>
 Select Place By PlaceId<br/><br/>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectPlaceByFilter.png">
 </div>
 Select Place By Filter<br/><br/>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectStarByMemberID.png">
 </div>
 Select Star By MemberId<br/><br/>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectStarByPlace.png">
 </div>
 Select Star By Place<br/><br/>
@@ -944,6 +954,40 @@ Select Star By Place<br/><br/>
 
 <details>
 <summary><b><strong>Group</strong></b></summary>
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/registGroup.png">
+</div>
+Regist Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/inviteGroup.png">
+</div>
+Invite Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/modifyGroup.png">
+</div>
+Modify Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/deleteGroup.png">
+</div>
+Delete Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/acceptRequest.png">
+</div>
+Accept Request<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/selectAllGroups.png">
+</div>
+Select All Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/selectGroupByPubilcStatus.png">
+</div>
+Select Group By Public Status<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/withdrawalGroup.png">
+</div>
+Withdrawal Group<br/><br/>
+
 </details>
 
 
