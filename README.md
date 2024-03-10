@@ -750,7 +750,7 @@ b. 결합도(Coupling)
 
 <div align="left">
 	
-[API 명세서](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=1108790350)
+[API 명세서](https://github.com/6candoit/Plrecipe/tree/feature/develop/PNG/API%20%EB%AA%85%EC%84%B8%EC%84%9C)
 
 </div>
 
