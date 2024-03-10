@@ -95,7 +95,7 @@
 ## 🗓️ WBS
 
 <div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/3431f2808430514cfcd53cde0d556e64828373a8/PNG/wbs.png" height=600>
+<img src="https://github.com/6candoit/Plrecipe/blob/3431f2808430514cfcd53cde0d556e64828373a8/PNG/wbs2.png" height=600>
 </div>
 
 <div align="right">
