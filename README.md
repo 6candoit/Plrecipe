@@ -665,9 +665,9 @@ b. 결합도(Coupling)
 ### 프로젝트 아키텍처
 
 <p align="center">
-  <img src="이미지경로" align="center" width="32%">
-  <img src="이미지경로" align="center" width="32%">
-  <img src="이미지경로" align="center" width="32%">
+  <img src="https://github.com/6candoit/Plrecipe/blob/d48af65a0b290f3e5506ef8919ee5ea574199977/PNG/archi1.png" align="center" width="32%">
+  <img src="https://github.com/6candoit/Plrecipe/blob/d48af65a0b290f3e5506ef8919ee5ea574199977/PNG/archi2.png" align="center" width="32%">
+  <img src="https://github.com/6candoit/Plrecipe/blob/d48af65a0b290f3e5506ef8919ee5ea574199977/PNG/archi3.png" align="center" width="32%">
 </p>
 
 <div align="center">
