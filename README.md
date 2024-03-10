@@ -95,7 +95,7 @@
 ## 🗓️ WBS
 
 <div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/3431f2808430514cfcd53cde0d556e64828373a8/PNG/wbs.png" height=600>
+<img src="https://github.com/6candoit/Plrecipe/blob/feature/develop/PNG/wbs2.jpg" height=600>
 </div>
 
 <div align="right">
@@ -578,7 +578,7 @@ REFERENCES `post` (
 
 
 ## ⚪ Project Architecture(프로젝트 아키텍처)
-### Monolith Architecture(모놀리스 아키텍처)
+### 1. Monolith Architecture(모놀리스 아키텍처)
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/monolith_image.png" height=250>
 </div>
@@ -588,7 +588,7 @@ REFERENCES `post` (
 - 각 서비스 실행할 경우 하나로 모여있는 서버로 요청
 - 서버에서 요청을 처리
 
-**1. Monolith Architecture의 장점**
+**1-1. Monolith Architecture의 장점**
 
 &nbsp;&nbsp;a. 간단한 배포 방식
 
@@ -598,14 +598,14 @@ REFERENCES `post` (
 
 &nbsp;&nbsp;d. 코드의 재사용 용이
 
-**2. Monolith Architecture의 단점** 
+**1-2. Monolith Architecture의 단점** 
 
 &nbsp;&nbsp;a. 높은 결합도 - 혼란스로운 경계선(소유권)
 
 &nbsp;&nbsp;b. 혼란스로운 경계선(소유권)
 
 
-### MicroService Architecture(마이크로 서비스 아키텍처)
+### 2. MicroService Architecture(마이크로 서비스 아키텍처)
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/microservice_image.png" height=250>
 </div>
@@ -616,7 +616,7 @@ REFERENCES `post` (
 - 서비스들은 네트워크를 통해 서로 통신
 - 서비스별로 데이터베이스 소유
 
-***1-1. 마이크로 서비스의 장점***
+***2-1. 마이크로 서비스의 장점***
 
 - 독립적인 특성으로 인해 확장성, 견고성
 
@@ -624,31 +624,31 @@ REFERENCES `post` (
 
 - 언어, 플랫폼, 데이터베이스 등 종류에 상관없이 조합 가능
 
-***1-2. 마이크로 서비스의 단점***
+***2-2. 마이크로 서비스의 단점***
 
 - 다수의 네트워크 통신으로 예측이 힘들고 패킷 손실이 야기될 수 있음
 
 - 서비스를 분산할 수로 높은 비용, 시스템의 복잡도 상승, 고도의 기술이 필요
 
-***1-3. 사용자 인터페이스***
+***A. 사용자 인터페이스***
 
 - 마이크로 서비스를 사용 시 UI도 고려해야 됨
 
-***1-4. 기술***
+***B. 기술***
 
 - 장점중 하나인 [언어, 플랫폼, 데이터베이스 등 종류에 상관없이 조합 가능]과 같이 기술의 제한 없이 구축 가능
 
-***2 결합도와 응집력***
+***2-3. 결합도와 응집력***
 
 마이크로 서비스 아키텍처의 가장 중요한 요소는 결합도와 응집력.(응집력 높고 결합도 낮은게 안정적)
 
-2-1. 응집력(Cohesion)
+a. 응집력(Cohesion)
 
 - 관련된 것끼리 묶인것
 
 - 변경시 함께 바뀜
 
-2-2. 결합도(Coupling)
+b. 결합도(Coupling)
 
 - 다른 것과 연관된 것
 
@@ -748,9 +748,27 @@ REFERENCES `post` (
 
 ## 🔴 테스트
 
+<div align="left">
+	
+[API 명세서](https://github.com/6candoit/Plrecipe/tree/feature/develop/PNG/API%20%EB%AA%85%EC%84%B8%EC%84%9C)
+
+</div>
+
+<details>
+<summary><b><strong>테스트케이스 정의</strong></b></summary>
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/1d87b7714944d08af9986750fc15c800cd993e43/PNG/Plrecipe_test/테스트 케이스 정의서.jpg">
+</div>
+</details>
+
 <details>
 <summary><b><strong>Member</strong></b></summary>
 
+<div align="center">
+<img src="PNG/Plrecipe_test/member/Test Results - All_in_member.jpg">
+</div>
+<hr>
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/login.png">
 </div>
@@ -794,7 +812,7 @@ Withdraw Member<br/><br/>
 </div>
 	Search Follower<br/><br/>
 	<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/follow/insertFollowing.png">
+<img src="https://github.com/6candoit/Plrecipe/blob/8be88e02c8f5babacc9ae0f4e2cd6efaf1de8617/PNG/Plrecipe_test/member/follow/searchFollowing.png">
 </div>
 	Search Follwing<br/><br/>
 	<div align="center">
@@ -811,14 +829,199 @@ Withdraw Member<br/><br/>
 
 <details>
 <summary><b><strong>Post</strong></b></summary>
+
+<div align="center">
+<img src="PNG/Plrecipe_test/post/Test Results - All_in_post.jpg">
+</div>
+<hr>
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/registPost.png">
+</div>
+Regist Post<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/modifyPost.png">
+</div>
+Modify Post<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/registPostLike.png">
+</div>
+Regist Post Like<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/selectAllPost.png">
+</div>
+Select All Post<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/deletePost.png">
+</div>
+Delete Post<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/insertHashTag.png">
+</div>
+Insert HashTag<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/selectLikeByPost.png">
+</div>
+Select Like By Post<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/selectMemberPosts.png">
+</div>
+Select Member Posts<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/selectHashtagByPost.png">
+</div>
+Select HashTag By Post<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/selectPostByMemberCount.png">
+</div>
+Select Post By MemberCount<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/selectPostByStatus.png">
+</div>
+Select Post By Status<br/><br/>
+
+<details>
+	<summary><b>HashTag</b></summary>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/44ba5e24b2425fef7471afcc6965f00385afb2cf/PNG/Plrecipe_test/post/Hashtag/insertHashTag.png">
+</div>
+	Insert HashTag<br/><br/>
+	<div align="center">
+	<img src="https://github.com/6candoit/Plrecipe/blob/44ba5e24b2425fef7471afcc6965f00385afb2cf/PNG/Plrecipe_test/post/Hashtag/selectHashtagByPost.png">
+</div>
+	Select HashTag By Post<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/44ba5e24b2425fef7471afcc6965f00385afb2cf/PNG/Plrecipe_test/post/Hashtag/deleteHashtag.png">
+</div>
+	Delete HashTag<br/><br/>
+</details>
+
 </details>
 
 <details>
 <summary><b><strong>Place</strong></b></summary>
+
+<div align="center">
+<img src="PNG/Plrecipe_test/place/Test Results - All_in_place.png">
+</div>
+<hr>
+ 
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/registPlace.png">
+</div>
+Regist Place<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/placeUsingKakaoAPI.png">
+</div>
+<div align="center">
+Place Using KakaoAPI<br/><br/>
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/registStar.png">
+</div>
+Regist Star (To place)<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/modifyStar.png">
+</div>
+Modify Star<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/deletePlace.png">
+</div>
+Delete Place<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/deleteStar.png">
+</div>
+Delete Star<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectAllPlace.png">
+</div>
+Select All Place<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectPlaceByPlaceID.png">
+</div>
+Select Place By PlaceId<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectPlaceByFilter.png">
+</div>
+Select Place By Filter<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectStarByMemberID.png">
+</div>
+Select Star By MemberId<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/selectStarByPlace.png">
+</div>
+Select Star By Place<br/><br/>
+
+<details>
+	<summary><b>Course</b></summary>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/course/registCourse.png">
+</div>
+	Regist Course<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/course/modifyCourse.png">
+</div>
+	Modify Course<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/course/DeleteCourse.png">
+</div>
+	Delete Course<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/course/selectCourseByMember.png">
+</div>
+	Select Course Bt Member<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/course/selectPlaceByCourseID.png">
+</div>
+	Select Place By CourseID<br/><br/>
+	<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/course/selectPlacesByCourseID.png">
+</div>
+	Select Places By CourseID<br/><br/>
+</details>
+
 </details>
 
 <details>
 <summary><b><strong>Group</strong></b></summary>
+
+<div align="center">
+<img src="PNG/Plrecipe_test/group/Test Results - All_in_group.jpg">
+</div>
+<hr>
+
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/registGroup.png">
+</div>
+Regist Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/inviteGroup.png">
+</div>
+Invite Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/modifyGroup.png">
+</div>
+Modify Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/deleteGroup.png">
+</div>
+Delete Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/acceptRequest.png">
+</div>
+Accept Request<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/selectAllGroups.png">
+</div>
+Select All Group<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/selectGroupByPubilcStatus.png">
+</div>
+Select Group By Public Status<br/><br/>
+<div align="center">
+<img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/withdrawalGroup.png">
+</div>
+Withdrawal Group<br/><br/>
+
 </details>
 
 
