@@ -748,6 +748,12 @@ b. 결합도(Coupling)
 
 ## 🔴 테스트
 
+<div align="left">
+	
+[API 명세서](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=1108790350)
+
+</div>
+
 <details>
 <summary><b><strong>테스트케이스 정의</strong></b></summary>
 
