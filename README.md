@@ -664,6 +664,12 @@ b. 결합도(Coupling)
 
 ### 프로젝트 아키텍처
 
+<p align="center">
+  <img src="이미지경로" align="center" width="32%">
+  <img src="이미지경로" align="center" width="32%">
+  <img src="이미지경로" align="center" width="32%">
+</p>
+
 <div align="center">
  <img src="https://github.com/6candoit/Plrecipe/blob/5fc203e0989f0f13a5a119b9e1f75cd48b280bce/PNG/plrecipe_architecture_test1.drawio1.png" height=320>
 </div>
