@@ -760,6 +760,10 @@ b. 결합도(Coupling)
 <summary><b><strong>Member</strong></b></summary>
 
 <div align="center">
+<img src="PNG/Plrecipe_test/member/Test Results - All_in_member.jpg">
+</div>
+<hr>
+<div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/7ba32508e12a651dc608190bccd0cfd939fed360/PNG/Plrecipe_test/member/login.png">
 </div>
 <div align="center">
@@ -819,6 +823,11 @@ Withdraw Member<br/><br/>
 
 <details>
 <summary><b><strong>Post</strong></b></summary>
+
+<div align="center">
+<img src="PNG/Plrecipe_test/post/Test Results - All_in_post.jpg">
+</div>
+<hr>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/34de6fe51298a713e33b28a3e4b6ca3c00613c0f/PNG/Plrecipe_test/post/registPost.png">
@@ -885,6 +894,12 @@ Select Post By Status<br/><br/>
 
 <details>
 <summary><b><strong>Place</strong></b></summary>
+
+<div align="center">
+<img src="PNG/Plrecipe_test/place/Test Results - All_in_place.png">
+</div>
+<hr>
+ 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/11559462b80f4c4d6dbce0b9c192dd0217ac88f1/PNG/Plrecipe_test/place/registPlace.png">
 </div>
@@ -962,6 +977,11 @@ Select Star By Place<br/><br/>
 
 <details>
 <summary><b><strong>Group</strong></b></summary>
+
+<div align="center">
+<img src="PNG/Plrecipe_test/group/Test Results - All_in_group.jpg">
+</div>
+<hr>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/3268813d41ec902de4061134ee4cd14dc9a3ad66/PNG/Plrecipe_test/group/registGroup.png">
