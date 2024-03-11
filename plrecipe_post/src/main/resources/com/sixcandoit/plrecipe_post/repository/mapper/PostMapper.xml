@@ -46,6 +46,7 @@
           FROM POST A
     </select>
 
+    <!-- 회원 별 게시글 조회 -->
     <select id="selectMemberPosts" resultMap="postResultMap">
         SELECT
               A.POST_ID

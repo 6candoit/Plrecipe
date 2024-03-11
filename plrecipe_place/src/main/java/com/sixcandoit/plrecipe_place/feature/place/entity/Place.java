@@ -20,18 +20,19 @@ public class Place {
     @Column(name = "place_phone_num")
     private String placePhoneNum;
 
-    @Column(name = "place_category_id")
-    private int placeCategoryId;
+    @JoinColumn(name = "place_category_id")
+    @ManyToOne
+    private PlaceCategory placeCategory;
 
     public Place() {
     }
 
-    public Place(int placeId, String placeName, String placeLocation, String placePhoneNum, int placeCategoryId) {
+    public Place(int placeId, String placeName, String placeLocation, String placePhoneNum, PlaceCategory placeCategory) {
         this.placeId = placeId;
         this.placeName = placeName;
         this.placeLocation = placeLocation;
         this.placePhoneNum = placePhoneNum;
-        this.placeCategoryId = placeCategoryId;
+        this.placeCategory = placeCategory;
     }
 
     public int getPlaceId() {
@@ -66,22 +67,22 @@ public class Place {
         this.placePhoneNum = placePhoneNum;
     }
 
-    public int getPlaceCategoryId() {
-        return placeCategoryId;
+    public PlaceCategory getPlaceCategory() {
+        return placeCategory;
     }
 
-    public void setPlaceCategoryId(int placeCategoryId) {
-        this.placeCategoryId = placeCategoryId;
+    public void setPlaceCategory(PlaceCategory category) {
+        this.placeCategory = category;
     }
 
     @Override
     public String toString() {
-        return "PlaceDTO{" +
+        return "Place{" +
                 "placeId=" + placeId +
                 ", placeName='" + placeName + '\'' +
                 ", placeLocation='" + placeLocation + '\'' +
                 ", placePhoneNum='" + placePhoneNum + '\'' +
-                ", placeCategoryId=" + placeCategoryId +
+                ", placeCategory=" + placeCategory +
                 '}';
     }
 }

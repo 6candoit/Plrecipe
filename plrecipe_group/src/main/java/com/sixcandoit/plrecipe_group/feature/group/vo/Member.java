@@ -1,5 +1,6 @@
 package com.sixcandoit.plrecipe_group.feature.group.vo;
 
+import com.sixcandoit.plrecipe_group.feature.group.aggregate.GroupEntity;
 import com.sixcandoit.plrecipe_group.feature.group.dto.MemberGrade;
 import jakarta.persistence.*;
 
@@ -39,6 +40,10 @@ public class Member {
 
     @Column(name = "member_status")
     private String memberStatus;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "group_id")
+//    private GroupEntity group;
 
     public Member() {
     }

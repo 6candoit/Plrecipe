@@ -2,7 +2,7 @@
 GET localhost:8000/plrecipe-member/members
 
 ### GET request memberById
-GET localhost:8000/plrecipe-member/searchMember/5
+GET localhost:8000/plrecipe-member/searchMember/1
 
 ### PUT regist Member
 POST localhost:8000/plrecipe-member/regist

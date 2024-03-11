@@ -1,4 +1,9 @@
 package com.sixcandoit.plrecipe_group.feature.group.dto;
+
+import com.sixcandoit.plrecipe_group.feature.group.vo.ResponseMember;
+
+import java.util.List;
+
 public class GroupDTO {
 
     private int groupId;
@@ -8,6 +13,20 @@ public class GroupDTO {
     private String groupWithdrawalDate;
     private String groupComment;
     private String groupStatus;
+
+
+//    public ResponseMember getMember() {
+//        return member;
+//    }
+
+//    public void setMember(ResponseMember member) {
+//        this.member = member;
+//    }
+
+//    private ResponseMember member;
+//
+//    private List<MemberDTO> members; // 기본 정보
+//    private List<ResponseMember> additionalInfo;
 
     public GroupDTO() {
     }

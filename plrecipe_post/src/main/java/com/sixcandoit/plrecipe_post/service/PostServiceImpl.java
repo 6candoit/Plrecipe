@@ -133,7 +133,11 @@ public class PostServiceImpl implements PostService {
     }
 
     public void registPostAndHashtag(PostAndHashtag postHashtag){
+        Date date = new Date();
+        SimpleDateFormat format  =new SimpleDateFormat("yyyy-MM-dd");
+        String dateTest = format.format(date);
         Post newPost = postHashtag.getPost();
+        newPost.setPostDate(dateTest);
         postRepository.save(newPost);
 
 
@@ -162,7 +166,6 @@ public class PostServiceImpl implements PostService {
         return postMapper.selectAllPost();
     }
 
-    /* 제발 푸쉬좀123131 */
     @Override
     public List<PostDTO> selectPostByMember(int memberId) {
         List<PostDTO> postList = postMapper.selectMemberPosts(memberId);

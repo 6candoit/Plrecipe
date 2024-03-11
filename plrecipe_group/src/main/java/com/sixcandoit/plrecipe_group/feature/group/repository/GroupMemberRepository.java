@@ -16,4 +16,6 @@ public interface GroupMemberRepository extends JpaRepository<GroupMember,Integer
     @Modifying
     @Query("UPDATE GroupMember gm SET gm.inviteStateId = :newState WHERE gm.groupId = :groupEntity AND gm.memberId = :memberEntity")
     void updateInviteStateByGroupAndMember(@Param("groupEntity") GroupEntity groupEntity, @Param("memberEntity") Member memberEntity, @Param("newState") GroupInvite newState);
+
+
 }

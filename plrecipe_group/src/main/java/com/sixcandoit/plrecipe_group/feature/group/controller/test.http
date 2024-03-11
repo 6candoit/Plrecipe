@@ -42,7 +42,7 @@ content-Type:application/json
 
 
 ### POST invited Group
-POST localhost:8000/plrecipe-group/invite/1/10
+POST localhost:8000/plrecipe-group/invite/1/11
 content-Type: application/json
 
 ### POST invite Accept

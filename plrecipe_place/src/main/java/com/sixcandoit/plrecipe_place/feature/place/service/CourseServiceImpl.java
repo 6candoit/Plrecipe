@@ -59,7 +59,6 @@ public class CourseServiceImpl implements CourseService {
         return courseDTOList;
     }
 
-    /* 설명. 코스플레이스 리스트로 받아와져서 -> 하나의 객체에 1코스 n장소로 다시 바꿔야 함 */
     /* 코스id로 한 코스의 정보와 코스에 해당하는 장소 리스트 select (CoursePlace) */
     public CourseAndPlace selectCoursePlaceByCourseId(int courseId){
         return courseMapper.selectCoursePlaceByCourseId(courseId);

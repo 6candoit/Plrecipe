@@ -10,6 +10,7 @@ import java.util.List;
 @FeignClient(name = "plrecipe-member", url = "localhost:8000")
 public interface MemberServiceClient {
 
+    /* 회원 정보를 가져온다. */
     @GetMapping("/plrecipe-member/searchMember/{memberId}")
    ResponseMember getMemberInfo(@PathVariable int memberId);
 }

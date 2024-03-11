@@ -1,82 +1,149 @@
 package com.sixcandoit.plrecipe_post.controller.post;
 
-import com.sixcandoit.plrecipe_post.config.Pagination;
-import com.sixcandoit.plrecipe_post.config.PagingButtonInfo;
+import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.aggregate.Post;
+import com.sixcandoit.plrecipe_post.dto.HashtagDTO;
 import com.sixcandoit.plrecipe_post.dto.PostDTO;
+import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.vo.PostAndHashtag;
+import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
+import com.sixcandoit.plrecipe_post.service.HashtagService;
+import com.sixcandoit.plrecipe_post.service.PostHashtagService;
 import com.sixcandoit.plrecipe_post.service.PostService;
-import lombok.extern.slf4j.Slf4j;
+import com.sixcandoit.plrecipe_post.vo.*;
+import com.sixcandoit.plrecipe_post.vo.hashtag.RequestHashtag;
+import com.sixcandoit.plrecipe_post.vo.hashtag.ResponseHashtag;
+import com.sixcandoit.plrecipe_post.vo.post.RequestPost;
+import com.sixcandoit.plrecipe_post.vo.post.ResponsePost;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
-@Controller
-@RequestMapping("/post")
-@Slf4j
+@RestController
+//@RequestMapping("/post")
+@RequestMapping("/")
 public class PostController {
-    private final PostService postService;
+    private HashtagService hashtagService;
+    private PostService postService;
+    private ModelMapper modelMapper;
+    private PostHashtagService postHashtagService;
 
     @Autowired
-    public PostController(PostService postService) {
+    public PostController(HashtagService hashtagService, PostService postService, ModelMapper modelMapper, PostHashtagService postHashtagService) {
+        this.hashtagService = hashtagService;
         this.postService = postService;
+        this.modelMapper = modelMapper;
+        this.postHashtagService = postHashtagService;
     }
 
-    @GetMapping("/{postId}")
-    public String findPostByCode(@PathVariable int postId, Model model) {
-
-        PostDTO post = postService.findPostByCode(postId);
-        model.addAttribute("post", post);
-
-        return "post/detail";
+    /* 설명. 게시글 전체 조회 */
+    @GetMapping("/posts")
+    public List<PostDTO> selectAllPost() {
+        return postService.selectAllPost();
     }
 
-    @GetMapping("/list")
-    public String findPostList(@PageableDefault Pageable pageable, Model model) {
-        log.info("pageable: {}", pageable);
-
-        Page<PostDTO> postList = postService.findPostList(pageable);
-
-        log.info("조회한 내용 목록: {}", postList.getContent());
-        log.info("총 페이지 수: {}", postList.getTotalPages());
-        log.info("총 메뉴 수: {}", postList.getTotalElements());
-        log.info("해당 페이지에 표시 될 요소: {}", postList.getSize());
-        log.info("해당 페이지에 실제 요소 수: {}", postList.getNumberOfElements());
-        log.info("첫 페이지 여부: {}", postList.isFirst());
-        log.info("마지막 페이지 여부: {}", postList.isLast());
-        log.info("정렬 방식: {}", postList.getSort());
-        log.info("여러 페이지 중 현재 인덱스: {}", postList.getNumber());
-
-        PagingButtonInfo paging = Pagination.getPagingButtonInfo(postList);
-
-        model.addAttribute("paging", paging);
-        model.addAttribute("postList", postList);
-
-        return "post/list";
+    /* 설명. 멤버가 작성한 게시글 조회(Feign Client를 사용하여 멤버 정보까지 불러옴) */
+    @GetMapping("/posts/{memberId}")
+    List<PostDTO> selectMemberPosts(@PathVariable int memberId) {
+        return postService.selectPostByMember(memberId);
     }
 
+    /* 설명. 게시글 공개 상태별 조회 */
+    @GetMapping("/status/{postStatus}")
+    public List<PostDTO> selectPostsByStatus(@PathVariable("postStatus") String postStatus){
+        return postService.selectPostsByStatus(postStatus);
+    }
 
-//    @GetMapping("/modify")
-//    public void modifyPost() {}
-//
-//    @PostMapping("/modify")
-//    public String modifyPost(PostDTO modifyPost) {
-//        postService.modifyPost(modifyPost);
-//
-//        return "redirect:/post/" + modifyPost.getPostId();
-//    }
+    /* 게시글 인원수별 조회 */
+    @GetMapping("/memberCounts/{memberCounts}")
+    public List<PostDTO> selectPostsByMemberCounts(@PathVariable("memberCounts") MemberCount memberCounts) {
+        return postService.selectPostsByMemberCounts(memberCounts);
+    }
 
-    /* 게시글 삭제 */
-    @GetMapping("/delete")
+    /* 게시글에 작성된 해시태그 조회 */
+    @GetMapping("/hashtag/{postId}")
+    public List<PostHashtagDTO> selectPostHashtags(@PathVariable int postId) {
+        return postService.selectPostHashtags(postId);
+    }
+
+    /* 게시글별 좋아요 조회 */
+    @GetMapping("/likes/{postId}")
+    public List<PostLikeDTO> selectPostsByLikes(@PathVariable int postId) {
+        return postService.selectPostByLikes(postId);
+    }
+
+    /* 해시태그 생성 */
+    @PostMapping("/regist/hashtag")
+    private ResponseEntity<ResponseHashtag> registHashTag(@RequestBody RequestHashtag hashtag) {
+        HashtagDTO hashtagDTO = modelMapper.map(hashtag, HashtagDTO.class);
+
+        hashtagService.registHashtag(hashtagDTO);
+
+        ResponseHashtag responseHashtag = modelMapper.map(hashtagDTO, ResponseHashtag.class);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseHashtag);
+    }
+
+    /* 게시글 생성(해시태그 중간 객체도 같이 insert) */
+    @PostMapping("/regist_both")
+    private ResponseEntity<?> registPostAndHashtag(@RequestBody RequestPostHashtag test) {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        PostAndHashtag postAndHashtag = modelMapper.map(test, PostAndHashtag.class);
+        postService.registPostAndHashtag(postAndHashtag);
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    /* 게시글 수정 */
+    @PatchMapping("/modify/{postId}")
+    public ResponseEntity<Post> modifyPost (@RequestBody RequestPost requestPost, @PathVariable int postId ) {
+        return ResponseEntity.ok(postService.modifyPost(postId, requestPost));
+    }
+
+    /* 게시글 삭제(게시글 삭제일 update) */
+    @PatchMapping("/delete/{postId}")
+    public ResponseEntity<Post> deletePost (@RequestBody RequestPost requestPost, @PathVariable int postId) {
+        return ResponseEntity.ok(postService.modifyPostDeleteDate(postId, requestPost));
+    }
+
+    /* 해시태그 삭제 */
+    @GetMapping("/hashtag/delete")
     public void deletePage() {}
 
-    @PostMapping("/delete/{postId}")
-    public String deletePost(@RequestParam int postId) {
-        postService.deletePost(postId);
+    /* 해시태그 중간객체 삭제 */
+    @DeleteMapping("/hashtag/delete/{postHashtagId}")
+    public ResponseEntity<PostHashtag> deletePostHashTag(@PathVariable int postHashtagId) {
+        postHashtagService.deletePost(postHashtagId);
 
-        return "redirect:/post/list";
+        return ResponseEntity.ok().build();
+    }
+
+    /* 게시글 좋아요 등록 */
+    @PostMapping("/like")
+    private ResponseEntity<ResponsePost> postLike(@RequestBody RequestPost post) {
+        PostDTO postDTO = modelMapper.map(post, PostDTO.class);
+
+        postService.postLike(postDTO);
+
+        ResponsePost responsePost = modelMapper.map(postDTO, ResponsePost.class);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responsePost);
+    }
+
+    /*  */
+    @PostMapping("/regist")
+    private ResponseEntity<ResponsePost> registPost(@RequestBody RequestPost post) {
+        PostDTO postDTO = modelMapper.map(post, PostDTO.class);
+
+        postService.registPost(postDTO);
+
+        ResponsePost responsePost = modelMapper.map(postDTO, ResponsePost.class);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responsePost);
     }
 }
