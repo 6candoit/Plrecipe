@@ -5,6 +5,7 @@ import com.sixcandoit.plrecipe_post.repository.mapper.PostMapper;
 import com.sixcandoit.plrecipe_post.repository.repo.HashtagRepository;
 import com.sixcandoit.plrecipe_post.vo.hashtag.Hashtag;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ public class HashtagServiceImpl implements HashtagService{
     @Override
     public void registHashtag(HashtagDTO hashtagDTO) {
 
-
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         Hashtag hashtag = mapper.map(hashtagDTO, Hashtag.class);
 
         hashtagRepository.save(hashtag);
