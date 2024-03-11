@@ -1,8 +1,12 @@
 package com.sixcandoit.plrecipe_member.feature.vo;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class RequestFollow {
 
     private int followId;

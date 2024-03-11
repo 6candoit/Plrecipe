@@ -1,9 +1,13 @@
 package com.sixcandoit.plrecipe_member.feature.vo;
 
 import com.sixcandoit.plrecipe_member.feature.member.entity.MemberGrade;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class RequestMember {
     private int memberId;
     private String memberEmail;

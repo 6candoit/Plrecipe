@@ -1,10 +1,14 @@
 package com.sixcandoit.plrecipe_member.feature.vo;
 
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class ResponsePost {
 
     private int postId;
