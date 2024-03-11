@@ -177,7 +177,7 @@
 
 <div align="right">
  
-[요구사항 명세서 바로가기](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=1108790350](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=0))
+[요구사항 명세서 바로가기](https://docs.google.com/spreadsheets/d/1dhRdFafID_h05nar4hWZGUSe7SvHYnjZY0G2BIQMQTE/edit#gid=0)
 </div>
 
 ## 📱 DDD(Event-Storming/Context-Map) 설계
@@ -325,9 +325,9 @@
     
 ```
 CREATE TABLE `member_info` (
-	`member_id`	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   `member_id`   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
    `member_email`   VARCHAR(127)   NOT NULL UNIQUE,
-   `password`   VARCHAR(255)   NOT NULL,
+   `password`   VARCHAR(31)   NOT NULL,
    `member_name`   VARCHAR(63)   NOT NULL,
    `member_nickname`   VARCHAR(31)   NOT NULL UNIQUE,
    `member_number`   VARCHAR(15)   NOT NULL,
@@ -378,7 +378,8 @@ CREATE TABLE `place` (
    `place_name`   VARCHAR(127)   NOT NULL,
    `place_location`   VARCHAR(255)   NOT NULL,
    `place_phone_num`   VARCHAR(15)   NULL,
-   `place_category_id`   INT   NOT NULL
+   `place_category_id`   INT   NOT NULL,
+   UNIQUE KEY unique_place (place_name, place_location)
 );
 
 CREATE TABLE `image` (
@@ -400,9 +401,10 @@ CREATE TABLE `course` (
 CREATE TABLE `group_member` (
    `group_member_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
    `groupmember_sequence`   INT   NOT NULL,
-   `invite_state_id`   ENUM('ACCEPT', 'WAITING', 'DENY')   NOT NULL,
+   `invite_state_id`   ENUM('ACCEPT', 'WAITING', 'DENY')   NOT NULL  DEFAULT 'WAITING',
    `group_id`   INT   NOT NULL,
-   `member_id`   INT NOT NULL
+   `member_id`   INT NOT NULL,
+    UNIQUE KEY unique_group_member (group_id, member_id)
 );
 
 CREATE TABLE `course_place` (
@@ -419,13 +421,14 @@ CREATE TABLE `place_category` (
 
 CREATE TABLE `hashtag` (
    `hashtag_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
-   `hashtag_title`   VARCHAR(255)   NOT NULL
+   `hashtag_title`   VARCHAR(255)   NOT NULL UNIQUE
 );
 
 CREATE TABLE `post_hashtag` (
    `post_hashtag_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
    `hashtag_id`   INT   NOT NULL,
-   `post_id`   INT   NOT NULL
+   `post_id`   INT   NOT NULL,
+   UNIQUE KEY unique_post_hashtag (hashtag_id, post_id)
 );
 
 CREATE TABLE `post_like` (
