@@ -1,8 +1,12 @@
 package com.sixcandoit.plrecipe_post.vo.member;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class ResponseMember {
     private int memberId;
     private String memberName;

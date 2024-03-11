@@ -1,8 +1,12 @@
 package com.sixcandoit.plrecipe_post.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class PostAndHashtagDTO {
     private int postHashtagId;
     private int hashtagId;

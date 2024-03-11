@@ -2,11 +2,15 @@ package com.sixcandoit.plrecipe_post.vo;
 
 import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.vo.member.ResponseMember;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class ResponsePostHashtag {
     private Post post;
     private List<Integer> hashtagId;

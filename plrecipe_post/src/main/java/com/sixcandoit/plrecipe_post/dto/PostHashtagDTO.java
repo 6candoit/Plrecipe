@@ -2,9 +2,13 @@ package com.sixcandoit.plrecipe_post.dto;
 
 import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.vo.hashtag.Hashtag;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class PostHashtagDTO {
     private int postHashtagId;
     private PostDTO postDTO;

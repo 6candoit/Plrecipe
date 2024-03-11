@@ -3,11 +3,15 @@ package com.sixcandoit.plrecipe_post.vo;
 import com.sixcandoit.plrecipe_post.aggregate.Post;
 import com.sixcandoit.plrecipe_post.vo.hashtag.Hashtag;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class PostAndHashtag {
 
     @Id

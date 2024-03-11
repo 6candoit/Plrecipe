@@ -1,9 +1,13 @@
 package com.sixcandoit.plrecipe_post.vo;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "post_like")
 public class PostLike {
