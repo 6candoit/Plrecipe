@@ -27,14 +27,14 @@ import java.util.List;
 @RestController
 //@RequestMapping("/post")
 @RequestMapping("/")
-public class PostRestApiTest {
+public class PostController {
     private HashtagService hashtagService;
     private PostService postService;
     private ModelMapper modelMapper;
     private PostHashtagService postHashtagService;
 
     @Autowired
-    public PostRestApiTest(HashtagService hashtagService, PostService postService, ModelMapper modelMapper, PostHashtagService postHashtagService) {
+    public PostController(HashtagService hashtagService, PostService postService, ModelMapper modelMapper, PostHashtagService postHashtagService) {
         this.hashtagService = hashtagService;
         this.postService = postService;
         this.modelMapper = modelMapper;
@@ -91,7 +91,7 @@ public class PostRestApiTest {
 
     /* 게시글 생성(해시태그 중간 객체도 같이 insert) */
     @PostMapping("/regist_both")
-    private ResponseEntity<?> registPostAndHashtag(@RequestBody RequestTest test) {
+    private ResponseEntity<?> registPostAndHashtag(@RequestBody RequestPostHashtag test) {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         PostAndHashtag postAndHashtag = modelMapper.map(test, PostAndHashtag.class);
         postService.registPostAndHashtag(postAndHashtag);
