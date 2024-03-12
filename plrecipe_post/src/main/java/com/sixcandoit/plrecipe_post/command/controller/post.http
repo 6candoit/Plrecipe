@@ -1,0 +1,57 @@
+### POST regist Hashtag
+POST localhost:8000/plrecipe-post/regist/hashtag
+Content-Type: application/json
+
+{
+  "hashtagTitle": "해시태그 추가 테스트14"
+}
+
+
+### PATCH modify Post
+PATCH localhost:8000/plrecipe-post/modify/1
+Content-Type: application/json
+
+{
+  "postTitle": "게시글 제목 수정 테스트??",
+  "postContent": "게시글 내용 수정 테스트??",
+  "courseId": 2,
+  "isPostPublic": "Y",
+  "memberCount": "TWO"
+}
+
+### PATCH delete Post
+PATCH localhost:8000/plrecipe-post/delete/10
+Content-Type: application/json
+
+{
+  "postDeleteDate": "current_date"
+}
+
+### GET delete post_hashtag
+DELETE localhost:8000/plrecipe-post/hashtag/delete/26
+
+### POST regist post_like
+POST localhost:8000/plrecipe-post/like
+Content-Type: application/json
+
+{
+  "memberId": "23",
+  "postId": "10"
+}
+
+### POST test
+POST localhost:8000/plrecipe-post/regist_both
+Content-Type: application/json
+
+{
+  "post":{
+    "postTitle": "게시글 제목 추가 테스트",
+    "postContent": "게시글 내용 추가 테스트",
+    "courseId": 4,
+    "memberId": 13,
+    "isPostPublic": "Y",
+    "memberCount": "TWO",
+    "postDate": "123"
+  },
+  "hashtagId": [1, 2, 3, 4, 5]
+}

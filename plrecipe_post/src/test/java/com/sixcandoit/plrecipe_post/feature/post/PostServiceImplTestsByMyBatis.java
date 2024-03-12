@@ -1,12 +1,10 @@
 package com.sixcandoit.plrecipe_post.feature.post;
 
-import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
-import com.sixcandoit.plrecipe_post.dto.PostDTO;
-import com.sixcandoit.plrecipe_post.dto.PostHashtagDTO;
-import com.sixcandoit.plrecipe_post.vo.PostAndHashtag;
-import com.sixcandoit.plrecipe_post.dto.PostLikeDTO;
-import com.sixcandoit.plrecipe_post.service.PostServiceImpl;
-import com.sixcandoit.plrecipe_post.vo.PostHashtag;
+import com.sixcandoit.plrecipe_post.query.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.query.dto.PostDTO;
+import com.sixcandoit.plrecipe_post.query.dto.PostHashtagDTO;
+import com.sixcandoit.plrecipe_post.query.dto.PostLikeDTO;
+import com.sixcandoit.plrecipe_post.command.service.PostServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;

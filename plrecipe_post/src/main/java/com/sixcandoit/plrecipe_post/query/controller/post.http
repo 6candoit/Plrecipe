@@ -1,0 +1,17 @@
+### GET request posts
+GET localhost:8000/plrecipe-post/posts
+
+### GET request memberPosts
+GET localhost:8000/plrecipe-post/posts/1
+
+### GET request postsByStatus
+GET localhost:8000/plrecipe-post/status/Y
+
+### GET request postsByMemberCounts
+GET localhost:8000/plrecipe-post/memberCounts/TWO
+
+### GET request HashtagsByPostId
+GET localhost:8000/plrecipe-post/hashtag/1
+
+### GET request LikesByPostId
+GET localhost:8000/plrecipe-post/likes/1
