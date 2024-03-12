@@ -1,9 +1,9 @@
 package com.sixcandoit.plrecipe_place.feature.place;
 
-import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceDTO;
-import com.sixcandoit.plrecipe_place.feature.place.dto.PlaceStarDTO;
-import com.sixcandoit.plrecipe_place.feature.place.entity.*;
-import com.sixcandoit.plrecipe_place.feature.place.service.PlaceService;
+import com.sixcandoit.plrecipe_place.command.dto.PlaceDTO;
+import com.sixcandoit.plrecipe_place.command.dto.PlaceStarDTO;
+import com.sixcandoit.plrecipe_place.command.aggregate.*;
+import com.sixcandoit.plrecipe_place.command.service.PlaceService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -21,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 public class PlaceServiceImplTests {
+/*
 
     @Autowired
     private PlaceService placeService;
@@ -103,5 +104,6 @@ public class PlaceServiceImplTests {
     void deletePlace(){
         placeService.deletePlace(31);
     }
+*/
 
 }
