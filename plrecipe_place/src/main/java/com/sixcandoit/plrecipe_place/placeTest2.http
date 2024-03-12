@@ -1,0 +1,154 @@
+
+### registPlace
+POST http://localhost:8080/regist
+Content-Type: application/json
+
+{
+  "placeName": "장소insert22",
+  "placeLocation": "고양시22",
+  "placePhoneNum": "031-1234-7854",
+  "placeCategory": {
+    "placeCategoryId": 3,
+    "placeCategoryName": "문화"
+  }
+}
+
+### deletePlace
+DELETE http://localhost:8080/delete/33
+
+### registStar
+POST http://localhost:8080/star/regist
+Content-Type: application/json
+
+{
+  "starPoint": 5,
+  "starComment": "별점 등록",
+  "placeId": 2,
+  "memberId": 4
+}
+
+### modifyStar
+PATCH http://localhost:8080/star/modify
+Content-Type: application/json
+
+{
+  "starId": 17,
+  "starPoint": 2,
+  "starComment": "별점 수정",
+  "placeId": 2,
+  "memberId": 4
+}
+
+### deleteStar
+DELETE http://localhost:8080/star/delete/17
+
+### registCourse
+POST http://localhost:8080/course/regist
+Content-Type: application/json
+
+{
+  "courseName": "코스 생성 test",
+  "memberId": 4,
+  "places": [
+    {
+      "placeId": 12,
+      "placeName": "기억력붕어빵집",
+      "placeLocation": "경기도 고양시 일산동구 호수로 567번길 89-2",
+      "placePhoneNum": "010-1212-3434",
+      "placeCategory": {
+        "placeCategoryId": 6,
+        "placeCategoryName": "기타"
+      }
+    },
+    {
+      "placeId": 13,
+      "placeName": "못나가만화방",
+      "placeLocation": "대구광역시 수성구 무학로 321번길 78-3",
+      "placePhoneNum": "02-1234-9876",
+      "placeCategory": {
+        "placeCategoryId": 6,
+        "placeCategoryName": "기타"
+      }
+    },
+    {
+      "placeId": 14,
+      "placeName": "대왕문어타코야끼",
+      "placeLocation": "부산광역시 해운대구 송정해변로 432번길 10-4",
+      "placePhoneNum": "010-0000-8888",
+      "placeCategory": {
+        "placeCategoryId": 6,
+        "placeCategoryName": "기타"
+      }
+    },
+    {
+      "placeId": 15,
+      "placeName": "아기자기소품샾",
+      "placeLocation": "인천광역시 남동구 논고개로 654번길 32-5",
+      "placePhoneNum": "010-6321-4789",
+      "placeCategory": {
+        "placeCategoryId": 6,
+        "placeCategoryName": "기타"
+      }
+    }
+  ]
+}
+
+### modifyCourse
+PATCH http://localhost:8080/course/modify
+Content-Type: application/json
+
+{
+  "courseId": 17,
+  "courseName": "코스 수정 test",
+  "memberId": 4,
+  "places": [
+    {
+      "placeId": 12,
+      "placeName": "기억력붕어빵집",
+      "placeLocation": "경기도 고양시 일산동구 호수로 567번길 89-2",
+      "placePhoneNum": "010-1212-3434",
+      "placeCategory": {
+        "placeCategoryId": 6,
+        "placeCategoryName": "기타"
+      }
+    },
+    {
+      "placeId": 13,
+      "placeName": "못나가만화방",
+      "placeLocation": "대구광역시 수성구 무학로 321번길 78-3",
+      "placePhoneNum": "02-1234-9876",
+      "placeCategory": {
+        "placeCategoryId": 6,
+        "placeCategoryName": "기타"
+      }
+    },
+    {
+      "placeId": 14,
+      "placeName": "대왕문어타코야끼",
+      "placeLocation": "부산광역시 해운대구 송정해변로 432번길 10-4",
+      "placePhoneNum": "010-0000-8888",
+      "placeCategory": {
+        "placeCategoryId": 6,
+        "placeCategoryName": "기타"
+      }
+    },
+    {
+      "placeId": 15,
+      "placeName": "아기자기소품샾",
+      "placeLocation": "인천광역시 남동구 논고개로 654번길 32-5",
+      "placePhoneNum": "010-6321-4789",
+      "placeCategory": {
+        "placeCategoryId": 6,
+        "placeCategoryName": "기타"
+      }
+    }
+  ]
+}
+
+### deleteCourse
+DELETE  http://localhost:8080/course/delete/17
+
+
+
+
+
