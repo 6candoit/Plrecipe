@@ -274,7 +274,8 @@ CREATE TABLE `post` (
    `member_id`   INT   NOT NULL,
    `course_id`   INT   NOT NULL,
    `is_post_public`   CHAR(1) NOT NULL    DEFAULT 'Y',
-   `member_count`   ENUM('ONE', 'TWO', 'MANY')   NOT NULL
+   `member_count`   ENUM('ONE', 'TWO', 'MANY')   NOT NULL,
+   `group_id` INT NULL
 );
 
 CREATE TABLE `plrecipe_group` (
@@ -290,7 +291,8 @@ CREATE TABLE `plrecipe_group` (
 CREATE TABLE `follow_info` (
    `follow_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
    `user_follow`   INT   NOT NULL,
-   `user_follower`  INT   NOT NULL
+   `user_follower`  INT   NOT NULL,
+   UNIQUE KEY unique_follow_info(user_follow, user_follower)
 );
 
 CREATE TABLE `place_star` (
@@ -298,7 +300,8 @@ CREATE TABLE `place_star` (
    `star_point`   INT   NOT NULL,
    `star_comment`   VARCHAR(255)   NULL,
    `place_id`   INT   NOT NULL,
-   `member_id`   INT   NOT NULL
+   `member_id`   INT   NOT NULL,
+   UNIQUE KEY unique_place_star(place_id, member_id)
 );
 
 CREATE TABLE `place` (
@@ -368,7 +371,12 @@ CREATE TABLE `post_like` (
 -- ALTER TABLE `member_info` ADD CONSTRAINT `PK_MEMBER_INFO` PRIMARY KEY (
 --    `member_id`
 -- );
-
+ALTER TABLE `post` ADD CONSTRAINT `FK_plrecipe_group_TO_post_1` FOREIGN KEY (
+   `group_id`
+)
+REFERENCES `plrecipe_group` (
+   `group_id`
+);
 
 ALTER TABLE `post` ADD CONSTRAINT `FK_member_info_TO_post_1` FOREIGN KEY (
    `member_id`
