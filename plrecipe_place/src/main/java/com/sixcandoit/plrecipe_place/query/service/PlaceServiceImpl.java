@@ -46,7 +46,6 @@ public class PlaceServiceImpl implements PlaceService {
         this.env = env;
     }
 
-
     /* 모든 장소 select */
     public List<Place> selectAllPlace() {
         return placeMapper.selectAllPlace();

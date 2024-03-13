@@ -5,7 +5,6 @@ import com.sixcandoit.plrecipe_place.command.aggregate.Place;
 
 import java.util.List;
 
-
 public class CourseAndPlaceDTO {
     private int courseId;
     private String courseName;

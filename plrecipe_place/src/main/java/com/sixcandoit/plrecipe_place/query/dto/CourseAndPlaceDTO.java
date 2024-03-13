@@ -1,24 +1,27 @@
-package com.sixcandoit.plrecipe_place.query.aggregate;
+package com.sixcandoit.plrecipe_place.query.dto;
+
+import com.sixcandoit.plrecipe_place.command.aggregate.Course;
+import com.sixcandoit.plrecipe_place.command.aggregate.Place;
 
 import java.util.List;
 
-public class CourseAndPlace {
+public class CourseAndPlaceDTO {
     private int courseId;
     private String courseName;
     private int memberId;
     private List<Place> places;
 
-    public CourseAndPlace() {
+    public CourseAndPlaceDTO() {
     }
 
-    public CourseAndPlace(int courseId, String courseName, int memberId, List<Place> places) {
+    public CourseAndPlaceDTO(int courseId, String courseName, int memberId, List<Place> places) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.memberId = memberId;
         this.places = places;
     }
 
-    public CourseAndPlace(Course course, List<Place> places){
+    public CourseAndPlaceDTO(Course course, List<Place> places){
         this.courseId = course.getCourseId();
         this.courseName = course.getCourseName();
         this.memberId = course.getMemberId();

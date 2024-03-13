@@ -5,15 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity(name = "plrecipe_category")
-@Table(name = "place_category")
 public class PlaceCategory {
-
-    @Id
-    @Column(name = "place_category_id")
     private int placeCategoryId;
-
-    @Column(name = "place_category_name")
     private String placeCategoryName;
 
     public PlaceCategory() {

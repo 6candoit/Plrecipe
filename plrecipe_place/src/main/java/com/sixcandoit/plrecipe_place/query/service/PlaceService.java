@@ -14,16 +14,13 @@ import java.util.Map;
 public interface PlaceService {
     List<SearchPlaceDTO> getSearchPlaceByAPI(String keyword);
     List<Place> selectAllPlace();
-
-    List<Place> selectPlaceByFilter(Map<String, Object> filter);
-
-    List<PlaceStar> selectStarByPlace(int placeId);
-
-    List<PlaceStar> selectStarByMember(int memberId);
     List<Place> selectPlaceById(int placeId);
+    List<Place> selectPlaceByFilter(Map<String, Object> filter);
 
     CourseAndPlace selectCoursePlaceByCourseId(int courseId);
     List<CourseDTO> selectCourseByMember(int memberId);
     List<Place> getPlacesByCourseName(int courseId);
 
+    List<PlaceStar> selectStarByPlace(int placeId);
+    List<PlaceStar> selectStarByMember(int memberId);
 }

@@ -4,7 +4,7 @@ import com.sixcandoit.plrecipe_place.command.dto.CourseAndPlaceDTO;
 import com.sixcandoit.plrecipe_place.command.dto.PlaceDTO;
 import com.sixcandoit.plrecipe_place.command.dto.PlaceStarDTO;
 
-public interface PlaceService {
+public interface PlaceCommandService {
 
     /* 장소 관련 */
     void registPlace(PlaceDTO newPlace);

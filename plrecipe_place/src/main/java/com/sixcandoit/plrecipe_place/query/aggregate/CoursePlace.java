@@ -2,22 +2,10 @@ package com.sixcandoit.plrecipe_place.query.aggregate;
 
 import jakarta.persistence.*;
 
-@Entity(name = "plrecipe_course_and_place")
-@Table(name = "course_place")
 public class CoursePlace {
-
-    @Id
-    @Column(name = "place_course_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int placeCourseId;
-
-    @Column(name = "course_id")
     private int courseId;
-
-    @Column(name = "place_id")
     private int placeId;
-
-    @Column(name = "place_sequence")
     private int sequence;
 
     public CoursePlace() {

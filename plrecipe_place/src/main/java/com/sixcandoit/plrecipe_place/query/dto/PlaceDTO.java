@@ -3,7 +3,6 @@ package com.sixcandoit.plrecipe_place.query.dto;
 import com.sixcandoit.plrecipe_place.query.aggregate.PlaceCategory;
 
 public class PlaceDTO {
-
     private int placeId;
     private String placeName;
     private String placeLocation;
