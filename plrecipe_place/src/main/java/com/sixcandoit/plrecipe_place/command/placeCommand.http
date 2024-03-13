@@ -1,6 +1,6 @@
 
 ### registPlace
-POST http://localhost:8080/regist
+POST http://localhost:8000/plrecipe-place/regist
 Content-Type: application/json
 
 {
@@ -14,10 +14,10 @@ Content-Type: application/json
 }
 
 ### deletePlace
-DELETE http://localhost:8080/delete/34
+DELETE http://localhost:8000/plrecipe-place/delete/34
 
 ### registStar
-POST http://localhost:8080/star/regist
+POST http://localhost:8000/plrecipe-place/star/regist
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ### modifyStar
-PATCH http://localhost:8080/star/modify
+PATCH http://localhost:8000/plrecipe-place/star/modify
 Content-Type: application/json
 
 {
@@ -40,10 +40,10 @@ Content-Type: application/json
 }
 
 ### deleteStar
-DELETE http://localhost:8080/star/delete/17
+DELETE http://localhost:8000/plrecipe-place/star/delete/17
 
 ### registCourse
-POST http://localhost:8080/course/regist
+POST http://localhost:8000/plrecipe-place/course/regist
 Content-Type: application/json
 
 {
@@ -94,7 +94,7 @@ Content-Type: application/json
 }
 
 ### modifyCourse
-PATCH http://localhost:8080/course/modify
+PATCH http://localhost:8000/plrecipe-place/course/modify
 Content-Type: application/json
 
 {
@@ -146,7 +146,7 @@ Content-Type: application/json
 }
 
 ### deleteCourse
-DELETE  http://localhost:8080/course/delete/17
+DELETE http://localhost:8000/plrecipe-place/course/delete/17
 
 
 

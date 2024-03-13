@@ -1,14 +1,14 @@
 ### get Places using kakaoApi
-GET http://localhost:8080/findBasePlace/스타필드
+GET http://localhost:8000/plrecipe-place/findBasePlace/스타필드
 
 ### getPlace
-GET http://localhost:8080/find/5
+GET http://localhost:8000/plrecipe-place/find/5
 
 ### getPlaceAll
-GET http://localhost:8080/find
+GET http://localhost:8000/plrecipe-place/find
 
 ### searchPlaceByFilter
-POST http://localhost:8080/searchPlace
+POST http://localhost:8000/plrecipe-place/searchPlace
 Content-Type: application/json
 
 {
@@ -20,20 +20,19 @@ Content-Type: application/json
 }
 
 ### selectStarByPlace
-GET http://localhost:8080/star/3
+GET http://localhost:8000/plrecipe-place/star/3
 
 ### selectStarByMember
-GET http://localhost:8080/star/member/5
-
+GET http://localhost:8000/plrecipe-place/star/member/5
 
 ### selectCoursePlaceByCourseId
-GET http://localhost:8080/course/findInfo/5
+GET http://localhost:8000/plrecipe-place/course/findInfo/5
 
 ### selectCourseByMember
-GET http://localhost:8080/course/findUserId/3
+GET http://localhost:8000/plrecipe-place/course/findUserId/3
 
 ### getPlacesByCourseId
-GET http://localhost:8080/course/findPlaces/1
+GET http://localhost:8000/plrecipe-place/course/findPlaces/1
 
 
 
