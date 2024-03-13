@@ -16,10 +16,6 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -30,7 +26,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class PostServiceImpl implements PostService {
+public class CommandPostServiceImpl implements CommandPostService {
 
     private final ModelMapper mapper;
     private final PostRepository postRepository;
@@ -38,7 +34,7 @@ public class PostServiceImpl implements PostService {
     private final PostHashtagRepository postHashtagRepository;
 
     @Autowired
-    public PostServiceImpl(ModelMapper mapper, PostRepository postRepository, PostLikeRepository postLikeRepository, PostHashtagRepository postHashtagRepository) {
+    public CommandPostServiceImpl(ModelMapper mapper, PostRepository postRepository, PostLikeRepository postLikeRepository, PostHashtagRepository postHashtagRepository) {
         this.mapper = mapper;
         this.postRepository = postRepository;
         this.postLikeRepository = postLikeRepository;

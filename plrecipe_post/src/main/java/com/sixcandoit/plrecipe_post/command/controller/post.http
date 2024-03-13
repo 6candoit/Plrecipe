@@ -3,7 +3,7 @@ POST localhost:8000/plrecipe-post/regist/hashtag
 Content-Type: application/json
 
 {
-  "hashtagTitle": "해시태그 추가 테스트14"
+  "hashtagTitle": "해시태그 추가 테스트15"
 }
 
 
@@ -36,7 +36,7 @@ Content-Type: application/json
 
 {
   "memberId": "23",
-  "postId": "10"
+  "postId": "9"
 }
 
 ### POST test

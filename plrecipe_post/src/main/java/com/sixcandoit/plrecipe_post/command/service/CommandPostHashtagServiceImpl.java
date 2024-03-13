@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PostHashtagServiceImpl implements PostHashtagService{
+public class CommandPostHashtagServiceImpl implements CommandPostHashtagService {
     private final ModelMapper mapper;
     private final PostHashtagRepository postHashtagRepository;
 
     @Autowired
-    public PostHashtagServiceImpl(ModelMapper mapper, PostHashtagRepository postHashtagRepository) {
+    public CommandPostHashtagServiceImpl(ModelMapper mapper, PostHashtagRepository postHashtagRepository) {
         this.mapper = mapper;
         this.postHashtagRepository = postHashtagRepository;
     }

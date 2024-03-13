@@ -4,7 +4,7 @@ import com.sixcandoit.plrecipe_post.query.aggregate.MemberCount;
 import com.sixcandoit.plrecipe_post.query.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.query.dto.PostHashtagDTO;
 import com.sixcandoit.plrecipe_post.query.dto.PostLikeDTO;
-import com.sixcandoit.plrecipe_post.command.service.PostServiceImpl;
+import com.sixcandoit.plrecipe_post.command.service.CommandPostServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -17,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-public class PostServiceImplTestsByMyBatis {
+public class CommandPostServiceImplTestsByMyBatis {
 
     @Autowired
-    private PostServiceImpl postServiceImpl;
+    private CommandPostServiceImpl postServiceImpl;
 
     @Test
     void selectAllPost() {
