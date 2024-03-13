@@ -14,9 +14,7 @@ public interface CommandMemberService extends UserDetailsService {
 
 
     void registUser(RegisterDTO registerDTO);
-
     RegisterDTO getUserDetailsByEmail(String memberEmail);
-
     Member modifyMember(int memberId, RequestMember requestMember);
     Member withdrawMember(int memberId, RequestMember requestMember);
 

@@ -4,8 +4,8 @@ GET localhost:8000/plrecipe-member/members
 ### GET request memberById(fail)
 GET localhost:8000/plrecipe-member/searchMember/1
 
-### PUT regist Member(fail)
-POST localhost:8000/plrecipe-member/regist
+### PUT regist Member
+POST localhost:8000/plrecipe-member/register
 content-Type: application/json
 
 {
@@ -16,6 +16,15 @@ content-Type: application/json
   "memberNumber": "010-1812-4521",
   "memberGrade": "ROLL_MEMBER",
   "memberStatus": "Y"
+}
+
+### Post Login
+POST localhost:8000/plrecipe-member/login
+content-Type: application/json
+
+{
+  "memberEmail": "passtest@naver.com",
+  "password": "000307hello"
 }
 
 ### PATCH modify Member
