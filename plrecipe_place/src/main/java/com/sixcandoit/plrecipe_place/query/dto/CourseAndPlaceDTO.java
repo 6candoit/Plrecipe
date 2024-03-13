@@ -1,6 +1,6 @@
 package com.sixcandoit.plrecipe_place.query.dto;
 
-import com.sixcandoit.plrecipe_place.command.aggregate.Place;
+import com.sixcandoit.plrecipe_place.query.aggregate.Place;
 import com.sixcandoit.plrecipe_place.query.vo.ResponseMember;
 
 import java.util.List;
