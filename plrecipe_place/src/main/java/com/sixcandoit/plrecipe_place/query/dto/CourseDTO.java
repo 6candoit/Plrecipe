@@ -6,7 +6,6 @@ import com.sixcandoit.plrecipe_place.query.vo.ResponseMember;
 public class CourseDTO {
     private int courseId;
     private String courseName;
-
     private ResponseMember member;
 
     public CourseDTO() {

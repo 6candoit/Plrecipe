@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_place.command;
+package com.sixcandoit.plrecipe_place;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class PlrecipePlaceCommandApplication {
+public class PlrecipePlaceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PlrecipePlaceCommandApplication.class, args);
+		SpringApplication.run(PlrecipePlaceApplication.class, args);
 	}
 
 	@Bean

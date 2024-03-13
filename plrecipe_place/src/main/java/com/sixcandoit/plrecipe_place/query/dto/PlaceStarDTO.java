@@ -1,7 +1,6 @@
 package com.sixcandoit.plrecipe_place.query.dto;
 
 public class PlaceStarDTO {
-
     private int starId;
     private int starPoint;
     private String starComment;

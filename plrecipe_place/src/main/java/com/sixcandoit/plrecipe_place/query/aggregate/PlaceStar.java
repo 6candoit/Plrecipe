@@ -2,25 +2,11 @@ package com.sixcandoit.plrecipe_place.query.aggregate;
 
 import jakarta.persistence.*;
 
-@Entity(name = "plrecipe_place_star")
-@Table(name = "place_star")
 public class PlaceStar {
-
-    @Id
-    @Column(name = "star_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int starId;
-
-    @Column(name = "star_point")
     private int starPoint;
-
-    @Column(name = "star_comment")
     private String starComment;
-
-    @Column(name = "place_id")
     private int placeId;
-
-    @Column(name = "member_id")
     private int memberId;
 
     public PlaceStar() {

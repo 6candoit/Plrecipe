@@ -1,17 +1,7 @@
 package com.sixcandoit.plrecipe_place.feature.place;
 
 
-import com.sixcandoit.plrecipe_place.command.aggregate.Course;
-import com.sixcandoit.plrecipe_place.command.dto.CourseAndPlaceDTO;
-import com.sixcandoit.plrecipe_place.command.aggregate.Place;
-import com.sixcandoit.plrecipe_place.command.service.PlaceService;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
