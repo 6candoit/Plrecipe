@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_post.command;
+package com.sixcandoit.plrecipe_post;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

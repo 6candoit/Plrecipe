@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class HashtagServiceImpl implements HashtagService{
+public class CommandHashtagServiceImpl implements CommandHashtagService {
 
     private final ModelMapper mapper;
     private final HashtagRepository hashtagRepository;
 
     @Autowired
-    public HashtagServiceImpl(ModelMapper mapper, HashtagRepository hashtagRepository) {
+    public CommandHashtagServiceImpl(ModelMapper mapper, HashtagRepository hashtagRepository) {
         this.mapper = mapper;
         this.hashtagRepository = hashtagRepository;
     }
