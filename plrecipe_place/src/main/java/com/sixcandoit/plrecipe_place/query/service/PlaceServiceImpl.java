@@ -3,6 +3,7 @@ package com.sixcandoit.plrecipe_place.query.service;
 import com.sixcandoit.plrecipe_place.query.aggregate.Course;
 import com.sixcandoit.plrecipe_place.query.aggregate.CourseAndPlace;
 import com.sixcandoit.plrecipe_place.query.client.MemberServiceClient;
+import com.sixcandoit.plrecipe_place.query.dto.CourseAndPlaceDTO;
 import com.sixcandoit.plrecipe_place.query.dto.CourseDTO;
 import com.sixcandoit.plrecipe_place.query.dto.SearchPlaceDTO;
 import com.sixcandoit.plrecipe_place.query.aggregate.Place;
@@ -110,15 +111,17 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     /* 코스id로 한 코스의 정보와 코스에 해당하는 장소 리스트 select (CoursePlace) */
-    public CourseAndPlace selectCoursePlaceByCourseId(int courseId){
-        return placeMapper.selectCoursePlaceByCourseId(courseId);
+    public CourseAndPlaceDTO selectCoursePlaceByCourseId(int courseId){
+        CourseAndPlace cp = placeMapper.selectCoursePlaceByCourseId(courseId);
+        ResponseMember member = memberServiceClient.getMemberInfo(cp.getMemberId());
+        CourseAndPlaceDTO courseAndPlace = new CourseAndPlaceDTO(cp.getCourseId(), cp.getCourseName(), member, cp.getPlaces());
+        return courseAndPlace;
     }
 
     /* 코스id에 해당하는 장소 리스트 select */
     public List<Place> getPlacesByCourseName(int courseId){
         return placeMapper.getPlacesByCourseName(courseId);
     }
-
 
     /* 카카오 장소 rest-api로 사용자가 검색한 키워드 장소 검색해서 반환 */
     private JSONArray getSearchPlaceByKeyword(String keyword){

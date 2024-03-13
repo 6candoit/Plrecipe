@@ -17,30 +17,40 @@ Content-Type: application/json
 DELETE http://localhost:8000/plrecipe-place/delete/34
 
 ### registStar
-POST http://localhost:8000/plrecipe-place/star/regist
+POST http://localhost:8080/star/regist
 Content-Type: application/json
 
 {
   "starPoint": 5,
   "starComment": "별점 등록",
-  "placeId": 2,
-  "memberId": 4
+  "placeId": 6,
+  "member": {
+    "memberId": 5,
+    "memberName": "김재현",
+    "memberNickname": "닥쳐말포이",
+    "memberGrade": "ROLL_MEMBER"
+  }
 }
 
 ### modifyStar
-PATCH http://localhost:8000/plrecipe-place/star/modify
+PATCH http://localhost:8080/star/modify
 Content-Type: application/json
 
 {
-  "starId": 17,
+  "starId": 19,
   "starPoint": 2,
   "starComment": "별점 수정",
   "placeId": 2,
-  "memberId": 4
+  "member": {
+    "memberId": 5,
+    "memberName": "김재현",
+    "memberNickname": "닥쳐말포이",
+    "memberGrade": "ROLL_MEMBER"
+  }
 }
 
 ### deleteStar
-DELETE http://localhost:8000/plrecipe-place/star/delete/17
+DELETE http://localhost:8080/star/delete/19
 
 ### registCourse
 POST http://localhost:8000/plrecipe-place/course/regist

@@ -1,8 +1,8 @@
 package com.sixcandoit.plrecipe_place.query.controller;
 
+import com.sixcandoit.plrecipe_place.query.dto.CourseAndPlaceDTO;
 import com.sixcandoit.plrecipe_place.query.dto.CourseDTO;
 import com.sixcandoit.plrecipe_place.query.dto.SearchPlaceDTO;
-import com.sixcandoit.plrecipe_place.query.aggregate.CourseAndPlace;
 import com.sixcandoit.plrecipe_place.query.aggregate.Place;
 import com.sixcandoit.plrecipe_place.query.aggregate.PlaceStar;
 import com.sixcandoit.plrecipe_place.query.service.PlaceService;
@@ -68,7 +68,7 @@ public class PlaceController {
 
     /* 코스id로 코스와 코스에 등록된 장소 리스트 조회 */
     @GetMapping("/course/findInfo/{courseId}")
-    public CourseAndPlace selectCoursePlaceByCourseId(@PathVariable int courseId){
+    public CourseAndPlaceDTO selectCoursePlaceByCourseId(@PathVariable int courseId){
         return placeService.selectCoursePlaceByCourseId(courseId);
     }
 
