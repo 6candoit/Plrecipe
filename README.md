@@ -509,26 +509,11 @@ REFERENCES `post` (
 
 
 ## ⚪ Project Architecture(프로젝트 아키텍처)
-### 1. Monolith Architecture(모놀리스 아키텍처)
-<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/monolith_image.png" height=250>
-</div>
-<br/>
 
-- 다양한 서비스들이 '애플리케이션' 하나에 전부 모여있음
-- 각 서비스 실행할 경우 하나로 모여있는 서버로 요청
-- 서버에서 요청을 처리
-
-### 2. MicroService Architecture(마이크로 서비스 아키텍처)
-<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/microservice_image.png" height=250>
-</div>
-<br/>
-
-- 비즈니스 도메인을 기준으로 독립적으로 구성된 서비스
-- 서비스들은 독립적인 배포가 가능
-- 서비스들은 네트워크를 통해 서로 통신
-- 서비스별로 데이터베이스 소유
+|1. Monolith Architecture(모놀리스 아키텍처)|2. MicroService Architecture(마이크로 서비스 아키텍처)|
+|:---:|:---:|
+|<img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/monolith_image.png" height=250>|<img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/microservice_image.png" height=250>|
+|- 다양한 서비스들이 '애플리케이션' 하나에 전부 모여있음<br>- 각 서비스 실행할 경우 하나로 모여있는 서버로 요청<br>- 서버에서 요청을 처리|- 비즈니스 도메인을 기준으로 독립적으로 구성된 서비스<br>- 서비스들은 독립적인 배포가 가능<br>- 서비스들은 네트워크를 통해 서로 통신<br>- 서비스별로 데이터베이스 소유|
 
 <hr>
 
