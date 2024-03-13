@@ -92,6 +92,8 @@
 
 </div>
 
+[추가적인 학습 내용 또는 관련 기술 설명 WIKI](https://github.com/beyond-sw-camp/be04-2nd-6candoit-plrecipe/wiki)
+
 ## 🗓️ WBS
 
 <div align="center">
