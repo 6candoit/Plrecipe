@@ -2,7 +2,6 @@ package com.sixcandoit.plrecipe_place.command.service;
 
 import com.sixcandoit.plrecipe_place.command.aggregate.*;
 import com.sixcandoit.plrecipe_place.command.dto.CourseAndPlaceDTO;
-import com.sixcandoit.plrecipe_place.command.dto.CoursePlaceDTO;
 import com.sixcandoit.plrecipe_place.command.dto.PlaceDTO;
 import com.sixcandoit.plrecipe_place.command.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.command.repository.CoursePlaceRepository;
@@ -10,6 +9,7 @@ import com.sixcandoit.plrecipe_place.command.repository.CourseRepository;
 import com.sixcandoit.plrecipe_place.command.repository.PlaceRepository;
 import com.sixcandoit.plrecipe_place.command.repository.PlaceStarRepository;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class PlaceCommandServiceImpl implements PlaceCommandService {
 
     private final ModelMapper mapper;
@@ -58,7 +59,7 @@ public class PlaceCommandServiceImpl implements PlaceCommandService {
     public void registCourse(CourseAndPlaceDTO cp) {
 
         /* 코스 정보 insert */
-        Course newCourse = new Course(cp.getCourseName(), cp.getMemberId());
+        Course newCourse = new Course(cp.getCourseName(), cp.getMember().getMemberId());
         courseRepository.save(newCourse);
 
         /* 코스장소 정보 insert */
@@ -70,18 +71,14 @@ public class PlaceCommandServiceImpl implements PlaceCommandService {
     public void saveCoursePlace(int courseId, List<Place> placeList){
 
         /* 코스id와 장소id를 중간객체 리스트로 만들어서 저장 */
-        List<CoursePlaceDTO> coursePlaceList = new ArrayList<>();
+        List<CoursePlace> coursePlaceList = new ArrayList<>();
         for (int i = 0; i < placeList.size(); i++) {
-            CoursePlaceDTO coursePlaceDTO = new CoursePlaceDTO(courseId, placeList.get(i).getPlaceId(), i+1);
-            coursePlaceList.add(coursePlaceDTO);
+            CoursePlace coursePlace = new CoursePlace(courseId, placeList.get(i).getPlaceId(), i+1);
+            coursePlaceList.add(coursePlace);
         }
 
         /* 코스장소 정보 저장 */
-        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        List<CoursePlace> coursePlaces = coursePlaceList.stream()
-                .map(coursePlace -> mapper.map(coursePlace, CoursePlace.class))
-                .collect(Collectors.toList());
-        coursePlaceRepository.saveAll(coursePlaces);
+        coursePlaceRepository.saveAll(coursePlaceList);
 
     }
 
@@ -118,7 +115,8 @@ public class PlaceCommandServiceImpl implements PlaceCommandService {
     /* 별점 insert */
     @Transactional
     public void registStar(PlaceStarDTO newStar) {
-        placeStarRepository.save(mapper.map(newStar, PlaceStar.class));
+        PlaceStar ps = mapper.map(newStar, PlaceStar.class);
+        placeStarRepository.save(ps);
     }
 
     /* 별점 modify */

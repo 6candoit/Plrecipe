@@ -1,28 +1,31 @@
 package com.sixcandoit.plrecipe_place.query.dto;
 
+import com.sixcandoit.plrecipe_place.query.vo.ResponseMember;
+
 public class PlaceStarDTO {
+
     private int starId;
     private int starPoint;
     private String starComment;
     private int placeId;
-    private int memberId;
+    private ResponseMember member;
 
     public PlaceStarDTO() {
     }
 
-    public PlaceStarDTO(int starPoint, String starComment, int placeId, int memberId) {
-        this.starPoint = starPoint;
-        this.starComment = starComment;
-        this.placeId = placeId;
-        this.memberId = memberId;
-    }
-
-    public PlaceStarDTO(int starId, int starPoint, String starComment, int placeId, int memberId) {
+    public PlaceStarDTO(int starId, int starPoint, String starComment, int placeId, ResponseMember member) {
         this.starId = starId;
         this.starPoint = starPoint;
         this.starComment = starComment;
         this.placeId = placeId;
-        this.memberId = memberId;
+        this.member = member;
+    }
+
+    public PlaceStarDTO(int starPoint, String starComment, int placeId, ResponseMember member) {
+        this.starPoint = starPoint;
+        this.starComment = starComment;
+        this.placeId = placeId;
+        this.member = member;
     }
 
     public int getStarId() {
@@ -57,22 +60,12 @@ public class PlaceStarDTO {
         this.placeId = placeId;
     }
 
-    public int getMemberId() {
-        return memberId;
+    public ResponseMember getMember() {
+        return member;
     }
 
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
+    public void setMember(ResponseMember member) {
+        this.member = member;
     }
 
-    @Override
-    public String toString() {
-        return "PlaceStarDTO{" +
-                "starId=" + starId +
-                ", starPoint=" + starPoint +
-                ", starComment='" + starComment + '\'' +
-                ", placeId=" + placeId +
-                ", memberId=" + memberId +
-                '}';
-    }
 }
