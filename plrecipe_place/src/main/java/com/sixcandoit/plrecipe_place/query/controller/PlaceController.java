@@ -1,19 +1,14 @@
 package com.sixcandoit.plrecipe_place.query.controller;
 
 import com.sixcandoit.plrecipe_place.query.dto.CourseDTO;
-import com.sixcandoit.plrecipe_place.query.dto.PlaceDTO;
-import com.sixcandoit.plrecipe_place.query.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.query.dto.SearchPlaceDTO;
 import com.sixcandoit.plrecipe_place.query.aggregate.CourseAndPlace;
 import com.sixcandoit.plrecipe_place.query.aggregate.Place;
 import com.sixcandoit.plrecipe_place.query.aggregate.PlaceStar;
-import com.sixcandoit.plrecipe_place.query.service.CourseService;
 import com.sixcandoit.plrecipe_place.query.service.PlaceService;
 import com.sixcandoit.plrecipe_place.query.service.PlaceServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,12 +19,10 @@ import java.util.Map;
 @Slf4j
 public class PlaceController {
     private final PlaceService placeService;
-    private final CourseService courseService;
 
     @Autowired
-    public PlaceController(PlaceServiceImpl placeService, CourseService courseService) {
+    public PlaceController(PlaceServiceImpl placeService) {
         this.placeService = placeService;
-        this.courseService = courseService;
     }
 
     /* 설명. 장소 관련 */
@@ -55,24 +48,6 @@ public class PlaceController {
         return placeService.selectPlaceByFilter(filter);
     }
 
-    /* 장소 등록 */
-    @PostMapping("/regist")
-    public ResponseEntity<PlaceDTO> registPlace(@RequestBody PlaceDTO newPlace){
-        System.out.println("newPlace = " + newPlace);
-        placeService.registPlace(newPlace);
-
-       return ResponseEntity.status(HttpStatus.CREATED).body(newPlace);
-    }
-
-    /* 장소 삭제 */
-    @DeleteMapping("/delete/{placeId}")
-    public ResponseEntity<?> deletePlace(@PathVariable int placeId){
-
-        placeService.deletePlace(placeId);
-
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
-
 
     // 설명. 별점 관련
 
@@ -88,79 +63,25 @@ public class PlaceController {
         return placeService.selectStarByMember(memberId);
     }
 
-    /* 별점 등록 */
-    @PostMapping("star/regist")
-    public ResponseEntity<PlaceStarDTO> registStar(@RequestBody PlaceStarDTO newPlaceStar){
-
-        placeService.registStar(newPlaceStar);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(newPlaceStar);
-    }
-
-    /* 별점 수정 */
-    @PatchMapping ("star/modify")
-    public ResponseEntity<PlaceStarDTO> modifyStar(@RequestBody PlaceStarDTO modifyPlaceStar){
-
-        placeService.modifyStar(modifyPlaceStar);
-
-        return ResponseEntity.status(HttpStatus.OK).body(modifyPlaceStar);
-    }
-
-    /* 별점 삭제 */
-    @DeleteMapping("/star/delete/{starId}")
-    public ResponseEntity<?> deleteStar(@PathVariable int starId){
-
-        placeService.deleteStar(starId);
-
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
 
     /* 설명. 코스 관련 */
 
     /* 코스id로 코스와 코스에 등록된 장소 리스트 조회 */
     @GetMapping("/course/findInfo/{courseId}")
     public CourseAndPlace selectCoursePlaceByCourseId(@PathVariable int courseId){
-        return courseService.selectCoursePlaceByCourseId(courseId);
+        return placeService.selectCoursePlaceByCourseId(courseId);
     }
 
     /* 멤버id로 멤버가 생성한 코스 조회 */
     @GetMapping("/course/findUserId/{memberId}")
     List<CourseDTO> selectCourseByMember(@PathVariable int memberId){
-        return courseService.selectCourseByMember(memberId);
+        return placeService.selectCourseByMember(memberId);
     }
 
     /* 코스id로 장소만 불러오기 */
     @GetMapping("/course/findPlaces/{courseId}")
     List<Place> getPlacesByCourseName(@PathVariable int courseId){
-        return courseService.getPlacesByCourseName(courseId);
+        return placeService.getPlacesByCourseName(courseId);
     }
-
-    /* 코스 등록 */
-    @PostMapping("/course/regist")
-    public ResponseEntity<?> registCourse(@RequestBody CourseAndPlace newCoursePlace){
-
-        courseService.registCourse(newCoursePlace);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(newCoursePlace);
-    }
-
-    /* 코스 수정 */
-    @PatchMapping ("course/modify")
-    public ResponseEntity<?> modifyCourse(@RequestBody CourseAndPlace modifyCoursePlace){
-
-        courseService.modifyCourse(modifyCoursePlace);
-
-        return ResponseEntity.status(HttpStatus.OK).body(modifyCoursePlace);
-    }
-
-    /* 코스 삭제 */
-    @DeleteMapping("/course/delete/{courseId}")
-    public ResponseEntity<?> deleteCourse(@PathVariable int courseId){
-
-        courseService.deleteCourse(courseId);
-
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
-
 
 }

@@ -1,15 +1,14 @@
 package com.sixcandoit.plrecipe_place.query.service;
 
-import com.sixcandoit.plrecipe_place.query.dto.PlaceDTO;
-import com.sixcandoit.plrecipe_place.query.dto.PlaceStarDTO;
+import com.sixcandoit.plrecipe_place.query.aggregate.Course;
+import com.sixcandoit.plrecipe_place.query.aggregate.CourseAndPlace;
+import com.sixcandoit.plrecipe_place.query.client.MemberServiceClient;
+import com.sixcandoit.plrecipe_place.query.dto.CourseDTO;
 import com.sixcandoit.plrecipe_place.query.dto.SearchPlaceDTO;
 import com.sixcandoit.plrecipe_place.query.aggregate.Place;
 import com.sixcandoit.plrecipe_place.query.aggregate.PlaceStar;
-import com.sixcandoit.plrecipe_place.query.repository.CoursePlaceRepository;
 import com.sixcandoit.plrecipe_place.query.repository.PlaceMapper;
-import com.sixcandoit.plrecipe_place.query.repository.PlaceRepository;
-import com.sixcandoit.plrecipe_place.query.repository.PlaceStarRepository;
-import jakarta.transaction.Transactional;
+import com.sixcandoit.plrecipe_place.query.vo.ResponseMember;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -30,25 +29,22 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class PlaceServiceImpl implements PlaceService {
 
-    public PlaceServiceImpl(ModelMapper mapper, PlaceRepository placeRepository, PlaceStarRepository placeStarRepository, CoursePlaceRepository coursePlaceRepository, PlaceMapper placeMapper, Environment env) {
+    private final ModelMapper mapper;
+    private final PlaceMapper placeMapper;
+    private final MemberServiceClient memberServiceClient;
+    private final Environment env;
+
+    public PlaceServiceImpl(ModelMapper mapper, PlaceMapper placeMapper, MemberServiceClient memberServiceClient, Environment env) {
         this.mapper = mapper;
-        this.placeRepository = placeRepository;
-        this.placeStarRepository = placeStarRepository;
-        this.coursePlaceRepository = coursePlaceRepository;
         this.placeMapper = placeMapper;
+        this.memberServiceClient = memberServiceClient;
         this.env = env;
     }
-
-    private final ModelMapper mapper;
-    private final PlaceRepository placeRepository;
-    private final PlaceStarRepository placeStarRepository;
-    private final CoursePlaceRepository coursePlaceRepository;
-    private final PlaceMapper placeMapper;
-    private Environment env;
 
 
     /* 모든 장소 select */
@@ -60,7 +56,7 @@ public class PlaceServiceImpl implements PlaceService {
     public List<Place> selectPlaceById(int placeId) {
 
         List<Place> place = new ArrayList<>();
-        place.add(placeRepository.findById(placeId).orElseThrow(IllegalArgumentException::new));
+        place.add(placeMapper.selectPlaceById(placeId));
 
         return place;
     }
@@ -96,37 +92,34 @@ public class PlaceServiceImpl implements PlaceService {
         return placeMapper.selectStarByMember(memberId);
     }
 
-    /* 장소 insert */
-    public void registPlace(PlaceDTO newPlace) {
+    /* 멤버id로 멤버가 작성한 코스 리스트 select */
+    public List<CourseDTO> selectCourseByMember(int memberId){
+
+        List<Course> courseList = placeMapper.selectCourseByMember(memberId);
+
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        placeRepository.save(mapper.map(newPlace, Place.class));
+        List<CourseDTO> courseDTOList = courseList.stream()
+                .map(course -> mapper.map(course, CourseDTO.class))
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < courseDTOList.size(); i++) {
+            ResponseMember rm = memberServiceClient.getMemberInfo(courseList.get(i).getMemberId());
+            courseDTOList.get(i).setMember(rm);
+        }
+
+        return courseDTOList;
     }
 
-    /* 별점 insert */
-    public void registStar(PlaceStarDTO newStar) {
-        placeStarRepository.save(mapper.map(newStar, PlaceStar.class));
+    /* 코스id로 한 코스의 정보와 코스에 해당하는 장소 리스트 select (CoursePlace) */
+    public CourseAndPlace selectCoursePlaceByCourseId(int courseId){
+        return placeMapper.selectCoursePlaceByCourseId(courseId);
     }
 
-    /* 별점 modify */
-    @Transactional
-    public void modifyStar(PlaceStarDTO modifyStar) {
-        PlaceStar foundStar = placeStarRepository.findById(modifyStar.getStarId()).orElseThrow(IllegalArgumentException::new);
-        foundStar.setStarPoint(modifyStar.getStarPoint());
-        foundStar.setStarComment(modifyStar.getStarComment());
+    /* 코스id에 해당하는 장소 리스트 select */
+    public List<Place> getPlacesByCourseName(int courseId){
+        return placeMapper.getPlacesByCourseName(courseId);
     }
 
-    /* 장소 delete */
-    @Transactional
-    public void deletePlace(int placeId) {
-        coursePlaceRepository.deleteAllByPlaceId(placeId);
-        placeRepository.deleteById(placeId);
-    }
-
-    /* 별점 delete */
-    @Override
-    public void deleteStar(int starId) {
-        placeStarRepository.deleteById(starId);
-    }
 
     /* 카카오 장소 rest-api로 사용자가 검색한 키워드 장소 검색해서 반환 */
     private JSONArray getSearchPlaceByKeyword(String keyword){

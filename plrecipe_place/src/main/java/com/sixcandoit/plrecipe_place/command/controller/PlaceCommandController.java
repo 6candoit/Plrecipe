@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-public class PlaceController {
+public class PlaceCommandController {
     private final PlaceService placeService;
 
     @Autowired
-    public PlaceController(PlaceService placeService) {
+    public PlaceCommandController(PlaceService placeService) {
         this.placeService = placeService;
     }
 
@@ -25,7 +25,7 @@ public class PlaceController {
     /* 장소 등록 */
     @PostMapping("/regist")
     public ResponseEntity<PlaceDTO> registPlace(@RequestBody PlaceDTO newPlace){
-        System.out.println("newPlace = " + newPlace);
+
         placeService.registPlace(newPlace);
 
        return ResponseEntity.status(HttpStatus.CREATED).body(newPlace);
