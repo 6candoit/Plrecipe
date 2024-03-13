@@ -92,6 +92,8 @@
 
 </div>
 
+[추가적인 학습 내용 또는 관련 기술 설명 WIKI 바로가기](https://github.com/beyond-sw-camp/be04-2nd-6candoit-plrecipe/wiki)
+
 ## 🗓️ WBS
 
 <div align="center">
@@ -182,106 +184,34 @@
 
 ## 📱 DDD(Event-Storming/Context-Map) 설계
 
-**Event-Storming이란<br/>**
-: 서비스와 관계 있는 모든 이해관계자들이 서로가 가지고 있는 생각을 공유하며 서비스에서 발생하는 이벤트를 중심(Event-First)으로 분석하는 기법
-<br/>
-
-**Domain Devision Design<br/>**
-: 도메인 패턴을 중심에 놓고 설계하는 방식<br/>
-
-- 도메인 그 자체와 도메인 로직에 초점을 맞춘다. 일반적으로 많이 사용하는 데이터 중심의 접근법을 탈피해서 순수한 도메인의 모델과 로직에 집중하는 것
-- 보편적인(ubiquitous) 언어의 사용. 도메인 전문가와 소프트웨어 개발자 간의 커뮤니케이션 문제를 없애고 상호가 이해할 수 있고 모든 문서와 코드에 이르기까지 동일한 표현과 단어로 구성된 단일화된 언어체계를 구축해나가는 과정. 이로서 분석 작업과 설계 그리고 구현에 이르기까지 통일된 방식으로 커뮤니케이션이 가능해짐.
-- 소프트웨어 엔티티와 도메인 컨셉트를 가능한 가장 가까이 일치시킴. 분석 모델과 설계가 다르고 그것과 코드가 다른 구조가 아니라 도메인 모델부터 코드까지 항상 함께 움직이는 구조의 모델을 지향하는 것이 DDD의 핵심원리.
-
-1. Domain Event
-: 발생하는 모든 이벤트(도메인 내 변경의 파생 작업)
-
-2. External System
-: 외부 시스템(외부 Api)
-
-3. Command
-: 각 도메인 이벤트를 발생시키는 명령
-
-4. Hot Spot
-: DDD 설계 중 추후에 논의할 점(해결될 경우에 탈착)
-
-5. Actor
-: 이벤트의 주체
-
-6. Aggregate
-: Command 수행을 위해 CRUD해야 하는 데이터 객체 정의
-
-7. Policy
-: 정책(서비스할 기능)
-
-<details>
-<summary><b>DDD 설계 과정</b></summary>
-
-<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd1.png">
-</div>
-
-1-1. Domain 작성
- 
-<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd2.png">
-</div>
-
-2-1. Command → Domain Event를 기반으로 작성 (명사형)<br/>
-2-2. 각 Domain Event를 발생시키는 명령<br/>
-2-3. 하나의 Command에 2개 이상의 Domain Event 가능<br/>
-2-4. 비슷한 기능들의 Domain Event들끼리 가까운 위치에 추가<br/>
-
-<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd3.png">
-</div>
-
-3-1. Actor → 회원 또는 관리자로 분리<br/>
-3-2. Domain Event를 기준으로 일반 회원 → 그룹장, 그룹원 등 세부화<br/>
-3-3. Actor → 하나의 Command에 두 명 이상인 경우 有<br/>
-
-<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd4.png">
-</div>
-
-4-1. Command 수행을 위해 CRUD 해야 하는 데이터 객체 정의<br/>
-4-2. 작성할 때는 Command가 수행되었을 때 변경되는 데이터 고려해 Aggregate 작성<br/>
-4-3. 장소 별점 관련 Policy 추가<br/>
-4-4. 고도화 고려 및 장소 등록 관련 추가 메모 작성<br/>
+<b>DDD 설계 과정</b>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd5.png">
 </div>
 
-5-1. 정책 추가<br/>
-5-2. 메모 추가(기능의 정확한 정의, 고도화 가능성)<br/>
+- 정책 추가<br/>
+- 메모 추가(기능의 정확한 정의, 고도화 가능성)<br/>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd6.png">
 </div>
 
-6-1. 게시글 / 게시글(부가기능) / 게시글 댓글 / 장소 / 회원 / 그룹 / 계정 정보<br/>
-6-2. Domain으로 분리<br/>
+- 게시글 / 게시글(부가기능) / 게시글 댓글 / 장소 / 회원 / 그룹 / 계정 정보<br/>
+- Domain으로 분리<br/>
 
 <div align="center">
 <img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd7.png">
 </div>
 
-7-1. Boundary(경계): 각 도메인 모델의 경계를 정의함. 이는 모델이 관리하는 데이터와 비즈니스 규칙을 나타냄.<br/>
-7-2. Relationships(관계): 다른 도메인 모델과의 관계를 정의함. 이는 모델 간에 어떤 종류의 통신이 필요한지를 보여줌.<br/>
-7-3. Shared Kernel(공유 커널): 두 개 이상의 도메인 모델 간에 공유되는 부분을 나타냄. 이는 각 모델이 특정 비즈니스 기능을 수행하는 데 필요한 공통 요소를 나타냄.<br/>
-7-4. Customer/Supplier Relationships(고객/공급자 관계): 서로 다른 도메인 모델 간에 발생하는 요청과 응답의 흐름을 나타냄. 이는 서로 다른 모델 간에 어떤 종류의 통신이 이루어지는지를 보여줌.<br/>
+- Boundary(경계): 각 도메인 모델의 경계를 정의함. 이는 모델이 관리하는 데이터와 비즈니스 규칙을 나타냄.<br/>
+- Relationships(관계): 다른 도메인 모델과의 관계를 정의함. 이는 모델 간에 어떤 종류의 통신이 필요한지를 보여줌.<br/>
+- Shared Kernel(공유 커널): 두 개 이상의 도메인 모델 간에 공유되는 부분을 나타냄. 이는 각 모델이 특정 비즈니스 기능을 수행하는 데 필요한 공통 요소를 나타냄.<br/>
+- Customer/Supplier Relationships(고객/공급자 관계): 서로 다른 도메인 모델 간에 발생하는 요청과 응답의 흐름을 나타냄. 이는 서로 다른 모델 간에 어떤 종류의 통신이 이루어지는지를 보여줌.<br/>
 <br/>
-***7-5. 위의 4가지를 고려해서 Context Mapping<br/>***
 
-<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/d674c62d4db5c1a6e0f6d8234bc6c7aea9384b24/PNG/ddd8.png">
-</div>
+***위의 4가지를 고려해서 Context Mapping<br/>***
 
-8-1. Root 설정 후 중간객체 생성<br/>
-8-2. 정책 재설정
-
-</details>
 <br/>
 
 <strong>* Context Map</strong>
@@ -346,7 +276,8 @@ CREATE TABLE `post` (
    `member_id`   INT   NOT NULL,
    `course_id`   INT   NOT NULL,
    `is_post_public`   CHAR(1) NOT NULL    DEFAULT 'Y',
-   `member_count`   ENUM('ONE', 'TWO', 'MANY')   NOT NULL
+   `member_count`   ENUM('ONE', 'TWO', 'MANY')   NOT NULL,
+   `group_id` INT NULL
 );
 
 CREATE TABLE `plrecipe_group` (
@@ -362,7 +293,8 @@ CREATE TABLE `plrecipe_group` (
 CREATE TABLE `follow_info` (
    `follow_id`   INT   NOT NULL AUTO_INCREMENT PRIMARY KEY,
    `user_follow`   INT   NOT NULL,
-   `user_follower`  INT   NOT NULL
+   `user_follower`  INT   NOT NULL,
+   UNIQUE KEY unique_follow_info(user_follow, user_follower)
 );
 
 CREATE TABLE `place_star` (
@@ -370,7 +302,8 @@ CREATE TABLE `place_star` (
    `star_point`   INT   NOT NULL,
    `star_comment`   VARCHAR(255)   NULL,
    `place_id`   INT   NOT NULL,
-   `member_id`   INT   NOT NULL
+   `member_id`   INT   NOT NULL,
+   UNIQUE KEY unique_place_star(place_id, member_id)
 );
 
 CREATE TABLE `place` (
@@ -440,7 +373,12 @@ CREATE TABLE `post_like` (
 -- ALTER TABLE `member_info` ADD CONSTRAINT `PK_MEMBER_INFO` PRIMARY KEY (
 --    `member_id`
 -- );
-
+ALTER TABLE `post` ADD CONSTRAINT `FK_plrecipe_group_TO_post_1` FOREIGN KEY (
+   `group_id`
+)
+REFERENCES `plrecipe_group` (
+   `group_id`
+);
 
 ALTER TABLE `post` ADD CONSTRAINT `FK_member_info_TO_post_1` FOREIGN KEY (
    `member_id`
@@ -581,89 +519,13 @@ REFERENCES `post` (
 
 
 ## ⚪ Project Architecture(프로젝트 아키텍처)
-### 1. Monolith Architecture(모놀리스 아키텍처)
-<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/monolith_image.png" height=250>
-</div>
-<br/>
 
-- 다양한 서비스들이 '애플리케이션' 하나에 전부 모여있음
-- 각 서비스 실행할 경우 하나로 모여있는 서버로 요청
-- 서버에서 요청을 처리
+|1. Monolith Architecture(모놀리스 아키텍처)|2. MicroService Architecture(마이크로 서비스 아키텍처)|
+|:---:|:---:|
+|<img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/monolith_image.png" height=250>|<img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/microservice_image.png" height=250>|
+|- 다양한 서비스들이 '애플리케이션' 하나에 전부 모여있음<br>- 각 서비스 실행할 경우 하나로 모여있는 서버로 요청<br>- 서버에서 요청을 처리|- 비즈니스 도메인을 기준으로 독립적으로 구성된 서비스<br>- 서비스들은 독립적인 배포가 가능<br>- 서비스들은 네트워크를 통해 서로 통신<br>- 서비스별로 데이터베이스 소유|
 
-**1-1. Monolith Architecture의 장점**
-
-&nbsp;&nbsp;a. 간단한 배포 방식
-
-&nbsp;&nbsp;b. 개발 워크플로우 용이
-
-&nbsp;&nbsp;c. 테스트 단순화
-
-&nbsp;&nbsp;d. 코드의 재사용 용이
-
-**1-2. Monolith Architecture의 단점** 
-
-&nbsp;&nbsp;a. 높은 결합도 - 혼란스로운 경계선(소유권)
-
-&nbsp;&nbsp;b. 혼란스로운 경계선(소유권)
-
-
-### 2. MicroService Architecture(마이크로 서비스 아키텍처)
-<div align="center">
-<img src="https://github.com/6candoit/Plrecipe/blob/637599a4f5d49fde05fffae4919f2709a826839a/PNG/microservice_image.png" height=250>
-</div>
-<br/>
-
-- 비즈니스 도메인을 기준으로 독립적으로 구성된 서비스
-- 서비스들은 독립적인 배포가 가능
-- 서비스들은 네트워크를 통해 서로 통신
-- 서비스별로 데이터베이스 소유
-
-***2-1. 마이크로 서비스의 장점***
-
-- 독립적인 특성으로 인해 확장성, 견고성
-
-- 개발시 서비스(업무) 별로 방해받지 않고 자신의 업무에 집중할 수 있음
-
-- 언어, 플랫폼, 데이터베이스 등 종류에 상관없이 조합 가능
-
-***2-2. 마이크로 서비스의 단점***
-
-- 다수의 네트워크 통신으로 예측이 힘들고 패킷 손실이 야기될 수 있음
-
-- 서비스를 분산할 수로 높은 비용, 시스템의 복잡도 상승, 고도의 기술이 필요
-
-***A. 사용자 인터페이스***
-
-- 마이크로 서비스를 사용 시 UI도 고려해야 됨
-
-***B. 기술***
-
-- 장점중 하나인 [언어, 플랫폼, 데이터베이스 등 종류에 상관없이 조합 가능]과 같이 기술의 제한 없이 구축 가능
-
-***2-3. 결합도와 응집력***
-
-마이크로 서비스 아키텍처의 가장 중요한 요소는 결합도와 응집력.(응집력 높고 결합도 낮은게 안정적)
-
-a. 응집력(Cohesion)
-
-- 관련된 것끼리 묶인것
-
-- 변경시 함께 바뀜
-
-b. 결합도(Coupling)
-
-- 다른 것과 연관된 것
-
-- 결합된 서비스 전체를 신경 써야 됨
-
-- 정보은닉 필요
-
-- 결합도 종류
-- 구현 결합도 : 데이터베이스를 공유<br/>
-- 시간적 결합도 : 동기, 비동기 등 호출 실행 시간에 관련된 결합도<br/>
-- 배포 결합도 : 모놀리스 형식이기 때문에 배포 시 모든 것을 함께 배포<br/>
-- 도메인 결합도 : 서비스 도메인 간의 연결<br/>
+<hr>
 
 ### 프로젝트 아키텍처
 
@@ -677,15 +539,6 @@ b. 결합도(Coupling)
  <img src="https://github.com/6candoit/Plrecipe/blob/5fc203e0989f0f13a5a119b9e1f75cd48b280bce/PNG/plrecipe_architecture_test1.drawio1.png" height=320>
 </div>
 <br/>
-
-아키텍처를 구성하기 위해 신경써야할 요소
-1. 장애를 감안한 설계
-2. 모든 계층의 보안
-3. 다양한 스토리지 활용
-4. 유연한 구조
-5. 병렬 처리
-6. 느슨한 결합
-7. 새로운 시도
 
 <div align="center">
  <img src="https://github.com/6candoit/Plrecipe/blob/5fc203e0989f0f13a5a119b9e1f75cd48b280bce/PNG/plrecipe_architecture_test1.drawio2.png" height=500>
@@ -702,12 +555,6 @@ b. 결합도(Coupling)
 ## 🟡 Eureka Server
 <p align="center"><img src="https://github.com/6candoit/Plrecipe/blob/3127aa3c06426140eb0887869201fe4d40b9a96f/PNG/eurekaserver.png" height=350></p>
 
-&nbsp;Eureka 서버는 마이크로서비스 아키텍처에서 사용되는 서비스 디스커버리 및 로드 밸런싱 도구 중 하나입니다. Netflix에서 개발한 Eureka는 클라우드 환경에서 동적으로 변하는 서비스 인스턴스를 관리하고, 이를 검색할 수 있는 기능을 제공합니다.
-
-&nbsp;기본적으로 Eureka는 클라이언트-서버 아키텍처를 따릅니다. Eureka 서버는 서비스 레지스트리의 역할을 하며, 서비스 인스턴스들이 등록되고 각 서비스 인스턴스의 상태를 추적합니다. 클라이언트는 Eureka 서버에 자신의 위치를 등록하고, 다른 서비스 인스턴스들의 위치를 검색할 수 있습니다.
-
-### Eureka Server 기능
-
 1. 서비스 등록: 서비스 인스턴스가 시작될 때, 해당 서비스를 Eureka 서버에 등록.
 
 2. 서비스 검색: 클라이언트 애플리케이션이 다른 서비스 인스턴스의 위치를 검색. 이를 통해 클라이언트는 동적으로 서비스 위치를 찾아서 통신.
@@ -715,45 +562,12 @@ b. 결합도(Coupling)
 3. 서비스 상태 감시: Eureka는 등록된 서비스 인스턴스들의 상태를 주기적으로 감시하고, 문제가 발생한 인스턴스들을 자동으로 감지하고 제거함.
 
 ## 🟠 API 개발 및 설계 도구
-### Postman
-<div align="center">
-<figure class="half">
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image.png" height=130></a>
- <a href="link"><img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image2.png" height=130></a>
-</figure>
-<img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image3.png" height=365>
-</div>
-<br/>
-<strong>API 개발 및 테스트를 위한 협업 도구로서, 다양한 기능을 제공하는 플랫폼</strong>
 
-1. API 요청 및 응답 테스트: Postman을 사용하면 다양한 HTTP 메서드(GET, POST, PUT, DELETE 등)를 사용하여 API 엔드포인트에 요청을 보낼 수 있고 헤더, 쿠키, 인증 등 다양한 요청 구성이 가능하며, 받은 응답을 쉽게 확인할 수 있음.
+|Postman|Swagger|
+|:---:|:---:|
+|<img src="https://github.com/6candoit/Plrecipe/blob/3dd1c6b7f23182f45d3cf3b08929bac89136b7e7/PNG/postman_image2.png" height=130>|<img src="https://github.com/6candoit/Plrecipe/blob/a627030605c9c3fc5ab29d1895da59c28b9c406e/PNG/swagger_image.png" height=150>|
+|1. API 요청 및 응답 테스트: Postman을 사용하면 다양한 HTTP 메서드(GET, POST, PUT, DELETE 등)를 사용하여 API 엔드포인트에 요청을 보낼 수 있고 헤더, 쿠키, 인증 등 다양한 요청 구성이 가능하며, 받은 응답을 쉽게 확인할 수 있음.<br>2. 환경 변수 및 변수 활용: Postman에서는 환경 변수를 사용하여 다양한 환경(개발, 테스트, 프로덕션 등)에 대한 설정을 저장하고, 이를 활용하여 요청을 보내거나 테스트를 실행 가능. 또한 변수를 사용하여 동적으로 요청을 생성 가능.<br>3. 모니터링: Postman에서는 API의 성능을 모니터링하고 관리할 수 있는 기능도 제공.|1. 문서 자동 생성: Swagger는 API의 구조를 기반으로 자동으로 API 문서를 생성. 이 문서에는 API의 엔드포인트, 매개변수, 응답 형식, 인증 방법 등에 대한 자세한 설명이 포함.<br>2. 인터랙티브 API 테스트: Swagger UI를 사용하면 API를 테스트할 수 있는 인터랙티브한 환경을 제공. 개발자들은 Swagger UI를 통해 API 엔드포인트를 호출하고 응답을 확인.|
 
-2. 환경 변수 및 변수 활용: Postman에서는 환경 변수를 사용하여 다양한 환경(개발, 테스트, 프로덕션 등)에 대한 설정을 저장하고, 이를 활용하여 요청을 보내거나 테스트를 실행 가능. 또한 변수를 사용하여 동적으로 요청을 생성 가능.
-
-3. 테스트 스크립팅: Postman에서는 JavaScript를 사용하여 테스트 스크립트를 작성할 수 있음. 이를 통해 응답을 자동으로 검증하거나, 특정 조건에 따라 동작을 수행할 수 있음.
-
-4. 콜렉션 및 폴더 관리: Postman은 API 요청을 관리하기 위한 콜렉션과 폴더를 제공. 이를 통해 관련된 요청을 그룹화하고 구조화.
-
-5. 문서화 및 공유: Postman을 사용하여 API 요청을 문서화하고, 이를 공유함. 다른 팀원들과 협업하여 API에 대한 문서를 유지하고 업데이트할 수 있음.
-
-6. 모니터링: Postman에서는 API의 성능을 모니터링하고 관리할 수 있는 기능도 제공.
-
-### Swagger
-<div align="center">
- <img src="https://github.com/6candoit/Plrecipe/blob/a627030605c9c3fc5ab29d1895da59c28b9c406e/PNG/swagger_image.png" height=150>
-</div>
-<br/>
-<strong>RESTful API를 설계, 빌드, 문서화하기 위한 프레임워크. OpenAPI Specification의 일부로, API에 대한 자세한 문서를 제공하여 개발자들이 API를 쉽게 이해하고 사용가능하도록 함</strong>
-
-1. API 설계: Swagger를 사용하여 API 엔드포인트, 매개변수, 헤더, 응답 형식 등을 정의. 이를 통해 API의 구조를 명확하게 정의하고 일관성 있게 유지함.
-
-2. 문서 자동 생성: Swagger는 API의 구조를 기반으로 자동으로 API 문서를 생성. 이 문서에는 API의 엔드포인트, 매개변수, 응답 형식, 인증 방법 등에 대한 자세한 설명이 포함.
-
-3. 인터랙티브 API 테스트: Swagger UI를 사용하면 API를 테스트할 수 있는 인터랙티브한 환경을 제공. 개발자들은 Swagger UI를 통해 API 엔드포인트를 호출하고 응답을 확인.
-
-4. 클라이언트 코드 생성: Swagger를 사용하여 API에 대한 클라이언트 코드를 자동으로 생성. 이를 통해 개발자들은 API를 사용하는 클라이언트 애플리케이션을 쉽게 개발할 수 있음.
-
-5. 인증 및 보안: Swagger를 사용하여 API에 대한 인증 및 보안 기능을 정의. 이를 통해 API를 보호하고 안전하게 사용할 수 있도록 함.
 
 ## 🔴 테스트
 
