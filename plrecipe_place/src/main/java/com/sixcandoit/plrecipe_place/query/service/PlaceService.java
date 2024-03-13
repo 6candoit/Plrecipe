@@ -1,5 +1,7 @@
 package com.sixcandoit.plrecipe_place.query.service;
 
+import com.sixcandoit.plrecipe_place.query.aggregate.CourseAndPlace;
+import com.sixcandoit.plrecipe_place.query.dto.CourseDTO;
 import com.sixcandoit.plrecipe_place.query.dto.PlaceDTO;
 import com.sixcandoit.plrecipe_place.query.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.query.dto.SearchPlaceDTO;
@@ -20,14 +22,8 @@ public interface PlaceService {
     List<PlaceStar> selectStarByMember(int memberId);
     List<Place> selectPlaceById(int placeId);
 
-    void registPlace(PlaceDTO newPlace);
-
-    void registStar(PlaceStarDTO newStar);
-
-    void modifyStar(PlaceStarDTO modifyStar);
-
-    void deletePlace(int placeId);
-
-    void deleteStar(int starId);
+    CourseAndPlace selectCoursePlaceByCourseId(int courseId);
+    List<CourseDTO> selectCourseByMember(int memberId);
+    List<Place> getPlacesByCourseName(int courseId);
 
 }

@@ -1,0 +1,40 @@
+### get Places using kakaoApi
+GET http://localhost:8080/findBasePlace/스타필드
+
+### getPlace
+GET http://localhost:8080/find/5
+
+### getPlaceAll
+GET http://localhost:8080/find
+
+### searchPlaceByFilter
+POST http://localhost:8080/searchPlace
+Content-Type: application/json
+
+{
+  "name":"붕어",
+  "region": null,
+  "category": null,
+  "star": null
+
+}
+
+### selectStarByPlace
+GET http://localhost:8080/star/3
+
+### selectStarByMember
+GET http://localhost:8080/star/member/5
+
+
+### selectCoursePlaceByCourseId
+GET http://localhost:8080/course/findInfo/5
+
+### selectCourseByMember
+GET http://localhost:8080/course/findUserId/3
+
+### getPlacesByCourseId
+GET http://localhost:8080/course/findPlaces/1
+
+
+
+

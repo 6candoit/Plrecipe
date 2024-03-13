@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ### deletePlace
-DELETE http://localhost:8080/delete/33
+DELETE http://localhost:8080/delete/34
 
 ### registStar
 POST http://localhost:8080/star/regist

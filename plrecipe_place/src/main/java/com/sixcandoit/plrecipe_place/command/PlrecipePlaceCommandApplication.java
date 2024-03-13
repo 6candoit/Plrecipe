@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class PlrecipePlaceApplication {
+public class PlrecipePlaceCommandApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PlrecipePlaceApplication.class, args);
+		SpringApplication.run(PlrecipePlaceCommandApplication.class, args);
 	}
 
 	@Bean
