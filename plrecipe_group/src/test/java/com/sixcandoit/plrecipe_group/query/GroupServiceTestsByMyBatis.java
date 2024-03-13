@@ -1,9 +1,8 @@
-package com.sixcandoit.plrecipe_group.feature.group;
+package com.sixcandoit.plrecipe_group.query;
 
-import com.sixcandoit.plrecipe_group.feature.group.dto.GroupDTO;
-import com.sixcandoit.plrecipe_group.feature.group.dto.MemberDTO;
-import com.sixcandoit.plrecipe_group.feature.group.service.GroupService;
-import com.sixcandoit.plrecipe_group.feature.group.service.GroupServiceimpl;
+import com.sixcandoit.plrecipe_group.query.dto.GroupDTO;
+
+import com.sixcandoit.plrecipe_group.query.service.GroupServiceimpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;

@@ -1,4 +1,4 @@
-package com.sixcandoit.plrecipe_group;
+package com.sixcandoit.plrecipe_group.query;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

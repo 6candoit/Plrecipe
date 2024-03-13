@@ -1,6 +1,7 @@
-package com.sixcandoit.plrecipe_group.feature.group;
+package com.sixcandoit.plrecipe_group.command;
 
-import com.sixcandoit.plrecipe_group.feature.group.aggregate.GroupEntity;
+
+import com.sixcandoit.plrecipe_group.command.aggregate.GroupEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

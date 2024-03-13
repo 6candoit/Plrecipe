@@ -5,9 +5,9 @@
     <persistence-unit name="jpatest">
 
         <!-- 설명. 엔티티는 설정에 따로 추가할 것 -->
-        <class>com.sixcandoit.plrecipe_group.feature.group.aggregate.GroupEntity</class>
-        <class>com.sixcandoit.plrecipe_group.feature.group.vo.GroupMember</class>
-        <class>com.sixcandoit.plrecipe_group.feature.group.vo.Member</class>
+        <class>com.sixcandoit.plrecipe_group.command.aggregate.GroupEntity</class>
+        <class>com.sixcandoit.plrecipe_group.command.vo.GroupMember</class>
+        <class>com.sixcandoit.plrecipe_group.command.vo.MemberEntity</class>
         <properties>
 
             <!-- 설명. 데이터베이스 연결 정보 -->
