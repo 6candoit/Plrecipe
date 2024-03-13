@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class PlaceServiceImpl implements PlaceService {
+public class PlaceCommandServiceImpl implements PlaceCommandService {
 
     private final ModelMapper mapper;
     private final PlaceRepository placeRepository;
@@ -27,8 +27,7 @@ public class PlaceServiceImpl implements PlaceService {
     private final CoursePlaceRepository coursePlaceRepository;
     private final PlaceStarRepository placeStarRepository;
 
-
-    public PlaceServiceImpl(ModelMapper mapper, PlaceRepository placeRepository, CourseRepository courseRepository, CoursePlaceRepository coursePlaceRepository, PlaceStarRepository placeStarRepository) {
+    public PlaceCommandServiceImpl(ModelMapper mapper, PlaceRepository placeRepository, CourseRepository courseRepository, CoursePlaceRepository coursePlaceRepository, PlaceStarRepository placeStarRepository) {
         this.mapper = mapper;
         this.placeRepository = placeRepository;
         this.courseRepository = courseRepository;

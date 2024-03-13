@@ -2,7 +2,6 @@ package com.sixcandoit.plrecipe_place.query.dto;
 
 
 public class SearchPlaceDTO {
-
     private String placeName;
     private String placeLocation;
     private String placePhoneNum;

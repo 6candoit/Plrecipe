@@ -3,7 +3,7 @@ package com.sixcandoit.plrecipe_place.command.controller;
 import com.sixcandoit.plrecipe_place.command.dto.CourseAndPlaceDTO;
 import com.sixcandoit.plrecipe_place.command.dto.PlaceDTO;
 import com.sixcandoit.plrecipe_place.command.dto.PlaceStarDTO;
-import com.sixcandoit.plrecipe_place.command.service.PlaceService;
+import com.sixcandoit.plrecipe_place.command.service.PlaceCommandService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 public class PlaceCommandController {
-    private final PlaceService placeService;
+    private final PlaceCommandService placeCommandService;
 
     @Autowired
-    public PlaceCommandController(PlaceService placeService) {
-        this.placeService = placeService;
+    public PlaceCommandController(PlaceCommandService placeCommandService) {
+        this.placeCommandService = placeCommandService;
     }
 
     /* 설명. 장소 관련 */
@@ -26,7 +26,7 @@ public class PlaceCommandController {
     @PostMapping("/regist")
     public ResponseEntity<PlaceDTO> registPlace(@RequestBody PlaceDTO newPlace){
 
-        placeService.registPlace(newPlace);
+        placeCommandService.registPlace(newPlace);
 
        return ResponseEntity.status(HttpStatus.CREATED).body(newPlace);
     }
@@ -35,7 +35,7 @@ public class PlaceCommandController {
     @DeleteMapping("/delete/{placeId}")
     public ResponseEntity<?> deletePlace(@PathVariable int placeId){
 
-        placeService.deletePlace(placeId);
+        placeCommandService.deletePlace(placeId);
 
         return ResponseEntity.status(HttpStatus.OK).build();
     }
@@ -47,7 +47,7 @@ public class PlaceCommandController {
     @PostMapping("star/regist")
     public ResponseEntity<PlaceStarDTO> registStar(@RequestBody PlaceStarDTO newPlaceStar){
 
-        placeService.registStar(newPlaceStar);
+        placeCommandService.registStar(newPlaceStar);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newPlaceStar);
     }
@@ -56,7 +56,7 @@ public class PlaceCommandController {
     @PatchMapping ("star/modify")
     public ResponseEntity<PlaceStarDTO> modifyStar(@RequestBody PlaceStarDTO modifyPlaceStar){
 
-        placeService.modifyStar(modifyPlaceStar);
+        placeCommandService.modifyStar(modifyPlaceStar);
 
         return ResponseEntity.status(HttpStatus.OK).body(modifyPlaceStar);
     }
@@ -65,7 +65,7 @@ public class PlaceCommandController {
     @DeleteMapping("/star/delete/{starId}")
     public ResponseEntity<?> deleteStar(@PathVariable int starId){
 
-        placeService.deleteStar(starId);
+        placeCommandService.deleteStar(starId);
 
         return ResponseEntity.status(HttpStatus.OK).build();
     }
@@ -77,7 +77,7 @@ public class PlaceCommandController {
     @PostMapping("/course/regist")
     public ResponseEntity<?> registCourse(@RequestBody CourseAndPlaceDTO newCoursePlace){
 
-        placeService.registCourse(newCoursePlace);
+        placeCommandService.registCourse(newCoursePlace);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newCoursePlace);
     }
@@ -86,7 +86,7 @@ public class PlaceCommandController {
     @PatchMapping ("/course/modify")
     public ResponseEntity<?> modifyCourse(@RequestBody CourseAndPlaceDTO modifyCoursePlace){
 
-        placeService.modifyCourse(modifyCoursePlace);
+        placeCommandService.modifyCourse(modifyCoursePlace);
 
         return ResponseEntity.status(HttpStatus.OK).body(modifyCoursePlace);
     }
@@ -95,7 +95,7 @@ public class PlaceCommandController {
     @DeleteMapping("/course/delete/{courseId}")
     public ResponseEntity<?> deleteCourse(@PathVariable int courseId){
 
-        placeService.deleteCourse(courseId);
+        placeCommandService.deleteCourse(courseId);
 
         return ResponseEntity.status(HttpStatus.OK).build();
     }
