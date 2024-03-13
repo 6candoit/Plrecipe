@@ -2,7 +2,6 @@ package com.sixcandoit.plrecipe_place.query.service;
 
 import com.sixcandoit.plrecipe_place.query.dto.*;
 import com.sixcandoit.plrecipe_place.query.aggregate.Place;
-import com.sixcandoit.plrecipe_place.query.aggregate.PlaceStar;
 
 import java.util.List;
 import java.util.Map;
@@ -17,6 +16,6 @@ public interface PlaceService {
     List<CourseDTO> selectCourseByMember(int memberId);
     List<Place> getPlacesByCourseName(int courseId);
 
-    List<PlaceStar> selectStarByPlace(int placeId);
-    List<PlaceStar> selectStarByMember(int memberId);
+    List<PlaceStarDTO> selectStarByPlace(int placeId);
+    List<PlaceStarDTO> selectStarByMember(int memberId);
 }

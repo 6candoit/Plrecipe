@@ -13,12 +13,11 @@ public class PlaceStarDTO {
     public PlaceStarDTO() {
     }
 
-    public PlaceStarDTO(int starId, int starPoint, String starComment, int placeId, ResponseMember member) {
+    public PlaceStarDTO(int starId, int starPoint, String starComment, int placeId) {
         this.starId = starId;
         this.starPoint = starPoint;
         this.starComment = starComment;
         this.placeId = placeId;
-        this.member = member;
     }
 
     public PlaceStarDTO(int starPoint, String starComment, int placeId, ResponseMember member) {
@@ -68,4 +67,14 @@ public class PlaceStarDTO {
         this.member = member;
     }
 
+    @Override
+    public String toString() {
+        return "PlaceStarDTO{" +
+                "starId=" + starId +
+                ", starPoint=" + starPoint +
+                ", starComment='" + starComment + '\'' +
+                ", placeId=" + placeId +
+                ", member=" + member +
+                '}';
+    }
 }
