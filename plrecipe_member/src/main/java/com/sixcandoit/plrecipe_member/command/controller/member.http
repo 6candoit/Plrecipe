@@ -1,19 +1,13 @@
-### GET request members
-GET localhost:8000/plrecipe-member/members
-
-### GET request memberById(fail)
-GET localhost:8000/plrecipe-member/searchMember/1
-
 ### PUT regist Member
 POST localhost:8000/plrecipe-member/register
 content-Type: application/json
 
 {
-  "memberEmail": "passtest@naver.com",
-  "password": "000307hello",
-  "memberName": "홍길동",
-  "memberNickname": "kim",
-  "memberNumber": "010-1812-4521",
+  "memberEmail": "babypanda@gmail.com",
+  "password": "fub",
+  "memberName": "김복보",
+  "memberNickname": "김복보",
+  "memberNumber": "010-5264-8146",
   "memberGrade": "ROLL_MEMBER",
   "memberStatus": "Y"
 }
@@ -23,38 +17,29 @@ POST localhost:8000/plrecipe-member/login
 content-Type: application/json
 
 {
-  "memberEmail": "passtest@naver.com",
-  "password": "000307hello"
+  "memberEmail": "chosoobn37@gmail.com",
+  "password": "soobin"
 }
 
 ### PATCH modify Member
-PATCH localhost:8000/plrecipe-member/modify/1
+PATCH localhost:8000/plrecipe-member/modify/4
 Content-Type: application/json
 
 {
-  "memberEmail": "hellotes@naver.com",
-  "password": "newPass01",
-  "memberName": "제갈바오",
-  "memberNickname": "푸야똥",
-  "memberNumber": "010-0307-0307"
+  "memberEmail": "chosoobn37@gmail.com",
+  "password": "soobin",
+  "memberName": "조수빈",
+  "memberNickname": "조먹밥",
+  "memberNumber": "010-3925-6406"
 }
 
 ### PATCH withdraw Member
-PATCH localhost:8000/plrecipe-member/withdraw/1
+PATCH localhost:8000/plrecipe-member/withdraw/33
 Content-Type: application/json
 
 {
   "memberStatus": "N"
 }
-
-### GET request followById(fail)
-GET localhost:8000/plrecipe-member/searchFollow/15
-
-### GET request memberWhoFollowsMe
-GET localhost:8000/plrecipe-member/follower/1
-
-### GET request memberWhoIFollow
-GET localhost:8000/plrecipe-member/following/5
 
 ### PUT insert Follow
 POST localhost:8000/plrecipe-member/new
@@ -66,7 +51,7 @@ content-Type: application/json
 }
 
 ### DELETE delete Follow
-DELETE localhost:8000/plrecipe-member/unfollow/34
+DELETE localhost:8000/plrecipe-member/unfollow/25
 content-Type: application/json
 
 

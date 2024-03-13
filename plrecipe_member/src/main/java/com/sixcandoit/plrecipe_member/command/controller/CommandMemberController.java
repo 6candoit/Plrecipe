@@ -27,18 +27,6 @@ public class CommandMemberController {
         this.modelMapper = modelMapper;
     }
 
-
-
-//    // 회원ID로 회원 조회
-//    @GetMapping("/searchMember/{memberId}")
-//    public ResponseEntity<ResponseMember> selectMemberById(@PathVariable("memberId")int memberId) {
-//
-//        MemberDTO memberDTO = commandMemberService.selectMemberById(memberId);
-//        ResponseMember returnValue = modelMapper.map(memberDTO, ResponseMember.class);
-//
-//        return ResponseEntity.status(HttpStatus.OK).body(returnValue);
-//    }
-
     // 회원정보 수정
     @PatchMapping("/modify/{memberId}")
     public ResponseEntity<Member> modifyMember(@RequestBody RequestMember requestMember, @PathVariable int memberId) {

@@ -1,6 +1,7 @@
 package com.sixcandoit.plrecipe_member.query.controller;
 
 import com.sixcandoit.plrecipe_member.query.dto.FollowDTO;
+import com.sixcandoit.plrecipe_member.query.dto.MemberDTO;
 import com.sixcandoit.plrecipe_member.query.service.FollowService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,11 @@ public class FollowController {
         return followService.selectAllFollows();
     }
 
-//    //  followId로 팔로우 조회
-//    @GetMapping("/searchFollow/{followId}")
-//    public ResponseEntity<ResponseFollow> selectFollowById(@PathVariable("followId") int followId) {
-//        FollowDTO followDTO = commandFollowService.selectFollowById(followId);
-//        ResponseFollow returnValue = modelMapper.map(followDTO, ResponseFollow.class);
-//
-//        return ResponseEntity.status(HttpStatus.OK).body(returnValue);
-//    }
+    // followId로 조회 -> 특정 팔로우 조회
+    @GetMapping("/searchFollow/{followId}")
+    List<MemberDTO> selectFollowById(@PathVariable int followId) {
+        return followService.selectFollowById(followId);
+    }
 
     // 나를 팔로우하는 전체 회원 조회 -> 내 팔로워 조회
     @GetMapping("follower/{userFollow}")

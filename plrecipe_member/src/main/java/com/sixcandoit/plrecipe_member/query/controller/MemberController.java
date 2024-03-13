@@ -3,6 +3,7 @@ package com.sixcandoit.plrecipe_member.query.controller;
 
 import com.sixcandoit.plrecipe_member.query.dto.MemberDTO;
 import com.sixcandoit.plrecipe_member.query.service.MemberService;
+import com.sixcandoit.plrecipe_member.query.service.MemberServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,21 +23,22 @@ public class MemberController {
         this.modelMapper = modelMapper;
     }
 
-    // 회원전체조회
+    // 회원 전체조회
     @GetMapping("/members")
     public List<MemberDTO> selectAllMember() {
         return memberService.selectAllMember();
     }
 
-    // 회원ID로 회원 조회
-//    @GetMapping("/searchMember/{memberId}")
-//    public ResponseEntity<ResponseMember> selectMemberById(@PathVariable("memberId")int memberId) {
-//
-//        MemberDTO memberDTO = commandMemberService.selectMemberById(memberId);
-//        ResponseMember returnValue = modelMapper.map(memberDTO, ResponseMember.class);
-//
-//        return ResponseEntity.status(HttpStatus.OK).body(returnValue);
-//    }
+    // 회원 ID별 조회
+    @GetMapping("/searchMember/{memberId}")
+    List<MemberDTO> selectMemberById(@PathVariable int memberId) {
+        return memberService.selectMemberById(memberId);
+    }
 
+    // 회원별 좋아요 누른 게시글 조회
+    @GetMapping("/searchLike/{memberId}")
+    List<MemberDTO> selectLikeByMemberId(@PathVariable int memberId) {
+        return memberService.selectLikeByMemberId(memberId);
+    }
 
 }

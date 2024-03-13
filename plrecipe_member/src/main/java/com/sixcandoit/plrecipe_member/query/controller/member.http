@@ -1,0 +1,19 @@
+### GET request members
+GET localhost:8000/plrecipe-member/members
+
+### GET request memberById
+GET localhost:8000/plrecipe-member/searchMember/1
+
+### GET request likeByMemberId
+GET localhost:8000/plrecipe-member/searchLike/1
+
+### GET request followById
+GET localhost:8000/plrecipe-member/searchFollow/1
+
+### GET request memberWhoFollowsMe
+GET localhost:8000/plrecipe-member/follower/1
+
+### GET request memberWhoIFollow
+GET localhost:8000/plrecipe-member/following/5
+
+

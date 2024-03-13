@@ -57,11 +57,9 @@ public class CommandLoginController {
 
 //        memberService.registUser(RegisterDTO registerDTO);
 
-        // 생성된 Member 객체를 Member 테이블에 추가
+//        생성된 Member 객체를 Member 테이블에 추가
 //        Member newMember = Member.createMember(user);
         RegisterDTO userDTO = modelMapper.map(user, RegisterDTO.class);
-
-
 
         commandMemberService.registUser(userDTO);
 
@@ -73,13 +71,4 @@ public class CommandLoginController {
 //        memberRepository.save(user);
     }
 
-//    @PostMapping("/register2")
-//    public ResponseEntity<?> register () {
-//
-//        System.out.println("오나");
-//
-//        return ResponseEntity.status(HttpStatus.CREATED).build();
-//
-////        memberRepository.save(user);
-//    }
 }

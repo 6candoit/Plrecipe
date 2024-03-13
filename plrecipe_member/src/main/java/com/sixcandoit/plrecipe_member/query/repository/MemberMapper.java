@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface MemberMapper {
     List<MemberDTO> selectAllMember();
-    List<MemberDTO> selectMemberByLikePost(int memberId);
-//    MemberDTO selectMemberById();
+    List<MemberDTO> selectMemberById(int memberId);
+    List<MemberDTO> selectLikeByMemberId(int memberId);
 
 }

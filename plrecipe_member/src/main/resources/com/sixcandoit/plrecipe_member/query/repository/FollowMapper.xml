@@ -25,20 +25,29 @@
         FROM FOLLOW_INFO A
     </select>
 
+    <select id="selectFollowById" parameterType="_int" resultMap="memberFollowMap">
+        SELECT
+              A.FOLLOW_ID
+            , A.USER_FOLLOW
+            , A.USER_FOLLOWER
+        FROM FOLLOW_INFO A
+        WHERE A.FOLLOW_ID = #{followId};
+    </select>
+
     <select id="selectMemberWhoFollowsMe" parameterType="_int" resultMap="memberFollowMap">
         SELECT
-          A.FOLLOW_ID
-        , A.USER_FOLLOW
-        , A.USER_FOLLOWER
+              A.FOLLOW_ID
+            , A.USER_FOLLOW
+            , A.USER_FOLLOWER
         FROM follow_info A
         WHERE A.USER_FOLLOW = #{userFollow};
     </select>
 
     <select id="selectMemberWhoIFollow" parameterType="_int" resultMap="memberFollowerMap">
         SELECT
-        A.FOLLOW_ID
-        , A.USER_FOLLOW
-        , A.USER_FOLLOWER
+              A.FOLLOW_ID
+            , A.USER_FOLLOW
+            , A.USER_FOLLOWER
         FROM follow_info A
         WHERE A.USER_FOLLOWER = #{userFollower};
     </select>

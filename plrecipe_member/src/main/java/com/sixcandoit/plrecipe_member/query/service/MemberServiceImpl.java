@@ -23,4 +23,14 @@ public class MemberServiceImpl implements MemberService{
     public List<MemberDTO> selectAllMember() {
         return memberMapper.selectAllMember();
     }
+
+    @Override
+    public List<MemberDTO> selectMemberById(int memberId) {
+        return memberMapper.selectMemberById(memberId);
+    }
+
+    @Override
+    public List<MemberDTO> selectLikeByMemberId(int memberId) {
+        return memberMapper.selectLikeByMemberId(memberId);
+    }
 }
