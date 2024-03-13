@@ -1,7 +1,7 @@
 package com.sixcandoit.plrecipe_post.feature.post;
 
-import com.sixcandoit.plrecipe_post.aggregate.MemberCount;
-import com.sixcandoit.plrecipe_post.aggregate.Post;
+import com.sixcandoit.plrecipe_post.query.aggregate.MemberCount;
+import com.sixcandoit.plrecipe_post.query.aggregate.Post;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

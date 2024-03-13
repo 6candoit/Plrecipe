@@ -1,6 +1,6 @@
 package com.sixcandoit.plrecipe_post.feature.post;
 
-import com.sixcandoit.plrecipe_post.vo.hashtag.Hashtag;
+import com.sixcandoit.plrecipe_post.command.aggregate.Hashtag;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
