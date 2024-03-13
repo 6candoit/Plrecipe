@@ -1,6 +1,5 @@
 package com.sixcandoit.plrecipe_place.command.dto;
 
-import com.sixcandoit.plrecipe_place.command.aggregate.Course;
 import com.sixcandoit.plrecipe_place.command.aggregate.Place;
 import com.sixcandoit.plrecipe_place.query.vo.ResponseMember;
 
