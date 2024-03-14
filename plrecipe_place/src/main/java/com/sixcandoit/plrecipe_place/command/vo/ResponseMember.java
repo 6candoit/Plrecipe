@@ -5,12 +5,12 @@ public class ResponseMember {
     private int memberId;
     private String memberName;
     private String memberNickname;
-    private MemberGradeVO memberGrade;
+    private MemberGrade memberGrade;
 
     public ResponseMember() {
     }
 
-    public ResponseMember(int memberId, String memberName, String memberNickname, MemberGradeVO memberGrade) {
+    public ResponseMember(int memberId, String memberName, String memberNickname, MemberGrade memberGrade) {
         this.memberId = memberId;
         this.memberName = memberName;
         this.memberNickname = memberNickname;
@@ -41,11 +41,11 @@ public class ResponseMember {
         this.memberNickname = memberNickname;
     }
 
-    public MemberGradeVO getMemberGrade() {
+    public MemberGrade getMemberGrade() {
         return memberGrade;
     }
 
-    public void setMemberGrade(MemberGradeVO memberGrade) {
+    public void setMemberGrade(MemberGrade memberGrade) {
         this.memberGrade = memberGrade;
     }
 
