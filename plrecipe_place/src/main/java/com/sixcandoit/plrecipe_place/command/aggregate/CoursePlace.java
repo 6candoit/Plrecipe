@@ -2,7 +2,7 @@ package com.sixcandoit.plrecipe_place.command.aggregate;
 
 import jakarta.persistence.*;
 
-@Entity(name = "plrecipe_course_and_place")
+@Entity(name = "plrecipe_course_place")
 @Table(name = "course_place")
 public class CoursePlace {
 
