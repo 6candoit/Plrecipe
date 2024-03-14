@@ -44,7 +44,7 @@ public class PlaceCommandController {
     // 설명. 별점 관련
 
     /* 별점 등록 */
-    @PostMapping("star/regist")
+    @PostMapping("/star/regist")
     public ResponseEntity<PlaceStarDTO> registStar(@RequestBody PlaceStarDTO newPlaceStar){
 
         placeCommandService.registStar(newPlaceStar);
@@ -53,7 +53,7 @@ public class PlaceCommandController {
     }
 
     /* 별점 수정 */
-    @PatchMapping ("star/modify")
+    @PatchMapping ("/star/modify")
     public ResponseEntity<PlaceStarDTO> modifyStar(@RequestBody PlaceStarDTO modifyPlaceStar){
 
         placeCommandService.modifyStar(modifyPlaceStar);

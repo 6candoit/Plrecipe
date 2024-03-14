@@ -12,7 +12,6 @@ public class PlaceCategory {
     @Id
     @Column(name = "place_category_id")
     private int placeCategoryId;
-
     @Column(name = "place_category_name")
     private String placeCategoryName;
 

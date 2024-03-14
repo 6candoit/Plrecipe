@@ -3,7 +3,9 @@ package com.sixcandoit.plrecipe_place.query.service;
 import com.sixcandoit.plrecipe_place.query.aggregate.Course;
 import com.sixcandoit.plrecipe_place.query.aggregate.CourseAndPlace;
 import com.sixcandoit.plrecipe_place.query.client.MemberServiceClient;
+import com.sixcandoit.plrecipe_place.query.dto.CourseAndPlaceDTO;
 import com.sixcandoit.plrecipe_place.query.dto.CourseDTO;
+import com.sixcandoit.plrecipe_place.query.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.query.dto.SearchPlaceDTO;
 import com.sixcandoit.plrecipe_place.query.aggregate.Place;
 import com.sixcandoit.plrecipe_place.query.aggregate.PlaceStar;
@@ -46,22 +48,6 @@ public class PlaceServiceImpl implements PlaceService {
         this.env = env;
     }
 
-    /* 모든 장소 select */
-    public List<Place> selectAllPlace() {
-        return placeMapper.selectAllPlace();
-    }
-
-    /* 장소 select */
-    public List<Place> selectPlaceById(int placeId) {
-
-        List<Place> place = new ArrayList<>();
-        place.add(placeMapper.selectPlaceById(placeId));
-
-        return place;
-    }
-
-    public List<Place> selectPlaceByFilter(Map<String, Object> filter) { return placeMapper.selectPlaceByFilter(filter);}
-
     public List<SearchPlaceDTO> getSearchPlaceByAPI(String keyword){
 
         /* restApi 이용해서 사용자가 검색한 장소 리스트 JSONArray로 가져오기 */
@@ -83,12 +69,49 @@ public class PlaceServiceImpl implements PlaceService {
         return searchPlaceList;
     }
 
+    /* 모든 장소 select */
+    public List<Place> selectAllPlace() {
+        return placeMapper.selectAllPlace();
+    }
+
+    /* 장소 select */
+    public List<Place> selectPlaceById(int placeId) {
+
+        List<Place> place = new ArrayList<>();
+        place.add(placeMapper.selectPlaceById(placeId));
+
+        return place;
+    }
+
+    public List<Place> selectPlaceByFilter(Map<String, Object> filter) { return placeMapper.selectPlaceByFilter(filter);}
+
     /* 장소에 달린 별점 select */
-    public List<PlaceStar> selectStarByPlace(int placeId) { return placeMapper.selectStarByPlace(placeId);}
+    public List<PlaceStarDTO> selectStarByPlace(int placeId) {
+
+        List<PlaceStar> placeStarList = placeMapper.selectStarByPlace(placeId);
+        return changePlaceStarToPlaceStarDTO(placeStarList);
+    }
 
     /* 멤버id로 멤버가 작성한 별점 리스트 select  */
-    public List<PlaceStar> selectStarByMember(int memberId){
-        return placeMapper.selectStarByMember(memberId);
+    public List<PlaceStarDTO> selectStarByMember(int memberId){
+
+        List<PlaceStar> placeStarList = placeMapper.selectStarByMember(memberId);
+        return changePlaceStarToPlaceStarDTO(placeStarList);
+    }
+
+    public List<PlaceStarDTO> changePlaceStarToPlaceStarDTO(List<PlaceStar> placeStarList){
+
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<PlaceStarDTO> placeStarDTOList = placeStarList.stream()
+                .map(placeStar -> mapper.map(placeStar, PlaceStarDTO.class))
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < placeStarDTOList.size(); i++) {
+            ResponseMember member = memberServiceClient.getMemberInfo(placeStarList.get(i).getMemberId());
+            placeStarDTOList.get(i).setMember(member);
+        }
+
+        return placeStarDTOList;
     }
 
     /* 멤버id로 멤버가 작성한 코스 리스트 select */
@@ -110,15 +133,17 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     /* 코스id로 한 코스의 정보와 코스에 해당하는 장소 리스트 select (CoursePlace) */
-    public CourseAndPlace selectCoursePlaceByCourseId(int courseId){
-        return placeMapper.selectCoursePlaceByCourseId(courseId);
+    public CourseAndPlaceDTO selectCoursePlaceByCourseId(int courseId){
+        CourseAndPlace cp = placeMapper.selectCoursePlaceByCourseId(courseId);
+        ResponseMember member = memberServiceClient.getMemberInfo(cp.getMemberId());
+        CourseAndPlaceDTO courseAndPlace = new CourseAndPlaceDTO(cp.getCourseId(), cp.getCourseName(), member, cp.getPlaces());
+        return courseAndPlace;
     }
 
     /* 코스id에 해당하는 장소 리스트 select */
     public List<Place> getPlacesByCourseName(int courseId){
         return placeMapper.getPlacesByCourseName(courseId);
     }
-
 
     /* 카카오 장소 rest-api로 사용자가 검색한 키워드 장소 검색해서 반환 */
     private JSONArray getSearchPlaceByKeyword(String keyword){

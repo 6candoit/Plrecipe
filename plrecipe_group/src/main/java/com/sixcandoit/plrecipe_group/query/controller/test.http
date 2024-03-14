@@ -1,0 +1,9 @@
+### GET request groups
+GET localhost:8000/plrecipe-group/groups
+
+### GET request memberbygroupid
+GET localhost:8000/plrecipe-group/groups/member/1
+
+### GET request publicOrPrivate
+GET localhost:8000/plrecipe-group/groups/public/1
+

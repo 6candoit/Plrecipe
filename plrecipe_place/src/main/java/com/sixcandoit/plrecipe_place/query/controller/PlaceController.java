@@ -1,10 +1,10 @@
 package com.sixcandoit.plrecipe_place.query.controller;
 
+import com.sixcandoit.plrecipe_place.query.dto.CourseAndPlaceDTO;
 import com.sixcandoit.plrecipe_place.query.dto.CourseDTO;
+import com.sixcandoit.plrecipe_place.query.dto.PlaceStarDTO;
 import com.sixcandoit.plrecipe_place.query.dto.SearchPlaceDTO;
-import com.sixcandoit.plrecipe_place.query.aggregate.CourseAndPlace;
 import com.sixcandoit.plrecipe_place.query.aggregate.Place;
-import com.sixcandoit.plrecipe_place.query.aggregate.PlaceStar;
 import com.sixcandoit.plrecipe_place.query.service.PlaceService;
 import com.sixcandoit.plrecipe_place.query.service.PlaceServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-
 
 @RestController
 @Slf4j
@@ -53,13 +52,13 @@ public class PlaceController {
 
     /* 장소별 별점 조회 */
     @GetMapping("star/{placeId}")
-    public List<PlaceStar> selectStarByPlace(@PathVariable int placeId){
+    public List<PlaceStarDTO> selectStarByPlace(@PathVariable int placeId){
         return placeService.selectStarByPlace(placeId);
     }
 
     /* 멤버별 별점 조회 */
     @GetMapping("star/member/{memberId}")
-    public List<PlaceStar> selectStarByMember(@PathVariable int memberId){
+    public List<PlaceStarDTO> selectStarByMember(@PathVariable int memberId){
         return placeService.selectStarByMember(memberId);
     }
 
@@ -68,7 +67,7 @@ public class PlaceController {
 
     /* 코스id로 코스와 코스에 등록된 장소 리스트 조회 */
     @GetMapping("/course/findInfo/{courseId}")
-    public CourseAndPlace selectCoursePlaceByCourseId(@PathVariable int courseId){
+    public CourseAndPlaceDTO selectCoursePlaceByCourseId(@PathVariable int courseId){
         return placeService.selectCoursePlaceByCourseId(courseId);
     }
 

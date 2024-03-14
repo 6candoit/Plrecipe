@@ -1,30 +1,29 @@
 package com.sixcandoit.plrecipe_place.command.dto;
 
-import com.sixcandoit.plrecipe_place.command.aggregate.Course;
 import com.sixcandoit.plrecipe_place.command.aggregate.Place;
+import com.sixcandoit.plrecipe_place.query.vo.ResponseMember;
 
 import java.util.List;
 
 public class CourseAndPlaceDTO {
     private int courseId;
     private String courseName;
-    private int memberId;
+    private ResponseMember member;
     private List<Place> places;
 
     public CourseAndPlaceDTO() {
     }
 
-    public CourseAndPlaceDTO(int courseId, String courseName, int memberId, List<Place> places) {
+    public CourseAndPlaceDTO(int courseId, String courseName, ResponseMember member, List<Place> places) {
         this.courseId = courseId;
         this.courseName = courseName;
-        this.memberId = memberId;
+        this.member = member;
         this.places = places;
     }
 
-    public CourseAndPlaceDTO(Course course, List<Place> places){
-        this.courseId = course.getCourseId();
-        this.courseName = course.getCourseName();
-        this.memberId = course.getMemberId();
+    public CourseAndPlaceDTO(int courseId, String courseName, List<Place> places) {
+        this.courseId = courseId;
+        this.courseName = courseName;
         this.places = places;
     }
 
@@ -44,12 +43,12 @@ public class CourseAndPlaceDTO {
         this.courseName = courseName;
     }
 
-    public int getMemberId() {
-        return memberId;
+    public ResponseMember getMember() {
+        return member;
     }
 
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
+    public void setMember(ResponseMember member) {
+        this.member = member;
     }
 
     public List<Place> getPlaces() {
@@ -62,10 +61,10 @@ public class CourseAndPlaceDTO {
 
     @Override
     public String toString() {
-        return "CourseAndPlace{" +
+        return "CourseAndPlaceDTO{" +
                 "courseId=" + courseId +
                 ", courseName='" + courseName + '\'' +
-                ", memberId=" + memberId +
+                ", member=" + member +
                 ", places=" + places +
                 '}';
     }
