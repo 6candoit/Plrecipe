@@ -53,15 +53,15 @@
 
     <select id="selectPlaceById" parameterType="_int" resultMap="placeResultMap">
         SELECT
-        A.PLACE_ID,
-        A.PLACE_NAME,
-        A.PLACE_LOCATION,
-        A.PLACE_PHONE_NUM,
-        B.PLACE_CATEGORY_ID,
-        B.PLACE_CATEGORY_NAME
-        FROM PLACE A
-        JOIN PLACE_CATEGORY B ON (A.PLACE_CATEGORY_ID = B.PLACE_CATEGORY_ID)
-        WHERE PLACE_ID = #{placeId}
+               A.PLACE_ID,
+               A.PLACE_NAME,
+               A.PLACE_LOCATION,
+               A.PLACE_PHONE_NUM,
+               B.PLACE_CATEGORY_ID,
+               B.PLACE_CATEGORY_NAME
+          FROM PLACE A
+          JOIN PLACE_CATEGORY B ON (A.PLACE_CATEGORY_ID = B.PLACE_CATEGORY_ID)
+         WHERE PLACE_ID = #{placeId}
     </select>
 
     <select id="selectPlaceByFilter" parameterType="hashmap" resultMap="placeResultMap">
@@ -106,56 +106,56 @@
 
     <select id="selectStarByMember" parameterType="_int" resultMap="starResultMap">
         SELECT
-        A.STAR_ID,
-        A.STAR_POINT,
-        A.STAR_COMMENT,
-        A.PLACE_ID,
-        A.MEMBER_ID
-        FROM PLACE_STAR A
-        WHERE MEMBER_ID = #{memberId}
+               A.STAR_ID,
+               A.STAR_POINT,
+               A.STAR_COMMENT,
+               A.PLACE_ID,
+               A.MEMBER_ID
+          FROM PLACE_STAR A
+         WHERE MEMBER_ID = #{memberId}
     </select>
 
     <select id="selectCoursePlaceByCourseId" parameterType="_int" resultMap="coursePlaceResultMap">
         SELECT
-        A.COURSE_ID,
-        A.COURSE_NAME,
-        A.MEMBER_ID,
-        C.PLACE_ID,
-        C.PLACE_NAME,
-        C.PLACE_LOCATION,
-        C.PLACE_PHONE_NUM,
-        D.PLACE_CATEGORY_ID,
-        D.PLACE_CATEGORY_NAME
-        FROM COURSE A
-        JOIN COURSE_PLACE B on A.course_ID = B.course_ID
-        JOIN PLACE C ON C.PLACE_ID = B.PLACE_ID
-        JOIN PLACE_CATEGORY D ON C.PLACE_CATEGORY_ID = D.PLACE_CATEGORY_ID
-        WHERE B.course_id = #{courseId}
-        ORDER BY B.PLACE_SEQUENCE;
+               A.COURSE_ID,
+               A.COURSE_NAME,
+               A.MEMBER_ID,
+               C.PLACE_ID,
+               C.PLACE_NAME,
+               C.PLACE_LOCATION,
+               C.PLACE_PHONE_NUM,
+               D.PLACE_CATEGORY_ID,
+               D.PLACE_CATEGORY_NAME
+          FROM COURSE A
+          JOIN COURSE_PLACE B on A.course_ID = B.course_ID
+          JOIN PLACE C ON C.PLACE_ID = B.PLACE_ID
+          JOIN PLACE_CATEGORY D ON C.PLACE_CATEGORY_ID = D.PLACE_CATEGORY_ID
+         WHERE B.course_id = #{courseId}
+         ORDER BY B.PLACE_SEQUENCE
     </select>
 
     <select id="getPlacesByCourseName" resultMap="placeResultMap">
         SELECT
-        A.PLACE_ID,
-        A.PLACE_NAME,
-        A.PLACE_LOCATION,
-        A.PLACE_PHONE_NUM,
-        D.PLACE_CATEGORY_ID,
-        D.PLACE_CATEGORY_NAME
-        FROM place A
-        JOIN course_place B ON A.place_id = B.place_id
-        JOIN course C ON B.course_id = C.course_id
-        JOIN PLACE_CATEGORY D ON (A.PLACE_CATEGORY_ID = D.PLACE_CATEGORY_ID)
-        WHERE C.course_Id = #{courseId}
+               A.PLACE_ID,
+               A.PLACE_NAME,
+               A.PLACE_LOCATION,
+               A.PLACE_PHONE_NUM,
+               D.PLACE_CATEGORY_ID,
+               D.PLACE_CATEGORY_NAME
+          FROM place A
+          JOIN course_place B ON A.place_id = B.place_id
+          JOIN course C ON B.course_id = C.course_id
+          JOIN PLACE_CATEGORY D ON (A.PLACE_CATEGORY_ID = D.PLACE_CATEGORY_ID)
+         WHERE C.course_Id = #{courseId}
     </select>
 
     <select id="selectCourseByMember" parameterType="_int" resultMap="courseResultMap">
         SELECT
-        A.COURSE_ID,
-        A.COURSE_NAME,
-        A.MEMBER_ID
-        FROM COURSE A
-        WHERE MEMBER_ID = #{memberId}
+               A.COURSE_ID,
+               A.COURSE_NAME,
+               A.MEMBER_ID
+          FROM COURSE A
+         WHERE MEMBER_ID = #{memberId}
     </select>
 
 </mapper>

@@ -9,10 +9,10 @@ import org.springframework.data.jpa.repository.Query;
 public interface CoursePlaceRepository extends JpaRepository<CoursePlace, Integer> {
 
     @Modifying
-    @Query("delete from plrecipe_course_and_place A where A.courseId = :courseId")
+    @Query("delete from plrecipe_course_place A where A.courseId = :courseId")
     void deleteAllByCourseId(@Param("courseId") int courseId);
 
     @Modifying
-    @Query("delete from plrecipe_course_and_place A where A.placeId = :placeId")
+    @Query("delete from plrecipe_course_place A where A.placeId = :placeId")
     void deleteAllByPlaceId(int placeId);
 }
