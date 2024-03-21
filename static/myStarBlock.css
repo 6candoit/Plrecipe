@@ -1,0 +1,44 @@
+.star-block {
+    width: 350px;
+    height: 150px;
+    border: lightblue solid 1px;
+    padding: 5px 10px;
+    margin: 5px 5px;
+    border-radius: 10px;
+    position: relative;
+
+}
+
+#place-name {
+    font-weight: bold;
+    font-size: 15px;
+    float: left;
+}
+
+#star {
+    float: left;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#comment {
+    clear: both;
+}
+
+#star-category {
+    width: 100px;
+    padding: 1px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: bisque;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.star-block:hover {
+    transition: all 0.3s;
+    box-shadow: 5px 5px lightblue;
+}

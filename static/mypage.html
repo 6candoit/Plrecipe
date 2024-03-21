@@ -1,93 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyPage</title>
-  <link rel="stylesheet" href="mypage.css">
+<html lang="ko">
 
-  <header class="header">
-    <img src="img/logo.webp" alt="PLRECIPE 로고" class="logo"> 
-    <nav class="nav">
-        <ul class="nav-list">
-            <li><a href="#"><b>게시판</b></a></li>
-            <li><a href="#"><b>장소</b></a></li>
-            <li><a href="#"><b>자유게시판</b></a></li>
-            <li><a href="#"><b>문의</b></a></li>
-            <li><a href="#"><b>공지사항</b></a></li>
-            <li><a href="#">마이페이지</a></li> 
-            <li><a href="#">로그아웃</a></li> 
-        </ul>
-    </nav>
-  </header>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="myPage.css">
+    <title>My Page</title>
 </head>
 
-<body class="body">
-    <h3>내가 작성한 게시글</h3>
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
-    </div>    
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
+<body>
+    <h2>마이 페이지</h2>
+    <div id="member-info">
+        <div id="profile">
+            <img src="img/ham.jpeg" alt="강가사진">
+            <p>말랑햄찌</p>
+        </div>
+        <table id="follow">
+            <tr id="name">
+                <td>팔로잉</td>
+                <td>팔로워</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+        </table>
     </div>
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
-    </div>
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
-    </div>
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
-    </div>
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
-    </div>
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
-    </div>
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
-    </div>
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
-    </div>
-    <div class="post">
-        <div class="title"><p>게시글 제목</p></div>
-        <div class="image"></div>
-        <div class="member"><p>인원수: </p></div>
-        <div class="hashtag"><p>해시태그: </p></div>
+    <div class="container">
+        <div>
+            <a href="" title="Button post" class="button post">게시글</a>
+            <a href="" title="Button group" class="button group">그룹</a>
+        </div>
+        <div>
+            <a href="" title="Button like" class="button like">좋아요</a>
+            <a href="" title="Button star" class="button star">별점</a>
+        </div>
     </div>
 
 </body>
 
-<footer class="footer">
-  <p>(C) 2024. 6CANDOIT. All rights reserved.</p>
-</footer>
 </html>
