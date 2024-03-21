@@ -1,9 +1,13 @@
 package com.sixcandoit.plrecipe_group.query.vo;
+import lombok.*;
 
-import com.sixcandoit.plrecipe_group.query.dto.MemberGrade;
-import lombok.Data;
 
-@Data
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@ToString
+@Setter
 public class ResponseMember {
     private int memberId;
     private String memberName;

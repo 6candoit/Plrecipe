@@ -17,10 +17,15 @@
 
     <resultMap id="groupMemberResultMap" type="com.sixcandoit.plrecipe_group.query.dto.GroupMemberDTO">
         <id property="groupMemberId" column="GROUP_MEMBER_ID"/>
-        <result property="groupMemberSequence" column="GROUP_MEMBER_SEQUENCE"/>
+        <result property="groupMemberSequence" column="GROUPMEMBER_SEQUENCE"/>
         <result property="inviteStateId" column="INVITE_STATE_ID"/>
-        <association property="groupDTO" javaType="com.sixcandoit.plrecipe_group.query.dto.GroupDTO" resultMap="groupResultMap"/>
-        <association property="memberDTO" javaType="com.sixcandoit.plrecipe_group.query.dto.MemberDTO" resultMap="memberResultMap"/>
+        <result property="groupId" column="GROUP_ID"/>
+        <collection property="members" ofType="com.sixcandoit.plrecipe_group.query.vo.ResponseMember">
+            <result column="MEMBER_ID" property="memberId"/>
+            <result column="MEMBER_NAME" property="memberName"/>
+            <result column="MEMBER_NICKNAME" property="memberNickname"/>
+            <result column="MEMBER_NUMBER" property="memberNumber"/>
+        </collection>
     </resultMap>
 
 
@@ -77,6 +82,9 @@
 
     <select id="selectMembersByGroupId" resultMap="groupMemberResultMap">
         SELECT
+                A.group_member_id,
+                A.groupmember_sequence,
+                A.invite_state_id,
                 A.group_id,
                 A.member_id
           FROM group_member A

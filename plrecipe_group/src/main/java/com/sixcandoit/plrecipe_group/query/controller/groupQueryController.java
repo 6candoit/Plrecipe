@@ -1,7 +1,9 @@
 package com.sixcandoit.plrecipe_group.query.controller;
 
 import com.sixcandoit.plrecipe_group.query.dto.GroupDTO;
+import com.sixcandoit.plrecipe_group.query.dto.GroupMemberDTO;
 import com.sixcandoit.plrecipe_group.query.service.GroupService;
+import com.sixcandoit.plrecipe_group.query.vo.GroupMember;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +29,12 @@ public class groupQueryController {
         return groupService.selectAllGroup();
     }
 
-    //    @GetMapping("/groups/member/{groupId}")
-//    public List<MemberDTO> selectMembersByGroupId(@PathVariable int groupId) {
-//        return groupService.selectMembersByGroupId(groupId);
-//    }
+    @GetMapping("/groups/member/{groupId}")
+    public List<GroupMember> selectMembersByGroupId(@PathVariable int groupId) {
+        List<GroupMember> groupMembers = groupService.selectMembersByGroupId(groupId);
+        return groupMembers;
+    }
+
 
     @GetMapping("/groups/public/{memberId}")
     public List<GroupDTO> selectPublicOrPrivateGroup(@PathVariable int memberId) {

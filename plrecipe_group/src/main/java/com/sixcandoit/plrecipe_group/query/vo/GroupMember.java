@@ -1,9 +1,6 @@
 package com.sixcandoit.plrecipe_group.query.vo;
 
-import com.sixcandoit.plrecipe_group.query.aggregate.GroupEntity;
 import com.sixcandoit.plrecipe_group.query.dto.GroupInvite;
-import com.sixcandoit.plrecipe_group.query.vo.Member;
-import jakarta.persistence.*;
 import lombok.*;
 
 
