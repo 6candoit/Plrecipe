@@ -22,4 +22,8 @@ public interface PostMapper{
     List<PostHashtagDTO> selectPostHashtags(int postId);
 
     List<PostLikeDTO> selectPostByLikes(int postId);
+
+    List<PostDTO> selectMemberLikesPosts(int memberId);
+
+    List<PostDTO> selectPost(int postId);
 }

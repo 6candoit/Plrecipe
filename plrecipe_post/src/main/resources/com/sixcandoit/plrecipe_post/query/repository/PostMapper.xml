@@ -62,6 +62,21 @@
          WHERE A.MEMBER_ID = #{memberId}
     </select>
 
+    <select id="selectPost" resultMap="postResultMap">
+        SELECT
+              A.POST_ID
+            , A.POST_TITLE
+            , A.POST_CONTENT
+            , A.POST_DATE
+            , A.POST_DELETE_DATE
+            , A.MEMBER_ID
+            , A.COURSE_ID
+            , A.IS_POST_PUBLIC
+            , A.MEMBER_COUNT
+          FROM POST A
+         WHERE A.POST_ID = #{postId}
+    </select>
+
     <select id="selectPostsByStatus" resultMap="postResultMap">
         SELECT
               A.POST_ID
@@ -114,4 +129,19 @@
          WHERE A.POST_ID = #{postId}
     </select>
 
+    <select id="selectMemberLikesPosts" resultMap="postResultMap">
+        SELECT
+              A.POST_ID
+            , A.POST_TITLE
+            , A.POST_CONTENT
+            , A.POST_DATE
+            , A.POST_DELETE_DATE
+            , A.MEMBER_ID
+            , A.COURSE_ID
+            , A.IS_POST_PUBLIC
+            , A.MEMBER_COUNT
+          FROM POST A
+          JOIN POST_LIKE B ON A.MEMBER_ID = B.MEMBER_ID
+         WHERE B.MEMBER_ID = #{memberId}
+    </select>
 </mapper>

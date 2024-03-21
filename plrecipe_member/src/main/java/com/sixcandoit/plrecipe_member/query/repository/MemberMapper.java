@@ -11,4 +11,5 @@ public interface MemberMapper {
     List<MemberDTO> selectMemberById(int memberId);
     List<MemberDTO> selectLikeByMemberId(int memberId);
 
+    MemberDTO memberTest(int memberId);
 }

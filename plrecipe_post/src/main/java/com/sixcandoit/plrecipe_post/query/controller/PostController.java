@@ -29,6 +29,12 @@ public class PostController {
         return postService.selectAllPost();
     }
 
+    /* 게시글 단일 조회 */
+    @GetMapping("/post/{postId}")
+    List<PostDTO> selectPost(@PathVariable int postId) {
+        return postService.selectPost(postId);
+    }
+
     /* 설명. 멤버가 작성한 게시글 조회(Feign Client를 사용하여 멤버 정보까지 불러옴) */
     @GetMapping("/posts/{memberId}")
     List<PostDTO> selectMemberPosts(@PathVariable int memberId) {
@@ -58,5 +64,12 @@ public class PostController {
     public List<PostLikeDTO> selectPostsByLikes(@PathVariable int postId) {
         return postService.selectPostByLikes(postId);
     }
+
+    /* 회원이 작성한 게시글 조회 */
+    @GetMapping("/likePosts/{memberId}")
+    public List<PostDTO> selectMemberLikesPosts(@PathVariable int memberId) {
+        return postService.selectMemberLikesPosts(memberId);
+    }
+
 
 }

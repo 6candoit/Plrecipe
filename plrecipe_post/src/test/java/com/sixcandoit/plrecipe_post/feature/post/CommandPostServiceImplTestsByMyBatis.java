@@ -5,6 +5,7 @@ import com.sixcandoit.plrecipe_post.query.dto.PostDTO;
 import com.sixcandoit.plrecipe_post.query.dto.PostHashtagDTO;
 import com.sixcandoit.plrecipe_post.query.dto.PostLikeDTO;
 import com.sixcandoit.plrecipe_post.command.service.CommandPostServiceImpl;
+import com.sixcandoit.plrecipe_post.query.service.PostServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CommandPostServiceImplTestsByMyBatis {
 
     @Autowired
-    private CommandPostServiceImpl postServiceImpl;
+    private PostServiceImpl postServiceImpl;
 
     @Test
     void selectAllPost() {
@@ -29,6 +30,16 @@ public class CommandPostServiceImplTestsByMyBatis {
         posts.forEach(System.out::println);
 
         assertNotNull(posts);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2})
+    void selectPost(int postId) {
+        List<PostDTO> postList = postServiceImpl.selectPost(postId);
+
+        postList.forEach(System.out::println);
+
+        assertTrue(!postList.isEmpty());
     }
 
 //    @ParameterizedTest

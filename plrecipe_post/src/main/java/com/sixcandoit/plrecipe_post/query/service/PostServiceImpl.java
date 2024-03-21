@@ -51,6 +51,36 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
+    public List<PostDTO> selectPost(int postId) {
+        List<PostDTO> postList = postMapper.selectPost(postId);
+        return addMemberInfo(postList);
+
+//        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+//        List<PostDTO> postDTOList = postList.stream()
+//                .map(post -> mapper.map(post, PostDTO.class))
+//                .collect(Collectors.toList());
+//
+//        for (int i = 0; i < postDTOList.size(); i++) {
+//            ResponseMember responseMember = memberServiceClient.getMemberInfo(postDTOList.get(i).getMemberId());
+//            postDTOList.get(i).setMember(responseMember);
+//
+//        }
+//
+//        return postDTOList;
+    }
+
+    private List<PostDTO> addMemberInfo(List<PostDTO> postList) {
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<PostDTO> postDTOList = postList.stream()
+                .map(post -> mapper.map(post, PostDTO.class))
+                .collect(Collectors.toList());
+        ResponseMember member = memberServiceClient.getMemberInfo(postList.get(0).getMemberId());
+        postDTOList.get(0).setMember(member);
+
+        return postDTOList;
+    }
+
+    @Override
     public List<PostDTO> selectPostsByStatus(String postStatus) {
         return postMapper.selectPostsByStatus(postStatus);
     }
@@ -70,4 +100,8 @@ public class PostServiceImpl implements PostService{
         return postMapper.selectPostByLikes(postId);
     }
 
+    @Override
+    public List<PostDTO> selectMemberLikesPosts(int memberId) {
+        return postMapper.selectMemberLikesPosts(memberId);
+    }
 }

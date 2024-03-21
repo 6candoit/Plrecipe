@@ -5,7 +5,7 @@
 
 <mapper namespace="com.sixcandoit.plrecipe_member.query.repository.MemberMapper">
 
-    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe_member.command.dto.MemberDTO">
+    <resultMap id="memberResultMap" type="com.sixcandoit.plrecipe_member.query.dto.MemberDTO">
         <id property="memberId" column="MEMBER_ID"/>
         <result property="memberEmail" column="MEMBER_EMAIL"/>
         <result property="password" column="PASSWORD"/>
@@ -46,6 +46,22 @@
             , A.WITHDRAWAL_DATE
             , A.MEMBER_GRADE
             , A.MEMBER_STATUS
+        FROM MEMBER_INFO A
+        WHERE A.MEMBER_ID = #{memberId}
+    </select>
+
+    <select id="memberTest" resultMap="memberResultMap">
+        SELECT
+        A.MEMBER_ID
+        , A.MEMBER_EMAIL
+        , A.PASSWORD
+        , A.MEMBER_NAME
+        , A.MEMBER_NICKNAME
+        , A.MEMBER_NUMBER
+        , A.JOIN_DATE
+        , A.WITHDRAWAL_DATE
+        , A.MEMBER_GRADE
+        , A.MEMBER_STATUS
         FROM MEMBER_INFO A
         WHERE A.MEMBER_ID = #{memberId}
     </select>

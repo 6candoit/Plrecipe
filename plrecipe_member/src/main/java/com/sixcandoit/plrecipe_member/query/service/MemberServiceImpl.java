@@ -33,4 +33,9 @@ public class MemberServiceImpl implements MemberService{
     public List<MemberDTO> selectLikeByMemberId(int memberId) {
         return memberMapper.selectLikeByMemberId(memberId);
     }
+
+    @Override
+    public MemberDTO memberTest(int memberId) {
+        return memberMapper.memberTest(memberId);
+    }
 }

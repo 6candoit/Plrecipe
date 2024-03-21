@@ -20,4 +20,7 @@ public interface PostService {
 
     List<PostLikeDTO> selectPostByLikes(int postId);
 
+    List<PostDTO> selectMemberLikesPosts(int memberId);
+
+    List<PostDTO> selectPost(int postId);
 }

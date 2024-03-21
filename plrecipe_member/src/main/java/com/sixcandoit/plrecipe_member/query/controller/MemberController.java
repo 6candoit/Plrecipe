@@ -30,9 +30,13 @@ public class MemberController {
     }
 
     // 회원 ID별 조회
+//    @GetMapping("/searchMember/{memberId}")
+//    List<MemberDTO> selectMemberById(@PathVariable int memberId) {
+//        return memberService.selectMemberById(memberId);
+//    }
     @GetMapping("/searchMember/{memberId}")
-    List<MemberDTO> selectMemberById(@PathVariable int memberId) {
-        return memberService.selectMemberById(memberId);
+    public MemberDTO memberTest(@PathVariable int memberId) {
+        return memberService.memberTest(memberId);
     }
 
     // 회원별 좋아요 누른 게시글 조회
