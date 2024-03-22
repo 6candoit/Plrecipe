@@ -107,7 +107,13 @@ public class PlaceServiceImpl implements PlaceService {
                 .collect(Collectors.toList());
 
         for (int i = 0; i < placeStarDTOList.size(); i++) {
-            ResponseMember member = memberServiceClient.getMemberInfo(placeStarList.get(i).getMemberId());
+
+            PlaceStar placeStar = placeStarList.get(i);
+
+            Place place = placeMapper.selectPlaceById(placeStar.getPlaceId());
+            placeStarDTOList.get(i).setPlace(place);
+
+            ResponseMember member = memberServiceClient.getMemberInfo(placeStar.getMemberId());
             placeStarDTOList.get(i).setMember(member);
         }
 

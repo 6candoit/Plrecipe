@@ -1,5 +1,7 @@
 package com.sixcandoit.plrecipe_place.query.dto;
 
+
+import com.sixcandoit.plrecipe_place.query.aggregate.Place;
 import com.sixcandoit.plrecipe_place.query.vo.ResponseMember;
 
 public class PlaceStarDTO {
@@ -7,23 +9,24 @@ public class PlaceStarDTO {
     private int starId;
     private int starPoint;
     private String starComment;
-    private int placeId;
+    private Place place;
     private ResponseMember member;
 
     public PlaceStarDTO() {
     }
 
-    public PlaceStarDTO(int starId, int starPoint, String starComment, int placeId) {
+    public PlaceStarDTO(int starId, int starPoint, String starComment, Place place, ResponseMember member) {
         this.starId = starId;
         this.starPoint = starPoint;
         this.starComment = starComment;
-        this.placeId = placeId;
+        this.place = place;
+        this.member = member;
     }
 
-    public PlaceStarDTO(int starPoint, String starComment, int placeId, ResponseMember member) {
+    public PlaceStarDTO(int starPoint, String starComment, Place place, ResponseMember member) {
         this.starPoint = starPoint;
         this.starComment = starComment;
-        this.placeId = placeId;
+        this.place = place;
         this.member = member;
     }
 
@@ -51,12 +54,12 @@ public class PlaceStarDTO {
         this.starComment = starComment;
     }
 
-    public int getPlaceId() {
-        return placeId;
+    public Place getPlace() {
+        return place;
     }
 
-    public void setPlaceId(int placeId) {
-        this.placeId = placeId;
+    public void setPlace(Place place) {
+        this.place = place;
     }
 
     public ResponseMember getMember() {
@@ -73,7 +76,7 @@ public class PlaceStarDTO {
                 "starId=" + starId +
                 ", starPoint=" + starPoint +
                 ", starComment='" + starComment + '\'' +
-                ", placeId=" + placeId +
+                ", place=" + place +
                 ", member=" + member +
                 '}';
     }
