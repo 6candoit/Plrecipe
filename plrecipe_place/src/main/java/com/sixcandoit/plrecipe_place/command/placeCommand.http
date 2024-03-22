@@ -4,9 +4,9 @@ POST http://localhost:8000/plrecipe-place/regist
 Content-Type: application/json
 
 {
-  "placeName": "장소insert22",
-  "placeLocation": "고양시22",
-  "placePhoneNum": "031-1234-7854",
+  "placeName": "장소insert33",
+  "placeLocation": "고양시23",
+  "placePhoneNum": "031-1555-7854",
   "placeCategory": {
     "placeCategoryId": 3,
     "placeCategoryName": "문화"
@@ -17,13 +17,22 @@ Content-Type: application/json
 DELETE http://localhost:8000/plrecipe-place/delete/34
 
 ### registStar
-POST http://localhost:8080/star/regist
+POST http://localhost:8000/plrecipe-place/star/regist
 Content-Type: application/json
 
 {
   "starPoint": 5,
   "starComment": "별점 등록",
-  "placeId": 6,
+  "place": {
+    "placeId": 5,
+    "placeName": "참조은길",
+    "placeLocation": "창원특례시 남양동",
+    "placePhoneNum": null,
+    "placeCategory": {
+      "placeCategoryId": 5,
+      "placeCategoryName": "산책"
+    }
+  },
   "member": {
     "memberId": 5,
     "memberName": "김재현",

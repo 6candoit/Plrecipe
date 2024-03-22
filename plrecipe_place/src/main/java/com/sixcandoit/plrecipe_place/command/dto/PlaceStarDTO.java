@@ -1,30 +1,31 @@
 package com.sixcandoit.plrecipe_place.command.dto;
 
 import com.sixcandoit.plrecipe_place.query.vo.ResponseMember;
+import lombok.Data;
 
 public class PlaceStarDTO {
 
     private int starId;
     private int starPoint;
     private String starComment;
-    private int placeId;
+    private PlaceDTO place;
     private ResponseMember member;
 
     public PlaceStarDTO() {
     }
 
-    public PlaceStarDTO(int starId, int starPoint, String starComment, int placeId, ResponseMember member) {
+    public PlaceStarDTO(int starId, int starPoint, String starComment, PlaceDTO place, ResponseMember member) {
         this.starId = starId;
         this.starPoint = starPoint;
         this.starComment = starComment;
-        this.placeId = placeId;
+        this.place = place;
         this.member = member;
     }
 
-    public PlaceStarDTO(int starPoint, String starComment, int placeId, ResponseMember member) {
+    public PlaceStarDTO(int starPoint, String starComment, PlaceDTO place, ResponseMember member) {
         this.starPoint = starPoint;
         this.starComment = starComment;
-        this.placeId = placeId;
+        this.place = place;
         this.member = member;
     }
 
@@ -52,12 +53,12 @@ public class PlaceStarDTO {
         this.starComment = starComment;
     }
 
-    public int getPlaceId() {
-        return placeId;
+    public PlaceDTO getPlace() {
+        return place;
     }
 
-    public void setPlaceId(int placeId) {
-        this.placeId = placeId;
+    public void setPlace(PlaceDTO place) {
+        this.place = place;
     }
 
     public ResponseMember getMember() {
