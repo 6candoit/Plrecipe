@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="post.css"> 
+    <title>PL-RECIPE</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <header class="header">
+        <a href="http://127.0.0.1:5500/static/main.html">
+            <img src="img/logo.webp" alt="PLRECIPE 로고" class="logo"> 
+        </a>
+        <nav class="nav">
+            <ul class="nav-list">   
+                <li><a href="#"><b>게시판</b></a></li>
+                <li><a href="#"><b>장소</b></a></li>
+                <li><a href="#"><b>자유게시판</b></a></li>
+                <li><a href="#"><b>문의</b></a></li>
+                <li><a href="#"><b>공지사항</b></a></li>
+                <li><a href="#">마이페이지</a></li> 
+                <li><a href="#">로그아웃</a></li> 
+            </ul>
+        </nav>
+    </header>
+</head>
+
+<body>
+    <h3>내가 작성한 게시글</h3>
+    <div id="app">
+        <div class="post" v-for="post in posts" :key="post.postId">
+            <div class="title"><p>{{ post.postTitle }}</p></div>
+            <div class="image"></div>
+            <div class="member"><p>인원수: {{ getMemberCountText(post.memberCount) }}</p></div>
+            <div class="hashtag"><p>해시태그: 
+                <span v-for="(hashtag, index) in post.hashtags" :key="index">#{{ hashtag }}</span>&nbsp;
+            </p></div>
+        </div>
+    </div>
+
+    <!-- Vue 인스턴스와 데이터, 메서드 정의 -->
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    posts: []
+                };
+            },
+            mounted() {
+                this.fetchPosts();
+            },
+            methods: {
+                fetchPosts() {
+                    axios.get('http://localhost:8000/plrecipe-post/posts')
+                        .then(response => {
+                            this.posts = response.data;
+                            this.fetchHashtags();
+                        })
+                        .catch(error => {
+                            console.error('게시글 데이터를 가져오는 중 오류 발생:', error);
+                        });
+                },
+                fetchHashtags() {
+                    this.posts.forEach(post => {
+                        axios.get(`http://localhost:8000/plrecipe-post/hashtag/${post.postId}`)
+                            .then(response => {
+                                post.hashtags = response.data.map(tag => tag.hashtagDTO.hashtagTitle);
+                            })
+                            .catch(error => {
+                                console.error('해시태그 API 호출 중 오류 발생:', error);
+                            });
+                    });
+                },
+                getMemberCountText(count) {
+                    switch (count) {
+                        case "ONE":
+                            return "1인";
+                        case "TWO":
+                            return "2인";
+                        case "MANY":
+                            return "다수";
+                        default:
+                            return count;
+                    }
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
