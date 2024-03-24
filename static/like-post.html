@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mypost.css"> 
+    <title>PL-RECIPE</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <header class="header">
+        <img src="img/logo.webp" alt="PLRECIPE 로고" class="logo"> 
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#"><b>게시판</b></a></li>
+                <li><a href="#"><b>장소</b></a></li>
+                <li><a href="#"><b>자유게시판</b></a></li>
+                <li><a href="#"><b>문의</b></a></li>
+                <li><a href="#"><b>공지사항</b></a></li>
+                <li><a href="#">마이페이지</a></li> 
+                <li><a href="#">로그아웃</a></li> 
+            </ul>
+        </nav>
+    </header>
+</head>
+
+<body>
+    <div id="app">
+        <h3>내가 좋아요 누른 게시글</h3>
+        <div class="post" v-for="post in posts" :key="post.postId">
+            <div class="title"><p>{{ post.postTitle }}</p></div>
+            <div class="image"></div>
+            <div class="member"><p>인원수: {{ getMemberCountText(post.memberCount) }}</p></div>
+            <div class="hashtag"><p>해시태그: 
+                <span v-for="(hashtag, index) in post.hashtags" :key="index">#{{ hashtag }}</span>&nbsp;
+            </p></div>
+        </div>
+    </div>
+
+    <!-- Vue 인스턴스와 데이터, 메서드 정의 -->
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    posts: []
+                };
+            },
+            mounted() {
+                this.fetchPosts();
+            },
+            methods: {
+                fetchPosts() {
+                    axios.get('http://localhost:8000/plrecipe-post/likePosts/')
+                        .then(response => {
+                            this.posts = response.data;
+                            this.fetchHashtags();
+                        })
+                        .catch(error => {
+                            console.error('게시글 데이터를 가져오는 중 오류 발생:', error);
+                        });
+                },
+                fetchHashtags() {
+                    this.posts.forEach(post => {
+                        axios.get(`http://localhost:8000/plrecipe-post/hashtag/${post.postId}`)
+                            .then(response => {
+                                post.hashtags = response.data.map(tag => tag.hashtagDTO.hashtagTitle);
+                            })
+                            .catch(error => {
+                                console.error('해시태그 API 호출 중 오류 발생:', error);
+                            });
+                    });
+                },
+                getMemberCountText(count) {
+                    switch (count) {
+                        case "ONE":
+                            return "1인";
+                        case "TWO":
+                            return "2인";
+                        case "MANY":
+                            return "다수";
+                        default:
+                            return count;
+                    }
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+
+    <!-- 카드 크기 맞추기 -->
+    <script>
+        window.addEventListener('load', () => {
+    const posts = document.querySelectorAll('.post');
+    let maxHeight = 0;
+
+    // 모든 게시물의 높이를 확인하여 가장 높은 높이를 찾음
+    posts.forEach((post) => {
+        if (post.offsetHeight > maxHeight) {
+            maxHeight = post.offsetHeight;
+        }
+    });
+
+    // 모든 게시물에 가장 높은 높이를 적용
+    posts.forEach((post) => {
+        post.style.height = `${maxHeight}px`;
+    });
+});
+
+    </script>
+</body>
+
+</html>

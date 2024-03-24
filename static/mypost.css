@@ -60,7 +60,7 @@
   text-align: center;
   margin-top: 5px;
   margin-bottom: 5px;
-  font-size: 70%;
+  font-size: 50%;
 }
 
 .image {
@@ -89,3 +89,50 @@
 .footer {
   clear: both;
 }
+/* CSS 스타일링 */
+/* header>h1 {
+  font-size: 50px;
+  text-align: left;
+}
+header>button {
+  font-size: 20px;
+  font-weight: bold;
+}
+header>div {
+  background-color: black;
+  width: 1300px;
+  height: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.post {
+  width: 183px;
+  height: 300px;
+  border: 3px solid black;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.title {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 70%;
+}
+.image {
+  background-color: green;
+  border: 3px solid black;
+  width: 180px;
+  height: 60%;
+}
+.member {
+  font-weight: bold;
+  text-align: center;
+  font-size: 70%;
+  border: 3px solid black;
+}
+.hashtag {
+  font-weight: bold;
+  text-align: center;
+  font-size: 70%;
+} */

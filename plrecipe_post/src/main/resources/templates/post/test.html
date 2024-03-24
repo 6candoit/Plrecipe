@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+</head>
+<body>
+
+<h1>Post List</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Post ID</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody id="post-table-body">
+    <!-- JavaScript로 동적으로 데이터가 삽입될 부분 -->
+    </tbody>
+</table>
+
+<script>
+    // tbody 요소 선택
+    const tableBody = document.getElementById('post-table-body');
+
+    // 데이터를 가져와서 테이블에 삽입하는 함수
+    function fetchDataAndPopulateTable() {
+        fetch('http://localhost:8000/plrecipe-post/posts')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(posts => {
+                test.forEach(post => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+          <td>${post.postId}</td>
+          <td>${post.postTitle}</td>
+          <td>${post.postContent}</td>
+          <td>${post.postDate}</td>
+        `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    }
+
+    // 페이지 로드시 데이터 가져오기
+    fetchDataAndPopulateTable();
+</script>
+
+</body>
+</html>
