@@ -65,7 +65,7 @@ public class PostController {
         return postService.selectPostByLikes(postId);
     }
 
-    /* 회원이 작성한 게시글 조회 */
+    /* 회원이 좋아요 누른 게시글 조회 */
     @GetMapping("/likePosts/{memberId}")
     public List<PostDTO> selectMemberLikesPosts(@PathVariable int memberId) {
         return postService.selectMemberLikesPosts(memberId);

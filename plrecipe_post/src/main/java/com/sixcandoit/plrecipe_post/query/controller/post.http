@@ -11,7 +11,7 @@ GET localhost:8000/plrecipe-post/status/Y
 GET localhost:8000/plrecipe-post/memberCounts/TWO
 
 ### GET request HashtagsByPostId
-GET localhost:8000/plrecipe-post/hashtag/1
+GET localhost:8000/plrecipe-post/hashtag/2
 
 ### GET request LikesByPostId
 GET localhost:8000/plrecipe-post/likes/1
@@ -19,5 +19,5 @@ GET localhost:8000/plrecipe-post/likes/1
 ### GET request MemberLikePosts
 GET localhost:8000/plrecipe-post/likePosts/1
 
-### GET request post
+### GET request post(단일 게시글)
 GET localhost:8000/plrecipe-post/post/1

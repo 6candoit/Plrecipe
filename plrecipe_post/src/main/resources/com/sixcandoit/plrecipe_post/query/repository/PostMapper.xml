@@ -22,6 +22,7 @@
     </resultMap>
 
     <resultMap id="postHashtagResultMap" type="com.sixcandoit.plrecipe_post.query.dto.PostHashtagDTO">
+        <id property="postHashtagId" column="POST_HASHTAG_ID"/>
         <association property="postDTO" resultMap="postResultMap"/>
         <association property="hashtagDTO" resultMap="HashtagResultMap"/>
     </resultMap>
@@ -109,10 +110,8 @@
 
     <select id="selectPostHashtags" resultMap="postHashtagResultMap">
         SELECT
-              A.POST_ID
-            , A.POST_TITLE
-            , A.POST_CONTENT
-            , A.POST_DATE
+              B.POST_HASHTAG_ID
+            , A.POST_ID
             , C.HASHTAG_TITLE
           FROM POST A
           JOIN POST_HASHTAG B ON B.POST_ID = A.POST_ID
