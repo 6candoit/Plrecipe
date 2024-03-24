@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./data/starData.js"></script>
+    <title>Document</title>
+    <style>
+        
+        #place-info {
+            width: 90%;
+        }
+
+        table #img{
+            width: 50%;
+            border: 1px solid black;
+        }
+
+        #img,
+        #etc {
+            width: 50%;
+        }
+
+        .star-block {
+            width: 600px;
+            height: 150px;
+            border: lightblue solid 1px;
+            padding: 5px 10px;
+            margin: 5px 5px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        #place-name {
+            font-weight: bold;
+            font-size: 15px;
+            float: left;
+        }
+
+        #comment {
+            clear: both;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            float: left;
+            margin: 10px;
+        }
+
+        #star-info{
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="place-info">
+        <tr>
+            <td rowspan="5" colspan="2" id="img">사진</td>
+            <td colspan="2" id="placeName">{{placeData.placeName}}</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="category">{{placeData.placeCategory.placeCategoryName}}</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="comment">{{placeData.placeLocation}}</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="star">{{placeData.avgStar}}별점 표시</td>
+        </tr>
+        <tr id="etc">
+            <td id="location">위치(지도)</td>
+            <td id="phone"><span v-if="placeData.placePhoneNum">{{placeData.placePhoneNum}}</span></td>
+        </tr>
+    </table>
+
+    <div id="stars">
+        <template v-for="star in starBlocks" :key="starId">
+            <div class="star-block">
+                <div id="img">
+                    <img src="/img/ham.jpeg">
+                </div>
+                <div id="star-info">
+                    <p id="member-nickname">{{star.member.memberNickname}}</p>
+                    <p id="star">{{star.starPoint}}</p>
+                    <p id="comment">{{star.starComment}}</p>
+                </div>
+            </div>
+        </template>
+
+    </div>
+
+    <Script>
+        const { createApp, reactive } = Vue
+        createApp({
+            setup() {
+                const placeData = reactive({
+                    "placeId": 1,
+                    "placeName": "보라매공원",
+                    "placeLocation": "서울광역시 보라매동",
+                    "placePhoneNum": null,
+                    "placeCategory": {
+                        "placeCategoryId": 5,
+                        "placeCategoryName": "산책"
+                    }
+                });
+                return {
+                    placeData
+                }
+            },
+        }).mount("#place-info")
+
+        createApp({
+            setup() {
+                const starBlocks = stars;
+                return {
+                    starBlocks
+                }
+            },
+        }).mount("#stars")
+    </Script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./data/placeData.js"></script>
+  <link rel="stylesheet" href="place_category.css">
+  <link rel="stylesheet" href="placeItem.css">
+  <title>place</title>
+</head>
+
+<body>
+
+  <div class="category">
+    <div id="All">전체</div>
+    <div id="food">음식점</div>
+    <div id="cafe">카페</div>
+    <div id="culture">문화</div>
+    <div id="activity">액티비티</div>
+    <div id="walk">산책</div>
+    <div id="etc">기타</div>
+  </div>
+
+  <div class="places" id="places">
+
+    <template v-for="place in placeData" :key="placeId">
+      <div class="place-block">
+        <p id="place-name">{{place.placeName}}</p>
+
+        <p id="star">{{place.starPoint}} 평균 별점</p>
+        <p id="address">{{place.placeLocation}}</p>
+
+        <div id="place-category">
+          {{place.placeCategory.placeCategoryName}}
+        </div>
+      </div>
+    </template>
+
+  </div>
+
+  <script>
+
+    const { createApp } = Vue
+    createApp({
+      setup() {
+        const placeData = places;
+        console.log(placeData);
+        return {
+          placeData
+        }
+      },
+    }).mount("#places")
+
+  </script>
+</body>
+
+</html>
