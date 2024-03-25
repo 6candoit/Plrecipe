@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ### selectStarByPlace
-GET http://localhost:8080/star/3
+GET http://localhost:8000/plrecipe-place/star/3
 
 ### selectStarByMember
 GET http://localhost:8000/plrecipe-place/star/member/5
