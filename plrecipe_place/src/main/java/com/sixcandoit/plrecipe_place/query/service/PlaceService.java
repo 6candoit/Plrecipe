@@ -8,13 +8,13 @@ import java.util.Map;
 
 public interface PlaceService {
     List<SearchPlaceDTO> getSearchPlaceByAPI(String keyword);
-    List<Place> selectAllPlace();
-    List<Place> selectPlaceById(int placeId);
-    List<Place> selectPlaceByFilter(Map<String, Object> filter);
+    List<PlaceDTO> selectAllPlace();
+    List<PlaceDTO> selectPlaceById(int placeId);
+    List<PlaceDTO> selectPlaceByFilter(Map<String, Object> filter);
 
     CourseAndPlaceDTO selectCoursePlaceByCourseId(int courseId);
     List<CourseDTO> selectCourseByMember(int memberId);
-    List<Place> getPlacesByCourseName(int courseId);
+    List<PlaceDTO> getPlacesByCourseName(int courseId);
 
     List<PlaceStarDTO> selectStarByPlace(int placeId);
     List<PlaceStarDTO> selectStarByMember(int memberId);

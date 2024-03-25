@@ -1,9 +1,6 @@
 package com.sixcandoit.plrecipe_place.query.controller;
 
-import com.sixcandoit.plrecipe_place.query.dto.CourseAndPlaceDTO;
-import com.sixcandoit.plrecipe_place.query.dto.CourseDTO;
-import com.sixcandoit.plrecipe_place.query.dto.PlaceStarDTO;
-import com.sixcandoit.plrecipe_place.query.dto.SearchPlaceDTO;
+import com.sixcandoit.plrecipe_place.query.dto.*;
 import com.sixcandoit.plrecipe_place.query.aggregate.Place;
 import com.sixcandoit.plrecipe_place.query.service.PlaceService;
 import com.sixcandoit.plrecipe_place.query.service.PlaceServiceImpl;
@@ -34,7 +31,7 @@ public class PlaceController {
 
     /* 장소 불러오기 */
     @GetMapping(value = {"/find/{placeId}", "/find"})
-    public List<Place> findPlace(@PathVariable(required = false) String placeId){
+    public List<PlaceDTO> findPlace(@PathVariable(required = false) String placeId){
         if(placeId == null)
             return placeService.selectAllPlace();
         else
@@ -43,7 +40,7 @@ public class PlaceController {
 
     /* 조건에 따라 장소 검색 */
     @PostMapping("/searchPlace")
-    public List<Place> selectPlaceByFilter(@RequestBody Map<String, Object> filter){
+    public List<PlaceDTO> selectPlaceByFilter(@RequestBody Map<String, Object> filter){
         return placeService.selectPlaceByFilter(filter);
     }
 
@@ -79,7 +76,7 @@ public class PlaceController {
 
     /* 코스id로 장소만 불러오기 */
     @GetMapping("/course/findPlaces/{courseId}")
-    List<Place> getPlacesByCourseName(@PathVariable int courseId){
+    List<PlaceDTO> getPlacesByCourseName(@PathVariable int courseId){
         return placeService.getPlacesByCourseName(courseId);
     }
 

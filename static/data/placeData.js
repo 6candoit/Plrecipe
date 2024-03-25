@@ -8,7 +8,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 5,
       "placeCategoryName": "산책"
-    }
+    },
+    "avgStar": 5.0
   },
   {
     "placeId": 2,
@@ -18,7 +19,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 5,
       "placeCategoryName": "산책"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 3,
@@ -28,7 +30,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 5,
       "placeCategoryName": "산책"
-    }
+    },
+    "avgStar": 4.5
   },
   {
     "placeId": 4,
@@ -38,7 +41,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 5,
       "placeCategoryName": "산책"
-    }
+    },
+    "avgStar": 4.0
   },
   {
     "placeId": 5,
@@ -48,7 +52,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 5,
       "placeCategoryName": "산책"
-    }
+    },
+    "avgStar": 5.0
   },
   {
     "placeId": 6,
@@ -58,7 +63,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 1,
       "placeCategoryName": "음식점"
-    }
+    },
+    "avgStar": 5.0
   },
   {
     "placeId": 7,
@@ -68,7 +74,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 1,
       "placeCategoryName": "음식점"
-    }
+    },
+    "avgStar": 2.0
   },
   {
     "placeId": 8,
@@ -78,7 +85,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 1,
       "placeCategoryName": "음식점"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 9,
@@ -88,7 +96,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 1,
       "placeCategoryName": "음식점"
-    }
+    },
+    "avgStar": 5.0
   },
   {
     "placeId": 10,
@@ -98,7 +107,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 1,
       "placeCategoryName": "음식점"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 11,
@@ -108,7 +118,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 6,
       "placeCategoryName": "기타"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 12,
@@ -118,7 +129,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 6,
       "placeCategoryName": "기타"
-    }
+    },
+    "avgStar": 4.0
   },
   {
     "placeId": 13,
@@ -128,7 +140,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 6,
       "placeCategoryName": "기타"
-    }
+    },
+    "avgStar": 1.0
   },
   {
     "placeId": 14,
@@ -138,7 +151,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 6,
       "placeCategoryName": "기타"
-    }
+    },
+    "avgStar": 3.0
   },
   {
     "placeId": 15,
@@ -148,7 +162,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 6,
       "placeCategoryName": "기타"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 16,
@@ -158,7 +173,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 3,
       "placeCategoryName": "문화"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 17,
@@ -168,7 +184,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 3,
       "placeCategoryName": "문화"
-    }
+    },
+    "avgStar": 5.0
   },
   {
     "placeId": 18,
@@ -178,7 +195,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 3,
       "placeCategoryName": "문화"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 19,
@@ -188,7 +206,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 3,
       "placeCategoryName": "문화"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 20,
@@ -198,7 +217,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 3,
       "placeCategoryName": "문화"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 21,
@@ -208,7 +228,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 4,
       "placeCategoryName": "액티비티"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 22,
@@ -218,7 +239,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 4,
       "placeCategoryName": "액티비티"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 23,
@@ -228,7 +250,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 4,
       "placeCategoryName": "액티비티"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 24,
@@ -238,7 +261,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 4,
       "placeCategoryName": "액티비티"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 25,
@@ -248,7 +272,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 4,
       "placeCategoryName": "액티비티"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 26,
@@ -258,7 +283,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 2,
       "placeCategoryName": "카페"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 27,
@@ -268,7 +294,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 2,
       "placeCategoryName": "카페"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 28,
@@ -278,7 +305,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 2,
       "placeCategoryName": "카페"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 29,
@@ -288,7 +316,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 2,
       "placeCategoryName": "카페"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 30,
@@ -298,7 +327,8 @@ const places =
     "placeCategory": {
       "placeCategoryId": 2,
       "placeCategoryName": "카페"
-    }
+    },
+    "avgStar": 0.0
   },
   {
     "placeId": 31,
@@ -308,6 +338,7 @@ const places =
     "placeCategory": {
       "placeCategoryId": 3,
       "placeCategoryName": "문화"
-    }
+    },
+    "avgStar": 0.0
   }
 ];

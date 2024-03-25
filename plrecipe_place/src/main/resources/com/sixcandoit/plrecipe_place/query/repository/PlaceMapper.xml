@@ -158,4 +158,12 @@
          WHERE MEMBER_ID = #{memberId}
     </select>
 
+    <select id="selectAvgStarScore" parameterType="_int" resultType="_float">
+        SELECT
+               IFNULL(AVG(star_point), 0)
+          FROM PLACE_STAR
+         WHERE PLACE_ID = #{placeId};
+    </select>
+
+
 </mapper>
