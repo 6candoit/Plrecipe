@@ -22,5 +22,5 @@ public interface PlaceMapper {
     List<Course> selectCourseByMember(int memberId);
     CourseAndPlace selectCoursePlaceByCourseId(int courseId);
 
-
+    Float selectAvgStarScore(int placeId);
 }
