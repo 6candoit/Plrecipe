@@ -41,38 +41,37 @@
 
     <!-- Vue 인스턴스와 데이터, 메서드 정의 -->
     <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    posts: []
+        const { createApp, ref, onMounted } = Vue;
+    
+        const app = createApp({
+            setup() {
+                const post = ref(null);
+    
+                const fetchPost = async () => {
+                    try {
+                        const response = await axios.get('http://localhost:8888/plrecipe-post/post/5');
+                        if (response.data && Array.isArray(response.data) && response.data.length > 0) {
+                            post.value = response.data[0];
+                            await fetchHashtags();
+                        } else {
+                            console.error('게시글 데이터가 비어있습니다.');
+                        }
+                    } catch (error) {
+                        console.error('데이터 로드 중 오류 발생:', error);
+                    }
                 };
-            },
-            mounted() {
-                this.fetchPosts();
-            },
-            methods: {
-                fetchPosts() {
-                    axios.get('http://localhost:8000/plrecipe-post/posts')
-                        .then(response => {
-                            this.posts = response.data;
-                            this.fetchHashtags();
-                        })
-                        .catch(error => {
-                            console.error('게시글 데이터를 가져오는 중 오류 발생:', error);
-                        });
-                },
-                fetchHashtags() {
-                    this.posts.forEach(post => {
-                        axios.get(`http://localhost:8000/plrecipe-post/hashtag/${post.postId}`)
-                            .then(response => {
-                                post.hashtags = response.data.map(tag => tag.hashtagDTO.hashtagTitle);
-                            })
-                            .catch(error => {
-                                console.error('해시태그 API 호출 중 오류 발생:', error);
-                            });
-                    });
-                },
-                getMemberCountText(count) {
+    
+                const fetchHashtags = async () => {
+                    if (!post.value || !post.value.postId) return;
+                    try {
+                        const response = await axios.get(`http://localhost:8888/plrecipe-post/hashtag/${post.value.postId}`);
+                        post.value.hashtags = response.data.map(tag => tag.hashtagDTO.hashtagTitle);
+                    } catch (error) {
+                        console.error('해시태그 데이터 로드 중 오류 발생:', error);
+                    }
+                };
+    
+                const getMemberCountText = (count) => {
                     switch (count) {
                         case "ONE":
                             return "1인";
@@ -83,10 +82,16 @@
                         default:
                             return count;
                     }
-                }
+                };
+    
+                onMounted(() => {
+                    fetchPost();
+                });
+    
+                return { post, getMemberCountText };
             }
         });
-
+    
         app.mount('#app');
     </script>
 </body>

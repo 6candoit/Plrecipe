@@ -20,4 +20,4 @@ GET localhost:8000/plrecipe-post/likes/1
 GET localhost:8000/plrecipe-post/likePosts/1
 
 ### GET request post(단일 게시글)
-GET localhost:8000/plrecipe-post/post/1
+GET localhost:8888/plrecipe-post/post/1

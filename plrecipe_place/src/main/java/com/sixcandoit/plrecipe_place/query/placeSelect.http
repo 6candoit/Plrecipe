@@ -26,13 +26,13 @@ GET http://localhost:8000/plrecipe-place/star/3
 GET http://localhost:8000/plrecipe-place/star/member/5
 
 ### selectCoursePlaceByCourseId
-GET http://localhost:8000/plrecipe-place/course/findInfo/5
+GET http://localhost:8888/plrecipe-place/course/findInfo/5
 
 ### selectCourseByMember
 GET http://localhost:8000/plrecipe-place/course/findUserId/3
 
 ### getPlacesByCourseId
-GET http://localhost:8000/plrecipe-place/course/findPlaces/1
+GET http://localhost:8888/plrecipe-place/course/findPlaces/5
 
 
 

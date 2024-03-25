@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        @font-face {
+            font-family: 'KCC-Hanbit';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/KCC-Hanbit.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'KCC-Hanbit', sans-serif;
+            margin: 0;
+            background-color: #FFFFFF;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            background: #F7F7F7;
+        }
+
+        #app {
+            width: 1440px;
+            /* Adjust to the width of your app */
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 172px;
+            height: 900px;
+            margin-right: 28px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar div {
+            height: 172px;
+            background-color: #684343;
+            /* Placeholder color */
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+            text-align: center; /* 수평 중앙 정렬 */
+            line-height: 172px; /* 이 값은 div의 높이와 같아야 합니다. */
+        }
+
+        .post-container {
+            width: 900px;
+            height: 900px;
+            background: #FFF;
+            padding: 20px;
+            border: 3px solid #000000;
+            box-sizing: border-box;
+        }
+
+        #post-title,
+        #post-writer,
+        #post-content,
+        #hashtag {
+            margin-bottom: 20px;
+        }
+
+        #post-title {
+            font-size: 32px;
+            color: #000000;
+        }
+
+        #post-writer {
+            font-size: 20px;
+            color: #777;
+            border-bottom: 3px solid #000000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* 이 속성으로 내부 요소들 사이에 공간을 분배합니다 */
+            border-bottom: 3px solid #000000;
+        }
+
+        #post-content {
+            padding-top: 20px;
+            height: 400px;
+            font-size: 20px;
+        }
+
+        #hashtag {
+            border-top: 3px solid #000000;
+            padding-top: 30px;
+        }
+
+        #hashtag span {
+            background-color: #e0e0e0;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 23px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .post-image {
+            width: 1200px;
+            height: 200px;
+            border: 3px solid black;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            margin-right: 10px;
+        }
+
+        #member-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            margin-bottom: 5px;
+        }
+
+        #post-member-count {
+            margin-left: auto;
+            /* 이 속성으로 오른쪽 끝으로 이동합니다 */
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="sidebar">
+            <!-- Sidebar contents -->
+            <div class="sidebar-item">장소이름</div>
+            <div class="sidebar-item">장소이름</div>
+            <div class="sidebar-item">장소이름</div>
+            <div class="sidebar-item">장소이름</div>
+            <div class="sidebar-item">장소이름</div>
+        </div>
+        <div class="post-container">
+            <div v-if="post">
+                <div id="post-title">{{ post.postTitle }}</div>
+                <div id="post-writer">
+                    <img id="member-image" src="/img/post.png" alt="">
+                    <span id="post-nick">{{ post.member.memberNickname }}</span>
+                    <span id="post-member-count">{{ getMemberCountText(post.memberCount) }}</span>
+                </div>
+                <div id="post-image">
+                    <img src="/img/게임.jpg" alt="">
+                    <img src="/img/눈판다.jpg" alt="">
+                    <img src="/img/전골.jpg" alt="">
+                    <img src="/img/조수빈방.jpg" alt="">
+                </div>
+                <div id="post-content">{{ post.postContent }}</div>
+                <div id="hashtag">
+                    <span v-for="(hashtag, index) in post.hashtags" :key="index">#{{ hashtag }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp, ref, onMounted } = Vue;
+
+        const app = createApp({
+            setup() {
+                const post = ref(null);
+
+                const fetchPost = async () => {
+                    try {
+                        const response = await axios.get('http://localhost:8888/plrecipe-post/post/5');
+                        if (response.data && Array.isArray(response.data) && response.data.length > 0) {
+                            post.value = response.data[0];
+                            await fetchHashtags();
+                        } else {
+                            console.error('게시글 데이터가 비어있습니다.');
+                        }
+                    } catch (error) {
+                        console.error('데이터 로드 중 오류 발생:', error);
+                    }
+                };
+
+                const fetchHashtags = async () => {
+                    if (!post.value || !post.value.postId) return;
+                    try {
+                        const response = await axios.get(`http://localhost:8888/plrecipe-post/hashtag/${post.value.postId}`);
+                        post.value.hashtags = response.data.map(tag => tag.hashtagDTO.hashtagTitle);
+                    } catch (error) {
+                        console.error('해시태그 데이터 로드 중 오류 발생:', error);
+                    }
+                };
+
+                const getMemberCountText = (count) => {
+                    switch (count) {
+                        case "ONE":
+                            return "1인";
+                        case "TWO":
+                            return "2인";
+                        case "MANY":
+                            return "다수";
+                        default:
+                            return count;
+                    }
+                };
+
+                onMounted(() => {
+                    fetchPost();
+                });
+
+                return { post, getMemberCountText };
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>
