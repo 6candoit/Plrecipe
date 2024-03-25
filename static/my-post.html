@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="test.css"> 
+    <link rel="stylesheet" href="mypost.css"> 
     <title>PL-RECIPE</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -31,7 +31,7 @@
     <div id="app">
         <div class="post" v-for="post in posts" :key="post.postId">
             <div class="title"><p>{{ post.postTitle }}</p></div>
-            <div class="image"></div>
+            <div class="image"><img src="/Plrecipe/static/img/ham.jpeg"></div>
             <div class="member"><p>인원수: {{ getMemberCountText(post.memberCount) }}</p></div>
             <div class="hashtag"><p>해시태그: 
                 <span v-for="(hashtag, index) in post.hashtags" :key="index">#{{ hashtag }}</span>&nbsp;

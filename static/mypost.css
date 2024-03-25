@@ -1,96 +1,70 @@
-
 .header {
-  background-color: transparent; /* 배경을 투명으로 설정합니다. */
+  background-color: transparent; 
   color: #fff;
   padding: 20px;
   text-align: left;
-  border-bottom: 2px solid black; /* 검은색 직선을 추가합니다. */
+  border-bottom: 2px solid black;
 }
 
-/* 제목 스타일 */
-.title {
-  margin: 0;
-}
-
-/* 네비게이션 스타일 */
 .nav {
   float: right;
 }
 
-/* 네비게이션 리스트 스타일 */
 .nav-list li {
   display: inline;
   margin-left: 20px;
-  border-bottom: 2px solid transparent; /* 초기에는 투명한 선으로 설정합니다. */
+  border-bottom: 2px solid transparent;
 }
 
-/* 네비게이션 리스트 아이템 스타일 */
-.nav-list li {
-  display: inline;
-  margin-left: 20px;
-}
-
-/* 네비게이션 링크 스타일 */
 .nav-list li a {
   color: #000000;
   text-decoration: none;
 }
 
-/* 네비게이션 링크 호버 스타일 */
 .nav-list li a:hover {
   border-bottom-color: black;
 }
 
-/* 로고 이미지 스타일 */
 .logo {
-  height: 50px; /* 로고 이미지의 높이를 조정합니다. */
+  height: 50px;
   width: 200px;
 }
 
+/* Flexbox를 적용한 .post 스타일 */
 .post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 183px;
-  height: 300px;  
+  height: 300px;
   border: 3px solid black;
-  float: left;
   margin-top: 5px;
   margin-left: 5px;
+  border-radius: 10px;
 }
 
-.title {
+/* 내부 요소들 스타일 */
+.title, .member, .hashtag {
   text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-size: 50%;
+  font-size: 70%;
+  margin: 5px 0;
 }
 
 .image {
   background-color: green;
   border: 3px solid black;
-  width: 180px;
-  height: 60%;
+  width: 100%; /* 이미지 컨테이너의 너비를 .post의 100%로 설정 */
+  height: 150px; /* 이미지 컨테이너의 높이를 지정 */
+  overflow: hidden; /* 넘치는 이미지 숨기기 */
 }
 
-.member {
-  font-weight: bold;
-  text-align: center;
-  font-size: 70%;
-  border: 3px solid black;
-}
-
-.hashtag {
-  font-weight: bold;
-  text-align: center;
-  font-size: 70%;
-}
-
-.body{
-  margin-bottom: 10pz;
-}
 .footer {
   clear: both;
 }
-/* CSS 스타일링 */
-/* header>h1 {
+
+/* 기타 스타일링 */
+header>h1 {
   font-size: 50px;
   text-align: left;
 }
@@ -105,34 +79,18 @@ header>div {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.post {
-  width: 183px;
-  height: 300px;
-  border: 3px solid black;
-  float: left;
-  margin-top: 5px;
-  margin-left: 5px;
+
+#app {
+  display: flex;
+  flex-wrap: wrap; /* 요소들이 다음 줄로 넘어갈 수 있게 설정 */
+  justify-content: flex-start; /* 시작점에서 가로 정렬 */
+  align-items: flex-start; /* 시작점에서 세로 정렬 */
+  gap: 10px; /* 요소들 사이의 간격 설정 */
+  background-color: #BFF5ED;
 }
-.title {
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-size: 70%;
+
+.image img {
+  width: 100%; /* 이미지의 너비를 컨테이너의 100%로 설정 */
+  height: 100%; /* 이미지의 높이를 컨테이너의 100%로 설정 */
+  object-fit: cover; /* 이미지 비율을 유지하며 컨테이너 채우기 */
 }
-.image {
-  background-color: green;
-  border: 3px solid black;
-  width: 180px;
-  height: 60%;
-}
-.member {
-  font-weight: bold;
-  text-align: center;
-  font-size: 70%;
-  border: 3px solid black;
-}
-.hashtag {
-  font-weight: bold;
-  text-align: center;
-  font-size: 70%;
-} */
