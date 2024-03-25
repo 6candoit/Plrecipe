@@ -2,11 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="myStar.css">
-    <title>MyStarBlock</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./data/starData.js"></script>
+  <link rel="stylesheet" href="place_category.css">
+  <link rel="stylesheet" href="placeItem.css">
+  <title>MyStarBlock</title>
 </head>
+
 <body>
 
   <div class="category">
@@ -18,10 +23,37 @@
     <div id="walk">산책</div>
     <div id="etc">기타</div>
   </div>
-  <div class="stars">
+
+  <div class="stars" id="stars">
+
+    <template v-for="star in starBlocks" :key="starId">
+      <div class="star-block">
+        <p id="place-name">{{star.place.placeName}}</p>
+
+        <p id="star">{{star.starPoint}}</p>
+        <p id="comment">{{star.starComment}}</p>
+
+        <div id="place-category">
+          {{star.place.placeCategory.placeCategoryName}}
+        </div>
+      </div>
+    </template>
 
   </div>
 
+  <script>
+console.log(stars);
+    const { createApp } = Vue
+    createApp({
+      setup() {
+        const starBlocks = stars;
+        return {
+          starBlocks
+        }
+      },
+    }).mount("#stars")
+
+  </script>
 </body>
 
 </html>

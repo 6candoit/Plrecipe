@@ -1,4 +1,4 @@
-.star-block {
+.star-block, .place-block {
     width: 350px;
     height: 150px;
     border: lightblue solid 1px;
@@ -22,15 +22,16 @@
     top: 10px;
 }
 
-#comment {
+#comment, #address {
     clear: both;
 }
 
-#star-category {
+#place-category {
     width: 100px;
     padding: 1px;
     border-radius: 10px;
     text-align: center;
+    font-size: 13px;
     font-weight: bold;
     background-color: bisque;
     position: absolute;
